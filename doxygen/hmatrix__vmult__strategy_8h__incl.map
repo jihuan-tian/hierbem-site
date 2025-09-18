@@ -1,0 +1,12 @@
+<map id="include/hmatrix/hmatrix_vmult_strategy.h" name="include/hmatrix/hmatrix_vmult_strategy.h">
+<area shape="rect" id="node1" title="Strategies for top level H&#45;matrix/vector multiplications, namely, vmult , Tvmult ,..." alt="" coords="412,5,569,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,173,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="413,95,568,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="592,95,723,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="747,95,818,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="843,95,912,121"/>
+<area shape="rect" id="node7" href="$config_8h.html" title="Configurations for building the project." alt="" coords="198,169,266,196"/>
+<area shape="rect" id="node8" href="$hmatrix__support_8h.html" title="Adapted from deal.ii/lac/lapack_support.h and define some features for an &#45;matrix." alt="" coords="216,95,389,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="291,169,341,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="366,169,421,196"/>
+</map>

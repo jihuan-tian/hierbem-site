@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['n_0',['n',['../classRkMatrix.html#a06d3b6636bb423c391c66e4ccc722687',1,'RkMatrix::n()'],['../classHMatrix.html#ab5ae2eb472f81f80653ed4411629c2d1',1,'HMatrix::n()']]],
+  ['n_5fmin_1',['n_min',['../classClusterTree.html#a5af4448800c4ddc98121706754bfe3f9',1,'ClusterTree']]],
+  ['n_5fmin_5ffor_5fbct_2',['n_min_for_bct',['../classDDMEfield.html#af59a73c20ab953b4c4ab2ae81668dfa1',1,'DDMEfield::n_min_for_bct()'],['../classHMatrixParameters.html#ad1ae52de5b70466026e1deb2fce31a38',1,'HMatrixParameters::n_min_for_bct()']]],
+  ['n_5fmin_5ffor_5fbct_5f_3',['n_min_for_bct_',['../classLaplaceBEM_1_1Priv.html#a1935390f3ac2e80875269391e5c55cc3',1,'LaplaceBEM::Priv']]],
+  ['n_5fmin_5ffor_5fct_4',['n_min_for_ct',['../classDDMEfield.html#a508491715a9ab4ccd8dbbdd2f797bbc6',1,'DDMEfield::n_min_for_ct()'],['../classHMatrixParameters.html#a9ff7c7a83952def1592afdaaf9810177',1,'HMatrixParameters::n_min_for_ct()']]],
+  ['n_5fmin_5ffor_5fct_5f_5',['n_min_for_ct_',['../classLaplaceBEM_1_1Priv.html#a73325bd6ec639052139db0b4460556ae',1,'LaplaceBEM::Priv']]],
+  ['near_5ffield_5fleaf_5fset_6',['near_field_leaf_set',['../classHMatrix.html#a6816bb6905d4cce96eacaa1f6593e130',1,'HMatrix']]],
+  ['neumann_5fbc_5f_7',['neumann_bc_',['../classLaplaceBEM_1_1Priv.html#a78431c9cab7cb22fa7b65df2726d4342',1,'LaplaceBEM::Priv']]],
+  ['neumann_5fbc_5fdefinition_5f_8',['neumann_bc_definition_',['../classLaplaceBEM_1_1Priv.html#a4ecac7f0612f203806d311bb59e99d4a',1,'LaplaceBEM::Priv']]],
+  ['neumann_5fbc_5finternal_5fdof_5fnumbering_5f_9',['neumann_bc_internal_dof_numbering_',['../classLaplaceBEM_1_1Priv.html#aa3b87831a3a721128f69ac4cd702ac09',1,'LaplaceBEM::Priv']]],
+  ['neumann_5fdata_5f_10',['neumann_data_',['../classLaplaceBEM_1_1Priv.html#a26f914be8b2190d0eb8e0ae2f71a4bd2',1,'LaplaceBEM::Priv']]],
+  ['neumann_5fdata_5fon_5fdirichlet_5fdomain_5finternal_5fdof_5fnumbering_5f_11',['neumann_data_on_dirichlet_domain_internal_dof_numbering_',['../classLaplaceBEM_1_1Priv.html#ae90434c9139b8e4a7f7ffe8833108640',1,'LaplaceBEM::Priv']]],
+  ['next_5fsame_5flevel_5fhmat_5fnode_12',['next_same_level_hmat_node',['../classHMatrix.html#aa2e832b2b0ba418aed92692535aaa2cc',1,'HMatrix']]],
+  ['next_5fsame_5flevel_5fsame_5fcolumn_5fhmat_5fnode_13',['next_same_level_same_column_hmat_node',['../classHMatrix.html#abd7a717c26b61c24c0a6347f958edc74',1,'HMatrix']]],
+  ['next_5fsame_5flevel_5fsame_5frow_5fhmat_5fnode_14',['next_same_level_same_row_hmat_node',['../classHMatrix.html#a50c0e3b27396d3d9120b2514f94cdb2e',1,'HMatrix']]],
+  ['node_5fnum_15',['node_num',['../classBlockClusterTree.html#a75757146cea0aa0e9271b760b1d76307',1,'BlockClusterTree::node_num()'],['../classClusterTree.html#a6b352489be3ca9217d31966c24ee02a1',1,'ClusterTree::node_num()']]]
+];

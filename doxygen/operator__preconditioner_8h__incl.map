@@ -1,0 +1,102 @@
+<map id="include/preconditioners/operator_preconditioner.h" name="include/preconditioners/operator_preconditioner.h">
+<area shape="rect" id="node1" title=" " alt="" coords="3326,5,3498,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="9168,727,9331,754"/>
+<area shape="rect" id="node3" title=" " alt="" coords="8848,899,9003,925"/>
+<area shape="rect" id="node4" title=" " alt="" coords="745,899,879,925"/>
+<area shape="rect" id="node5" title=" " alt="" coords="969,191,1135,218"/>
+<area shape="rect" id="node6" title=" " alt="" coords="2491,727,2661,754"/>
+<area shape="rect" id="node7" title=" " alt="" coords="2145,727,2314,754"/>
+<area shape="rect" id="node8" title=" " alt="" coords="347,727,501,754"/>
+<area shape="rect" id="node9" title=" " alt="" coords="6184,727,6283,754"/>
+<area shape="rect" id="node10" title=" " alt="" coords="4279,727,4409,754"/>
+<area shape="rect" id="node11" title=" " alt="" coords="3242,727,3358,754"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1007,95,1140,136"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1165,102,1329,129"/>
+<area shape="rect" id="node14" title=" " alt="" coords="10699,631,10818,672"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1191,184,1313,225"/>
+<area shape="rect" id="node16" title=" " alt="" coords="426,541,555,583"/>
+<area shape="rect" id="node17" title=" " alt="" coords="11217,899,11348,925"/>
+<area shape="rect" id="node18" title=" " alt="" coords="10893,720,11043,761"/>
+<area shape="rect" id="node19" title=" " alt="" coords="7319,817,7385,843"/>
+<area shape="rect" id="node20" title=" " alt="" coords="674,899,721,925"/>
+<area shape="rect" id="node21" title=" " alt="" coords="580,549,620,575"/>
+<area shape="rect" id="node22" title=" " alt="" coords="8238,817,8293,843"/>
+<area shape="rect" id="node23" title=" " alt="" coords="7023,899,7081,925"/>
+<area shape="rect" id="node24" href="$bem__general_8hcu_source.html" title=" " alt="" coords="2753,102,2903,129"/>
+<area shape="rect" id="node38" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="4299,281,4421,307"/>
+<area shape="rect" id="node55" href="$config_8h.html" title="Configurations for building the project." alt="" coords="5030,899,5098,925"/>
+<area shape="rect" id="node59" href="$generic__functors_8h.html" title="This header file contains a set of self&#45;defined generic functors." alt="" coords="7461,817,7635,843"/>
+<area shape="rect" id="node63" title=" " alt="" coords="1425,899,1556,925"/>
+<area shape="rect" id="node65" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="3743,549,3905,575"/>
+<area shape="rect" id="node67" href="$sauter__quadrature__tools_8h.html" title="Introduction of sauter_quadrature_tools.h." alt="" coords="2717,541,2907,583"/>
+<area shape="rect" id="node79" href="$subdomain__topology_8h.html" title="Introduction of subdomain_topology.h." alt="" coords="1184,631,1333,672"/>
+<area shape="rect" id="node80" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="1927,459,2067,486"/>
+<area shape="rect" id="node83" href="$dof__to__cell__topology_8h_source.html" title=" " alt="" coords="2439,549,2590,575"/>
+<area shape="rect" id="node87" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="8336,281,8459,307"/>
+<area shape="rect" id="node91" href="$debug__tools_8h.html" title="This file includes a bunch of helper functions for printing out and visualizing information about gri..." alt="" coords="6785,638,6933,665"/>
+<area shape="rect" id="node92" href="$block__cluster__tree_8h.html" title="Implementation of the class BlockClusterTree." alt="" coords="7249,363,7375,404"/>
+<area shape="rect" id="node93" href="$grid__out__ext_8h.html" title="Introduction of grid_out_ext.h." alt="" coords="1561,638,1690,665"/>
+<area shape="rect" id="node95" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="9067,95,9213,136"/>
+<area shape="rect" id="node99" href="$hmatrix__parameters_8h_source.html" title=" " alt="" coords="1071,370,1265,397"/>
+<area shape="rect" id="node100" href="$solver__gmres__general_8h.html" title="GMRES solver which can handle complex values." alt="" coords="9723,541,9869,583"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1972,899,2140,925"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2162,549,2313,575"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3684,631,3839,672"/>
+<area shape="rect" id="node28" title=" " alt="" coords="924,899,1065,925"/>
+<area shape="rect" id="node29" title=" " alt="" coords="10465,899,10602,925"/>
+<area shape="rect" id="node30" title=" " alt="" coords="2642,191,2822,218"/>
+<area shape="rect" id="node31" title=" " alt="" coords="6997,273,7131,315"/>
+<area shape="rect" id="node32" title=" " alt="" coords="2685,727,2835,754"/>
+<area shape="rect" id="node33" title=" " alt="" coords="2847,184,3001,225"/>
+<area shape="rect" id="node34" title=" " alt="" coords="3077,184,3273,225"/>
+<area shape="rect" id="node35" title=" " alt="" coords="9014,727,9093,754"/>
+<area shape="rect" id="node36" title=" " alt="" coords="10036,899,10119,925"/>
+<area shape="rect" id="node37" title=" " alt="" coords="7657,727,7711,754"/>
+<area shape="rect" id="node50" href="$bem__values_8hcu_source.html" title=" " alt="" coords="5561,459,5679,486"/>
+<area shape="rect" id="node54" href="$bem__tools_8h.html" title="Introduction of bem_tools.h." alt="" coords="4436,638,4529,665"/>
+<area shape="rect" id="node62" href="$number__traits_8h.html" title="Definition of ranks for different types of numbers." alt="" coords="9013,817,9171,843"/>
+<area shape="rect" id="node77" href="$gmsh__manipulation_8h.html" title="Introduction of gmsh_manipulation.h." alt="" coords="1185,727,1394,754"/>
+<area shape="rect" id="node84" href="$linalg_8h.html" title=" " alt="" coords="10197,638,10344,665"/>
+<area shape="rect" id="node86" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="6140,191,6356,218"/>
+<area shape="rect" id="node39" title=" " alt="" coords="5704,727,5837,754"/>
+<area shape="rect" id="node40" title=" " alt="" coords="5405,720,5528,761"/>
+<area shape="rect" id="node41" title=" " alt="" coords="5912,727,6059,754"/>
+<area shape="rect" id="node42" title=" " alt="" coords="4738,727,4918,754"/>
+<area shape="rect" id="node43" title=" " alt="" coords="3973,727,4086,754"/>
+<area shape="rect" id="node44" title=" " alt="" coords="4942,727,5077,754"/>
+<area shape="rect" id="node45" title=" " alt="" coords="4111,727,4255,754"/>
+<area shape="rect" id="node46" title=" " alt="" coords="3240,817,3309,843"/>
+<area shape="rect" id="node47" title=" " alt="" coords="6509,727,6584,754"/>
+<area shape="rect" id="node48" title=" " alt="" coords="1739,899,1789,925"/>
+<area shape="rect" id="node49" title=" " alt="" coords="7619,899,7677,925"/>
+<area shape="rect" id="node56" href="$lapack__full__matrix__ext_8h_source.html" title=" " alt="" coords="8389,720,8533,761"/>
+<area shape="rect" id="node64" href="$cpu__table_8h.html" title="Introduction of cpu_table.h." alt="" coords="5213,631,5339,672"/>
+<area shape="rect" id="node68" href="$cu__bem__tools_8hcu_source.html" title=" " alt="" coords="3337,549,3465,575"/>
+<area shape="rect" id="node69" href="$cu__fullmatrix_8hcu.html" title="Introduction of cu_fullmatrix.hcu." alt="" coords="3159,638,3364,665"/>
+<area shape="rect" id="node70" href="$cu__vector_8hcu.html" title="Introduction of cu_vector.hcu." alt="" coords="2961,727,3065,754"/>
+<area shape="rect" id="node71" href="$cu__table_8hcu_source.html" title=" " alt="" coords="5363,638,5543,665"/>
+<area shape="rect" id="node73" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="5196,370,5335,397"/>
+<area shape="rect" id="node74" href="$cu__tensor_8hcu.html" title="Introduction of cu_tensor.hcu." alt="" coords="2895,638,3083,665"/>
+<area shape="rect" id="node75" href="$laplace__kernels_8h.html" title="Introduction of laplace_kernels.h." alt="" coords="3585,720,3745,761"/>
+<area shape="rect" id="node76" href="$utilities_8h.html" title="Introduction of utilities.h." alt="" coords="3871,817,4041,843"/>
+<area shape="rect" id="node51" title=" " alt="" coords="7047,727,7182,754"/>
+<area shape="rect" id="node52" title=" " alt="" coords="8659,549,8733,575"/>
+<area shape="rect" id="node53" title=" " alt="" coords="7511,727,7583,754"/>
+<area shape="rect" id="node57" title=" " alt="" coords="8621,809,8763,851"/>
+<area shape="rect" id="node58" title=" " alt="" coords="10739,899,10810,925"/>
+<area shape="rect" id="node60" title=" " alt="" coords="10626,899,10715,925"/>
+<area shape="rect" id="node61" title=" " alt="" coords="9461,899,9523,925"/>
+<area shape="rect" id="node66" title=" " alt="" coords="3591,638,3660,665"/>
+<area shape="rect" id="node72" title=" " alt="" coords="6913,727,7023,754"/>
+<area shape="rect" id="node78" title=" " alt="" coords="1134,817,1199,843"/>
+<area shape="rect" id="node81" title=" " alt="" coords="1735,541,1883,583"/>
+<area shape="rect" id="node82" title=" " alt="" coords="1556,549,1711,575"/>
+<area shape="rect" id="node85" title=" " alt="" coords="10621,727,10768,754"/>
+<area shape="rect" id="node88" href="$block__cluster_8h.html" title="Implementation of the class BlockCluster." alt="" coords="7097,452,7223,493"/>
+<area shape="rect" id="node89" href="$cluster__tree_8h_source.html" title=" " alt="" coords="7223,549,7324,575"/>
+<area shape="rect" id="node90" href="$tree_8h.html" title="Implementation of the classes for binary tree node, general tree node and functions for manipulating ..." alt="" coords="7262,638,7317,665"/>
+<area shape="rect" id="node94" title=" " alt="" coords="1672,727,1816,754"/>
+<area shape="rect" id="node96" title=" " alt="" coords="10061,191,10123,218"/>
+<area shape="rect" id="node97" title=" " alt="" coords="9825,191,9951,218"/>
+<area shape="rect" id="node98" title=" " alt="" coords="9976,191,10037,218"/>
+</map>

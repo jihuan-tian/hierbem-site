@@ -1,0 +1,638 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="HierBEM Library">
+<meta property="og:url" content="http://localhost:4000/build.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/build.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#dependencies">Dependencies</a></li><li><a href="#preparation-of-development-environment">Preparation of Development Environment</a><ul><li><a href="#compiler-and-build-tools">Compiler and build tools</a></li><li><a href="#opencascade">OpenCASCADE</a></li><li><a href="#gmsh">Gmsh</a></li><li><a href="#dealii">deal.II</a></li><li><a href="#reflect-cpp">reflect-cpp</a></li><li><a href="#software-package-manager">Software package manager</a></li><li><a href="#mathematical-software-tools-used-by-hierbem-test-cases">Mathematical software tools used by HierBEM test cases</a></li></ul></li><li><a href="#build-hierbem">Build HierBEM</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="dependencies">Dependencies</h1>
+
+<ul>
+  <li><a href="https://gcc.gnu.org/">GCC</a> ≥ 12.2.0</li>
+  <li><a href="https://cmake.org/">CMake</a> ≥ 3.25</li>
+  <li><a href="https://developer.nvidia.com/cuda-toolkit">CUDA</a> ≥ 12.4</li>
+  <li><a href="https://github.com/Open-Cascade-SAS/OCCT">OpenCASCADE</a> 7.8.0</li>
+  <li><a href="https://github.com/jihuan-tian/gmsh">Gmsh 4.14.0</a> (modified version)</li>
+  <li><a href="https://github.com/jihuan-tian/dealii">deal.II 9.4.1</a> (modified version)</li>
+  <li><a href="https://github.com/getml/reflect-cpp">reflect-cpp</a></li>
+  <li><a href="https://octave.org/">GNU Octave</a> ≥ 7.3.0</li>
+  <li><a href="https://julialang.org/">Julia</a> ≥ 1.10</li>
+</ul>
+
+<h1 id="preparation-of-development-environment">Preparation of Development Environment</h1>
+
+<h2 id="compiler-and-build-tools">Compiler and build tools</h2>
+
+<ul>
+  <li>GCC &gt;= 12.2.0</li>
+  <li>CUDA &gt;= 12.4</li>
+  <li>CMake &gt;= 3.25.2</li>
+  <li>GNU Make or Ninja</li>
+</ul>
+
+<h2 id="opencascade">OpenCASCADE</h2>
+
+<ul>
+  <li>
+    <p>Install VTK 9. On Debian Linux, install the packages <code class="language-plaintext highlighter-rouge">vtk9</code> and <code class="language-plaintext highlighter-rouge">libvtk9-dev</code>.</p>
+  </li>
+  <li>
+    <p>Download <a href="https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_8_0.tar.gz">OpenCASCADE 7.8.0</a> from GitHub and decompress it.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>zxvf opencascade-7.8.0.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Because the <code class="language-plaintext highlighter-rouge">runpath</code> values for OpenCASCADE libraries are empty by default, we need to add the following CMake configurations to the top level <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code>. See <a href="https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling#always-full-rpath">here</a> for more information.</p>
+
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># use, i.e. don't skip the full RPATH for the build tree</span>
+<span class="nb">set</span><span class="p">(</span>CMAKE_SKIP_BUILD_RPATH FALSE<span class="p">)</span>
+  
+<span class="c1"># when building, don't use the install RPATH already</span>
+<span class="c1"># (but later on when installing)</span>
+<span class="nb">set</span><span class="p">(</span>CMAKE_BUILD_WITH_INSTALL_RPATH FALSE<span class="p">)</span>
+  
+<span class="nb">set</span><span class="p">(</span>CMAKE_INSTALL_RPATH <span class="s2">"</span><span class="si">${</span><span class="nv">CMAKE_INSTALL_PREFIX</span><span class="si">}</span><span class="s2">/lib"</span><span class="p">)</span>
+  
+<span class="c1"># add the automatically determined parts of the RPATH</span>
+<span class="c1"># which point to directories outside the build tree to the install RPATH</span>
+<span class="nb">set</span><span class="p">(</span>CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE<span class="p">)</span>
+  
+<span class="c1"># the RPATH to be used when installing, but only if it's not a system directory</span>
+<span class="nb">list</span><span class="p">(</span>FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES <span class="s2">"</span><span class="si">${</span><span class="nv">CMAKE_INSTALL_PREFIX</span><span class="si">}</span><span class="s2">/lib"</span> isSystemDir<span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s2">"</span><span class="si">${</span><span class="nv">isSystemDir</span><span class="si">}</span><span class="s2">"</span> STREQUAL <span class="s2">"-1"</span><span class="p">)</span>
+  <span class="nb">set</span><span class="p">(</span>CMAKE_INSTALL_RPATH <span class="s2">"</span><span class="si">${</span><span class="nv">CMAKE_INSTALL_PREFIX</span><span class="si">}</span><span class="s2">/lib"</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">(</span><span class="s2">"</span><span class="si">${</span><span class="nv">isSystemDir</span><span class="si">}</span><span class="s2">"</span> STREQUAL <span class="s2">"-1"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure, build and install OpenCASCADE:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>occt-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>occt-build
+cmake <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>&lt;opencascade_install_prefix&gt; <span class="se">\</span>
+  <span class="nt">-DUSE_VTK</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-D3RDPARTY_VTK_INCLUDE_DIR</span><span class="o">=</span>/usr/include/vtk-9.1 <span class="se">\</span>
+  <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Release
+  ../OCCT-7_8_0
+make <span class="nt">-j</span> &lt;n&gt; all
+make <span class="nb">install</span>
+</code></pre></div>    </div>
+
+    <p>N.B. Do not enable <code class="language-plaintext highlighter-rouge">USE_TBB</code>.</p>
+  </li>
+</ul>
+
+<h2 id="gmsh">Gmsh</h2>
+
+<ul>
+  <li>
+    <p>Clone the modified Gmsh 4.14.0 from <a href="https://github.com/jihuan-tian/gmsh">here</a>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jihuan-tian/gmsh.git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure, build and install Gmsh:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>gmsh-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>gmsh-build
+<span class="nv">CASROOT</span><span class="o">=</span>&lt;opencascade_install_prefix&gt; <span class="se">\</span>
+  cmake <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>&lt;gmsh_install_prefix&gt; <span class="se">\</span>
+    <span class="nt">-DENABLE_OCC</span><span class="o">=</span>1 <span class="se">\</span>
+    <span class="nt">-DENABLE_MPI</span><span class="o">=</span>0 <span class="se">\</span>
+    <span class="nt">-DENABLE_MED</span><span class="o">=</span>0 <span class="se">\</span>
+    <span class="nt">-DENABLE_PETSC</span><span class="o">=</span>0 <span class="se">\</span>
+    <span class="nt">-DENABLE_BUILD_DYNAMIC</span><span class="o">=</span>1 <span class="se">\</span>
+    <span class="nt">-DENABLE_RPATH</span><span class="o">=</span>1 <span class="se">\</span>
+    <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Release
+    ../gmsh
+make <span class="nt">-j</span> &lt;n&gt; all
+make <span class="nb">install</span>
+</code></pre></div>    </div>
+
+    <p>In the above, the variable <code class="language-plaintext highlighter-rouge">CASROOT</code> is used to specify the installation path of OpenCASCADE.</p>
+  </li>
+</ul>
+
+<h2 id="dealii">deal.II</h2>
+
+<ul>
+  <li>
+    <p>Install the following dependencies from Linux official sources:</p>
+
+    <ul>
+      <li>OpenBLAS: <code class="language-plaintext highlighter-rouge">libopenblas-pthread-dev</code></li>
+      <li>LAPACK: <code class="language-plaintext highlighter-rouge">liblapack-dev</code></li>
+      <li>HDF5: <code class="language-plaintext highlighter-rouge">libhdf5-openmpi-dev</code></li>
+      <li>OpenMPI: <code class="language-plaintext highlighter-rouge">libopenmpi-dev</code></li>
+      <li>MuParser: <code class="language-plaintext highlighter-rouge">libmuparser-dev</code></li>
+      <li>TBB: <code class="language-plaintext highlighter-rouge">libtbb-dev</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Clone the modified deal.II 9.4.1 from <a href="https://github.com/jihuan-tian/dealii">here</a>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jihuan-tian/dealii.git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure, build and install deal.II:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>dealii-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>dealii-build
+cmake <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>&lt;deal_ii_install_prefix&gt; <span class="se">\</span>
+  <span class="nt">-DDEAL_II_ALLOW_AUTODETECTION</span><span class="o">=</span>OFF <span class="se">\</span>
+  <span class="nt">-DDEAL_II_COMPILE_EXAMPLES</span><span class="o">=</span>OFF <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_MPI</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_CUDA</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_COMPLEX_VALUES</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_LAPACK</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_MUPARSER</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_HDF5</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DHDF5_DIR</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/hdf5/openmpi <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_TBB</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_OPENCASCADE</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DOPENCASCADE_DIR</span><span class="o">=</span>&lt;opencascade_install_prefix&gt; <span class="se">\</span>
+  <span class="nt">-DDEAL_II_WITH_GMSH</span><span class="o">=</span>ON <span class="se">\</span>
+  <span class="nt">-DGMSH_DIR</span><span class="o">=</span>&lt;gmsh_install_prefix&gt; <span class="se">\</span>
+  <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+  ../dealii
+make <span class="nt">-j</span> &lt;n&gt; all
+make <span class="nb">install</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="reflect-cpp">reflect-cpp</h2>
+
+<ul>
+  <li>
+    <p>Clone reflect-cpp from <a href="https://github.com/getml/reflect-cpp">here</a>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/getml/reflect-cpp.git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Configure, build and install reflect-cpp:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>reflect-cpp-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>reflect-cpp-build
+cmake <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span>&lt;reflect_cpp_install_prefix&gt; <span class="se">\</span>
+  <span class="nt">-DCMAKE_CXX_STANDARD</span><span class="o">=</span>20 <span class="se">\</span>
+  <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>Release <span class="se">\</span>
+  ../reflect-cpp
+make <span class="nt">-j</span> &lt;n&gt; all
+make <span class="nb">install</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="software-package-manager">Software package manager</h2>
+
+<ul>
+  <li>
+    <p>Clone <code class="language-plaintext highlighter-rouge">vcpkg</code> into some directory (assume the directory is <code class="language-plaintext highlighter-rouge">&lt;SRC&gt;</code>) and initialize it:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;SRC&gt;
+git clone https://github.com/microsoft/vcpkg.git
+<span class="nb">cd </span>vcpkg
+./bootstrap-vcpkg.sh
+</code></pre></div>    </div>
+
+    <p>Then add the following content into your <code class="language-plaintext highlighter-rouge">.bashrc</code> file:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">VCPKG_ROOT</span><span class="o">=</span><span class="s2">"&lt;SRC&gt;/vcpkg"</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$VCPKG_ROOT</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">"</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="mathematical-software-tools-used-by-hierbem-test-cases">Mathematical software tools used by HierBEM test cases</h2>
+
+<p>At the moment, Julia and GNU Octave are adopted to verify computation results in HierBEM test cases. Due to the limited performance of Octave, we will gradually convert all Octave scripts to Julia.</p>
+
+<ul>
+  <li>
+    <p>Install Julia</p>
+
+    <ul>
+      <li>
+        <p>Install <code class="language-plaintext highlighter-rouge">jill</code> via <code class="language-plaintext highlighter-rouge">pip</code>: <code class="language-plaintext highlighter-rouge">pip install jill</code></p>
+      </li>
+      <li>
+        <p>Run <code class="language-plaintext highlighter-rouge">jill upstream</code> to check available Julia release sources and select the fastest one, such as</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- TUNA: Tsinghua University TUNA Association
+  * mirrors.tuna.tsinghua.edu.cn (33 ms)
+  * opentuna.cn (20000 ms)
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Install a specific version of Julia, such as 1.10.4</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jill install 1.10.4 --upstream &lt;source-name&gt;
+</code></pre></div>        </div>
+
+        <p>where <code class="language-plaintext highlighter-rouge">&lt;source-name&gt;</code> is the short form of the release source name, such as <code class="language-plaintext highlighter-rouge">TUNA</code> as above.</p>
+      </li>
+      <li>
+        <p>Set the Julia package server in <code class="language-plaintext highlighter-rouge">$HOME/.julia/config/startup.jl</code>:</p>
+
+        <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ENV["JULIA_PKG_SERVER"] = "https://mirrors.tuna.tsinghua.edu.cn/julia/"
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Install the following packages in Julia to run HierBEM test cases</p>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">CSV</code> and <code class="language-plaintext highlighter-rouge">DataFrames</code> for reading data files</li>
+          <li><code class="language-plaintext highlighter-rouge">Gmsh</code> for reading Gmsh MSH files</li>
+          <li><code class="language-plaintext highlighter-rouge">GLMakie</code> and <code class="language-plaintext highlighter-rouge">Colors</code> for visualization</li>
+          <li><code class="language-plaintext highlighter-rouge">Meshes</code> for visualizing mesh</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Install GNU Octave</p>
+
+    <ul>
+      <li>
+        <p>Download and build the source code of <a href="https://octave.org/download#source" title="GNU Octave">GNU Octave</a>. Or you can also directly install the compiled packages <code class="language-plaintext highlighter-rouge">octave</code> and <code class="language-plaintext highlighter-rouge">liboctave-dev</code> in Debian Linux for example.</p>
+      </li>
+      <li>
+        <p>Install the <code class="language-plaintext highlighter-rouge">matgeom</code> package in Octave to run tests:</p>
+
+        <pre><code class="language-octave">octave&gt; pkg install -forge matgeom
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="build-hierbem">Build HierBEM</h1>
+
+<ul>
+  <li>
+    <p>Clone HierBEM repository:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jihuan-tian/hierbem.git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Enter <code class="language-plaintext highlighter-rouge">hierbem</code> source directory, and following the steps below:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build
+cmake <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">={</span>Debug|Release<span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-DCMAKE_TOOLCHAIN_FILE</span><span class="o">=</span><span class="nv">$VCPKG_ROOT</span>/scripts/buildsystems/vcpkg.cmake <span class="se">\</span>
+  <span class="nt">-DDEAL_II_DIR</span><span class="o">={</span>deal_ii_install_prefix<span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-DREFLECT_CPP_DIR</span><span class="o">={</span>reflect_cpp_install_prefix<span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-DOCTAVE_CONFIG_EXECUTABLE</span><span class="o">=</span>&lt;octave_install_prefix&gt;/bin/octave-config <span class="se">\</span>
+  <span class="nt">-DJULIA_DIR</span><span class="o">={</span>julia_package_dir<span class="o">}</span> <span class="se">\</span>
+  ../hierbem
+make <span class="nt">-j</span> &lt;n&gt; all
+</code></pre></div>    </div>
+
+    <p>There are also some configuration flags that can be specified on the <code class="language-plaintext highlighter-rouge">cmake</code> command line:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ENABLE_DEBUG</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">1</code>. Enable printing out debugging messages.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_MESSAGE_LEVEL</code> - <code class="language-plaintext highlighter-rouge">int</code>, default to <code class="language-plaintext highlighter-rouge">1</code>. The higher the value, the more verbose the debugging messages.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ENABLE_TIMER</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">1</code>. Record elapsed wall time for key stages.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ENABLE_MATRIX_EXPORT</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">0</code>. When it is 1, enable exporting $\mathcal{H}$-matrices as full matrices to data files for debugging.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ENABLE_PRECONDITIONER_MATRIX_EXPORT</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">0</code>. When it is 1, enable exporting matrices built during the construction of the operator preconditioner for debugging.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ENABLE_NVTX</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">0</code>. Enable NVTX profile of key stages during $\mathcal{H}$-matrix assembly.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_RANDOM_ACA</code> - <code class="language-plaintext highlighter-rouge">0</code>/<code class="language-plaintext highlighter-rouge">1</code>, default to <code class="language-plaintext highlighter-rouge">0</code>. Enable random number generation in the ACA+ (adaptive cross approximation) algorithm, which is used for randomly selecting reference rows and columns.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ARENA_OR_ISOLATE_IN_LU_AND_CHOL</code> - <code class="language-plaintext highlighter-rouge">1</code>/<code class="language-plaintext highlighter-rouge">2</code>/<code class="language-plaintext highlighter-rouge">3</code>, default to <code class="language-plaintext highlighter-rouge">3</code>. Used in <code class="language-plaintext highlighter-rouge">update</code> tasks in H-LU and H-Cholesky for restricting work stealing:
+        <ul>
+          <li>1: use TBB arena</li>
+          <li>2: use TBB isolate</li>
+          <li>3: disable TBB arena and isolate</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_ARENA_MAX_CONCURRENCY_IN_LU_AND_CHOL</code> - <code class="language-plaintext highlighter-rouge">int</code>, default to <code class="language-plaintext highlighter-rouge">1</code>. When <code class="language-plaintext highlighter-rouge">HBEM_ARENA_OR_ISOLATE_IN_LU_AND_CHOL=2</code>, this specifies the maximum concurrency used in the local TBB task arena defined in the local scope of an <code class="language-plaintext highlighter-rouge">update</code> task.</li>
+      <li><code class="language-plaintext highlighter-rouge">HBEM_NEUMANN_SOLUTION_SPACE</code> - <code class="language-plaintext highlighter-rouge">1</code>/<code class="language-plaintext highlighter-rouge">2</code>, default to 2. Select the solution space for Laplace problem with the Neumann boundary condition.
+        <ul>
+          <li>1: $H_{\ast}^{1/2}(\Gamma)$: it is the subspace of $H^{1/2}(\Gamma)$, which is orthogonal to the natural density. Therefore, the natural density needs to be computed.</li>
+          <li>2: $H_{\ast \ast}^{1/2}(\Gamma)$: it is the subspace of $H^{1/2}(\Gamma)$, which is orthogonal to the constant function $1$ on $\Gamma$.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>The default values of these configuration flags can be modified in <code class="language-plaintext highlighter-rouge">include/CMakeLists.txt</code>.</p>
+  </li>
+  <li>
+    <p>After HierBEM is built, the library <code class="language-plaintext highlighter-rouge">libhierbem.so</code> will be generated in the folder <code class="language-plaintext highlighter-rouge">CMAKE_BINARY_DIR/src</code> and all test case executables will be generated in their corresponding folders.</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

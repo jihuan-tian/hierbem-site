@@ -1,0 +1,4 @@
+<map id="OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTransposeTriple" name="OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTransposeTriple">
+<area shape="rect" id="node1" title="This class encapsulates the transpose of the product of three matrices: , which is actually ." alt="" coords="5,131,267,399"/>
+<area shape="rect" id="node2" title=" " alt="" coords="92,5,180,83"/>
+</map>

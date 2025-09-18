@@ -1,0 +1,424 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="HierBEM Library">
+<meta property="og:url" content="http://localhost:4000/about.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/about.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#why-mathcalh-matrix-based-galerkin-bem">Why $\mathcal{H}$-Matrix Based Galerkin BEM?</a></li><li><a href="#features">Features</a></li><li><a href="#next-steps">Next Steps</a></li><li><a href="#citation">Citation</a></li><li><a href="#license">License</a></li><li><a href="#links">Links</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="why-mathcalh-matrix-based-galerkin-bem">Why $\mathcal{H}$-Matrix Based Galerkin BEM?</h1>
+
+<ul>
+  <li>
+    <p>Compared with the <strong>finite element method (FEM)</strong>, the Galerkin BEM offers several advantages:</p>
+
+    <ul>
+      <li>
+        <p><strong>Open-domain problems</strong></p>
+
+        <p>BEM naturally handles unbounded open domains, which are common in electromagnetics and acoustics.</p>
+      </li>
+      <li>
+        <p><strong>Surface-only discretization</strong></p>
+
+        <p>Only the boundary surface requires meshing, avoiding the complexity of generating full 3D meshes. This is particularly attractive for models with fine structures or extreme size ratios, where 3D meshing may become the bottleneck — or even fail entirely.</p>
+      </li>
+      <li>
+        <p><strong>Surface quantities of interest</strong></p>
+
+        <p>Physical quantities such as electric field strength or mechanical stresses often concentrate on surfaces or interfaces, which are critical in engineering design. Galerkin BEM directly computes these boundary quantities from integral equations, whereas FEM typically approximates them from cell-based values.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Compared with <strong>collocation and Nyström BEM</strong>, the Galerkin formulation avoids the difficulties in handling singularities at corners and edges.</p>
+  </li>
+  <li>
+    <p>Compared with <strong>fast multiple method (FMM)</strong> and <strong>panel clustering</strong>, $\mathcal{H}$-matrix based BEM is a purely algebraic approach: it requires no problem-specific kernel expansions, making it more general and widely applicable across different physical models.</p>
+  </li>
+</ul>
+
+<h1 id="features">Features</h1>
+
+<ul>
+  <li><strong>Numerical quadrature</strong>
+    <ul>
+      <li>Accurate evaluation of singular boundary integrals using <strong>Sauter quadrature</strong>.</li>
+      <li><strong>CUDA parallelization</strong> to accelerate computationally intensive quadrature.</li>
+      <li>Support for curved surfaces via <strong>high-order mappings</strong> from deal.II.</li>
+    </ul>
+  </li>
+  <li><strong>$\mathcal{H}$-matrix algebra</strong>
+    <ul>
+      <li>Formatted addition, matrix/matrix multiplication, and matrix/vector multiplication.</li>
+      <li><strong>TBB task parallelization</strong> for matrix/vector multiplication.</li>
+      <li><strong>TBB flow graph parallelization</strong> for LU and Cholesky factorization.</li>
+      <li><strong>Load balancing</strong> for parallel $\mathcal{H}$-matrix assembly and matrix/vector multiplication using <strong>sequence partitioning</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Linear solvers and preconditioners</strong>
+    <ul>
+      <li>Iterative solvers for real and <strong>complex-valued</strong> systems, including <strong>preconditioned CG</strong> and <strong>GMRES</strong>.</li>
+      <li><strong>$\mathcal{H}$-matrix LU and Cholesky factorization</strong> as preconditioners.</li>
+      <li><strong>Operator preconditioning</strong> based on the pseudo-differential operator theory:
+        <ul>
+          <li>Ensures spectral equivalence between the system and preconditioning matrices.</li>
+          <li>Condition number of the preconditioned system becomes independent of discretization.</li>
+          <li>Enables efficient solution of large-scale BEM problems.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>BEM solvers</strong>
+    <ul>
+      <li>Laplace solvers (real and complex) with Dirichlet, Neumann, and mixed boundary conditions.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="next-steps">Next Steps</h1>
+
+<ul>
+  <li><strong>Helmholtz solver</strong> — Develop a complex valued solver for the Helmholtz equation to address acoustic problems.</li>
+  <li><strong>Multi-domain BEM</strong> — Extend the existing single domain BEM solver to handle multiple homogeneous subdomains using domain decomposition methods (DDM).</li>
+  <li><strong>BEM/FEM coupling</strong> — Integrate HierBEM with the FEM framework in deal.II, combining the strengths of BEM for open and interface problems with FEM’s ability to model inhomogeneous and nonlinear domains.</li>
+</ul>
+
+<h1 id="citation">Citation</h1>
+
+<p>If you use HierBEM in your research, please cite it as follows:</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">hierbem2025</span><span class="p">,</span>
+  <span class="na">author</span>       <span class="p">=</span> <span class="s">{Jihuan Tian, Xiaozhe Wang}</span><span class="p">,</span>
+  <span class="na">title</span>        <span class="p">=</span> <span class="s">{HierBEM: A Hierarchical Matrix Based Galerkin Boundary Element Method Library}</span><span class="p">,</span>
+  <span class="na">year</span>         <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
+  <span class="na">publisher</span>    <span class="p">=</span> <span class="s">{GitHub}</span><span class="p">,</span>
+  <span class="na">journal</span>      <span class="p">=</span> <span class="s">{GitHub repository}</span><span class="p">,</span>
+  <span class="na">howpublished</span> <span class="p">=</span> <span class="s">{\url{https://github.com/jihuan-tian/hierbem}}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="license">License</h1>
+
+<p>HierBEM library is licensed under the LGPL v3.</p>
+
+<h1 id="links">Links</h1>
+
+<ul>
+  <li>GitHub repository: <a href="https://github.com/jihuan-tian/hierbem">https://github.com/jihuan-tian/hierbem</a></li>
+  <li>GitHub Issues: <a href="https://github.com/jihuan-tian/hierbem/issues">https://github.com/jihuan-tian/hierbem/issues</a></li>
+  <li>Contact: <a href="mailto:jihuan_tian@hotmail.com">jihuan_tian@hotmail.com</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

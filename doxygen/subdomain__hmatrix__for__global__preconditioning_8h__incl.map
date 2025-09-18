@@ -1,0 +1,91 @@
+<map id="include/electric_field/subdomain_hmatrix_for_global_preconditioning.h" name="include/electric_field/subdomain_hmatrix_for_global_preconditioning.h">
+<area shape="rect" id="node1" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="1919,5,2087,61"/>
+<area shape="rect" id="node2" href="$config_8h.html" title="Configurations for building the project." alt="" coords="3581,966,3649,993"/>
+<area shape="rect" id="node3" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="5007,109,5198,151"/>
+<area shape="rect" id="node4" title=" " alt="" coords="3653,877,3790,903"/>
+<area shape="rect" id="node5" title=" " alt="" coords="398,787,567,814"/>
+<area shape="rect" id="node6" title=" " alt="" coords="7204,877,7335,903"/>
+<area shape="rect" id="node7" title=" " alt="" coords="2191,877,2249,903"/>
+<area shape="rect" id="node8" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="3940,288,4063,315"/>
+<area shape="rect" id="node89" href="$hmatrix__symm__preconditioner_8h.html" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices." alt="" coords="6189,199,6400,240"/>
+<area shape="rect" id="node9" title=" " alt="" coords="3589,698,3752,725"/>
+<area shape="rect" id="node10" title=" " alt="" coords="7025,877,7180,903"/>
+<area shape="rect" id="node11" title=" " alt="" coords="5268,363,5399,404"/>
+<area shape="rect" id="node12" title=" " alt="" coords="7409,877,7564,903"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1491,370,1658,397"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1682,370,1755,397"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1315,787,1389,814"/>
+<area shape="rect" id="node16" title=" " alt="" coords="3308,787,3375,814"/>
+<area shape="rect" id="node17" title=" " alt="" coords="2059,787,2131,814"/>
+<area shape="rect" id="node18" title=" " alt="" coords="4871,787,4940,814"/>
+<area shape="rect" id="node19" title=" " alt="" coords="3225,787,3284,814"/>
+<area shape="rect" id="node20" title=" " alt="" coords="3754,370,3811,397"/>
+<area shape="rect" id="node21" title=" " alt="" coords="3841,787,3911,814"/>
+<area shape="rect" id="node22" title=" " alt="" coords="4607,877,4662,903"/>
+<area shape="rect" id="node23" title=" " alt="" coords="4788,877,4871,903"/>
+<area shape="rect" id="node24" title=" " alt="" coords="1237,787,1291,814"/>
+<area shape="rect" id="node25" href="$block__cluster_8h.html" title="Implementation of the class BlockCluster." alt="" coords="1291,452,1416,493"/>
+<area shape="rect" id="node34" href="$generic__functors_8h.html" title="This header file contains a set of self&#45;defined generic functors." alt="" coords="2257,787,2431,814"/>
+<area shape="rect" id="node56" href="$lapack__full__matrix__ext_8h_source.html" title=" " alt="" coords="4200,691,4344,732"/>
+<area shape="rect" id="node76" href="$number__traits_8h.html" title="Definition of ranks for different types of numbers." alt="" coords="5617,787,5775,814"/>
+<area shape="rect" id="node82" href="$block__cluster__tree_8h.html" title="Implementation of the class BlockClusterTree." alt="" coords="1780,363,1905,404"/>
+<area shape="rect" id="node83" href="$hmatrix__support_8h.html" title="Adapted from deal.ii/lac/lapack_support.h and define some features for an &#45;matrix." alt="" coords="5116,787,5289,814"/>
+<area shape="rect" id="node84" href="$hmatrix__vmult__strategy_8h.html" title="Strategies for top level H&#45;matrix/vector multiplications, namely, vmult , Tvmult ,..." alt="" coords="5567,691,5718,732"/>
+<area shape="rect" id="node85" href="$rkmatrix_8h.html" title="Definition of rank&#45;k matrix." alt="" coords="5268,616,5348,643"/>
+<area shape="rect" id="node86" href="$sequence__partition_8h_source.html" title=" " alt="" coords="3928,691,4075,732"/>
+<area shape="rect" id="node26" href="$cluster_8h.html" title="Implementation of the class Cluster." alt="" coords="1317,616,1389,643"/>
+<area shape="rect" id="node42" href="$cluster__tree_8h_source.html" title=" " alt="" coords="1504,541,1605,568"/>
+<area shape="rect" id="node27" title=" " alt="" coords="1893,780,2035,821"/>
+<area shape="rect" id="node28" title=" " alt="" coords="2116,877,2167,903"/>
+<area shape="rect" id="node29" title=" " alt="" coords="574,877,637,903"/>
+<area shape="rect" id="node30" href="$simple__bounding__box_8h_source.html" title=" " alt="" coords="951,698,1110,725"/>
+<area shape="rect" id="node31" title=" " alt="" coords="1712,877,1845,903"/>
+<area shape="rect" id="node32" title=" " alt="" coords="744,787,899,814"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1075,787,1213,814"/>
+<area shape="rect" id="node35" title=" " alt="" coords="4549,966,4717,993"/>
+<area shape="rect" id="node36" title=" " alt="" coords="2273,877,2415,903"/>
+<area shape="rect" id="node37" title=" " alt="" coords="6461,959,6582,1000"/>
+<area shape="rect" id="node38" title=" " alt="" coords="2980,877,3039,903"/>
+<area shape="rect" id="node39" title=" " alt="" coords="2884,877,2945,903"/>
+<area shape="rect" id="node40" title=" " alt="" coords="2439,877,2529,903"/>
+<area shape="rect" id="node41" title=" " alt="" coords="2791,877,2838,903"/>
+<area shape="rect" id="node43" href="$tree_8h.html" title="Implementation of the classes for binary tree node, general tree node and functions for manipulating ..." alt="" coords="1527,698,1582,725"/>
+<area shape="rect" id="node47" href="$debug__tools_8h.html" title="This file includes a bunch of helper functions for printing out and visualizing information about gri..." alt="" coords="2439,616,2587,643"/>
+<area shape="rect" id="node44" title=" " alt="" coords="1515,787,1594,814"/>
+<area shape="rect" id="node45" title=" " alt="" coords="1618,787,1697,814"/>
+<area shape="rect" id="node46" title=" " alt="" coords="1721,787,1767,814"/>
+<area shape="rect" id="node48" title=" " alt="" coords="2765,698,2899,725"/>
+<area shape="rect" id="node49" title=" " alt="" coords="2923,698,3058,725"/>
+<area shape="rect" id="node50" title=" " alt="" coords="3083,698,3181,725"/>
+<area shape="rect" id="node51" title=" " alt="" coords="3205,698,3355,725"/>
+<area shape="rect" id="node52" title=" " alt="" coords="3379,698,3514,725"/>
+<area shape="rect" id="node53" title=" " alt="" coords="2359,698,2510,725"/>
+<area shape="rect" id="node54" title=" " alt="" coords="2534,698,2650,725"/>
+<area shape="rect" id="node55" title=" " alt="" coords="2675,698,2741,725"/>
+<area shape="rect" id="node78" href="$quadrature_8templates_8h.html" title="This file is extracted from $DEAL_II_DIR/source/base/quadrature.cc for generating the Gauss quadratur..." alt="" coords="2013,698,2233,725"/>
+<area shape="rect" id="node57" title=" " alt="" coords="4087,780,4231,821"/>
+<area shape="rect" id="node58" title=" " alt="" coords="6705,966,6775,993"/>
+<area shape="rect" id="node59" title=" " alt="" coords="3047,787,3100,814"/>
+<area shape="rect" id="node60" title=" " alt="" coords="4255,787,4310,814"/>
+<area shape="rect" id="node61" href="$blas__helpers_8h.html" title="Helper functions for calling BLAS functions." alt="" coords="4537,787,4644,814"/>
+<area shape="rect" id="node67" href="$general__exceptions_8h.html" title="Definition of self&#45;defined general exceptions." alt="" coords="4452,869,4583,911"/>
+<area shape="rect" id="node68" href="$lapack__helpers_8h.html" title="Exposes LAPACK helper functions defined in lapack_full_matrix.cc and define new ones by following the..." alt="" coords="6289,787,6409,814"/>
+<area shape="rect" id="node62" title=" " alt="" coords="3917,869,4051,911"/>
+<area shape="rect" id="node63" title=" " alt="" coords="4076,877,4255,903"/>
+<area shape="rect" id="node64" title=" " alt="" coords="4279,869,4428,911"/>
+<area shape="rect" id="node65" href="$blas__templates_8h.html" title="Template based BLAS functions." alt="" coords="5346,877,5467,903"/>
+<area shape="rect" id="node66" title=" " alt="" coords="5817,966,5957,993"/>
+<area shape="rect" id="node69" title=" " alt="" coords="5748,869,5919,911"/>
+<area shape="rect" id="node70" title=" " alt="" coords="5943,877,6111,903"/>
+<area shape="rect" id="node71" title=" " alt="" coords="5149,869,5270,911"/>
+<area shape="rect" id="node72" title=" " alt="" coords="6778,869,6899,911"/>
+<area shape="rect" id="node73" title=" " alt="" coords="6135,869,6257,911"/>
+<area shape="rect" id="node74" title=" " alt="" coords="6282,877,6417,903"/>
+<area shape="rect" id="node75" href="$lapack__templates__ext_8h.html" title="Append more template based LAPACK functions to those existing in deal.ii." alt="" coords="6441,877,6601,903"/>
+<area shape="rect" id="node77" title=" " alt="" coords="5593,877,5724,903"/>
+<area shape="rect" id="node79" title=" " alt="" coords="2455,787,2622,814"/>
+<area shape="rect" id="node80" title=" " alt="" coords="2647,780,2801,821"/>
+<area shape="rect" id="node81" title=" " alt="" coords="2825,787,2972,814"/>
+<area shape="rect" id="node87" title=" " alt="" coords="3601,787,3663,814"/>
+<area shape="rect" id="node88" title=" " alt="" coords="3687,787,3766,814"/>
+</map>

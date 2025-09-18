@@ -1,0 +1,6 @@
+<map id="HMatrixVmultStrategy&lt; spacedim, Number &gt;" name="HMatrixVmultStrategy&lt; spacedim, Number &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="221,5,399,273"/>
+<area shape="rect" id="node2" href="$classHMatrixVmultSerialIterative.html" title=" " alt="" coords="5,321,188,575"/>
+<area shape="rect" id="node3" href="$classHMatrixVmultSerialRecursive.html" title=" " alt="" coords="213,321,407,575"/>
+<area shape="rect" id="node4" href="$classHMatrixVmultTaskParallel.html" title=" " alt="" coords="431,321,605,575"/>
+</map>

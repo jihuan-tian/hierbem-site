@@ -1,0 +1,6 @@
+<map id="HMatrixVmultStrategy&lt; spacedim, std::complex&lt; T &gt; &gt;" name="HMatrixVmultStrategy&lt; spacedim, std::complex&lt; T &gt; &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="264,5,443,376"/>
+<area shape="rect" id="node2" href="$classHMatrixVmultSerialIterative_3_01spacedim_00_01std_1_1complex_3_01T_01_4_01_4.html" title=" " alt="" coords="5,424,221,765"/>
+<area shape="rect" id="node3" href="$classHMatrixVmultSerialRecursive_3_01spacedim_00_01std_1_1complex_3_01T_01_4_01_4.html" title=" " alt="" coords="245,424,461,765"/>
+<area shape="rect" id="node4" href="$classHMatrixVmultTaskParallel_3_01spacedim_00_01std_1_1complex_3_01T_01_4_01_4.html" title=" " alt="" coords="485,424,701,765"/>
+</map>

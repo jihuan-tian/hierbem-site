@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['qr_0',['qr',['../classLAPACKFullMatrixExt.html#a0413f3b6186f8e8fc0f2cb2e0cb5cc42',1,'LAPACKFullMatrixExt']]],
+  ['quad_5fpoint_5fnum_1',['quad_point_num',['../classCUDAWrappers_1_1SauterQuadratureTaskBufferForVector.html#a43516184f3042f68104911853f0b5488',1,'CUDAWrappers::SauterQuadratureTaskBufferForVector']]],
+  ['quad_5frule_5ffor_5fcommon_5fedge_2',['quad_rule_for_common_edge',['../classBEMValues.html#a854710026b0501ee9127579cd22274fc',1,'BEMValues::quad_rule_for_common_edge()'],['../classCUDAWrappers_1_1CUDABEMValues.html#adb7947cbe1702bdb5a509bad38215357',1,'CUDAWrappers::CUDABEMValues::quad_rule_for_common_edge()']]],
+  ['quad_5frule_5ffor_5fcommon_5fvertex_3',['quad_rule_for_common_vertex',['../classBEMValues.html#a32bd67c0a51b7406bb74f41a7896c771',1,'BEMValues::quad_rule_for_common_vertex()'],['../classCUDAWrappers_1_1CUDABEMValues.html#af7196f0f791433b18cac81d958718e53',1,'CUDAWrappers::CUDABEMValues::quad_rule_for_common_vertex()']]],
+  ['quad_5frule_5ffor_5fregular_4',['quad_rule_for_regular',['../classBEMValues.html#ac9a117f16b7c796b944bde4d7f0ad814',1,'BEMValues::quad_rule_for_regular()'],['../classCUDAWrappers_1_1CUDABEMValues.html#af7ac78ad2f91df69cfef443528797288',1,'CUDAWrappers::CUDABEMValues::quad_rule_for_regular()']]],
+  ['quad_5frule_5ffor_5fsame_5fpanel_5',['quad_rule_for_same_panel',['../classBEMValues.html#a5597a5d8e53f0f6ce93ffff808ba5feb',1,'BEMValues::quad_rule_for_same_panel()'],['../classCUDAWrappers_1_1CUDABEMValues.html#aa95df50fd6449a698b05365ebe650338',1,'CUDAWrappers::CUDABEMValues::quad_rule_for_same_panel()']]],
+  ['quad_5fvalues_5fin_5fthread_5fblocks_6',['quad_values_in_thread_blocks',['../classPairCellWiseScratchData.html#af9610d90c26de22c3149ace81fcaabb8',1,'PairCellWiseScratchData::quad_values_in_thread_blocks()'],['../classCUDAWrappers_1_1CUDAPairCellWiseScratchData.html#a123acb90a6ea908bcbbab8bfb4be057d',1,'CUDAWrappers::CUDAPairCellWiseScratchData::quad_values_in_thread_blocks()']]],
+  ['quadrature_2etemplates_2eh_7',['quadrature.templates.h',['../quadrature_8templates_8h.html',1,'']]],
+  ['quadrature_5fvalue_5fring_5fbuffer_5fcpu_8',['quadrature_value_ring_buffer_cpu',['../classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#a41a6e915e0c6779ce29563f8aaff320b',1,'CUDAWrappers::SauterQuadratureTaskRingBuffer']]],
+  ['quadrature_5fvalue_5fring_5fbuffer_5fgpu_9',['quadrature_value_ring_buffer_gpu',['../classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#a5b0be3bf034300e547f59aa172ee4485',1,'CUDAWrappers::SauterQuadratureTaskRingBuffer']]]
+];

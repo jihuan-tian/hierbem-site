@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['sauterquadraturerule_0',['SauterQuadratureRule',['../structSauterQuadratureRule.html',1,'']]],
+  ['sauterquadraturetaskbufferforvector_1',['SauterQuadratureTaskBufferForVector',['../classCUDAWrappers_1_1SauterQuadratureTaskBufferForVector.html',1,'CUDAWrappers']]],
+  ['sauterquadraturetaskringbuffer_2',['SauterQuadratureTaskRingBuffer',['../classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html',1,'CUDAWrappers']]],
+  ['sauterquadraturetaskscalardata_3',['SauterQuadratureTaskScalarData',['../classCUDAWrappers_1_1SauterQuadratureTaskScalarData.html',1,'CUDAWrappers']]],
+  ['schurcomplement_4',['SchurComplement',['../classSchurComplement.html',1,'']]],
+  ['sequencepartitioner_5',['SequencePartitioner',['../classSequencePartitioner.html',1,'']]],
+  ['simpleboundingbox_6',['SimpleBoundingBox',['../classSimpleBoundingBox.html',1,'']]],
+  ['simpleboundingbox_3c_20spacedim_2c_20double_20_3e_7',['SimpleBoundingBox&lt; spacedim, double &gt;',['../classSimpleBoundingBox.html',1,'']]],
+  ['simpleboundingbox_3c_20spacedim_2c_20real_5ftype_20_3e_8',['SimpleBoundingBox&lt; spacedim, real_type &gt;',['../classSimpleBoundingBox.html',1,'']]],
+  ['singlelayerkernel_9',['SingleLayerKernel',['../classPlatformShared_1_1LaplaceKernel_1_1SingleLayerKernel.html',1,'PlatformShared::LaplaceKernel']]],
+  ['singlelayerkernel_3c_20spacedim_2c_20cudakernelnumbertype_20_3e_10',['SingleLayerKernel&lt; spacedim, CUDAKernelNumberType &gt;',['../classPlatformShared_1_1LaplaceKernel_1_1SingleLayerKernel.html',1,'PlatformShared::LaplaceKernel']]],
+  ['singlelayerkernel_3c_20spacedim_2c_20kernelnumbertype_20_3e_11',['SingleLayerKernel&lt; spacedim, KernelNumberType &gt;',['../classPlatformShared_1_1LaplaceKernel_1_1SingleLayerKernel.html',1,'PlatformShared::LaplaceKernel']]],
+  ['solverbicgstabgeneral_12',['SolverBicgstabGeneral',['../classSolverBicgstabGeneral.html',1,'']]],
+  ['solvercggeneral_13',['SolverCGGeneral',['../classSolverCGGeneral.html',1,'']]],
+  ['solverdqgmres_14',['SolverDQGMRES',['../classSolverDQGMRES.html',1,'']]],
+  ['subdomainhmatrixforchargeneutralityeqn_15',['SubdomainHMatrixForChargeNeutralityEqn',['../classSubdomainHMatrixForChargeNeutralityEqn.html',1,'']]],
+  ['subdomainhmatrixforglobalpreconditioning_16',['SubdomainHMatrixForGlobalPreconditioning',['../classSubdomainHMatrixForGlobalPreconditioning.html',1,'']]],
+  ['subdomainhmatrixfortransmissioneqn_17',['SubdomainHMatrixForTransmissionEqn',['../classSubdomainHMatrixForTransmissionEqn.html',1,'']]],
+  ['subdomainsteklovpoincarehmatrix_18',['SubdomainSteklovPoincareHMatrix',['../classSubdomainSteklovPoincareHMatrix.html',1,'']]],
+  ['subdomainsteklovpoincarehmatrix_3c_20spacedim_2c_20double_20_3e_19',['SubdomainSteklovPoincareHMatrix&lt; spacedim, double &gt;',['../classSubdomainSteklovPoincareHMatrix.html',1,'']]],
+  ['subdomaintopology_20',['SubdomainTopology',['../classSubdomainTopology.html',1,'']]],
+  ['surfacenormaldetector_21',['SurfaceNormalDetector',['../classSurfaceNormalDetector.html',1,'']]]
+];

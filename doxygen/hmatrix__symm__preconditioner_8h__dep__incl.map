@@ -1,0 +1,13 @@
+<map id="include/hmatrix/preconditioner/hmatrix_symm_preconditioner.h" name="include/hmatrix/preconditioner/hmatrix_symm_preconditioner.h">
+<area shape="rect" id="node1" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices." alt="" coords="221,5,432,47"/>
+<area shape="rect" id="node2" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="130,95,325,151"/>
+<area shape="rect" id="node9" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="484,102,638,143"/>
+<area shape="rect" id="node3" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="64,392,204,433"/>
+<area shape="rect" id="node4" href="$ddm__efield__matrix_8h.html" title="Introduction of ddm_efield_matrix.h." alt="" coords="63,303,206,344"/>
+<area shape="rect" id="node5" href="$subdomain__hmatrix__for__charge__neutrality__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_charge_neutrality_eqn.h." alt="" coords="51,199,218,255"/>
+<area shape="rect" id="node6" href="$subdomain__hmatrix__for__global__preconditioning_8h.html" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="428,199,596,255"/>
+<area shape="rect" id="node8" href="$subdomain__hmatrix__for__transmission__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_transmission_eqn.h." alt="" coords="242,199,403,255"/>
+<area shape="rect" id="node7" href="$ddm__efield__global__preconditioner_8h.html" title="Introduction of ddm_efield_global_preconditioner.h." alt="" coords="305,303,534,344"/>
+<area shape="rect" id="node10" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="620,206,774,247"/>
+<area shape="rect" id="node11" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="632,303,762,344"/>
+</map>

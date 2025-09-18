@@ -1,0 +1,15 @@
+<map id="include/linear_algebra/cu_tensor.hcu" name="include/linear_algebra/cu_tensor.hcu">
+<area shape="rect" id="node1" title="Introduction of cu_tensor.hcu." alt="" coords="221,5,368,47"/>
+<area shape="rect" id="node2" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="197,95,392,121"/>
+<area shape="rect" id="node3" href="$bem__general_8hcu_source.html" title=" " alt="" coords="5,266,200,293"/>
+<area shape="rect" id="node7" href="$operator__preconditioner_8h.html" title=" " alt="" coords="151,348,323,389"/>
+<area shape="rect" id="node10" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="445,259,579,300"/>
+<area shape="rect" id="node12" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="275,169,429,211"/>
+<area shape="rect" id="node4" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="207,541,361,583"/>
+<area shape="rect" id="node5" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="207,631,361,672"/>
+<area shape="rect" id="node6" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="219,720,349,761"/>
+<area shape="rect" id="node8" href="$preconditioner__for__laplace__dirichlet_8h.html" title=" " alt="" coords="95,437,273,493"/>
+<area shape="rect" id="node9" href="$preconditioner__for__laplace__neumann_8h.html" title=" " alt="" coords="297,437,474,493"/>
+<area shape="rect" id="node11" href="$aca__plus_8cu_source.html" title=" " alt="" coords="550,348,693,389"/>
+<area shape="rect" id="node13" href="$sauter__quadrature_8cu_source.html" title=" " alt="" coords="275,259,421,300"/>
+</map>
