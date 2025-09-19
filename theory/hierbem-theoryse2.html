@@ -1,0 +1,489 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="HierBEM Library">
+<meta property="og:url" content="http://localhost:4000/theory/hierbem-theoryse2.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/theory/hierbem-theoryse2.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              
+            </nav>
+          </aside>
+        
+           <!-- l. 142 --><div class='crosslinks'><p class='noindent'>[<a href='hierbem-theoryse3.html'>next</a>] [<a href='hierbem-theoryse1.html'>prev</a>] [<a href='hierbem-theoryse1.html#tailhierbem-theoryse1.html'>prev-tail</a>] [<a href='#tailhierbem-theoryse2.html'>tail</a>] [<a href='hierbem-theory.html#hierbem-theoryse2.html'>up</a>] </p></div>
+   <h3 class='sectionHead'><span class='titlemark'>2    </span> <a id='x4-90002'></a>Partial Differential Equations</h3>
+<!-- l. 144 --><p class='noindent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>2.1    </span> <a id='x4-100002.1'></a>Lagrange multiplier method and its application in PDEs</h4>
+<!-- l. 146 --><p class='noindent'>
+</p>
+   <h5 class='subsubsectionHead'><span class='titlemark'>2.1.1    </span> <a id='x4-110002.1.1'></a>Lagrange multiplier method understood from differential geometry</h5>
+<!-- l. 148 --><p class='noindent'>The method of Lagrange multiplier is used to find the extremal or saddle points of an objective function \(f(x^1, \cdots , x^n)\) with a
+set of \(m\) constraints \begin {equation}  \begin {aligned} \varphi _1(x^1,\cdots ,x^n) &amp;= 0 \\ &amp;\vdots \\ \varphi _m(x^1,\cdots ,x^n) &amp;= 0 \end {aligned}.  \end {equation}<a id='x4-11001r15'></a> In this article, we will understand this method from a differential geometry point of
+view.
+</p><!-- l. 158 --><p class='indent'>   For the objective function \(f(x^1,\cdots ,x^n) = c\) with a specific output value \(c\), we assume the Jacobian matrix \(Jf\) of the function \(f\) with
+respect to the coordinate chart \((x)= (x^1,\cdots ,x^n)\) has a full rank. Obviously, \(Jf\) has only one row, which is not a zero vector.
+Therefore, \(Jf\) is a surjective map. According to the implicit function theorem <a href='#x4-110021'>1<!-- tex4ht:ref: theo:implicit-func  --></a>, where \(r=1\), \(f(x^1,\cdots ,x^n)=c\) describes a \((n-1)\)-dimensional
+submanifold in \(\mathbb {R}^n\).
+</p>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 160 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-x-x-109'>Theorem 1 (Implicit function)</span> </span><a id='x4-11003'></a><span class='p1xi-x-x-109'>Let </span>\(A\) <span class='p1xi-x-x-109'>be an open set in </span>\(\mathbb {R}^{n+r}\) <span class='p1xi-x-x-109'>and </span>\(f: A \rightarrow \mathbb {R}^r\) <span class='p1xi-x-x-109'>be </span>\(\mathbb {C}^r\)<span class='p1xi-x-x-109'>, </span>\(f(x) = t \; \forall x \in A\)<span class='p1xi-x-x-109'>, </span>\(t\) <span class='p1xi-x-x-109'>is a constant in </span>\(\mathbb {R}^r\)<span class='p1xi-x-x-109'>. Then if </span>\(\exists x_0 \in A\) <span class='p1xi-x-x-109'>such that </span>\(\rank \left ( \left [ \frac {\partial f}{\partial x} \right ] \bigg \vert _{x=x_0} \right )=r\)<span class='p1xi-x-x-109'>, then </span>\(\exists \)
+<span class='p1xi-x-x-109'>neighborhood </span>\(B\) <span class='p1xi-x-x-109'>of </span>\(x_0\) <span class='p1xi-x-x-109'>in </span>\(\mathbb {R}^{n+r}\) <span class='p1xi-x-x-109'>such that </span>\(\forall x \in B\)<span class='p1xi-x-x-109'>, its </span>\(r\) <span class='p1xi-x-x-109'>components can be uniquely represented by a </span>\(\mathbb {C}^r\) <span class='p1xi-x-x-109'>function </span>\(g\) <span class='p1xi-x-x-109'>in terms of the other </span>\(n\)
+<span class='p1xi-x-x-109'>components. If </span>\(\forall x_0 \in A\) <span class='p1xi-x-x-109'>satisfies the above condition, </span>\(A\) <span class='p1xi-x-x-109'>is a </span>\(n\)<span class='p1xi-x-x-109'>-dimensional submanifold in </span>\(\mathbb {R}^{n+r}\)<span class='p1xi-x-x-109'>. Its codimension is </span>\(r\)<span class='p1xi-x-x-109'>.</span> <a id='x4-110021'></a>
+</p>
+   </div>
+<!-- l. 163 --><p class='indent'>   </p></div>
+<!-- l. 165 --><p class='indent'>   The implicit function theorem is also equivalent to the main submanifold theorem <a href='#x4-110042'>2<!-- tex4ht:ref: theo:main-submanifold  --></a>.
+</p>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 167 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 2 (Main submanifold)</span> </span><a id='x4-11005'></a><span class='p1xi-x-x-109'>Let </span>\(F: \mathbb {R}^{n+r} \rightarrow \mathbb {R}^r\) <span class='p1xi-x-x-109'>and </span>\(F^{-1}(y_0) = \{x \in \mathbb {R}^{n+r} \vert F(x) = y_0\}\) <span class='p1xi-x-x-109'>is not empty. If </span>\(\forall x_0 \in F^{-1}(y_0)\) <span class='p1xi-x-x-109'>the Jacobian map </span>\(F_{*}: \mathbb {R}_{x_0}^{n+r} \rightarrow \mathbb {R}_{y_0}^r\) <span class='p1xi-x-x-109'>is surjective, then </span>\(F^{-1}(y_0)\) <span class='p1xi-x-x-109'>is a </span>\(n\)<span class='p1xi-x-x-109'>-dimensional
+</span><span class='p1xi-x-x-109'>submanifold of </span>\(\mathbb {R}^{n+r}\)<span class='p1xi-x-x-109'>.</span> <a id='x4-110042'></a>
+</p>
+   </div>
+<!-- l. 170 --><p class='indent'>   </p></div>
+<!-- l. 172 --><p class='indent'>   Here \(F^{-1}(y_0)\) is called the level set of \(F\) with respect to \(y_0\). Therefore, the objective function \(f(x^1,\cdots ,x^n)=c\) with a specific output value \(c\)
+<span class='p1xb-x-x-109'>implicitly </span>defines the level set of \(f\) with respect to \(c\). Here we write it as \(M_{\mathrm {o}}^{n-1}\), where the subscript \(\mathrm {o}\) represents “objective
+function”.
+</p><!-- l. 174 --><p class='indent'>   Similarly, for the set of \(m\) constraints, we assume the Jacobian matrix \(J\varphi \) with respect to the chart \((x)\)
+has a full rank \(m\). And these constraints define an \((n-m)\)-dimensional submanifold, which also <span class='p1xb-x-x-109'>implicitly</span>
+defines the level set of \(\varphi =\left \{ \varphi _1,\cdots ,\varphi _m \right \}\) with respect to \(\mathbf {0}\) in \(\mathbb {R}^m\). Here we write it as \(M_{\mathrm {c}}^{n-m}\), where the subscript \(\mathrm {c}\) represents
+“constraints”.
+</p><!-- l. 176 --><p class='indent'>   For each constraint function \(\varphi _i(x)=0\), it <span class='p1xb-x-x-109'>implicitly </span>defines a \((n-1)\)-dimensional submanifold, which is the level set of \(\varphi _i\) with
+respect to 0 in \(\mathbb {R}\). We write it as \(M_{\mathrm {c}_i}^{n-1}\). Therefore, the level set of \(\varphi \) is the intersection of all level sets for \(\left \{ \varphi _i \right \}_{i=1}^m\):
+\begin {equation}  M_{\mathrm {c}}^{n-m} = \bigcap _{i=1}^m M_{\mathrm {c}_i}^{n-1}.  \end {equation}<a id='x4-11006r16'></a>
+</p><!-- l. 181 --><p class='indent'>   To find the extremal or saddle points of the objective function \(f\) satisfying the constraints \(\varphi \) is equivalent to find
+the points at which the level set \(M_{\mathrm {o}}^{n-1}\) of the objective function and the level of set \(M_{\mathrm {c}}^{n-m}\) of the constraints meet tangentially,
+i.e. they share a common tangent plane or tangent space. If two submanifolds or level sets share a
+common tangent space, they must also have a common normal space, which is the orthogonal
+complement of the tangent space. <span class='p1xb-x-x-109'>The Lagrange multiplier method is based on the normal space
+</span><span class='p1xb-x-x-109'>formulation.</span>
+</p><!-- l. 183 --><p class='indent'>   The normal space can be derived from the differential 1-form of the implicit map used for describing the level
+set as below.
+</p><!-- l. 185 --><p class='indent'>   For the objective function \(f\), apply the 1-form \(df\) to a tangent vector \(\frac {\mathrm {d} x}{\mathrm {d} t}\), where \(x(t)\) is an arbitrary curve which is
+contained in \(M_{\mathrm {o}}^{n-1}\) and passes through a point \(p\) in \(M_{\mathrm {o}}^{n-1}\). Because \(M_{\mathrm {o}}^{n-1}\) is a level set of \(f\) with respect to \(0\), \(f(x(t))\) is \(0\) for all \(t\). Therefore, \begin {equation}  df \left ( \frac {\diff x}{\diff t} \right ) = \sum _{i=1}^n \frac {\diff x^{i}}{\diff t} \frac {\partial f}{\partial x^i} = \frac {\partial f}{\partial t} = 0.  \end {equation}<a id='x4-11007r17'></a> This
+is equivalent to \begin {equation}  \left \langle \nabla f, \frac {\diff x}{\diff t} \right \rangle = 0,  \end {equation}<a id='x4-11008r18'></a> i.e. the gradient vector \(\nabla f\) is orthogonal to the tangent vector \(\frac {\diff x}{\diff t}\). Because this tangent
+vector is arbitrary, \(\nabla f\) is orthogonal to the tangent space \(T_p M_{\mathrm {o}}^{n-1}\) at \(p\) and \(\mathrm {span}\left \{ \nabla f \right \}\) is the normal space \(N_p M_{\mathrm {o}}^{n-1}\), which is the
+orthogonal complement of \(T_p M_{\mathrm {o}}^{n-1}\). Similarly, for the constraint function \(\varphi _i\), \(\mathrm {span} \left \{ \nabla \varphi _i \right \}\) is the normal space \(N_p M_{\mathrm {c}_i}^{n-1}\), which
+is the orthogonal complement of \(T_p M_{\mathrm {c}_i}^{n-1}\). Then \(\mathrm {span} \left \{ \nabla \varphi _1,\cdots ,\nabla \varphi _m \right \}\) is the normal space \(N_p M_{\mathrm {c}}^{n-m}\) of \(M_{\mathrm {c}}^{n-m}\). This can be simply verified as
+below.
+</p><!-- l. 195 --><p class='indent'>   Let \(u=\sum _{i=1}^m \lambda _i \nabla \varphi _i\) be any vector in this normal space. For any vector \(v\) in the tangent space \(T_p M_{\mathrm {c}}^{n-m}\) of \(M_{\mathrm {c}}^{n-m}\), because \(v\) is orthogonal to any
+\(\nabla \varphi _i\), we have \(\langle u,v \rangle = 0\), i.e. \(u\) is orthogonal to \(v\). Therefore, \(\mathrm {span} \left \{ \nabla \varphi _1,\cdots ,\nabla \varphi _m \right \}\) is a normal space.
+                                                                                               
+                                                                                               
+</p><!-- l. 197 --><p class='indent'>   Now, let’s check the new objective function after applying the method of Lagrange multiplier, which is \begin {equation}  L(x^1,\cdots ,x^n,\lambda _1,\cdots ,\lambda _m) = f(x^1,\cdots ,x^n) + \sum _{i=1}^m \lambda _i \varphi _i(x^1,\cdots ,x^n).  \end {equation}<a id='x4-11009r19'></a> To
+find critical points of \(L\), we need to enforce two types of conditions \begin {equation}  \frac {\partial L}{\partial x^{i}} = 0, \quad i=1,\cdots ,n,  \end {equation}<a id='x4-11010r20'></a> and \begin {equation}  \frac {\partial L}{\partial \lambda _j} = 0, \quad j=1,\cdots ,m.  \end {equation}<a id='x4-11011r21'></a> From the first type, we have \begin {equation}  \frac {\partial f}{\partial x^{i}} + \sum _{k=1}^m \lambda _k \frac {\partial \varphi _{k}}{\partial x^{i}} = 0, \quad i=1,\cdots ,n.  \end {equation}<a id='x4-11012r22'></a> This is
+equivalent to \begin {equation}  df + \sum _{k=1}^m \lambda _k d\varphi _k = 0.  \end {equation}<a id='x4-11013r23'></a> Applying the inverse of the metric tensor \(g_{ij}\) to this equation, i.e. using the sharp operator \(\sharp \) to
+transform the 1-forms \(df\) and \(d\varphi _k\) to tangent vectors, we obtain the equation for gradient vectors: \begin {equation}  \nabla f + \sum _{k=1}^m \lambda _k \nabla \varphi _k = 0,  \end {equation}<a id='x4-11014r24'></a> which means the
+two level sets \(M_{\mathrm {o}}^{n-1}\) and \(M_{\mathrm {c}}^{n-m}\) have a same normal space.
+</p><!-- l. 223 --><p class='indent'>   The second type of conditions \(\frac {\partial L}{\partial \lambda _{j}} = 0\) is simply enforcing the original constraint \(\varphi _j = 0\).
+</p><!-- l. 225 --><p class='indent'>   <span class='p1xb-x-x-109'>In summary, the first condition in the Lagrange multiplier method is the normal space condition, while
+</span><span class='p1xb-x-x-109'>the second is the constraint condition.</span>
+</p>
+   <h5 class='subsubsectionHead'><span class='titlemark'>2.1.2    </span> <a id='x4-120002.1.2'></a>Application of Lagrange multiplier method in PDEs</h5>
+<!-- l. 228 --><p class='noindent'>Let \(X\) be a Hilbert space and \(X'\) be its dual space. \(\left \langle \cdot ,\cdot \right \rangle _X\) is the inner product in \(X\) and \(\left \langle \cdot ,\cdot \right \rangle \) is the duality pairing, which applies a
+linear functional \(f\in X'\) to an element \(u\in X\), i.e. \(\left \langle f,u \right \rangle =\left \langle u,f \right \rangle =f(u)\). \(A: X \rightarrow X'\) is a bounded linear operator satisfying \begin {equation}  \norm {Av}_{X'}\leq c_2^A\norm {v}_X \quad \forall v \in X.  \end {equation}<a id='x4-12001r25'></a> We also assume \(A\) is self-adjoint in
+the sense of normed space (see Section <span class='p1xb-x-x-109'>??</span>).
+</p><!-- l. 234 --><p class='indent'>   For the operator equation \(Au=f\), where \(f\in X'\), we already know that it is equivalent to the variational equation \(\langle Au,v \rangle = \langle f,v \rangle \) for all \(v\in X\)
+due to the boundedness of \(A\). If we further assume \(A\) is positive semi-definite, i.e. \begin {equation}  \langle Av,v \rangle \geq 0 \quad \forall v\in X,  \end {equation}<a id='x4-12002r26'></a> this variational equation is
+equivalent to a minimization of a functional without constraint: \begin {equation}  u = \underset {v\in X}{\argmin }\; F(v) = \underset {v\in X}{\argmin }\; \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle .  \end {equation}<a id='x4-12003r27'></a> This can be proved by perturbing \(u\) with \(tw\), where \(w\in X\)
+and \(t\) is a small scalar value. By letting \(\frac {\diff F(u+tw)}{\diff t} = 0\) at \(t=0\), we can obtain the variational formulation \(\langle Au,w \rangle = \langle f,w \rangle \) and also show that \(F(u)\) is a
+minimum value.
+</p>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 244 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x4-12005'></a>\begin {equation}  \begin {aligned} F(u+tw) &amp;= \frac {1}{2} \langle A(u+tw),u+tw \rangle - \langle f,u+tw \rangle \\ &amp;= \frac {1}{2} \langle Au,u \rangle - \langle f,u \rangle + \frac {1}{2} \langle Au,tw \rangle + \frac {1}{2} \langle A(tw), u \rangle + \\ &amp;\quad \frac {1}{2} \langle A(tw),tw \rangle - \langle f,tw \rangle \end {aligned}  \end {equation}<a id='x4-12006r28'></a>
+</p><!-- l. 255 --><p class='indent'>   Because \(A\) is self-adjoint, the fourth term above \(\langle A(tw),u \rangle = \langle tw,Au \rangle \) and we have \begin {equation}  \begin {aligned} F(u+tw) &amp;= F(u) + t\langle Au,w \rangle + \frac {1}{2} t^2 \langle Aw,w \rangle - t\langle f,w \rangle \\ &amp;= F(u) + t \left ( \langle Au,w \rangle - \langle f,w \rangle \right ) + \frac {1}{2} t^2 \langle Aw,w \rangle \end {aligned}.  \end {equation}<a id='x4-12007r29'></a> Let the derivative of \(F(u+tw)\) at \(t=0\) be 0: \begin {equation}  \frac {\diff F(u+tw)}{\diff t} \Big \vert _{t=0} = \langle Au,w \rangle - \langle f,w \rangle = 0,  \end {equation}<a id='x4-12008r30'></a> which is the
+variational equation.
+</p><!-- l. 270 --><p class='indent'>   We can also directly compute the variation \(\delta F(v)\) of the functional \(F(v)\) to derive the variational equation. The variation
+\(\delta F(v)\) is the linear part of the changes in \(F(v)\) when there is a perturbation \(\delta v\) added to \(v\), i.e. \begin {equation}  F(v+\delta v) - F(v) = \delta F(v) \delta v + O(\delta v^2) + \cdots ,  \end {equation}<a id='x4-12009r31'></a> where \(O(\delta v^2)\) and more subsequent
+terms are the high order changes with respect to \(\delta v\). <span class='p1xb-x-x-109'>The variation operator </span>\(\delta \) <span class='p1xb-x-x-109'>commutes with differential
+</span><span class='p1xb-x-x-109'>and integral operators. It also satisfies the chain rule for the normal differential operator. </span>Then
+we have \begin {equation}  \begin {aligned} \delta F(v) &amp;= \frac {1}{2} \langle A\delta v,v \rangle + \frac {1}{2} \langle Av,\delta v \rangle - \langle f,\delta v \rangle \\ &amp;= \langle Av,\delta v \rangle - \langle f,\delta v \rangle \end {aligned}.  \end {equation}<a id='x4-12010r32'></a> Let \(\delta F(v) = 0\), we obtain the variational formulation \(\langle Av, \delta v \rangle = \langle f,\delta v \rangle \). \(\delta v\) is arbitrary and can be replaced with any
+\(w\in X\).
+</p><!-- l. 284 --><p class='indent'>   Next, we will show that \(F(v)\) achieves the minimum value when \(v\) is the solution \(u\) of the variational equation. In
+the above, we already have \begin {equation}  F(u+tw) = F(u) + t \left ( \langle Au,w \rangle - \langle f,w \rangle \right ) + \frac {1}{2} t^2 \langle Aw,w \rangle .  \end {equation}<a id='x4-12011r33'></a> Because \(u\) is the solution of the variational equation, the second term \(t \left ( \langle Au,w \rangle - \langle f,w \rangle \right )\) is zero.
+Meanwhile, considering the assumption that \(A\) is positive semi-definite, we have \(\frac {1}{2} t^2 \langle Aw,w \rangle \geq 0\) and \(F(u) \leq F(u+tw)\), which means \(u\) is a local
+minima of the functional \(F(v)\).
+</p>
+   </div>
+<!-- l. 289 --><p class='indent'>   </p></div>
+<!-- l. 291 --><p class='indent'>   If there is a constraint in the form of an operator equation \(Bu=g\), where \(B: X \rightarrow \Pi '\) is a bounded linear operator and \(g\in \Pi '\), \(\Pi \) is a
+Banach space and \(\Pi '\) is its dual space, using the Lagrange multiplier method, we can obtain a new functional \begin {equation}  \begin {aligned} L(v,p) &amp;:= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv-g,p \rangle \\ &amp;= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv,p \rangle - \langle g,p \rangle \end {aligned},  \end {equation}<a id='x4-12012r34'></a>
+where \(p\in \Pi \) is the Lagrange multiplier. <span class='p1xb-x-x-109'>Note that a Lagrange multiplier introduced into a PDE for the operator
+</span><span class='p1xb-x-x-109'>equation constraint is not a scalar value anymore, but a function in the test function space. The
+                                                                                               
+                                                                                               
+</span><span class='p1xb-x-x-109'>constraint </span>\(Bv=g\) <span class='p1xb-x-x-109'>is also weakly enforced, i.e. </span>\(Bv-g\) <span class='p1xb-x-x-109'>is multiplied with </span>\(p\) <span class='p1xb-x-x-109'>and then integrated on the whole
+</span><span class='p1xb-x-x-109'>domain.</span>
+</p><!-- l. 302 --><p class='indent'>   In this new functional \(L(v,p)\), there is only one variable and one Lagrange multiplier, both of which are functions.
+To find the critical points of \(L(v,p)\), we first perturb \(v\) with \(tw\) where \(w\in X\), then \begin {equation}  \begin {aligned} L(v+tw,p) &amp;= \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + t \left ( \langle Av,w \rangle - \langle f,w \rangle \right ) + \\ &amp;\quad \frac {1}{2} t^2\langle Aw,w \rangle + \langle Bv,p \rangle + \langle B(tw),p \rangle - \langle g,p \rangle \end {aligned}.  \end {equation}<a id='x4-12013r35'></a> Let \begin {equation}  \frac {\diff L(v+tw,p)}{\diff t} \Big \vert _{t=0} = 0,  \end {equation}<a id='x4-12014r36'></a> we have \begin {equation}  \langle Av,w \rangle + \langle Bw,p \rangle = \langle f,w \rangle .  \end {equation}<a id='x4-12015r37'></a>
+</p><!-- l. 320 --><p class='indent'>   Then we perturb \(p\) with \(tq\) where \(q\in \Pi \), then \begin {equation}  L(v,p+tq) = \frac {1}{2} \langle Av,v \rangle - \langle f,v \rangle + \langle Bv,p \rangle + \langle Bv,tq \rangle - \langle g,p \rangle - \langle g,tq \rangle .  \end {equation}<a id='x4-12016r38'></a> Let \begin {equation}  \frac {\diff L(v,p+tq)}{\diff t} \Big \vert _{t=0} = 0,  \end {equation}<a id='x4-12017r39'></a> we have \begin {equation}  \langle Bv,q \rangle = \langle g,q \rangle .  \end {equation}<a id='x4-12018r40'></a> Combine the above two equations and replace \(v\) with \(u\), \(w\)
+with \(v\) symbolically, the familiar mixed variational formulation can be obtained: \begin {equation}  \begin {aligned} \langle Au,v \rangle + \langle Bv,p \rangle &amp;= \langle f,v \rangle \\ \langle Bu,q \rangle &amp;= \langle g,q \rangle \end {aligned},  \end {equation}<a id='x4-12019r41'></a> where \((u,p)\in X\times \Pi \) is the solution to be
+found and \((v,q)\in X\times \Pi \) is the test function. It can be proved that the critical point of the functional \(L(v,p)\) found by the Lagrange
+multiplier method is neither a maximum or minimum, but a saddle point (see Figure <a href='#x4-12020r1'>1<!-- tex4ht:ref: fig:saddle-point-of-functional  --></a>). Hence, the mixed
+variational formulation is also a saddle point problem. When it is discretized into a block matrix system, the
+matrix is not symmetric positive definite (SPD) or Hermitian positive definite (HPD) anymore. Therefore,
+it should be solved with an iterative solver like BiCGStab, but not the conjugate gradient (CG)
+method.
+</p>
+   <figure class='figure'> 
+
+                                                                                               
+                                                                                               
+<a id='x4-12020r1'></a>
+                                                                                               
+                                                                                               
+<!-- l. 343 --><p class='noindent'><img alt='PIC' height='250' src='../../../Documents/peabody/docs/org-notes/figures/2024-06-07-18-41-lagrangian-multiplier-for-constraint-pde.png' width='250' />
+</p>
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Saddle point of the functional \(L(v,p)\).</span></figcaption><!-- tex4ht:label?: x4-12020r1  -->
+                                                                                               
+                                                                                               
+   </figure>
+   <h5 class='subsubsectionHead'><span class='titlemark'>2.1.3    </span> <a id='x4-130002.1.3'></a>Summary</h5>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 349 --><p class='noindent'>The essence of the general Lagrange multiplier method is looking for the common tangent or normal
+     space  between  two  high  dimensional  submanifolds  or  level  sets  associated  with  the  objective
+     function and one or multiple constraint functions. This method can be used to find critical points
+     of the objective function. Whether they are minimum, maximum or saddle points needs further
+     inspection or proof.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 350 --><p class='noindent'>The critical points can be found by equating the partial derivatives of the modified objective function
+     to zeros. The partial derivatives with respect to independent variables enforce the common normal
+     space  condition,  while  the  partial  derivatives  with  respect  to  Lagrange  multipliers  enforce  the
+     constraints.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 351 --><p class='noindent'>In a PDE, a Lagrange multiplier introduced for a constraint in the form of an operator equation is
+     a <span class='p1xb-x-x-109'>function </span>instead of a <span class='p1xb-x-x-109'>scalar </span>value. When it is appended to the new objective function without
+     constraints, it should be multiplied with the constraint operator equation (all terms moving to the
+     left hand side, i.e. \(Bu-g=0\)) and then integrated on the whole domain, e.g. \(\langle Bu-g,p \rangle \). Therefore, the constraint is
+     weakly enforced and the Lagrange multiplier can be considered as a test function.
+     </p><!-- l. 353 --><p class='noindent'>However, it is also possible that the constraint is only a scalar valued equation. For example, in the
+     boundary integral equation (BIE) for the Laplace problem with the Neumann boundary condition, because
+     the kernel of the hypersingular operator is nontrivial, the solution should be sought in a subspace such as \(H_{\ast }^{1/2}(\Gamma )\)
+     instead of the whole space \(H^{1/2}(\Gamma )\). Then a scalar valued constraint \(\langle \gamma _0^{\mathrm {int}}u, w_{\mathrm {eq}} \rangle _{\Gamma } = 0\) is needed to confine the solution within this
+     subspace, where \(w_{\mathrm {eq}}\) is the natural density. The Lagrange multiplier for introducing this constraint
+     into the Lagrange functinal is a scalar value as usual. The derived saddle point problem is
+     \begin {equation}  \begin {aligned} \langle D \gamma _0^{\mathrm {int}}u,v \rangle _{\Gamma } + \lambda \langle v, w_{\mathrm {eq}} \rangle _{\Gamma } &amp;= \langle (\frac {1}{2} I - K')g, v \rangle _{\Gamma } \\ \langle \gamma _0^{\mathrm {int}}u,w_{\mathrm {eq}} \rangle _{\Gamma } &amp;= 0 \end {aligned}.  \end {equation}<a id='x4-13001r42'></a>
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 361 --><p class='noindent'>Due to the boundedness, self-adjointness and positive semi-definiteness of the partial differential operator \(A\)
+     as well as the boundedness of the constraint operator \(B\), the critical point of the functional \(L(v,p)\) is a saddle
+     point.</p></li></ul>
+<!-- l. 363 --><div class='crosslinks'><p class='noindent'>[<a href='hierbem-theoryse3.html'>next</a>] [<a href='hierbem-theoryse1.html'>prev</a>] [<a href='hierbem-theoryse1.html#tailhierbem-theoryse1.html'>prev-tail</a>] [<a href='hierbem-theoryse2.html'>front</a>] [<a href='hierbem-theory.html#hierbem-theoryse2.html'>up</a>] </p></div>
+<!-- l. 363 --><p class='indent'>   <a id='tailhierbem-theoryse2.html'></a>   </p> 
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

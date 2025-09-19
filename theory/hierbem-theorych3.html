@@ -1,0 +1,205 @@
+<!DOCTYPE html> 
+<html> 
+<head><title>3 Iterative solvers</title> 
+<meta charset='UTF-8' /> 
+<link href='https://jihuan-tian.github.io/hierbem-site/assets/css/make4ht.css' rel='stylesheet' type='text/css' /> 
+<script src='https://jihuan-tian.github.io/hierbem-site/assets/js/mathjax-config.js' type='text/javascript'></script> 
+<script src='https://jihuan-tian.github.io/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML' type='text/javascript'></script> 
+</head><body>
+   <!-- l. 369 --><div class='crosslinks'><p class='noindent'>[<a href='#tailhierbem-theorych3.html'>tail</a>] [<a href='hierbem-theorypa4.html#hierbem-theorych3.html'>up</a>] </p></div>
+   <h2 class='chapterHead'><span class='titlemark'>Chapter 3</span><br /><a id='x8-150003'></a>Iterative solvers</h2>
+   <h3 class='sectionHead'><span class='titlemark'>3.1    </span> <a id='x8-160003.1'></a>Notion of projection</h3>
+<!-- l. 373 --><p class='noindent'>There are two kinds of projection when we solve a linear problem, either finite dimensional or infinite
+dimensional, which are used for <span class='p1xb-x-x-109'>solution representation </span>and <span class='p1xb-x-x-109'>error measurement</span>. They are important in the
+Petrov-Galerkin method.
+</p><!-- l. 375 --><p class='indent'>   Projecting the solution vector or function to a <span class='p1xb-x-x-109'>trial space </span>(also called ansatz space) is a very important
+concept. In this way, we can search the solution in a smaller finite dimensional space than the original larger
+finite dimensional space (e.g. linear algebra, and in this case the trial space is actually an affine space rooted at
+the initial guess \(x_0\) of the solution) or even infinite dimensional space (e.g. PDE). Such a projection is
+actually a linear expansion or <span class='p1xb-x-x-109'>representation </span>of the solution vector, therefore a basis should be
+selected.
+</p><!-- l. 377 --><p class='indent'>   With an initial guess or intermediate approximant, there is an error or residual vector/function between the
+current solution and the true solution (still unknown). Then the error or residual vector should
+be projected to another also small finite dimensional space called <span class='p1xb-x-x-109'>test space</span>. The projected error
+will be constrained to zero. Such a projection can be considered as a <span class='p1xb-x-x-109'>measurement </span>of the error
+vector. A basis should be selected for the test space which plays the role of a set of rulers in different
+dimensions. When these rulers all register zeros (usually we only require them to be less than a threshold
+value \(\varepsilon \ll 1\)), we reckon that the error has been reduced to zero and treat the current solution as the best
+approximant to the true solution. Of course, if a different test space is adopted, the projected error vector
+may not satisfy the constraints anymore and the solver should continue until the convergence is
+achieved.
+</p><!-- l. 379 --><p class='indent'>   When the two projection spaces are the same, we obtain the familiar Galerkin method. When they are
+different, we have the more general Petrov-Galerkin method.
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3.2    </span> <a id='x8-170003.2'></a>Notion of functional minimization</h3>
+<!-- l. 382 --><p class='noindent'>Minimization of a functional can be considered as a reduction or simplification method for solving a linear
+system with many or infinite number of degree of freedoms (DoFs). The minimum point can be
+found by computing the critical point of the functional, which is achieved when the gradient of the
+functional is zero. In the complex valued case, the evaluation of the gradient requires Wirtinger
+derivatives, where the complex variable \(z\) and its complex conjugation \(\overline {z}\) are independent from each
+other.
+</p>
+                                                                                               
+                                                                                               
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.1    </span> <a id='x8-180003.2.1'></a>General idea</h4>
+<!-- l. 385 --><p class='noindent'>A linear operator equation \(Au=f\) (as a strong form problem) is equivalent to a variational equation \(\langle Au,v \rangle = \langle f,v \rangle \) (as a weak form
+problem) due to the boundedness of the operator \(A\). Furthermore, the variational equation is equivalent to the
+minimization of a functional \(\mathcal {L}(v)=\frac {1}{2}\langle Av,v \rangle - \langle f,v \rangle \), if the linear operator \(A\) is also self-adjoint (in the sense of normed space, which is
+also called self-dual, see Section <span class='p1xb-x-x-109'>??</span>) and elliptic. The variational equation is based on the notion of measurement
+by projection, while the functional minimization problem is based on the notion of minimizing energy, such as
+the <a href='http://www.scholarpedia.org/article/Principle_of_least_action'>principle of least action</a> in physics.
+</p><!-- l. 387 --><p class='indent'>   Even though the above theory is usually introduced in a book about PDE, such as (<a href='hierbem-theoryli1.html#XSteinbachNumerical2007'>Steinbach</a>), it is actually a
+general theory, which naturally holds for linear algebra where finite dimensional spaces are involved. For
+example, to solve the linear system \(Ax=b\), where \(A\in \mathbb {R}^{n\times n}\) is symmetric positive definite (SPD), \(x\in \mathbb {R}^n\) and \(b\in \mathbb {R}^n\), we can search the critical
+point \(x\) which minimizes a functional \(\varphi (x) = \frac {1}{2} ( Ax,x ) - ( b,x )\), where \(( \cdot ,\cdot )\) is the inner product in \(\mathbb {R}^{n}\). According to Section <span class='p1xb-x-x-109'>??</span>, the critical point of \(\varphi (x)\)
+must be a minimum point, if the operator \(A\) is positive semi-definite. Of course, if \(A\) is a SPD matrix in \(\mathbb {R}^{n\times n}\), this
+condition is satisfied.
+</p><!-- l. 389 --><p class='indent'>   If we use an iterative algorithm, such as the steepest descent method, we need to construct a sequence \(\{ x^{(k)} \}_{k\geq 1}\),
+which minimizes the functional \(\varphi (x)\) incrementally. In each iteration step, with the previous vector \(x^{(k-1)}\), we search the
+next vector \(x^{(k)}\) along the negative gradient direction \(-\nabla \varphi (x) \Big \vert _{x^{(k-1)}}\), the concept of which is the same as the Newton’s method in
+1D search. The step size in this search direction is an unknown factor \(\alpha ^{(k)}\), which can be obtained by solving the
+critical point of this functional \begin{equation}  \tilde {\varphi }(\alpha ^{(k)}) = \varphi \left (x^{(k)} + \alpha ^{(k)}r^{(k)} \right ),  \end{equation}<a id='x8-18001r1'></a> where \(r^{(k)}\) is the unit vector of \(-\nabla \varphi (x)\Big \vert _{x^{(k-1)}}\). Now, let’s see what on earth the gradient of the
+functional is.
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.2    </span> <a id='x8-190003.2.2'></a>Gradient of the functional \(\varphi (x)\) for \(Ax=b\) (real valued)</h4>
+   <div class='theorem'><div class='newtheorem'>
+<!-- l. 396 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Theorem 3</span> </span><a id='x8-19002'></a><span class='p1xi-x-x-109'>The gradient of </span>\(\varphi (x)\) <span class='p1xi-x-x-109'>is </span>\(Ax-b\)<span class='p1xi-x-x-109'>.</span>
+</p>
+   </div>
+<!-- l. 398 --><p class='indent'>   </p></div>
+   <div class='proof'><div class='newtheorem'>
+<!-- l. 400 --><p class='noindent'><span class='head'>
+<span class='p1xsc-x-x-109'>P<span class='small-caps'>roof</span></span> </span><a id='x8-19004'></a>\begin{equation}  \begin{aligned} \varphi (x) &amp;= \frac {1}{2} ( Ax,x ) - ( b,x ) = \frac {1}{2} x^{\mathrm {T}}Ax - x^{\mathrm {T}}b \\ &amp;= \frac {1}{2} \sum _{i=1}^n \sum _{j=1}^n a_{ij}x_ix_j - \sum _{i=1}^n b_ix_i. \end{aligned}  \end{equation}<a id='x8-19005r2'></a> We need to enforce the conditions \begin{equation}  \frac {\diff \varphi (x)}{\diff x_k} = 0 \quad k=1,\cdots ,n.  \end{equation}<a id='x8-19006r3'></a> For the first term \(\frac {1}{2} \sum _{i=1}^n \sum _{j=1}^n a_{ij}x_ix_j\) in \(\varphi (x)\), we consider the following cases about
+\(k\):
+</p><!-- l. 415 --><p class='indent'>
+     </p><dl class='enumerate-enumitem'><dt class='enumerate-enumitem'>
+   1. </dt><dd class='enumerate-enumitem'>When \(k\neq i\) and \(k\neq j\), \begin{equation}  \frac {\partial a_{ij}x_ix_j}{\partial x_{k}} = 0.  \end{equation}<a id='x8-19008r4'></a>
+     </dd><dt class='enumerate-enumitem'>
+   2. </dt><dd class='enumerate-enumitem'>When \(k=i\) and \(k\neq j\), \begin{equation}  \frac {\partial a_{ij}x_ix_j}{\partial x_{k}} = \frac {\partial a_{kj}x_kx_j}{\partial x_k} = a_{kj}x_j.  \end{equation}<a id='x8-19010r5'></a>
+     </dd><dt class='enumerate-enumitem'>
+   3. </dt><dd class='enumerate-enumitem'>When \(k\neq i\) and \(k=j\), \begin{equation}  \frac {\partial a_{ij}x_ix_j}{\partial x_{k}} = \frac {\partial a_{ik}x_ix_k}{\partial x_k} = a_{ik}x_i.  \end{equation}<a id='x8-19012r6'></a>
+                                                                                               
+                                                                                               
+     </dd><dt class='enumerate-enumitem'>
+   4. </dt><dd class='enumerate-enumitem'>When \(k=i=j\), \begin{equation}  \frac {\partial a_{ij}x_ix_j}{\partial x_{k}} = \frac {\partial a_{kk}x_k^2}{\partial x_k} = 2a_{kk}x_k.  \end{equation}<a id='x8-19014r7'></a></dd></dl>
+<!-- l. 435 --><p class='indent'>   Then the partial derivative of the first term with respect to \(x_k\) is \begin{equation}  \frac {1}{2} \sum _{\substack {j=1 \\ j\neq k}}^n a_{kj}x_j + \frac {1}{2} \sum _{\substack {i=1 \\ i\neq k}}^n a_{ik}x_i + a_{kk}x_k.  \end{equation}<a id='x8-19015r8'></a> Because \(A\) is SPD, \(a_{ik} = a_{ki}\), the first and second terms in
+the above expression can be merged, hence the above expression becomes \begin{equation}  \sum _{\substack {j=1 \\ j\neq k}}^n a_{kj}x_j + a_{kk}x_k = \sum _{j=1}^n a_{kj}x_j.  \end{equation}<a id='x8-19016r9'></a> This is just the \(k\)-th component of the
+vector \(Ax\).
+</p><!-- l. 446 --><p class='indent'>   The partial derivative of the second term in \(\varphi (x)\) with respect to \(x_k\) is simply \(-b_k\). Therefore, we have
+\(\nabla \varphi (x) = Ax-b\).
+</p>
+   </div>
+<!-- l. 447 --><p class='indent'>   </p></div>
+   <div class='newtheorem'>
+<!-- l. 449 --><p class='noindent'><span class='head'>
+<span class='p1xb-x-x-109'>Comment 1</span> </span><a id='x8-19018'></a><span class='p1xi-x-x-109'>The gradient of </span>\((Ax,x)\) <span class='p1xi-x-x-109'>with respect to </span>\(x\) <span class='p1xi-x-x-109'>is </span>\(2Ax\) <span class='p1xi-x-x-109'>and the gradient of </span>\((b,x)\) <span class='p1xi-x-x-109'>is </span>\(b\)<span class='p1xi-x-x-109'>. This is a generalization of the derivation
+</span><span class='p1xi-x-x-109'>rule for scalar values, i.e. </span>\(\frac {\diff (ax^2)}{\diff x} = 2ax\) <span class='p1xi-x-x-109'>and </span>\(\frac {\diff (bx)}{\diff x} = b\)<span class='p1xi-x-x-109'>.</span>
+</p>
+   </div>
+<!-- l. 451 --><p class='indent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.3    </span> <a id='x8-200003.2.3'></a>Wirtinger derivatives for complex functions</h4>
+<!-- l. 454 --><p class='noindent'>Before we examine the gradient of the functional \(\varphi (x)\) in the complex valued case, we need to clarify the derivatives
+of a function with respect to a complex variable \(x\) and its complex conjugate \(\overline {x}\), both of which will appear in the
+functional \(\varphi (x)\). The basic idea is that even though \(x\) is related to \(\overline {x}\) via complex conjugation, these two variables are
+actually independent. This determines how we compute the gradient of \(\varphi (x)\). The reason for \(x\) and \(\overline {x}\) are independent is
+given below.
+</p><!-- l. 456 --><p class='indent'>   Let \(f\) be a complex valued function dependent on a complex variable \(z\). If \(f\) is differentiable at \(z_0\), the variation of
+the function value at \(z_0 + \Delta z\) can be written as \begin{equation}  \Delta f(z_0) = f(z_0 + \Delta z) - f(z_0) = \frac {\partial f}{\partial x} \Delta x + \frac {\partial f}{\partial y} \Delta y + o(\Delta z),  \end{equation}<a id='x8-20001r10'></a> where \(o(\Delta z)/\lvert \Delta z \rvert \rightarrow 0\) when \(\Delta z \rightarrow 0\). We should bear in mind that a complex
+function is just a complex valued function defined on a 2D plane. Therefore, its variation around the
+point \(z_0\) can be represented as a combination of the variations in the \(x\) direction and \(y\) direction. If we
+define \(\Delta z = \Delta x + \rmi \Delta y\) and \(\Delta \overline {z} = \Delta x - \rmi \Delta y\), we can represent \((\Delta x, \Delta y)\) with \((\Delta z, \Delta \overline {z})\) as \begin{equation}  \Delta x = \frac {1}{2} (\Delta z + \Delta \overline {z}), \Delta y = \frac {1}{2\rmi } ( \Delta z - \Delta \overline {z} ).  \end{equation}<a id='x8-20002r11'></a> Then \begin{equation}  \Delta f(z_0) = \frac {1}{2} \left ( \frac {\partial f}{\partial x} - \rmi \frac {\partial f}{\partial y} \right ) \Delta z + \frac {1}{2} \left ( \frac {\partial f}{\partial x} + \rmi \frac {\partial f}{\partial y}\right ) \Delta \overline {z} + o(\Delta z)  \end{equation}<a id='x8-20003r12'></a> and divide it by \(\Delta z\), we have \begin{equation}  \begin{aligned} \frac {\mathrm {d} f}{\mathrm {d} z} \Big \vert _{z_0} &amp;= \lim _{\substack {\Delta z \rightarrow 0 \\ \Delta z \in \mathbb {C}}} \left [ \frac {1}{2} \left ( \frac {\partial f}{\partial x} - \rmi \frac {\partial f}{\partial y} \right ) + \frac {1}{2} \left (\frac {\partial f}{\partial x} + \rmi \frac {\partial f}{\partial y} \right ) \frac {\Delta \overline {z}}{\Delta z} + \frac {o(\Delta z)}{\Delta z} \right ]. \end{aligned}  \end{equation}<a id='x8-20004r13'></a> Because \(\frac {\Delta \overline {z}}{\Delta z}\) depends on the
+path of \(\Delta z\) approaching \(0\), it does not have a limiting value. To make \(\frac {\diff f}{\diff z}\) meaningful, we should enforce \(\frac {\partial f}{\partial x} + \rmi \frac {\partial f}{\partial y} = 0\),
+which is just equivalent to the Cauchy-Riemann equations. Therefore, with the differentiability of \(f\)
+with respect to real variables \(x\) and \(y\) as well as the Cauchy-Riemann equations, we have \begin{equation}  \frac {\diff f}{\diff z} \Big \vert _{z_0} = \frac {1}{2} \left ( \frac {\partial f}{\partial x} - \rmi \frac {\partial f}{\partial y} \right ).  \end{equation}<a id='x8-20005r14'></a> Similarly,
+the derivative of \(f\) with respect to \(\overline {z}\) can be written as \begin{equation}  \begin{aligned} \frac {\mathrm {d} f}{\mathrm {d} \overline {z}} \Big \vert _{z_0} &amp;= \lim _{\substack {\Delta z \rightarrow 0 \\ \Delta z \in \mathbb {C}}} \left [ \frac {1}{2} \left ( \frac {\partial f}{\partial x} - \rmi \frac {\partial f}{\partial y} \right ) \frac {\Delta z}{\Delta \overline {z}} + \frac {1}{2} \left (\frac {\partial f}{\partial x} + \rmi \frac {\partial f}{\partial y} \right ) + \frac {o(\Delta z)}{\Delta z} \right ]. \end{aligned}  \end{equation}<a id='x8-20006r15'></a> Enforcing \(\frac {\partial f}{\partial x} - \rmi \frac {\partial f}{\partial y} = 0\), which is the counterpart of the
+Cauchy-Riemann equations when \(f\) is a function of \(\overline {z}\) instead of \(z\), we have \begin{equation}  \frac {\diff f}{\diff \overline {z}} \Big \vert _{z_0} = \frac {1}{2} \left ( \frac {\partial f}{\partial x} + \rmi \frac {\partial f}{\partial y} \right ).  \end{equation}<a id='x8-20007r16'></a> The above \(\frac {\diff f}{\diff z}\) and \(\frac {\diff f}{\diff \overline {z}}\) are called Wirtinger
+derivatives.
+</p>
+   <div class='newtheorem'>
+<!-- l. 504 --><p class='noindent'><span class='head'>
+                                                                                               
+                                                                                               
+<span class='p1xb-x-x-109'>Comment 2</span> </span><a id='x8-20009'></a><span class='p1xi-x-x-109'>Because  a  complex  function  </span>\(f\)  <span class='p1xi-x-x-109'>can  be  considered  as  a  complex  valued  function  on  the  </span>\(xy\)  <span class='p1xi-x-x-109'>plane,  its
+</span><span class='p1xi-x-x-109'>variation in the neighborhood about a point </span>\(z_0\) <span class='p1xi-x-x-109'>can be decomposed into </span><span class='p1xbi-x-x-109'>real </span><span class='p1xi-x-x-109'>partial derivatives along two orthogonal
+</span><span class='p1xi-x-x-109'>directions </span>\(x\) <span class='p1xi-x-x-109'>and </span>\(y\)<span class='p1xi-x-x-109'>. On the other hand, the function variation can be represented with the </span><span class='p1xbi-x-x-109'>complex </span><span class='p1xi-x-x-109'>derivative with
+</span><span class='p1xi-x-x-109'>respect  to  </span>\(z\)<span class='p1xi-x-x-109'>,  which  is  along  the  direction  angle  </span>\(\mathrm {atan}(x,y)\)  <span class='p1xi-x-x-109'>or  with  respect  to  </span>\(\overline {z}\)<span class='p1xi-x-x-109'>,  which  is  along  the  direction  angle  </span>\(\mathrm {atan}(x,-y)\)<span class='p1xi-x-x-109'>.  These
+</span><span class='p1xi-x-x-109'>two directions are linearly independent. Therefore, even though the two variables </span>\(z\) <span class='p1xi-x-x-109'>and </span>\(\overline {z}\) <span class='p1xi-x-x-109'>are linked via complex
+</span><span class='p1xi-x-x-109'>conjugation, they are two independent variables.</span>
+</p>
+   </div>
+<!-- l. 506 --><p class='indent'>
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.4    </span> <a id='x8-210003.2.4'></a>Gradient of the functional \(\varphi (x)\) for \(Ax=b\) (complex valued)</h4>
+<!-- l. 509 --><p class='noindent'>When  the  matrix  \(A\)  and  vectors  \(x\)  and  \(b\)  are  complex  valued
+<span class='footnote-mark'><a href='#fn1x4' id='fn1x4-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x8-21001f1'></a>, the
+definition of the inner product in \(\mathbb {C}^n\) involves complex conjugation. For any \(x\) and \(y\) in \(\mathbb {C}^n\), the following conditions
+should be satisfied:
+     </p><dl class='enumerate-enumitem'><dt class='enumerate-enumitem'>
+   1. </dt><dd class='enumerate-enumitem'>\((x,y) = \overline {(y,x)}\);
+     </dd><dt class='enumerate-enumitem'>
+   2. </dt><dd class='enumerate-enumitem'>\(( \alpha x,y ) = \alpha (x,y)\);
+     </dd><dt class='enumerate-enumitem'>
+   3. </dt><dd class='enumerate-enumitem'>\((x,\alpha y) = \overline {\alpha } (x,y)\).</dd></dl>
+<!-- l. 515 --><p class='noindent'>Meanwhile, the SPD condition of \(A\) now becomes Hermite symmetric (\(A = A^{\mathrm {H}}\)) and positive definite.
+</p><!-- l. 517 --><p class='indent'>   In the complex valued case, the range of the functional \(\varphi (x)\) should still be \(\mathbb {R}\), since it is related to energy. Therefore,
+the term \(( b,x )\) in the original \(\varphi (x)\), which is not necessarily real valued, should be changed to \(\real ( b,x )\), while \(\frac {1}{2} ( Ax,x )\) must be real valued
+because \(A\) is SPD. Then the functional is (<a href='hierbem-theoryli1.html#XSauterBoundary2010'>Sauter and Schwab</a>, page 354) \begin{equation}  \begin{aligned} \varphi (x) &amp;= \frac {1}{2} ( Ax,x )-\real (b,x) = \frac {1}{2} x^{\mathrm {H}}Ax - \real (x^{\mathrm {H}}b) \\ &amp;= \frac {1}{2} \sum _{i=1}^n \sum _{j=1}^n a_{ij}\overline {x}_ix_j - \real \left ( \sum _{i=1}^n b_i \overline {x}_i \right ). \end{aligned}  \end{equation}<a id='x8-21006r17'></a> First, let’s see the gradient of \(\varphi (x)\)
+with respect to \(x\). Before proceeding, we notice that the second term above does not contain \(x\) at all.
+If we directly evaluate \(\nabla _x \varphi (x)\) using this expression, the result will not depend on \(b\), which is obviously
+incorrect. Therefore, the functional should be written as below, which is still the same as before \begin{equation}  \begin{aligned} \varphi (x) &amp;= \frac {1}{2} ( Ax,x )-\real (x,b) = \frac {1}{2} x^{\mathrm {H}}Ax - \real (b^{\mathrm {H}}x) \\ &amp;= \frac {1}{2} \sum _{i=1}^n \sum _{j=1}^n a_{ij}\overline {x}_ix_j - \real \left ( \sum _{i=1}^n \overline {b}_i x_i \right ). \end{aligned}  \end{equation}<a id='x8-21007r18'></a> The
+complex partial derivative of the first term in the above expression with respect to \(x_k\) is \begin{equation}  \frac {\partial }{\partial x_k} \left ( \frac {1}{2} \sum _{i=1}^n \sum _{j=1}^n a_{ij} \overline {x}_ix_j \right ) = \frac {1}{2} \sum _{i=1}^{n} a_{ik} \overline {x}_i.  \end{equation}<a id='x8-21008r19'></a> For the second
+term, only when \(i=k\), the term in the sum contributes to the complex partial derivative of \(\varphi (x)\). Let \(b_k = b_{k1} + \rmi b_{k2}\) and \(x_k = x_{k1} + \rmi x_{k2}\), \begin{equation}  \real (\overline {b}_k x_k) = \real (b_{k1}x_{k1} + b_{k2}x_{k2} + \rmi (b_{k1}x_{k2} - b_{k2}x_{k1})) = b_{k1}x_{k1} + b_{k2}x_{k2}.  \end{equation}<a id='x8-21009r20'></a>
+Using the Wirtinger derivative, the complex partial derivative of the second term with respect to \(x_k\) is \begin{equation}  \begin{aligned} \frac {\partial }{\partial x_k} \real (\overline {b}_kx_k) &amp;= \frac {\partial }{\partial x_k} (b_{k1}x_{k1} + b_{k2}x_{k2}) \\ &amp;= \frac {1}{2} \left ( \frac {\partial }{\partial x_{k1}} - \rmi \frac {\partial }{\partial x_{k2}} \right ) (b_{k1}x_{k1} + b_{k2}x_{k2}) \\ &amp;= \frac {1}{2} ( b_{k1} - \rmi b_{k2} ) = \frac {1}{2} \overline {b}_k. \end{aligned}  \end{equation}<a id='x8-21010r21'></a>
+Then the gradient \(\nabla _x \varphi (x)\) is \begin{equation}  \nabla _x\varphi (x) = \frac {1}{2} \overline {A^{\mathrm {H}}x} - \frac {1}{2} \overline {b}.  \end{equation}<a id='x8-21011r22'></a> When \(\nabla _x\varphi (x) = 0\), we have \begin{equation}  \overline {A^{\mathrm {H}}x} = \overline {b} \Leftrightarrow A^{\mathrm {H}}x = b.  \end{equation}<a id='x8-21012r23'></a> Because \(A\) is Hermite symmetric, this is further equivalent to
+\(Ax = b\).
+</p><!-- l. 564 --><p class='indent'>   Second, we check the gradient of \(\varphi (x)\) with respect to \(\overline {x}\). Using the same procedure, we still obtain \(Ax=b\), when
+\(\nabla _{\overline {x}}\varphi (x)=0\).
+</p>
+                                                                                               
+                                                                                               
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.5    </span> <a id='x8-220003.2.5'></a>Gradient of the residual norm in linear least square problems</h4>
+<!-- l. 567 --><p class='noindent'>For a linear system \(Ax=b\), where \(A\in \mathbb {R}^{m\times n}\) with \(m\geq n\), if \(x\) minimizes the 2-norm of the residual vector \(\lVert b - Ax \rVert _2\), it is called the linear least
+square solution. This is equivalent to solve the normal equation \(A^{\mathrm {T}}Ax=b\), or \(A^{\mathrm {H}}Ax=b\) in the complex valued case. Then we will
+show this equivalence.
+</p><!-- l. 569 --><p class='indent'>   First, we consider the real valued case. The 2-norm of the residual vector can also be considered as a
+functional \begin{equation}  \varphi (x) = \lVert b - Ax \rVert _2 = ( Ax-b,Ax-b ) = ( Ax,Ax ) + ( b,b ) - ( Ax,b ) - ( b,Ax ).  \end{equation}<a id='x8-22001r24'></a> The gradient of the first term in this functional is \begin{equation}  \nabla _x ( Ax,Ax ) = \nabla _x ( A^{\mathrm {T}}Ax,x ) = 2A^{\mathrm {T}}Ax.  \end{equation}<a id='x8-22002r25'></a>
+</p><!-- l. 578 --><p class='indent'>   The gradient of the third term in \(\varphi (x)\) is \begin{equation}  \nabla _x ( Ax,b ) = \nabla _x b^{\mathrm {T}}Ax = b^{\mathrm {T}}A.  \end{equation}<a id='x8-22003r26'></a> Write it as a column vector \begin{equation}  \nabla _x ( Ax,b ) = A^{\mathrm {T}}b.  \end{equation}<a id='x8-22004r27'></a>
+</p><!-- l. 587 --><p class='indent'>   The gradient of the fourth term in \(\varphi (x)\) is \begin{equation}  \nabla _x ( b,Ax ) = \nabla _x x^{\mathrm {T}}A^{\mathrm {T}}b = A^{\mathrm {T}}b.  \end{equation}<a id='x8-22005r28'></a>
+</p><!-- l. 592 --><p class='indent'>   Therefore, \begin{equation}  \nabla _x \varphi (x) = 2A^{\mathrm {T}}Ax - 2A^{\mathrm {T}}b.  \end{equation}<a id='x8-22006r29'></a> When it is 0, we have \(A^{\mathrm {T}}Ax = A^{\mathrm {T}}b\), which is the normal equation.
+</p><!-- l. 598 --><p class='indent'>   Second, we consider the complex valued case. The functional \(\varphi (x)\) still takes its original form, since \(( Ax,Ax )\) and \(( b,b )\) are real
+valued for sure, while \(( Ax,b ) + ( b,Ax )\) is also real valued.
+</p><!-- l. 600 --><p class='indent'>   For the gradient with respect to \(x\), we have \begin{equation}  \nabla _x ( Ax,Ax ) = \nabla _x x^{\mathrm {H}}A^{\mathrm {H}}Ax = x^{\mathrm {H}}A^{\mathrm {H}}A,  \end{equation}<a id='x8-22007r30'></a> \begin{equation}  \nabla _x ( Ax,b ) = b^{\mathrm {H}}A  \end{equation}<a id='x8-22008r31'></a> and \begin{equation}  \nabla _x ( b,Ax ) = 0.  \end{equation}<a id='x8-22009r32'></a> Hence \begin{equation}  \nabla _x \varphi (x) = x^{\mathrm {H}}A^{\mathrm {H}}A - b^{\mathrm {H}}A.  \end{equation}<a id='x8-22010r33'></a> When the gradient with respect to \(x\) is 0, we obtain the
+normal equation \begin{equation}  x^{\mathrm {H}}A^{\mathrm {H}}A - b^{\mathrm {H}}A = 0 \Leftrightarrow A^{\mathrm {H}}Ax = A^{\mathrm {H}}b.  \end{equation}<a id='x8-22011r34'></a>
+</p><!-- l. 620 --><p class='indent'>   For the gradient with respect to \(\overline {x}\), we have \begin{equation}  \nabla _{\overline {x}} ( Ax,Ax ) = \nabla _{\overline {x}} x^{\mathrm {H}}A^{\mathrm {H}}Ax = A^{\mathrm {H}}Ax,  \end{equation}<a id='x8-22012r35'></a> \begin{equation}  \nabla _{\overline {x}} (Ax,b ) = 0  \end{equation}<a id='x8-22013r36'></a> and \begin{equation}  \nabla _{\overline {x}} ( b,Ax ) = \nabla _{\overline {x}} x^{\mathrm {H}}A^{\mathrm {H}}b = A^{\mathrm {H}}b.  \end{equation}<a id='x8-22014r37'></a> Hence \begin{equation}  \nabla _{\overline {x}} \varphi (x) = A^{\mathrm {H}}Ax - A^{\mathrm {H}}b.  \end{equation}<a id='x8-22015r38'></a> When this gradient is 0, we also obtain the normal
+equation \(A^{\mathrm {H}}Ax = A^{\mathrm {H}}b\).
+</p>
+   <h4 class='subsectionHead'><span class='titlemark'>3.2.6    </span> <a id='x8-230003.2.6'></a>Summary</h4>
+     <ul class='itemize1'>
+     <li class='itemize'>
+     <!-- l. 639 --><p class='noindent'>The solution of a linear system \(Ax=b\) is equivalent to finding the minimum point of a functional, if the
+     linear operator \(A\) satisfies some properties. When \(A\) is a partial differential operator, there are infinite
+     number of DoFs to be solved. When \(A\) is a large matrix, as in FEM or BEM which is usually the
+     discrete version of a corresponding partial differential operator, there are still a large number of
+     unknowns to be solved. If the said functional is found, the solution of <span class='p1xb-x-x-109'>many </span>unknowns is converted
+     to the minimization of a <span class='p1xb-x-x-109'>single </span>objective function, which can be reckoned as a kind of simplification
+     or reduction.
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 640 --><p class='noindent'>The critical point of the functional \(\varphi (x) = \frac {1}{2}( Ax,x ) - ( b,x )\) in the real valued case, or the critical point of the functional \(\varphi (x) = \frac {1}{2} (Ax,x) - \real ( b,x )\) in
+     the complex valued case, is the solution of \(Ax=b\).
+     </p></li>
+     <li class='itemize'>
+     <!-- l. 641 --><p class='noindent'>The critical point of the residual norm \(\lVert b - Ax \rVert _2\) in both real and complex valued cases is the solution of the
+     normal equation \(A^{\mathrm {T}}Ax = A^{\mathrm {T}}b\) in the real valued case or \(A^{\mathrm {H}}Ax = A^{\mathrm {H}}b\) in the complex valued case, which is also the linear
+     least square solution of \(Ax=b\).</p></li></ul>
+<div class='footnotes'><a id='x8-21002x3.2.4'></a>
+<!-- l. 509 --><p class='indent'>   <span class='footnote-mark'><a href='#fn1x4-bk' id='fn1x4'><sup class='textsuperscript'>1</sup></a></span><span class='p1xr-x-x-90'>Complex valued problems will be met, when we solve harmonic acoutics or electromagnetic equations, i.e Helmholtz
+</span><span class='p1xr-x-x-90'>equations.</span></p>                                                                                        </div> <!-- l. 643 --><div class='crosslinks'><p class='noindent'>[<a href='hierbem-theorych3.html'>front</a>]
+[<a href='hierbem-theorypa4.html#hierbem-theorych3.html'>up</a>] </p></div>
+                                                                                               
+                                                                                               
+<!-- l. 643 --><p class='indent'>   <a id='tailhierbem-theorych3.html'></a>   </p> 
+</body> 
+</html>
