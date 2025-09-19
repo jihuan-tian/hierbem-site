@@ -2,10 +2,46 @@
 <html> 
 <head><title>1 Adjoint operators in functional analysis</title> 
 <meta charset='UTF-8' /> 
-<link href='https://jihuan-tian.github.io/hierbem-site/assets/css/make4ht.css' rel='stylesheet' type='text/css' /> 
-<script src='https://jihuan-tian.github.io/hierbem-site/assets/js/mathjax-config.js' type='text/javascript'></script> 
+<link href='hierbem-theory.css' rel='stylesheet' type='text/css' /> 
+ <script type='text/x-mathjax-config'> MathJax.Hub.Config({ jax: ["input/TeX", "output/SVG"], extensions: ["tex2jax.js", "color.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"], tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], skipTags: ["script","noscript","style","textarea","pre","code"], processEscapes: true, processEnvironments: true, preview: "TeX" }, "HTML-CSS": { scale: 1, availableFonts: ["STIX","TeX"], preferredFont: "TeX", webFont: "TeX", imageFont: "TeX", showMathMenu: true }, MMLorHTML: { prefer: { MSIE: "MML", Firefox: "MML", Opera: "HTML", other: "HTML" } } }); </script>  
 <script src='https://jihuan-tian.github.io/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML' type='text/javascript'></script> 
 </head><body>
+   \( \newcommand{\intd}{\,{\rm d}}
+\newcommand{\diff}{{\rm d}}
+\newcommand{\Diff}{{\rm D}}
+\newcommand{\pdiff}{\partial}
+\newcommand{\DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
+\newcommand{\Dd}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
+\newcommand{\Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
+\newcommand{\rme}{{\rm e}}
+\newcommand{\rmi}{{\rm i}}
+\newcommand{\rmj}{{\rm j}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\normvect}{\vect{n}}
+\newcommand{\dform}[1]{\overset{\rightharpoonup}{\boldsymbol{#1}}}
+\newcommand{\cochain}[1]{\overset{\rightharpoonup}{#1}}
+\newcommand{\bigabs}[1]{\bigg\lvert#1\bigg\rvert}
+\newcommand{\Abs}[1]{\big\lvert#1\big\rvert}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\bignorm}[1]{\bigg\lVert#1\bigg\rVert}
+\newcommand{\Norm}[1]{\big\lVert#1\big\rVert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ouset}[3]{\overset{#3}{\underset{#2}{#1}}}
+\newcommand{\cscript}[1]{\;\; #1}
+\newcommand{\suchthat}{\textit{S.T.\;}}
+\newcommand{\prefstar}{\noindent$\ast$ }      
+\newcommand{\restrict}{\big\vert}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\Bd}{Bd}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\divergence}{div}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\tr}{tr} \)
    <!-- l. 25 --><div class='crosslinks'><p class='noindent'>[<a href='#tailhierbem-theorych1.html'>tail</a>] [<a href='hierbem-theorypa1.html#hierbem-theorych1.html'>up</a>] </p></div>
    <h2 class='chapterHead'><span class='titlemark'>Chapter 1</span><br /><a id='x3-20001'></a>Adjoint operators in functional analysis</h2>
    <h3 class='sectionHead'><span class='titlemark'>1.1    </span> <a id='x3-30001.1'></a>Basic definitions of adjoint operators</h3>
