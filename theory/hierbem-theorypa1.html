@@ -6,42 +6,60 @@
  <script type='text/x-mathjax-config'> MathJax.Hub.Config({ jax: ["input/TeX", "output/SVG"], extensions: ["tex2jax.js", "color.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"], tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], skipTags: ["script","noscript","style","textarea","pre","code"], processEscapes: true, processEnvironments: true, preview: "TeX" }, "HTML-CSS": { scale: 1, availableFonts: ["STIX","TeX"], preferredFont: "TeX", webFont: "TeX", imageFont: "TeX", showMathMenu: true }, MMLorHTML: { prefer: { MSIE: "MML", Firefox: "MML", Opera: "HTML", other: "HTML" } } }); </script>  
 <script src='https://jihuan-tian.github.io/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML' type='text/javascript'></script> 
 </head><body>
-   \( \newcommand{\intd}{\,{\rm d}}
-\newcommand{\diff}{{\rm d}}
-\newcommand{\Diff}{{\rm D}}
-\newcommand{\pdiff}{\partial}
+   \( % Math symbol commands
+\newcommand{\intd}{\,\mathrm{d}}   % Symbol 'd' used in integration, such as 'dx'
+\newcommand{\diff}{\mathrm{d}}     % Symbol 'd' used in differentiation
+\newcommand{\Diff}{\mathrm{D}}     % Symbol 'D' used in differentiation
+\newcommand{\pdiff}{\partial}   % Partial derivative
 \newcommand{\DD}[2]{\frac{\diff}{\diff #2}\left( #1 \right)}
 \newcommand{\Dd}[2]{\frac{\diff #1}{\diff #2}}
 \newcommand{\PD}[2]{\frac{\pdiff}{\pdiff #2}\left( #1 \right)}
 \newcommand{\Pd}[2]{\frac{\pdiff #1}{\pdiff #2}}
-\newcommand{\rme}{{\rm e}}
-\newcommand{\rmi}{{\rm i}}
-\newcommand{\rmj}{{\rm j}}
-\newcommand{\vect}[1]{\boldsymbol{#1}}
-\newcommand{\normvect}{\vect{n}}
-\newcommand{\dform}[1]{\overset{\rightharpoonup}{\boldsymbol{#1}}}
-\newcommand{\cochain}[1]{\overset{\rightharpoonup}{#1}}
-\newcommand{\bigabs}[1]{\bigg\lvert#1\bigg\rvert}
-\newcommand{\Abs}[1]{\big\lvert#1\big\rvert}
-\newcommand{\abs}[1]{\lvert#1\rvert}
-\newcommand{\bignorm}[1]{\bigg\lVert#1\bigg\rVert}
-\newcommand{\Norm}[1]{\big\lVert#1\big\rVert}
-\newcommand{\norm}[1]{\lVert#1\rVert}
-\newcommand{\ouset}[3]{\overset{#3}{\underset{#2}{#1}}}
+\newcommand{\rme}{\mathrm{e}}      % Exponential e
+\newcommand{\rmi}{\mathrm{i}}      % Imaginary unit i
+\newcommand{\rmj}{\mathrm{j}}      % Imaginary unit j
+\newcommand{\vect}[1]{\boldsymbol{#1}}       % Vector typeset in bold and italic
+\newcommand{\normvect}{\vect{n}} % Normal vector: n
+\newcommand{\dform}[1]{\overset{\rightharpoonup}{\boldsymbol{#1}}}       % Vector for differential form
+\newcommand{\cochain}[1]{\overset{\rightharpoonup}{#1}}       % Vector for cochain
+\newcommand{\Abs}[1]{\big\lvert#1\big\rvert} % Absolute value (single big vertical bar)
+\newcommand{\abs}[1]{\lvert#1\rvert} % Absolute value (single vertical bar)
+\newcommand{\Norm}[1]{\big\lVert#1\big\rVert} % Norm (double big vertical bar)
+\newcommand{\norm}[1]{\lVert#1\rVert} % Norm (double vertical bar)
+\newcommand{\ouset}[3]{\overset{#3}{\underset{#2}{#1}}} % over and under set
+% Super/subscript for column index of a matrix, which is used in tensor analysis.
 \newcommand{\cscript}[1]{\;\; #1}
-\newcommand{\suchthat}{\textit{S.T.\;}}
+\newcommand{\suchthat}{\textit{S.T.\;}} % S.T., such that
+% Star symbol used as prefix in front of a paragraph with no indent
 \newcommand{\prefstar}{\noindent$\ast$ }      
+% Big vertical line restricting the function.
+% Example: $u(x)\restrict_{\Omega_0}$
 \newcommand{\restrict}{\big\vert}
 
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\erf}{erf}
-\DeclareMathOperator{\Bd}{Bd}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\divergence}{div}
-\DeclareMathOperator{\curl}{curl}
-\DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\tr}{tr} \)
+% Math operators which are typeset in Roman font
+\DeclareMathOperator{\sgn}{sgn} % Sign function
+\DeclareMathOperator{\erf}{erf} % Error function
+\DeclareMathOperator{\Bd}{Bd}   % Boundary of a set or domain, used in topology
+\DeclareMathOperator{\Int}{Int} % Interior of a set or domain, used in topology
+\DeclareMathOperator{\rank}{rank} % Rank of a matrix
+\DeclareMathOperator{\divergence}{div} % Divergence
+\DeclareMathOperator{\curl}{curl} % Curl
+\DeclareMathOperator{\grad}{grad} % Gradient
+\DeclareMathOperator{\diag}{diag} % Diagonal
+\DeclareMathOperator{\tr}{tr} % Trace
+\DeclareMathOperator{\lhs}{LHS} % Left hand side
+\DeclareMathOperator{\rhs}{RHS} % Right hand side
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\esssup}{ess\,sup}
+\DeclareMathOperator{\essinf}{ess\,inf}
+\DeclareMathOperator{\kernel}{ker} % The kernel set of a map
+\DeclareMathOperator{\image}{Im}  % The image set of a map
+\DeclareMathOperator{\diam}{diam} % Diameter of a domain or a set
+\DeclareMathOperator{\dist}{dist} % Distance between two sets
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\adj}{adj}
+ \)
    <!-- l. 23 --><div class='crosslinks'><p class='noindent'>[<a href='hierbem-theorypa2.html'>next</a>] [<a href='#tailhierbem-theorypa1.html'>tail</a>] [<a href='hierbem-theory.html#hierbem-theorypa1.html'>up</a>] </p></div>
    <h1 class='partHead'><span class='titlemark'>Part I<br /></span><a id='x2-1000I'></a>Functional analysis</h1>
                                                                                                
