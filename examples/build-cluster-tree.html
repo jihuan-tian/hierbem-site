@@ -1,0 +1,527 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="HierBEM Library">
+<meta property="og:url" content="https://jihuan-tian.github.io/hierbem-site/examples/build-cluster-tree.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://jihuan-tian.github.io/hierbem-site/examples/build-cluster-tree.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/hierbem-site/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/hierbem-site/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/hierbem-site/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/hierbem-site/"><img src="/hierbem-site/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/hierbem-site/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><a id="org9b1d5b7"></a></p>
+
+<h1 id="preliminary-knowledge">Preliminary knowledge</h1>
+
+<p><a id="org0551dd8"></a></p>
+
+<h2 id="boundary-integral-operator">Boundary integral operator</h2>
+
+<p>In a boundary integral equation (BIE), a boundary integral operator \(A: X \rightarrow Y\) transforms an input function \(u\in X\) to an output function \(v=Au \in Y\) on the boundary \(\Gamma\). Usually, a kernel function \(\kappa(x,y)\) is associated with \(A\), which defines its transformation behavior as</p>
+
+\[\begin{equation}
+  v(x) = (Au(y))(x) = \int_{\Gamma} \kappa(x,y) u(y) \intd s_y.
+\end{equation}\]
+
+<p>As a convention, we use \(y\) as the source point and \(x\) as the target point. This integral can be understood like this:</p>
+
+<ul>
+  <li>\(u(y)\) is the distribution of source or excitation on the boundary \(\Gamma\);</li>
+  <li>the kernel function \(\kappa(x,y)\) is the potential generated by a unit Dirac source at \(y\), i.e. \(\delta(x-y)\);</li>
+  <li>the integral is a convolution of the system’s unit impulse response \(\kappa(x,y)\) and the source \(u(y)\);</li>
+  <li>the output function \(v(x)\) is the potential on \(\Gamma\) produced by the source \(u(y)\).</li>
+</ul>
+
+<p>Taking the Laplace equation with Dirichlet boundary conditions as an example, the BIE obtained from the direct method is</p>
+
+\[\begin{equation}
+  V \gamma_1^{\mathrm{int}} u = (\sigma I + K)g \quad x\in\Gamma
+\end{equation}\]
+
+<p>where</p>
+
+<ul>
+  <li>\(u\in H^{1/2}(\Gamma)\) is the potential on the boundary \(\Gamma\),</li>
+  <li>\(V: H^{-1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\) is the single layer potential operator,</li>
+  <li>\(\gamma_1^{\mathrm{int}} u\in H^{-1/2}(\Gamma)\) is the interior Neumann trace of \(u\),</li>
+  <li>\(I: H^{1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\) is the identity operator,</li>
+  <li>\(K: H^{1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\) is the double layer potential operator, and</li>
+  <li>\(g\in H^{1/2}(\Gamma)\) is the prescribed Dirichlet boundary data.</li>
+</ul>
+
+<p>Thus, there are two boundary integral operators in this equation: \(V\) and \(K\).</p>
+
+<p><a id="orgdfb7d44"></a></p>
+
+<h2 id="variational-formulation-and-bilinear-forms">Variational formulation and bilinear forms</h2>
+
+<p>In the Galerkin boundary element method (BEM), both sides of the BIE are projected onto the dual space \(Y'\) of the range space \(Y\). This yields the variational formulation of the BIE, which contains bilinear forms like this:</p>
+
+\[\begin{equation}
+  b_A(u,w) = \langle Au, w \rangle = \langle v,w \rangle, w\in Y',
+\end{equation}\]
+
+<p>where \(b_A: X \times Y \rightarrow \mathbb{C}\).</p>
+
+<p>The projection to \(Y'\) can be understood as measuring output functions of boundary integral operators. For the Laplace Dirichlet problem, its variational formulation is</p>
+
+\[\begin{equation}
+  \langle Vt, \psi \rangle_{\Gamma} = \langle (\sigma I + K)g, \psi \rangle_{\Gamma} \quad \forall \psi\in H^{-1/2}(\Gamma),
+\end{equation}\]
+
+<p>where \(t= \gamma_1^{\mathrm{int}} u\), \(\psi\) is the test function in the dual space. The two bilinear forms are \(b_V\) and \(b_{\sigma I + K}\). \(b_{\sigma I + K}\) can be further decomposed as \(\sigma b_I\) and \(b_K\).</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    b_V(t,\psi) &amp;= \int_{\Gamma} \psi(x) \int_{\Gamma} U^{\ast}(x,y) t(y) \intd s_y \intd
+    s_x \\
+    b_K(g, \psi) &amp;= \int_{\Gamma} \psi(x) \int_{\Gamma} K(x,y) g(y) \intd s_y \intd s_x \\
+    b_I(g, \psi) &amp;= \int_{\Gamma} g(x) \psi(x) \intd s_x
+  \end{aligned}.
+\end{equation}\]
+
+<p>Both \(b_V\) and \(b_K\) are related to boundary integral operators, hence they are double integrals. \(b_I\) is related to the identity operator, which is only a single integral. \(U^{\ast}(x,y)\) is the fundamental solution of the Laplace equation and \(K(x,y)\) is the interior Neumann trace of \(U^{\ast}(x,y)\) with respect to the variable \(y\).</p>
+
+<p><a id="org14ca390"></a></p>
+
+<h2 id="discretization-of-bilinear-forms">Discretization of bilinear forms</h2>
+
+<p>The function space \(X\) of \(u\) in the bilinear form \(b_A(u,w)\) is called the trial or ansatz space, while the function space \(Y'\) of \(w\) is called the test space. After we choose bases for \(X\) and \(Y'\), the bilinear form \(b_A\) can be discretized into a matrix \(\mathcal{A}\).</p>
+
+<ul>
+  <li>The columns of \(\mathcal{A}\) correspond to degrees of freedom (DoFs) in a finite dimensional approximation \(X_h\) of the trial space \(X\).</li>
+  <li>The rows of \(\mathcal{A}\) correspond to DoFs in a finite dimensional approximation \(Y_h'\) of the test space \(Y'\).</li>
+</ul>
+
+<p>Each entry of \(\mathcal{A}\) represents the interaction between a pair of DoFs in \(X_h\) and \(Y_h'\) respectively.</p>
+
+<p>Because the kernel of the boundary integral operator is long-range (non-compactly supported), \(\mathcal{A}\) is a dense matrix. However, if the kernel is asymptotically smooth, when a cluster of adjacent DoFs in the test space, whose DoF index set is \(\tau\), are well separated from a cluster of adjacent DoFs in the trial space, whose DoF index set is \(\sigma\), their interaction is small and the corresponding submatrix \(\mathcal{A}\big\vert_{\tau\times\sigma}\) has a small rank. Hence, even though \(\mathcal{A}\) has a full matrix pattern, its effective information or data is sparse. HierBEM adopts the \(\mathcal{H}\)-matrix technique to exploit this <strong>data-sparsity</strong>, which reduces storage and computation complexity from quadratic to <strong>log-linear</strong>.</p>
+
+<p><a id="org246624b"></a></p>
+
+<h2 id="cluster-trees">Cluster trees</h2>
+
+<p>To build an \(\mathcal{H}\)-matrix, the two sets of DoFs in the trial and test spaces should be respectively organized into binary cluster trees. Each node in such a cluster tree is a subset/cluster of DoF indices. The root node of a cluster tree contains the indices of all DoFs in the finite element adopted for the function space. This root node will then be recursively partitioned based on the locations of DoF basis functions. If the finite element has support points, such as Lagrange finite elements <code class="language-plaintext highlighter-rouge">FE_Q</code> and <code class="language-plaintext highlighter-rouge">FE_DGQ</code> in deal.II, we directly use support points as basis function locations.</p>
+
+<p>Once the two cluster trees for the trial and test spaces are built, a block cluster tree is constructed by taking the tensor product of nodes on a same level in the two cluster trees. This block cluster tree defines a hierarchical block structure, according to which the \(\mathcal{H}\)-matrix representation of \(\mathcal{A}\) will be built.</p>
+
+<p>In this example, we’ll demonstrate how to construct a cluster tree in HierBEM. The construction of a block cluster tree and an \(\mathcal{H}\)-matrix will be described in subsequent examples.</p>
+
+<p><a id="org1905f51"></a></p>
+
+<h1 id="build-a-cluster-tree-for-dofs-on-a-sphere">Build a cluster tree for DoFs on a sphere</h1>
+
+<p>At first, we include necessary header files and use namespaces <code class="language-plaintext highlighter-rouge">HierBEM</code> and <code class="language-plaintext highlighter-rouge">dealii</code>.</p>
+
+<pre><code class="language-C++">#include &lt;deal.II/base/point.h&gt;
+#include &lt;deal.II/base/types.h&gt;
+
+#include &lt;deal.II/dofs/dof_handler.h&gt;
+#include &lt;deal.II/dofs/dof_tools.h&gt;
+
+#include &lt;deal.II/fe/fe_q.h&gt;
+#include &lt;deal.II/fe/mapping_q.h&gt;
+
+#include &lt;deal.II/grid/grid_generator.h&gt;
+#include &lt;deal.II/grid/grid_in.h&gt;
+#include &lt;deal.II/grid/grid_out.h&gt;
+
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+#include "cluster_tree/cluster_tree.h"
+
+using namespace HierBEM;
+using namespace dealii;
+</code></pre>
+
+<p>Next we enter the <code class="language-plaintext highlighter-rouge">main</code> function. At the beginning, we create a triangulation for a unit sphere centered at the origin, which is a 2D manifold embedded in 3D space. The triangulation is refined globally for 2 times.</p>
+
+<pre><code class="language-C++">const unsigned int           dim      = 2;
+const unsigned int           spacedim = 3;
+const Point&lt;spacedim&gt; center(0, 0, 0);
+const double          radius(1);
+const unsigned int refinement = 2;
+
+Triangulation&lt;dim, spacedim&gt; tria;
+GridGenerator::hyper_sphere(tria, center, radius);
+tria.refine_global(refinement);
+</code></pre>
+
+<p>We save the mesh to an MSH file, which can be visualized in Gmsh.</p>
+
+<pre><code class="language-C++">GridOut       grid_out;
+std::ofstream mesh_file("sphere.msh");
+grid_out.write_msh(tria, mesh_file);
+</code></pre>
+
+<p><img src="figures/2025-10-10_22-29-22-sphere-triangulation-in-gmsh.png" alt="img" title="Triangulation for a unit sphere in Gmsh." /></p>
+
+<p>Create a first order Lagrange finite element and a corresponding DoF handler.</p>
+
+<pre><code class="language-C++">const unsigned int        fe_order = 1;
+FE_Q&lt;dim, spacedim&gt;       fe(fe_order);
+DoFHandler&lt;dim, spacedim&gt; dof_handler(tria);
+dof_handler.distribute_dofs(fe);
+</code></pre>
+
+<p>To get the coordinates of all support points in the DoF handler, we need a mapping object of the type <code class="language-plaintext highlighter-rouge">MappingQ</code>. The mapping object is used for transforming support points in the unit quad cell \([0,1] \times [0,1]\) to all real cells in the triangulation. We choose second order mapping to approximate the curved surface of the sphere. The coordinate transformation is performed in the function <code class="language-plaintext highlighter-rouge">DoFTools::map_dofs_to_support_points</code>.</p>
+
+<pre><code class="language-C++">const unsigned int       mapping_order = 2;
+const MappingQ&lt;dim, spacedim&gt; mapping(mapping_order);
+std::vector&lt;Point&lt;spacedim&gt;&gt;  support_points(dof_handler.n_dofs());
+DoFTools::map_dofs_to_support_points(mapping, dof_handler, support_points);
+</code></pre>
+
+<p>Generate a list of DoF indices starting from zero.</p>
+
+<pre><code class="language-C++">std::vector&lt;types::global_dof_index&gt; dof_indices(dof_handler.n_dofs());
+for (types::global_dof_index d = 0; d &lt; dof_indices.size(); d++)
+  dof_indices[d] = d;
+</code></pre>
+
+<p>With the support point coordinates and corresponding DoF indices, we can now create a cluster tree.</p>
+
+<pre><code class="language-C++">const unsigned int n_min = 4;
+ClusterTree&lt;dim&gt;   cluster_tree(dof_indices, support_points, n_min);
+</code></pre>
+
+<p>Within the constructor of <code class="language-plaintext highlighter-rouge">ClusterTree</code>, only a root cluster is created. The provided list of support points in <code class="language-plaintext highlighter-rouge">support_points</code> is used to build a bounding box enclosing all DoF support points. Each cluster in a cluster tree has a bounding box, the edges of which are parallel with the coordinate frame’s axes.</p>
+
+<p>Then we call the member function <code class="language-plaintext highlighter-rouge">ClusterTree::partition</code> and the root node will be recursively partitioned and the cluster tree is gradually built up.</p>
+
+<pre><code class="language-C++">cluster_tree.partition(support_points);
+</code></pre>
+
+<p>The recursive partition stops when the cardinality of the current cluster, i.e. number of DoFs in it, is smaller than <code class="language-plaintext highlighter-rouge">n_min</code>. Then the current cluster becomes a leaf node of the cluster tree.</p>
+
+<p>After the cluster tree is built, the DoF indices in each cluster generally do not form a continuous index range. Therefore, the function <code class="language-plaintext highlighter-rouge">ClusterTree::partition</code> will then traverse the leaf nodes of the cluster tree by following a <strong>depth-first search</strong> and reassign each DoF in a cluster with a new index so that each cluster in the cluster tree holds a continuous DoF index range. In HierBEM, the original DoF indices are called <strong>external numbering</strong>, while the new DoF indices are called <strong>internal numbering</strong>. This reordering of DoF indices are mandatory if iterative linear solvers like conjugate gradient (CG), generalized minimal residual (GMRES) etc. are adopted to solve the system matrix.</p>
+
+<p>The above concept is illustrated in the following figures.</p>
+
+<p><img src="figures/2025-10-08-partition-of-cluster-tree-0.png" alt="img" title="Hierarchical partition of DoF support points." /></p>
+
+<p><img src="figures/2025-10-08-partition-of-cluster-tree-1.png" alt="img" title="Initial cluster tree with index sets in the external DoF numbering." /></p>
+
+<p><img src="figures/2025-10-08-partition-of-cluster-tree-2.png" alt="img" title="DoF renumbering via depth-first traversal of leaf nodes in the cluster tree." /></p>
+
+<p><img src="figures/2025-10-08-partition-of-cluster-tree-3.png" alt="img" title="Final cluster tree with index ranges in the internal DoF numbering." /></p>
+
+<p>Finally, we export the cluster tree as a directed graph, which can be visualized with PlantUML.</p>
+
+<pre><code class="language-C++">std::ofstream graph("cluster-tree.puml");
+cluster_tree.print_tree_info_as_dot(graph);
+graph.close();
+</code></pre>
+
+<p>On the command line, execute <code class="language-plaintext highlighter-rouge">plantuml</code> to generate a PNG figure of the directed graph.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plantuml cluster-tree.puml
+</code></pre></div></div>
+
+<p><img src="figures/2025-10-10-cluster-tree.png" alt="img" title="Cluster tree for the DoFs of `FE_Q(1)` distributed on a unit sphere." /></p>
+
+<p>For more details, please check the source code of this example in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/build-cluster-tree/build-cluster-tree.cc">$$hierbem/examples/build-cluster-tree/build-cluster-tree.cc</a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/hierbem-site/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/hierbem-site/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
