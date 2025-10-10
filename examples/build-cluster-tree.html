@@ -346,85 +346,85 @@
 
 <p>At first, we include necessary header files and use namespaces <code class="language-plaintext highlighter-rouge">HierBEM</code> and <code class="language-plaintext highlighter-rouge">dealii</code>.</p>
 
-<pre><code class="language-C++">#include &lt;deal.II/base/point.h&gt;
-#include &lt;deal.II/base/types.h&gt;
-
-#include &lt;deal.II/dofs/dof_handler.h&gt;
-#include &lt;deal.II/dofs/dof_tools.h&gt;
-
-#include &lt;deal.II/fe/fe_q.h&gt;
-#include &lt;deal.II/fe/mapping_q.h&gt;
-
-#include &lt;deal.II/grid/grid_generator.h&gt;
-#include &lt;deal.II/grid/grid_in.h&gt;
-#include &lt;deal.II/grid/grid_out.h&gt;
-
-#include &lt;fstream&gt;
-#include &lt;iostream&gt;
-
-#include "cluster_tree/cluster_tree.h"
-
-using namespace HierBEM;
-using namespace dealii;
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;deal.II/base/point.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/base/types.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;deal.II/dofs/dof_handler.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/dofs/dof_tools.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;deal.II/fe/fe_q.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/fe/mapping_q.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;deal.II/grid/grid_generator.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/grid/grid_in.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/grid/grid_out.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">"cluster_tree/cluster_tree.h"</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">HierBEM</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">dealii</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>Next we enter the <code class="language-plaintext highlighter-rouge">main</code> function. At the beginning, we create a triangulation for a unit sphere centered at the origin, which is a 2D manifold embedded in 3D space. The triangulation is refined globally for 2 times.</p>
 
-<pre><code class="language-C++">const unsigned int           dim      = 2;
-const unsigned int           spacedim = 3;
-const Point&lt;spacedim&gt; center(0, 0, 0);
-const double          radius(1);
-const unsigned int refinement = 2;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>           <span class="n">dim</span>      <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>           <span class="n">spacedim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">double</span>          <span class="nf">radius</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">refinement</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-Triangulation&lt;dim, spacedim&gt; tria;
-GridGenerator::hyper_sphere(tria, center, radius);
-tria.refine_global(refinement);
-</code></pre>
+<span class="n">Triangulation</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">tria</span><span class="p">;</span>
+<span class="n">GridGenerator</span><span class="o">::</span><span class="n">hyper_sphere</span><span class="p">(</span><span class="n">tria</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+<span class="n">tria</span><span class="p">.</span><span class="n">refine_global</span><span class="p">(</span><span class="n">refinement</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>We save the mesh to an MSH file, which can be visualized in Gmsh.</p>
 
-<pre><code class="language-C++">GridOut       grid_out;
-std::ofstream mesh_file("sphere.msh");
-grid_out.write_msh(tria, mesh_file);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GridOut</span>       <span class="n">grid_out</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="nf">mesh_file</span><span class="p">(</span><span class="s">"sphere.msh"</span><span class="p">);</span>
+<span class="n">grid_out</span><span class="p">.</span><span class="n">write_msh</span><span class="p">(</span><span class="n">tria</span><span class="p">,</span> <span class="n">mesh_file</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p><img src="figures/2025-10-10_22-29-22-sphere-triangulation-in-gmsh.png" alt="img" title="Triangulation for a unit sphere in Gmsh." /></p>
 
 <p>Create a first order Lagrange finite element and a corresponding DoF handler.</p>
 
-<pre><code class="language-C++">const unsigned int        fe_order = 1;
-FE_Q&lt;dim, spacedim&gt;       fe(fe_order);
-DoFHandler&lt;dim, spacedim&gt; dof_handler(tria);
-dof_handler.distribute_dofs(fe);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>        <span class="n">fe_order</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">FE_Q</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>       <span class="n">fe</span><span class="p">(</span><span class="n">fe_order</span><span class="p">);</span>
+<span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">dof_handler</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler</span><span class="p">.</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>To get the coordinates of all support points in the DoF handler, we need a mapping object of the type <code class="language-plaintext highlighter-rouge">MappingQ</code>. The mapping object is used for transforming support points in the unit quad cell \([0,1] \times [0,1]\) to all real cells in the triangulation. We choose second order mapping to approximate the curved surface of the sphere. The coordinate transformation is performed in the function <code class="language-plaintext highlighter-rouge">DoFTools::map_dofs_to_support_points</code>.</p>
 
-<pre><code class="language-C++">const unsigned int       mapping_order = 2;
-const MappingQ&lt;dim, spacedim&gt; mapping(mapping_order);
-std::vector&lt;Point&lt;spacedim&gt;&gt;  support_points(dof_handler.n_dofs());
-DoFTools::map_dofs_to_support_points(mapping, dof_handler, support_points);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>       <span class="n">mapping_order</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MappingQ</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">mapping</span><span class="p">(</span><span class="n">mapping_order</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span>  <span class="n">support_points</span><span class="p">(</span><span class="n">dof_handler</span><span class="p">.</span><span class="n">n_dofs</span><span class="p">());</span>
+<span class="n">DoFTools</span><span class="o">::</span><span class="n">map_dofs_to_support_points</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">dof_handler</span><span class="p">,</span> <span class="n">support_points</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Generate a list of DoF indices starting from zero.</p>
 
-<pre><code class="language-C++">std::vector&lt;types::global_dof_index&gt; dof_indices(dof_handler.n_dofs());
-for (types::global_dof_index d = 0; d &lt; dof_indices.size(); d++)
-  dof_indices[d] = d;
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="n">dof_indices</span><span class="p">(</span><span class="n">dof_handler</span><span class="p">.</span><span class="n">n_dofs</span><span class="p">());</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">dof_indices</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">d</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">dof_indices</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>With the support point coordinates and corresponding DoF indices, we can now create a cluster tree.</p>
 
-<pre><code class="language-C++">const unsigned int n_min = 4;
-ClusterTree&lt;dim&gt;   cluster_tree(dof_indices, support_points, n_min);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_min</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>   <span class="n">cluster_tree</span><span class="p">(</span><span class="n">dof_indices</span><span class="p">,</span> <span class="n">support_points</span><span class="p">,</span> <span class="n">n_min</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Within the constructor of <code class="language-plaintext highlighter-rouge">ClusterTree</code>, only a root cluster is created. The provided list of support points in <code class="language-plaintext highlighter-rouge">support_points</code> is used to build a bounding box enclosing all DoF support points. Each cluster in a cluster tree has a bounding box, the edges of which are parallel with the coordinate frame’s axes.</p>
 
 <p>Then we call the member function <code class="language-plaintext highlighter-rouge">ClusterTree::partition</code> and the root node will be recursively partitioned and the cluster tree is gradually built up.</p>
 
-<pre><code class="language-C++">cluster_tree.partition(support_points);
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cluster_tree</span><span class="p">.</span><span class="n">partition</span><span class="p">(</span><span class="n">support_points</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>The recursive partition stops when the cardinality of the current cluster, i.e. number of DoFs in it, is smaller than <code class="language-plaintext highlighter-rouge">n_min</code>. Then the current cluster becomes a leaf node of the cluster tree.</p>
 
@@ -442,10 +442,10 @@ ClusterTree&lt;dim&gt;   cluster_tree(dof_indices, support_points, n_min);
 
 <p>Finally, we export the cluster tree as a directed graph, which can be visualized with PlantUML.</p>
 
-<pre><code class="language-C++">std::ofstream graph("cluster-tree.puml");
-cluster_tree.print_tree_info_as_dot(graph);
-graph.close();
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="nf">graph</span><span class="p">(</span><span class="s">"cluster-tree.puml"</span><span class="p">);</span>
+<span class="n">cluster_tree</span><span class="p">.</span><span class="n">print_tree_info_as_dot</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+<span class="n">graph</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</code></pre></div></div>
 
 <p>On the command line, execute <code class="language-plaintext highlighter-rouge">plantuml</code> to generate a PNG figure of the directed graph.</p>
 
