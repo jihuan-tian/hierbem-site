@@ -1,0 +1,701 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Build a block cluster tree - HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="Build a block cluster tree">
+<meta property="og:url" content="https://jihuan-tian.github.io/hierbem-site/examples/build-block-cluster-tree.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://jihuan-tian.github.io/hierbem-site/examples/build-block-cluster-tree.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/hierbem-site/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/hierbem-site/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/hierbem-site/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}",
+        supp: "{\\rm supp}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/hierbem-site/"><img src="/hierbem-site/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/hierbem-site/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Build a block cluster tree">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://jihuan-tian.github.io/hierbem-site/examples/build-block-cluster-tree.html" itemprop="url">Build a block cluster tree
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>In our <a href="build-cluster-tree.html">previous example</a>, we have learnt how to build a cluster tree for all the DoFs held within a DoF handler, which is associated with a finite element and a triangulation. We also know that to build an \(\mathcal{H}\)-matrix as a finite dimensional approximation of a bilinear form \(b_A: X\times Y' \rightarrow \mathbb{R}\) induced from the boundary integral operator \(A: X \rightarrow Y\), a block cluster tree should be constructed from two cluster trees: one for the finite dimensional test space \(Y_h'\) and the other for the finite dimensional trial space \(X_h\). In this example, we will demonstrate to how to build this block cluster tree.</p>
+
+<p>Let \(J\) and \(I\) be the DoF index sets for the two spaces \(X_h\) and \(Y_h'\). The two cluster trees are represented as \(T(J)\) and \(T(I)\). The block cluster tree built from them is \(T(I\times J)\). The DoF index sets of the leaf nodes of \(T(J)\) forms a partition of the complete DoF index set \(J\). Then if \(u\) is a vector in \(X_h\), it can be partitioned into a block vector. In a same way, a vector \(v\) in \(Y_h'\) can be partitioned into a block vector according to the leaf nodes of \(T(I)\). Similarly, if \(\mathcal{A}\) is a matrix mapping from \(X_h\) to \(Y_h'\), it can be partitioned into matrix blocks with respect to the leaf nodes of the block cluster tree \(T(I\times J)\).</p>
+
+<p>The block cluster tree \(T(I\times J)\) is a quad tree, which can be constructed in a recursive fashion as below.</p>
+
+<ol>
+  <li>The block cluster \(I\times J\) is the root node of \(T(I\times J)\).</li>
+  <li>
+    <p>Starting from the root node, recursively partition the current node according to the following cases.</p>
+
+    <p>Assume the current node is \(\tau\times\sigma\), where \(\tau\) is a cluster in \(T(I)\) and \(\sigma\) is a cluster in \(T(J)\).</p>
+
+    <ul>
+      <li>If either \(\tau\) or \(\sigma\) is a leaf node of their respective cluster tree, \(\tau\times\sigma\) is a <strong>near-field</strong> leaf node of \(T(I\times J)\).</li>
+      <li>
+        <p>If \(\tau\) and \(\sigma\) satisfy one of the following \(\eta\)-admissibility conditions,</p>
+
+\[\begin{equation}
+  \label{eq:admissibility-condition}
+  \begin{aligned}
+    \diam(\supp(\tau)) &amp;\leq \eta \dist(\supp(\tau),\supp(\sigma)) \\
+    \diam(\supp(\sigma)) &amp;\leq \eta \dist(\supp(\tau),\supp(\sigma)) \\
+    \min \{ \diam(\supp(\tau)), \diam(\supp(\sigma)) \} &amp;\leq \eta
+    \dist(\supp(\tau),\supp(\sigma)) \\
+    \max \{ \diam(\supp(\tau)), \diam(\supp(\sigma)) \} &amp;\leq \eta
+    \dist(\supp(\tau),\supp(\sigma))
+  \end{aligned},
+\end{equation}\]
+
+        <p>\(\tau\times\sigma\) is a <strong>far-field</strong> leaf node of \(T(I\times J)\). \(\eta &gt; 0\) is the admissibility constant. In HierBEM, the third \(\eta\)-admissibility condition is adopted.</p>
+
+        <p>Here \(\supp\) returns the union of support sets of basis functions related with its input cluster. We can consider this union as the support of the cluster. \(\diam\) returns the diameter of a cluster’s support. \(\dist\) returns the minimum distance between the supports of two input clusters. It is easy to see that if \(\eta\) increases, it is more likely for two givens clusters to be admissible.</p>
+
+        <p>The following figure shows the DoF support points in the two clusters \(\tau\) and \(\sigma\), their support sets and the corresponding matrix block \(\mathcal{A}\big\vert_{\tau\times\sigma}\).</p>
+
+        <p><img src="figures/2025-10-15-admissibility-condition.png" alt="img" title="Support points in clusters, their support sets and corresponding matrix block." /></p>
+      </li>
+      <li>
+        <p>If the above two cases are not satisfied, the two clusters \(\tau\) and \(\sigma\) are not leaf nodes. Their sons are \(S(\tau) = \{\tau_1,\tau_2 \}\) and \(S(\sigma) = \{\sigma_1, \sigma_2 \}\), where \(S\) is a function returning the set of sons of the input cluster or block cluster. Then the sons of the block cluster \(\tau\times\sigma\) are constructed by taking the tensor product of \(S(\tau)\) and \(S(\sigma)\):</p>
+
+\[\begin{equation}
+  S(\tau\times\sigma) = \{
+  \tau_1\times\sigma_1,\tau_1\times\sigma_2,\tau_2\times\sigma_1,\tau_2\times\sigma_2 \}.
+\end{equation}\]
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>The constructed block cluster tree \(T(I\times J)\) is level conserving, which means the level of a node \(\tau\times\sigma\) in the block cluster tree is equal to the level of \(\tau\) in \(T(I)\) and the level of \(\sigma\) in \(T(J)\), i.e.</p>
+
+\[\begin{equation}
+  \mathrm{level}(\tau\times\sigma) = \mathrm{level}(\tau) = \mathrm{level}(\sigma).
+\end{equation}\]
+
+<p>In HierBEM, all block cluster trees are level conserving.</p>
+
+<p>With the above concepts clarified, we can now go through the source code in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/build-block-cluster-tree/build-block-cluster-tree.cc">hierbem/examples/build-block-cluster-tree/build-block-cluster-tree.cc</a>.</p>
+
+<p>We include the following header files and import namespaces.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;deal.II/base/point.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/base/types.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;deal.II/fe/fe_dgq.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/fe/fe_q.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/fe/mapping.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deal.II/fe/mapping_q.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;deal.II/grid/grid_generator.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">"cluster_tree/block_cluster_tree.h"</span><span class="cp">
+#include</span> <span class="cpf">"cluster_tree/cluster_tree.h"</span><span class="cp">
+#include</span> <span class="cpf">"dofs/dof_tools_ext.h"</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">HierBEM</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">dealii</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We define a builder class for constructing a cluster tree. Its constructor needs a mapping object and a DoF handler to get the coordinates of support points as well as the average cell size at these points. The member function <code class="language-plaintext highlighter-rouge">build</code> constructs the cluster tree and returns its smart pointer. The smart pointer being <code class="language-plaintext highlighter-rouge">unique_ptr</code> is because a cluster tree will only be associated with a unique function space.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">ClusterTreeBuilder</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">ClusterTreeBuilder</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">&gt;</span>
+  <span class="n">ClusterTreeBuilder</span><span class="p">(</span><span class="k">const</span> <span class="n">Mapping</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>    <span class="o">&amp;</span><span class="n">mapping</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">dof_handler</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>               <span class="n">_n_min</span><span class="p">);</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span>
+  <span class="n">build</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_support_points</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">support_points</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_support_points</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">support_points</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_dof_average_cell_size</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">dof_average_cell_size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_dof_average_cell_size</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">dof_average_cell_size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="n">support_points</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="n">dof_indices</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">dof_average_cell_size</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_min</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Next, we define a class <code class="language-plaintext highlighter-rouge">BEMFunctionSpace</code>, which encapsulates a DoF handler, a cluster tree and a cluster tree builder. Note that the DoF handler is a shared pointer. This is because in a mixed boundary condition problem, a function space is constructed on a subdomain of the boundary \(\Gamma\). Even though a DoF handler is defined on the whole triangulation for \(\Gamma\), only a subset of its DoFs will be selected for this function space. For a function space with the same finite element on a different subdomain, the DoF handler is the same but the selected DoFs will be different. Therefore, a single DoF handler can be referenced by different function spaces in BEM.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">BEMFunctionSpace</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">BEMFunctionSpace</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+  <span class="n">BEMFunctionSpace</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span><span class="n">_dof_handler</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">Mapping</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>                     <span class="o">&amp;</span><span class="n">mapping</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>                                <span class="n">n_min</span><span class="p">);</span>
+
+  <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">cluster_tree</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">cluster_tree</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">ClusterTreeBuilder</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_builder</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">cluster_tree_builder</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">ClusterTreeBuilder</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_builder</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">cluster_tree_builder</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_support_points</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree_builder</span><span class="o">-&gt;</span><span class="n">get_support_points</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_support_points</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree_builder</span><span class="o">-&gt;</span><span class="n">get_support_points</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_dof_average_cell_size</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree_builder</span><span class="o">-&gt;</span><span class="n">get_dof_average_cell_size</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_dof_average_cell_size</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree_builder</span><span class="o">-&gt;</span><span class="n">get_dof_average_cell_size</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_internal_to_external_dof_numbering</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_internal_to_external_dof_numbering</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_external_to_internal_dof_numbering</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree</span><span class="o">-&gt;</span><span class="n">get_external_to_internal_dof_numbering</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">global_dof_index</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_external_to_internal_dof_numbering</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cluster_tree</span><span class="o">-&gt;</span><span class="n">get_external_to_internal_dof_numbering</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span>    <span class="n">dof_handler</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span>        <span class="n">cluster_tree</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ClusterTreeBuilder</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="n">cluster_tree_builder</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Then we can use two function spaces, one is the test space and the other is the trial space, to define a bilinear form. In the constructor of <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code>, the trial space argument appears before the test space argument, which is consistent with the mathematical definition of a bilinear form \(b_A: X\times Y' \rightarrow \mathbb{R}\).</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">BEMBilinearForm</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">BEMBilinearForm</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+  <span class="n">BEMBilinearForm</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span><span class="n">_trial_space</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span><span class="n">_test_space</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="n">eta</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_min</span><span class="p">);</span>
+
+  <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_trial_space</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_trial_space</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_test_space</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">ClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_cluster_tree_test_space</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_block_cluster_tree</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">block_cluster_tree</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span>
+  <span class="n">get_block_cluster_tree</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">block_cluster_tree</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="n">trial_space</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="n">test_space</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span>      <span class="n">block_cluster_tree</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The member function <code class="language-plaintext highlighter-rouge">build_block_cluster_tree</code> for constructing a block cluster tree from the two cluster trees is as below. The <code class="language-plaintext highlighter-rouge">n_min</code> argument can be different from the <code class="language-plaintext highlighter-rouge">n_min</code> used for building \(T(I)\) or \(T(J)\). In the constructor of <code class="language-plaintext highlighter-rouge">BlockClusterTree</code>, the test space argument appears before the trial space argument, since the former is related to matrix rows, while the latter is related to matrix columns. This is consistent with how we specify the dimensions of a matrix, where the row dimension appears before the column dimension.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="kt">void</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_block_cluster_tree</span><span class="p">(</span>
+  <span class="k">const</span> <span class="kt">double</span>       <span class="n">eta</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_min</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// When building a block cluster tree, the test space appears before the trial</span>
+  <span class="c1">// space, since the test space is related to matrix rows, while the trial</span>
+  <span class="c1">// space is related to matrix columns.</span>
+  <span class="n">block_cluster_tree</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">(),</span>
+    <span class="n">eta</span><span class="p">,</span>
+    <span class="n">n_min</span><span class="p">);</span>
+  <span class="n">block_cluster_tree</span><span class="o">-&gt;</span><span class="n">partition</span><span class="p">(</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_support_points</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_support_points</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_average_cell_size</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_average_cell_size</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we come to the <code class="language-plaintext highlighter-rouge">main</code> function. At first, we create a triangulation for a unit sphere as before. Only one global refinement is performed, so that the block cluster tree will not be too large and inconvenient for visualization.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>    <span class="n">dim</span>      <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>    <span class="n">spacedim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">double</span>          <span class="nf">radius</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>    <span class="n">refinement</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">Triangulation</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">tria</span><span class="p">;</span>
+<span class="n">GridGenerator</span><span class="o">::</span><span class="n">hyper_sphere</span><span class="p">(</span><span class="n">tria</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+<span class="n">tria</span><span class="p">.</span><span class="n">refine_global</span><span class="p">(</span><span class="n">refinement</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>After creating a second order mapping object, we create two function spaces to approximate Sobolev spaces \(H^{1/2}(\Gamma)\) and \(H^{-1/2}(\Gamma)\). For \(H^{1/2}(\Gamma)\), we use the continuous first order Lagrange finite element <code class="language-plaintext highlighter-rouge">FE_Q(1)</code>. For \(H^{-1/2}(\Gamma)\), we use the piecewise constant finite element <code class="language-plaintext highlighter-rouge">FE_DGQ(0)</code>.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>  <span class="n">fe_H_half_order</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">FE_Q</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_half</span><span class="p">(</span><span class="n">fe_H_half_order</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">dof_handler_H_half</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_half</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">H_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_half</span><span class="p">,</span>
+                                                    <span class="n">mapping</span><span class="p">,</span>
+                                                    <span class="n">n_min_H_half</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>    <span class="n">fe_H_minus_half_order</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">FE_DGQ</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_minus_half</span><span class="p">(</span><span class="n">fe_H_minus_half_order</span><span class="p">);</span>
+<span class="k">auto</span>                  <span class="n">dof_handler_H_minus_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_minus_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_minus_half</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">H_minus_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_minus_half</span><span class="p">,</span>
+                                                    <span class="n">mapping</span><span class="p">,</span>
+                                                    <span class="n">n_min_H_minus_half</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>With these two function spaces, we create a <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code> object with its block cluster tree for the bilinear form of the single layer potential operator \(b_V: H^{-1/2}(\Gamma)\times H^{-1/2}(\Gamma) \rightarrow \mathbb{R}\), and another one for the bilinear form of the double layer potential operator \(b_K: H^{1/2}(\Gamma)\times H^{-1/2}(\Gamma) \rightarrow \mathbb{R}\).</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bV</span><span class="p">(</span><span class="n">H_minus_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
+<span class="n">bV</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bK</span><span class="p">(</span><span class="n">H_minus_half</span><span class="p">,</span> <span class="n">H_half</span><span class="p">);</span>
+<span class="n">bK</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Finally, we export directed graphs of the cluster trees for the two function spaces as well as graphs of the two block cluster trees for the two bilinear forms.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="nf">graph</span><span class="p">(</span><span class="s">"cluster-tree-H-half.puml"</span><span class="p">);</span>
+<span class="n">H_half</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">().</span><span class="n">print_tree_info_as_dot</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+<span class="n">graph</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="n">graph</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"cluster-tree-H-minus-half.puml"</span><span class="p">);</span>
+<span class="n">H_minus_half</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">().</span><span class="n">print_tree_info_as_dot</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+<span class="n">graph</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="n">graph</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"bV-block-cluster-tree.puml"</span><span class="p">);</span>
+<span class="n">bV</span><span class="p">.</span><span class="n">get_block_cluster_tree</span><span class="p">().</span><span class="n">print_bct_info_as_dot</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+<span class="n">graph</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="n">graph</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"bK-block-cluster-tree.puml"</span><span class="p">);</span>
+<span class="n">bK</span><span class="p">.</span><span class="n">get_block_cluster_tree</span><span class="p">().</span><span class="n">print_bct_info_as_dot</span><span class="p">(</span><span class="n">graph</span><span class="p">);</span>
+<span class="n">graph</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>After running the example, we process these files with PlantUML on the command line and obtain the following graph images.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.puml"</span> <span class="nt">-exec</span> plantuml <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div></div>
+
+<p><img src="figures/cluster-tree-H-half.png" alt="img" title="Cluster tree for the function space $$H^{1/2}(\Gamma) $$." /></p>
+
+<p><img src="figures/cluster-tree-H-minus-half.png" alt="img" title="Cluster tree for the function space $$H^{-1/2}(\Gamma) $$." /></p>
+
+<p><img src="figures/bV-block-cluster-tree.png" alt="img" title="Block cluster tree for $$b_V $$" /></p>
+
+<p><img src="figures/bK-block-cluster-tree.png" alt="img" title="Block cluster tree for $$b_K $$" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/hierbem-site/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/hierbem-site/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
