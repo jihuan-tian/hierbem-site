@@ -537,9 +537,6 @@
   <span class="k">const</span> <span class="kt">double</span>       <span class="n">eta</span><span class="p">,</span>
   <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n_min</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// When building a block cluster tree, the test space appears before the trial</span>
-  <span class="c1">// space, since the test space is related to matrix rows, while the trial</span>
-  <span class="c1">// space is related to matrix columns.</span>
   <span class="n">block_cluster_tree</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span>
     <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">(),</span>
     <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_cluster_tree</span><span class="p">(),</span>
