@@ -1,0 +1,1008 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Build an \(\mathcal{H}\)-matrix - HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="Build an \(\mathcal{H}\)-matrix">
+<meta property="og:url" content="https://jihuan-tian.github.io/hierbem-site/examples/build-hmatrix.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://jihuan-tian.github.io/hierbem-site/examples/build-hmatrix.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/hierbem-site/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/hierbem-site/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/hierbem-site/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}",
+        supp: "{\\rm supp}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/hierbem-site/"><img src="/hierbem-site/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/hierbem-site/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Build an \(\mathcal{H}\)-matrix">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://jihuan-tian.github.io/hierbem-site/examples/build-hmatrix.html" itemprop="url">Build an \(\mathcal{H}\)-matrix
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#definition-of-low-rank-matrices">Definition of low rank matrices</a></li><li><a href="#low-rank-matrix-constructed-from-separable-degenerate-kernel">Low rank matrix constructed from separable degenerate kernel</a></li><li><a href="#low-rank-matrix-constructed-from-adaptive-cross-approximation-aca">Low rank matrix constructed from adaptive cross approximation (ACA)</a><ul><li><a href="#basic-idea-of-aca">Basic idea of ACA</a></li><li><a href="#select-crosses-in-aca">Select crosses in ACA</a></li></ul></li><li><a href="#mathcalh-matrix-construction">\(\mathcal{H}\)-matrix construction</a></li><li><a href="#explanation-of-example-code">Explanation of example code</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>In our <a href="build-block-cluster-tree.html">previous example</a>, a block cluster tree \(T(I\times J)\) is created for a bilinear form \(b_A: X\times Y' \rightarrow \mathbb{R}\). This bilinear form is associated with the boundary integral operator \(A: X \rightarrow Y\). \(I\) is the index set for the finite dimensional subspace \(X_h\) of \(X\) and \(J\) is the index set for the finite dimensional subspace \(Y_h'\) of \(Y'\). The leaf nodes of the block cluster tree \(T(I\times J)\) forms a partition of the complete block index set \(I\times J\), which defines the block structure of the \(\mathcal{H}\)-matrix to be built.</p>
+
+<p>For a node \(b=\tau\times\sigma\) in the leaf set of \(T(I\times J)\), when the cardinality of \(\tau\) or \(\sigma\) is small enough, \(\tau\times\sigma\) is a near field leaf node; otherwise, \(\tau\times\sigma\) satisfies the \(\eta\)-admissibility condition and is a far field leaf node. A near field leaf node means the two groups of DoFs in \(\tau\) and \(\sigma\) have strong interaction, so the corresponding leaf node of the \(\mathcal{H}\)-matrix should be a full matrix. Assembling a full matrix is simply computing all the entries, which does not need any special treatment. A far field leaf node means DoF interaction is weak and the corresponding leaf node of the \(\mathcal{H}\)-matrix possesses data sparsity, hence a low rank representation of the matrix block should be adopted.</p>
+
+<h1 id="definition-of-low-rank-matrices">Definition of low rank matrices</h1>
+
+<p>A low rank representation of a matrix \(M\in \mathbb{R}^{I\times J}\) is a factorization</p>
+
+\[\begin{equation}
+  M = AB^{\mathrm{T}} \quad A\in \mathbb{R}^{I\times k}, B\in \mathbb{R}^{J\times k}, k\in \mathbb{N}_0,
+\end{equation}\]
+
+<p>where \(k\) is the rank of \(M\). Let the columns of \(A\) be \(\{ a_i \}_{i=1}^k\) and the columns of \(B\) be \(\{ b_i \}_{i=1}^k\). The above factorization is actually a sum of outer products of the column vectors in \(A\) and \(B\)</p>
+
+\[\begin{equation}
+  M = \sum_{i=1}^k a_i b_i^{\mathrm{T}}.
+\end{equation}\]
+
+<p>If \(k\) is less than the actual rank of \(M\), the above factorization is approximate.</p>
+
+<p>If \(\lvert I \rvert = m\) and \(\lvert J \rvert = n\), the storage of \(M\) as a full matrix is \(mn\). When \(M\) is factorized as a rank-\(k\) matrix, its storage is \(k(m+n)\). When the rank of \(M\) is small, i.e. \(k\ll \min\{m, n\}\), or we choose a rank smaller than the actually rank of \(M\), i.e. \(k\ll \rank(M)\), the low rank representation consumes much less memory than the full matrix format.</p>
+
+<h1 id="low-rank-matrix-constructed-from-separable-degenerate-kernel">Low rank matrix constructed from separable degenerate kernel</h1>
+
+<p>Let the boundary integral operator \(A: X \rightarrow Y\) be defined as</p>
+
+\[\begin{equation}
+  (Au(y))(x) = \int_{\Gamma} \kappa(x,y) u(y) \intd s_y, \quad u\in X,
+\end{equation}\]
+
+<p>where \(\kappa(x,y)\) is its kernel function. The bilinear form \(b_A: X\times Y' \rightarrow \mathbb{R}\) induced from \(A\) is</p>
+
+\[\begin{equation}
+  b_A(u,w) = \langle Au,w \rangle = \int_{\Gamma} w(x) \int_{\Gamma} \kappa(x,y) u(y) \intd s_y \intd s_x, \quad w\in Y'.
+\end{equation}\]
+
+<p>Let \(\{ \psi_i \}_{i=1}^M\) be a basis of \(Y_h'\) and \(\{ \varphi_j \}_{j=1}^N\) be a basis of \(X_h\). Then \(b_A\) can be discretized into a matrix \(\mathcal{A}\), whose entries can be computed as:</p>
+
+\[\begin{equation}
+  \mathcal{A}_{ij} = \int_{\Gamma} \psi_i(x) \int_{\Gamma} \kappa(x,y) \varphi_j(y) \intd s_y \intd s_x.
+\end{equation}\]
+
+<p>For a far field leaf block cluster \(b=\tau\times\sigma\) in \(T(I\times J)\), the effective integration domain of \(b_A\) is restricted to \(\supp(\tau)\times\supp(\sigma)\), because the basis functions have compact support. From now on, we use \(P\) to represent \(\supp(\tau)\) and use \(Q\) to represent \(\supp(\sigma)\). Hence,</p>
+
+\[\begin{equation}
+  b_A(u\vert_Q, w\vert_P) = \int_P w(x) \int_Q \kappa(x,y) u(y) \intd s_y \intd s_x.
+\end{equation}\]
+
+<p>If \(\tau = \{ i_1,\cdots,i_m \}\) and \(\sigma = \{ j_1,\cdots,j_n \}\) (when the internal DoF numbering is adopted, \(\{ i_1,\cdots,i_m \}\) and \(\{ j_1,\cdots,j_n \}\) are continuous DoF index ranges), the discretization of this restricted bilinear form produces a matrix block \(\mathcal{A}\big\vert_b\), whose entries can be computed as:</p>
+
+\[\begin{equation}
+  \left(\mathcal{A} \big\vert_b\right)_{rs} = \int_P \psi_{i_r}(x) \int_Q \kappa(x,y) \varphi_{j_s}(y) \intd s_y \intd s_x,
+\end{equation}\]
+
+<p>where \(r=1,\cdots,m\) and \(s=1,\cdots,n\).</p>
+
+<p>To construct a low rank matrix approximation for this matrix block \(\mathcal{A}\big\vert_b\), we need to find a separable expansion of the kernel function \(\kappa(x,y)\) according to the following ansatz</p>
+
+\[\begin{equation}
+  \kappa(x,y) \approx \kappa^{(k)}(x,y) = \sum_{\nu=1}^k \alpha_{\nu}^{(k)}(x) \beta_{\nu}^{(k)}(y), \quad x\in P, y\in Q.
+\end{equation}\]
+
+<p>\(\kappa^{(k)}(x,y)\) with a finite number of terms in the sum is called a <strong>degenerate kernel</strong> and \(k\) is its separation rank. Then the entry \(\left( \mathcal{A}\big\vert_b \right)_{rs}\) can be approximated as</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \left(\mathcal{A} \big\vert_b\right)_{rs} &amp; \approx \int_P \psi_{i_r}(x) \int_Q
+    \sum_{\nu=1}^k \alpha_{\nu}^{(k)}(x) \beta_{\nu}^{(k)}(y) \varphi_{j_s}(y) \intd s_y
+    \intd s_x \\
+    &amp;= \sum_{\nu=1}^k \left( \int_P \alpha_{\nu}^{(k)}(x) \psi_{i_r}(x) \intd s_x  \right)
+    \cdot \left( \int_Q \beta_{\nu}^{(k)}(y) \varphi_{j_s}(y) \intd s_y \right) \\
+    &amp;= \sum_{\nu=1}^k a_{i_r\nu} b_{j_s\nu}.
+  \end{aligned}
+\end{equation}\]
+
+<p>We can see that the original double integral is separated into two independent integrals with respect to coordinate variables \(x\) and \(y\). The matrix block \(\mathcal{A}\big\vert_b\) can be approximated by a low rank matrix</p>
+
+\[\begin{equation}
+  \mathcal{A}\big\vert_b \approx \mathcal{A}^{(k)}\big\vert_b = [\alpha] [\beta]^{\mathrm{T}},
+\end{equation}\]
+
+<p>where \([\alpha]\in \mathbb{R}^{m\times k}\), \([\beta]\in \mathbb{R}^{n\times k}\),</p>
+
+\[\begin{equation}
+  [\alpha] = \begin{pmatrix}
+    a_{i_11} &amp; \cdots &amp; a_{i_1k} \\
+    \vdots &amp; &amp; \vdots \\
+    a_{i_m1} &amp; \cdots &amp; a_{i_mk}
+  \end{pmatrix},
+  [\beta] = \begin{pmatrix}
+    b_{j_11} &amp; \cdots &amp; b_{j_1k} \\
+    \vdots &amp; &amp; \vdots \\
+    b_{j_n1} &amp; \cdots &amp; b_{j_nk}
+  \end{pmatrix}.
+\end{equation}\]
+
+<p>It can be envisioned that if the degenerate kernel \(\kappa^{(k)}(x,y)\) is a good approximation of the original kernel \(\kappa(x,y)\), the matrix block \(\mathcal{A}\big\vert_b\) can also be well approximated by the low rank matrix \(\mathcal{A}^{(k)}\big\vert_b\). The degenerate kernel is usually obtained by applying Taylor expansion or interpolation (such as Lagrange interpolation) to \(\kappa(x,y)\), with respect to variable \(x\) or \(y\). It can be proved that the residual norm between \(\kappa(x,y)\) and \(\kappa^{(k)}(x,y)\) is exponentially convergent with respect to the separation rank \(k\), if two conditions are satisfied:</p>
+
+<ol>
+  <li>the original kernel \(\kappa(x,y)\) is asymptotically smooth and</li>
+  <li>the two clusters \(\tau\) and \(\sigma\) are \(\eta\)-admissible.</li>
+</ol>
+
+<p>The condition of asymptotically smooth is that for all \(x\in P\), \(y\in Q\), \(x\neq y\),</p>
+
+\[\begin{equation}
+  \lvert \partial_x^{\alpha} \partial_y^{\beta} \kappa(x,y) \rvert \leq
+  c_{\mathrm{as}}(\alpha+\beta)\lvert x-y \rvert^{-\lvert \alpha \rvert - \lvert \beta \rvert - s},
+\end{equation}\]
+
+<p>where \(\alpha,\beta\in \mathbb{N}_0^d\), \(\alpha+\beta\neq 0\), \(s\in \mathbb{R}\) and</p>
+
+\[\begin{equation}
+  c_{\mathrm{as}}(\nu) = C\nu! \lvert \nu \rvert^{\rho} \gamma^{\lvert \nu \rvert}, \quad v\in
+  \mathbb{N}_0^d.
+\end{equation}\]
+
+<p>The condition of exponential convergence is</p>
+
+\[\begin{equation}
+  \lVert \kappa - \kappa^{(k)} \rVert_{\infty,P\times Q} \leq c_1 \exp(-c_2 k^{\alpha}),
+\end{equation}\]
+
+<p>where \(c_1\geq 0\), \(c_2 &gt; 0\) and \(\alpha &gt; 0\). If we let \(c_2 = -\log(c_2'\eta)\), \(\alpha=\frac{1}{d}\) and \(k = m^d\), the above condition can be transformed to</p>
+
+\[\begin{equation}
+  \lVert \kappa - \kappa^{(k)} \rVert_{\infty,P\times Q} \leq c_1 (c_2'\eta)^m.
+\end{equation}\]
+
+<p>This convergence condition depends on the admissibility constant \(\eta\) and \(m\). \(m-1\) is the highest polynomial degree in the Taylor expansion or interpolation. \(k\) is the number of terms in the polynomial.</p>
+
+<p>Let \(A_{PQ}\) be the boundary integral operator with the kernel \(\kappa(x,y)\), which is restricted to the domain \(P\times Q\) and \(A_{PQ}^{(k)}\) be the boundary integral operator on \(P\times Q\) with the degenerate kernel \(\kappa^{(k)}\). To measure the error between \(A_{PQ}\) and \(A_{PQ}^{(k)}\), we adopt the Hilbert-Schmidt norm \(\lVert \cdot \rVert_{\mathrm{F}}\):</p>
+
+\[\begin{equation}
+  \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{\mathrm{F}} := \sqrt{\int_P \int_Q \lvert \kappa(x,y) - \kappa^{(k)}(x,y) \rvert^2 \intd s_y \intd s_x}.
+\end{equation}\]
+
+<p>Obviously, it is equal to the \(L^2\)-norm of the kernel function’s error:</p>
+
+\[\begin{equation}
+  \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{\mathrm{F}} = \lVert \kappa - \kappa^{(k)} \rVert_{L^2(P\times Q)}.
+\end{equation}\]
+
+<p>The error between the two boundary integral operators also has an exponential convergence because the \(L^2\)-norm of the kernel function’s error can be controlled by its \(L^{\infty}\)-norm, i.e.</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{\mathrm{F}} &amp;= \sqrt{\int_P \int_Q \lvert
+      \kappa(x,y) - \kappa^{(k)}(x,y) \rvert^2 \intd s_y \intd s_x} \\
+    &amp;\leq \sqrt{\int_P \int_Q \lVert \kappa(x,y) - \kappa^{(k)}(x,y) \rVert_{\infty,P\times
+        Q}^2 \intd s_y \intd s_x} \\
+    &amp;= \lVert \kappa - \kappa^{(k)} \rVert_{\infty,P\times Q} \sqrt{\mathrm{vol}(P)
+      \mathrm{vol}(Q)} \\
+    &amp;\leq \tilde{c}_1(c_2'\eta)^m,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(\mathrm{vol}(P)\) and \(\mathrm{vol}(Q)\) are the volumes of \(P\) and \(Q\).</p>
+
+<p>To estimate the error between matrix blocks \(\mathcal{A}\big\vert_b\) and \(\mathcal{A}^{(k)}\big\vert_b\), we define a prolongation operator \(P_{\sigma}: \mathbb{R}^n \rightarrow L^2(Q)\) with respect to the cluster \(\sigma\), which restores a vector \(z\) of coefficients \(\{ z \}_{i=1}^n\) to a function as</p>
+
+\[\begin{equation}
+  P_{\sigma} z = \sum_{s=1}^n z_s \varphi_{j_s}(y).
+\end{equation}\]
+
+<p>We further define a restriction operator \(R_{\tau}: L^2(P) \rightarrow \mathbb{R}^m\) with respect to the cluster \(\tau\), which projects the output function \(f\) of the boundary integral operator \(A: X \rightarrow Y\) limited on the block cluster \(b\), i.e. \(A_{PQ}\), to the basis functions \(\{ \psi_{i_r} \}_{r=1}^m\) whose supports are within the cluster \(\tau\). This produces a vector in \(\mathbb{R}^m\) and its \(r\)-th entry is</p>
+
+\[\begin{equation}
+  (R_{\tau} f)_r = \int_P f(x) \psi_{i_r}(x) \intd s_x.
+\end{equation}\]
+
+<p>Then the matrix block on the block cluster \(b\) associated with the bilinear form \(b_A\) is</p>
+
+\[\begin{equation}
+  \mathcal{A}\big\vert_b = R_{\tau} A_{PQ} P_{\sigma}.
+\end{equation}\]
+
+<p>Finally, an error estimate of the low rank matrix is</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \lVert \mathcal{A}\big\vert_b - \mathcal{A}^{(k)}\big\vert_b \rVert_2 &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{L^2(P) \leftarrow L^2(Q)} \\
+    &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{\mathrm{F}} \\
+    &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \tilde{c}_1 (c_2'\eta)^m,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(\lVert \cdot \rVert_{L^2(P) \leftarrow L^2(Q)}\) is the operator norm of an boundary integral operator, which is not larger than the Hilbert-Schmidt norm \(\lVert \cdot \rVert_{\mathrm{F}}\).</p>
+
+<p>The above theory shows that the error of low rank matrix block can be controlled by the admissibility constant \(\eta\) and the highest polynomial degree \(m-1\) of the Taylor expansion or interpolation of the kernel function \(\kappa(x,y)\). Taylor expansion and interpolation are two methods for constructing a separable degenerate kernel \(\kappa^{(k)}\). The formal rank \(k\) of the low rank matrix, i.e. the number of columns in either component matrix \([\alpha]\) or \([\beta]\), is equal to the number of terms in the degenerate kernel \(\kappa^{(k)}\).</p>
+
+<h1 id="low-rank-matrix-constructed-from-adaptive-cross-approximation-aca">Low rank matrix constructed from adaptive cross approximation (ACA)</h1>
+
+<p>A disadvantage of the Taylor expansion or interpolation technique for constructing low rank matrices is that the separable kernel expansion is problem dependent, which makes a BEM software library not universal. In HierBEM, we use the heuristic adaptive cross approximation (ACA) method to construct low rank matrices so kernel expansion can be avoided.</p>
+
+<h2 id="basic-idea-of-aca">Basic idea of ACA</h2>
+
+<p>ACA is an iterative method, which approximates the original data-sparse matrix block \(\mathcal{A}\big\vert_b\in \mathbb{R}^{m\times n}\) by incrementally selecting <strong>only a few crosses</strong> from it. A cross comprises a row vector and a column vector in \(\mathcal{A}\big\vert_b\).</p>
+
+<p>At the beginning of the ACA procedure, an approximant matrix \(S_0\in \mathbb{R}^{m\times n}\) is initialized to zero and a remainder matrix \(R_0\in \mathbb{R}^{m\times n}\) is set as the original \(\mathcal{A}\big\vert_b\). In each iteration step \(k \geq 1\), a selected cross in \(\mathcal{A}\big\vert_b\) contains a row vector \(v_k^{\mathrm{T}}\) and a column vector \(u_k\). Their row and column indices are \(i_k\) and \(j_k\) respectively. According to the following pseudocode, this cross is transformed to a same cross in the remainder matrix of the previous step \(R_{k-1}\). Meanwhile, the row vector \(v_k^{\mathrm{T}}\) is divided by the entry \(R_{k-1}(i_k,j_k)=u_k(i_k)=v_k(j_k)\), which is just the crossing point of \(u_k\) and \(v_k^{\mathrm{T}}\).</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for l = 1:k-1 do
+  uk = uk - ul * vl(jk)
+  vk = vk - ul(ik) * vl
+endfor
+vk = vk / vk(jk)
+</code></pre></div></div>
+
+<p>The outer product \(u_kv_k^{\mathrm{T}}\) is added into the approximant matrix \(S_{k-1}\in \mathbb{R}^{m\times n}\) and removed from the remainder matrix \(R_{k-1}\in \mathbb{R}^{m\times n}\) in the previous step, which produces \(S_k\) and \(R_k\). Due to the above construction of \(u_k\) and \(v_k\), the same cross in \(R_k\) will be eliminated and the error between \(S_k\) and \(\mathcal{A}\big\vert_b\) becomes smaller than that in the previous step. The iteration formulas are as below.</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    S_0 &amp;= 0 \\
+    S_{k} &amp;= S_{k-1}+(R_{k-1})_{i_k j_k}^{-1}(R_{k-1})_{1:m,j_k}(R_{k-1})_{i_k,1:n} =
+    S_{k-1} + u_kv_k^T \\
+    R_0 &amp;= \mathcal{A}\big\vert_b \\
+    R_{k} &amp;= R_{k-1}-(R_{k-1})_{i_k j_k}^{-1}(R_{k-1})_{1:m,j_k}(R_{k-1})_{i_k,1:n} =
+    R_{k-1}-u_kv_k^T,
+    \end{aligned}
+\end{equation}\]
+
+<p>When \(k=r\) and the norm of the remainder matrix \(R_r\) is small enough, ACA exits and \(S_r\) is a low rank representation of \(\mathcal{A}\big\vert_b\), which is a sum of outer products of the columns \(\{ u_i \}_{i=1}^r\) and rows \(\{ v_i^{\mathrm{T}} \}_{i=1}^r\):</p>
+
+\[\begin{equation}
+  \mathcal{A}\big\vert_b \approx \sum_{i=1}^r u_i v_i^{\mathrm{T}}.
+\end{equation}\]
+
+<p>The formal rank \(r\) of this low rank matrix is just the number of ACA iterations.</p>
+
+<p>N.B. \(S_k\) and \(R_k\) in the above algorithm are only used for the theoretical explanation of ACA. They do not appear in the actual implementation.</p>
+
+<h2 id="select-crosses-in-aca">Select crosses in ACA</h2>
+
+<p>In ACA, a cross is not directly selected from \(\mathcal{A}\big\vert_b\), but should be based on a reference row \(v_{\mathrm{r}}^{\mathrm{T}}\) and a reference column \(u_{\mathrm{c}}\), which are <strong>randomly selected</strong> from rows and columns in \(\mathcal{A}\big\vert_b\) that have not been selected in previous ACA steps. Next, we find the entry \(v_{\mathrm{r}}(j^{\ast})\) having the maximum absolute value in \(v_{\mathrm{r}}^{\mathrm{T}}\) with \(j^{\ast}\) being its column index and find the entry \(u_{\mathrm{c}}(i^{\ast})\) having the maximum absolute value in the reference column \(u_{\mathrm{c}}\) with \(i^{\ast}\) being its row index.</p>
+
+<p>When \(u_{\mathrm{c}}(i^{\ast}) &gt; v_{\mathrm{r}}(j^{\ast})\), we select the \(i_k\)-th row in the cross from the remainder matrix \(R_{k-1}\) as the row vector \(v_k^{\mathrm{T}}\) for the \(k\)-th ACA step. Assume \(R_{k-1}(i_k,j_k)\) to be the entry having the maximum value in \(v_k\), then we select the \(j_k\)-th column in the remainder matrix \(R_{k-1}\) as the column vector \(u_k\) in the cross for the \(k\)-th step.</p>
+
+<p>When \(u_{\mathrm{c}}(i^{\ast}) \leq v_{\mathrm{r}}(j^{\ast})\), we select the \(j_k\)-th column in the cross from the remainder matrix \(R_{k-1}\) as the column vector \(u_k\) for the \(k\)-th ACA step. Let \(R_{k-1}(i_k,j_k)\) be the entry having the maximum value in the column \(u_k\), then we select the \(i_k\)-th row in the remainder matrix \(R_{k-1}\) as the row vector \(v_k^{\mathrm{T}}\) in the cross for the \(k\)-th step.</p>
+
+<p>The above procedure is illustrated in the following figure.</p>
+
+<p><img src="figures/2025-10-22-aca-select-cross.png" alt="img" title="Selection of crosses in ACA." /></p>
+
+<h1 id="mathcalh-matrix-construction">\(\mathcal{H}\)-matrix construction</h1>
+
+<p>An \(\mathcal{H}\)-matrix representation of the Galerkin matrix \(\mathcal{A}\) for the bilinear form \(b_A\) has the same hierarchical structure as the block cluster tree \(T(I\times J)\). For a matrix block \(\mathcal{A}\big\vert_b\) within \(\mathcal{A}\) which is associated with the block cluster \(b=\tau\times\sigma\) in \(T(I\times J)\), there are three cases.</p>
+
+<ol>
+  <li>\(b\) is a non-leaf node of \(T(I\times J)\): the \(\mathcal{H}\)-matrix node for this block cluster only contains pointers to its child nodes without any actually data.</li>
+  <li>\(b\) is a near field leaf node of \(T(I\times J)\): the corresponding \(\mathcal{H}\)-matrix node has no children and contains a pointer to a full matrix. All entries of this full matrix should be computed.</li>
+  <li>\(b\) is a far field leaf node of \(T(I\times J)\): the corresponding \(\mathcal{H}\)-matrix node has no children and contains a pointer to a low rank matrix. The low rank matrix is constructed using ACA. During the ACA procedure, only a few rows and columns in \(\mathcal{A}\big\vert_b\) are computed.</li>
+</ol>
+
+<p>In case 2 and case 3, matrix entries corresponding to pairs of <strong>internal</strong> DoF indices need evaluation. The procedure for computing these matrix entries in HierBEM is different from the cell based iteration used for assembling a matrix in FEM. The reason is given below.</p>
+
+<p>We have been familiar with matrix assembly in FEM, where the integral involving a test function and a trial function is a single integral. This enables us to loop over all cells in the triangulation, compute cell local values, then assemble them into the global matrix according to DoF indices in the cell.</p>
+
+<p>In Galerkin BEM, we need to handle double integrals related to boundary integral operators. Even though the support of a basis function in the test space does not overlap with the support of a basis function in the trial space, because of the long-range kernel of the boundary integral operator, the double integral still has a non-zero value. At first glance, it seems a double loop is needed to compute such an integral, i.e. the outer loop iterates over DoFs in a target cell \(K_x\) with respect to the variable \(x\) and the inner loop iterates over DoFs in a source cell \(K_y\) with respect to the variable \(y\). However, after obtaining a local matrix for all pairs of DoFs in \(K_x\) and \(K_y\), it is difficult to determine into which leaf node in the \(\mathcal{H}\)-matrix and at which local row and column indices of this leaf node we should assemble this local matrix. Furthermore, the ACA procedure for assembling a far field \(\mathcal{H}\)-matrix leaf node involves random selection of rows and columns, which cannot be implemented using the above deterministic pair-cell based double loop.</p>
+
+<p>Therefore, the assembly of an \(\mathcal{H}\)-matrix in HierBEM is based on <strong>iteration over pairs of DoFs</strong>. For a near field leaf node \(b=\tau\times\sigma\), we use a double loop by iterating over DoFs in the cluster \(\tau\) (outer loop) and over DoFs in the cluster \(\sigma\) (inner loop). For a far field leaf node, when a row vector needs evaluation, we use a single loop iterating over DoFs in the cluster \(\sigma\); when a column vector needs evaluation, we use a single loop iterating over DoFs in the cluster \(\tau\).</p>
+
+<p>Considering the fact that deal.ii relies on cell iterators to acquire basis function related values and a DoF may be shared by several cells (e.g. when a continuous Lagrange finite element <code class="language-plaintext highlighter-rouge">FE_Q</code> is adopted), we need to explicitly know to which cells a DoF belongs. In HierBEM, the class <code class="language-plaintext highlighter-rouge">DoFToCellTopology</code> holds this information.</p>
+
+<h1 id="explanation-of-example-code">Explanation of example code</h1>
+
+<p>The example code for building an \(\mathcal{H}\)-matrix is in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/build-hmatrix/build-hmatrix.cu">hierbem/examples/build-hmatrix/build-hmatrix.cu</a>. Because numerical quadrature (Sauter quadrature) for computing matrix entries runs on GPU, the extension of the file name is <code class="language-plaintext highlighter-rouge">cu</code>.</p>
+
+<p>In this file, the classes <code class="language-plaintext highlighter-rouge">ClusterTreeBuilder</code> is the same as that defined in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/build-block-cluster-tree/build-block-cluster-tree.cc">hierbem/examples/build-block-cluster-tree/build-block-cluster-tree.cc</a>.</p>
+
+<p>In the class <code class="language-plaintext highlighter-rouge">BEMFunctionSpace</code>, we add two more private data members <code class="language-plaintext highlighter-rouge">cell_iterators</code> and <code class="language-plaintext highlighter-rouge">dof_to_cell_topo</code>. <code class="language-plaintext highlighter-rouge">cell_iterators</code> is a list of cell iterators in the DoF handler associated with the BEM function space. <code class="language-plaintext highlighter-rouge">dof_to_cell_topo</code> holds the information about to which cells each DoF belongs.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">cell_iterator</span><span class="o">&gt;</span> <span class="n">cell_iterators</span><span class="p">;</span>
+<span class="n">DoFToCellTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">dof_to_cell_topo</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>A new private function <code class="language-plaintext highlighter-rouge">build_dof_to_cell_topology</code> is responsible for enumerating cell iterators and building the DoF-to-cell topology.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="kt">void</span>
+<span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_dof_to_cell_topology</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">cell_iterators</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="n">dof_handler</span><span class="o">-&gt;</span><span class="n">get_triangulation</span><span class="p">().</span><span class="n">n_active_cells</span><span class="p">());</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">cell</span> <span class="o">:</span> <span class="n">dof_handler</span><span class="o">-&gt;</span><span class="n">active_cell_iterators</span><span class="p">())</span>
+    <span class="n">cell_iterators</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">cell</span><span class="p">);</span>
+  <span class="n">DoFToolsExt</span><span class="o">::</span><span class="n">build_dof_to_cell_topology</span><span class="p">(</span><span class="n">dof_to_cell_topo</span><span class="p">,</span>
+                                          <span class="n">cell_iterators</span><span class="p">,</span>
+                                          <span class="o">*</span><span class="n">dof_handler</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Moreover, a getter function <code class="language-plaintext highlighter-rouge">get_dof_handler</code> is provided, which will be used by <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code>.</p>
+
+<p>In the class <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code>, we add two new member functions <code class="language-plaintext highlighter-rouge">build_hmatrix</code> and <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code> for \(\mathcal{H}\)-matrix construction. The former is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator only, such as the single layer potential operator \(V\). The latter is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator plus a scaled identity operator, such as \(\frac{1}{2}I+K\) with \(K\) being the double layer potential operator. \(\frac{1}{2}I+K\) appears in the right hand side term \((\frac{1}{2}I+K)g\) of the Laplace equation with the Dirichlet boundary condition \(g\).</p>
+
+<p>The definition of the function <code class="language-plaintext highlighter-rouge">build_hmatrix</code> is given below.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">RangeNumberType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">KernelNumberType</span><span class="p">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_hmatrix</span><span class="p">(</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">thread_num</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">KernelFunctionType</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span>
+                                                  <span class="o">&amp;</span><span class="n">kernel</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span>         <span class="n">kernel_factor</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                 <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+                                   <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+  <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+                                         <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
+                                         <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
+    <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span><span class="o">::</span><span class="n">diagonal_block</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">hmat</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">block_cluster_tree</span><span class="p">,</span> <span class="n">max_rank</span><span class="p">,</span> <span class="n">property</span><span class="p">,</span> <span class="n">block_type</span><span class="p">);</span>
+
+  <span class="n">fill_hmatrix_with_aca_plus_smp</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                 <span class="n">spacedim</span><span class="p">,</span>
+                                 <span class="n">KernelFunctionType</span><span class="p">,</span>
+                                 <span class="n">RangeNumberType</span><span class="p">,</span>
+                                 <span class="n">KernelNumberType</span><span class="p">,</span>
+                                 <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="n">thread_num</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">hmat</span><span class="p">,</span>
+    <span class="n">ACAConfig</span><span class="p">(</span><span class="n">max_rank</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">block_cluster_tree</span><span class="o">-&gt;</span><span class="n">get_eta</span><span class="p">()),</span>
+    <span class="n">kernel</span><span class="p">,</span>
+    <span class="n">kernel_factor</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">sauter_quad_rule</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="nb">nullptr</span><span class="p">,</span>
+    <span class="nb">nullptr</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">mappings</span><span class="p">,</span>
+    <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+    <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology</span><span class="p">),</span>
+    <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">());</span>
+
+  <span class="k">return</span> <span class="n">hmat</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The meaning of its template arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KernelFunctionType</code> is the type of the kernel function \(\kappa(x,y)\), which should also be a template type. Its first template argument is the space dimension of the coordinate variable \(x\) or \(y\). The second template argument is the number type returned from \(\kappa(x,y)\).</li>
+  <li><code class="language-plaintext highlighter-rouge">RangeNumberType</code> is the number type used by the \(\mathcal{H}\)-matrix.</li>
+  <li><code class="language-plaintext highlighter-rouge">KernelNumberType</code> is the number type of the kernel function.</li>
+</ul>
+
+<p>It is possible that <code class="language-plaintext highlighter-rouge">RangeNumberType</code> and <code class="language-plaintext highlighter-rouge">KernelNumberType</code> are different. For example, in a complex valued Laplace problem, the boundary condition vector and the solution vector are complex valued containing the information of both amplitude and phase. Because HierBEM uses LAPACK for full matrix algebra, different number types for vectors and matrices are now allowed in a same function call. Hence, system matrices in the complex valued Laplace problem should also be complex valued. However, kernel functions are still real valued. Therefore, we need two template arguments to separately specify the number types for kernel functions (<code class="language-plaintext highlighter-rouge">KernelNumberType</code>) and matrices or vectors (<code class="language-plaintext highlighter-rouge">RangeNumberType</code>).</p>
+
+<p>The meaning of function arguments of <code class="language-plaintext highlighter-rouge">build_hmatrix</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">thread_num</code> is the number of threads used to perform parallel \(\mathcal{H}\)-matrix assembly.</li>
+  <li><code class="language-plaintext highlighter-rouge">max_rank</code> is the maximum rank allowed for a far field \(\mathcal{H}\)-matrix node. This means the maximum iteration of ACA will not exceed <code class="language-plaintext highlighter-rouge">max_rank</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">epsilon</code> is the error threshold for the norm of the remainder matrix in ACA. When the far field matrix approximation error is smaller than <code class="language-plaintext highlighter-rouge">epsilon</code>, the ACA algorithm exits.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">kernel</code> is a kernel function object. The first template argument is the variable dimension and the second argument <code class="language-plaintext highlighter-rouge">DeviceNumberType&lt;KernelNumberType&gt;</code> is a template alias type dependent on the kernel function value type <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is defined as</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">HostNumberType</span><span class="p">&gt;</span>
+<span class="k">using</span> <span class="n">DeviceNumberType</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">HostNumberType</span><span class="p">,</span>
+  <span class="n">complex</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a real valued type, such as <code class="language-plaintext highlighter-rouge">float</code> or <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is the same as <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a complex valued type, such as <code class="language-plaintext highlighter-rouge">std::complex&lt;float&gt;</code> or <code class="language-plaintext highlighter-rouge">std::complex&lt;double&gt;</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> uses our own complex type <code class="language-plaintext highlighter-rouge">HierBEM::complex</code> instead of <code class="language-plaintext highlighter-rouge">std::complex</code>. This is because CUDA at the moment does not support <code class="language-plaintext highlighter-rouge">std::complex</code>.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">kernel_factor</code> is used to scale the kernel function’s return value. Usually, it is only 1.0.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">sauter_quad_rule</code> is a <code class="language-plaintext highlighter-rouge">SauterQuadratureRule</code> object, which is used to specify the Sauter quadrature orders. Sauter quadrature is a general numerical method for computing singular double boundary integrals, which appear in Galerkin BEM. It switches to a different set of quadrature points and weights, when \(K_x\) and \(K_y\) have a certain cell neighboring types, i.e.</p>
+
+    <ul>
+      <li>
+        <p>\(K_x\) and \(K_y\) are a same cell</p>
+
+        <p><img src="figures/2025-10-26-cell-neighboring-types_same-panel.png" alt="img" title="Unit cells and real cells when $$K_x $$ is the same as $$K_y $$." /></p>
+      </li>
+      <li>
+        <p>\(K_x\) and \(K_y\) share an edge</p>
+
+        <p><img src="figures/2025-10-26-cell-neighboring-types_common-edge.png" alt="img" title="Unit cells and real cells when $$K_x $$ and $$K_y $$ share an edge." /></p>
+      </li>
+      <li>
+        <p>\(K_x\) and \(K_y\) share a vertex</p>
+
+        <p><img src="figures/2025-10-26-cell-neighboring-types_common-vertex.png" alt="img" title="Unit cells and real cells when $$K_x $$ and $$K_y $$ share a vertex." /></p>
+      </li>
+      <li>
+        <p>\(K_x\) and \(K_y\) are separated</p>
+
+        <p><img src="figures/2025-10-26-cell-neighboring-types_regular.png" alt="img" title="Unit cells and real cells when $$K_x $$ and $$K_y $$ are separated." /></p>
+      </li>
+    </ul>
+
+    <p>The four cell neighboring types are organized as an <code class="language-plaintext highlighter-rouge">enum</code> type <code class="language-plaintext highlighter-rouge">CellNeighboringType</code> defined in <a href="https://github.com/jihuan-tian/hierbem/blob/main/include/bem/bem_tools.h">hierbem/include/bem/bem_tools.h</a>. It includes four valid choices: <code class="language-plaintext highlighter-rouge">SamePanel</code>, <code class="language-plaintext highlighter-rouge">CommonEdge</code>, <code class="language-plaintext highlighter-rouge">CommonVertex</code> and <code class="language-plaintext highlighter-rouge">Regular</code>. The constructor of the <code class="language-plaintext highlighter-rouge">SauterQuadratureRule</code> class accepts four unsigned integers, which specify the quadrature orders for these four cases. \(\chi_{K_x}\) and \(\chi_{K_y}\) in the above figures are maps from the unit cell \(\hat{K}_x\) to the real cell \(K_x\) and from \(\hat{K}_y\) to \(K_y\).</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">mappings</code> is a vector of pointers to <code class="language-plaintext highlighter-rouge">MappingInfo</code> objects. A <code class="language-plaintext highlighter-rouge">MappingInfo</code> object holds a <code class="language-plaintext highlighter-rouge">MappingQExt</code> object, which inherits from deal.ii’s <code class="language-plaintext highlighter-rouge">MappingQ</code> class. <code class="language-plaintext highlighter-rouge">MappingQExt</code> exposes the internal data in <code class="language-plaintext highlighter-rouge">MappingQ</code>, such as Lagrange function support points, which are used by Sauter quadrature.</p>
+
+    <p>The list of <code class="language-plaintext highlighter-rouge">MappingInfo</code> objects in <code class="language-plaintext highlighter-rouge">mappings</code> starts from order 1 to a highest order requested by the user. We can then assign cells with different material ids to use different mapping order, specified in the next parameter <code class="language-plaintext highlighter-rouge">material_id_to_mapping_index</code>. In this way, HierBEM realizes Sauter quadrature on curved surfaces, which is more accurate than quadrature on flat cells.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">material_id_to_mapping_index</code> is a <code class="language-plaintext highlighter-rouge">std::map</code> which associates each material id with a mapping order.</li>
+  <li><code class="language-plaintext highlighter-rouge">subdomain_topology</code> describes the incidence relation between each volume and the faces covering it in the CAD model. With the help of Gmsh API, we can use this topology to determine whether the normal direction of a face points into or outside of a volume. The direction of normal vectors influences the sign of boundary integral in BEM.</li>
+</ul>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">build_hmatrix</code>, an \(\mathcal{H}\)-matrix is initialized by passing a block cluster tree, maximum rank, \(\mathcal{H}\)-matrix property and the block type of its root node.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+                                       <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
+                                       <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
+<span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span><span class="o">::</span><span class="n">diagonal_block</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">hmat</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">block_cluster_tree</span><span class="p">,</span>
+                                                       <span class="n">max_rank</span><span class="p">,</span>
+                                                       <span class="n">property</span><span class="p">,</span>
+                                                       <span class="n">block_type</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">property</code> specifies whether the \(\mathcal{H}\)-matrix is general, symmetric, lower triangular or upper triangular.</p>
+
+<ul>
+  <li>When it is general, all \(\mathcal{H}\)-matrix leaf nodes are created and allocated with memory.</li>
+  <li>When it is symmetric, only the diagonal blocks (which must belong to the near field) and matrix blocks in the lower triangular part are created and allocated with memory.
+    <ul>
+      <li>For diagonal matrix blocks, memory is still allocated for the associated whole full matrix, but only the lower triangular matrix entries (including diagonal) are filled during matrix assembly and included into algebraic matrix computation.</li>
+      <li>For matrix blocks in the upper triangular part, basic matrix information, such as dimension, associated block cluster node, etc., is still initialized and maintained, but the memory is not allocated. When performing matrix operations such as matrix-vector multiplication, the contribution from these blocks in the upper triangular part should be taken into account by transposing their counterparts in the lower triangular part.</li>
+      <li>Matrix blocks in the lower triangular part are assembled as usual.</li>
+    </ul>
+  </li>
+  <li>When it is upper triangular, only the matrix blocks in the upper triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the lower triangular part have only basic matrix information but no memory is allocated.</li>
+  <li>When it is lower triangular, only the matrix blocks in the lower triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the upper triangular part have only basic matrix information but no memory is allocated.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">block_type</code> of an \(\mathcal{H}\)-matrix node represents its location within the top level \(\mathcal{H}\)-matrix, which can be diagonal, lower triangular or upper triangular.</p>
+
+<p><img src="figures/2023-01-23-hmat-block-type.png" alt="img" title="Block types of an $$\mathcal{H}$$-matrix node." /> When initializing an \(\mathcal{H}\)-matrix, <code class="language-plaintext highlighter-rouge">block_type</code> is for the root node, which must be a diagonal block.</p>
+
+<p>Next is the definition of the function <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code>.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">RangeNumberType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">KernelNumberType</span><span class="p">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">thread_num</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">KernelFunctionType</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span>
+                                          <span class="o">&amp;</span><span class="n">kernel</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span> <span class="n">kernel_factor</span><span class="p">,</span>
+  <span class="k">const</span> <span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">RangeNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span>
+                                                   <span class="n">mass_matrix_factor</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                 <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                               <span class="o">&amp;</span><span class="n">mass_matrix_quad_rule</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+                                   <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+  <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+                                         <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
+                                         <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
+    <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span><span class="o">::</span><span class="n">diagonal_block</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">hmat</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">block_cluster_tree</span><span class="p">,</span> <span class="n">max_rank</span><span class="p">,</span> <span class="n">property</span><span class="p">,</span> <span class="n">block_type</span><span class="p">);</span>
+
+  <span class="n">fill_hmatrix_with_aca_plus_smp</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                 <span class="n">spacedim</span><span class="p">,</span>
+                                 <span class="n">KernelFunctionType</span><span class="p">,</span>
+                                 <span class="n">RangeNumberType</span><span class="p">,</span>
+                                 <span class="n">KernelNumberType</span><span class="p">,</span>
+                                 <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="n">thread_num</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">hmat</span><span class="p">,</span>
+    <span class="n">ACAConfig</span><span class="p">(</span><span class="n">max_rank</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">block_cluster_tree</span><span class="o">-&gt;</span><span class="n">get_eta</span><span class="p">()),</span>
+    <span class="n">kernel</span><span class="p">,</span>
+    <span class="n">kernel_factor</span><span class="p">,</span>
+    <span class="n">mass_matrix_factor</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">sauter_quad_rule</span><span class="p">,</span>
+    <span class="n">mass_matrix_quad_rule</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="nb">nullptr</span><span class="p">,</span>
+    <span class="nb">nullptr</span><span class="p">,</span>
+    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">mappings</span><span class="p">,</span>
+    <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+    <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology</span><span class="p">),</span>
+    <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">());</span>
+
+  <span class="k">return</span> <span class="n">hmat</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It has two more arguments than <code class="language-plaintext highlighter-rouge">build_hmatrix</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mass_matrix_factor</code> is the scaling factor before the identity operator \(I\), which is usually set to 0.5 for smooth boundaries.</li>
+  <li><code class="language-plaintext highlighter-rouge">mass_matrix_quad_rule</code> is a <code class="language-plaintext highlighter-rouge">QGauss</code> object which is used for assembling the mass matrix related with \(I\).</li>
+</ul>
+
+<p>In the <code class="language-plaintext highlighter-rouge">main</code> function, we first set the stack size to 10 KB for each GPU thread and initialize a <code class="language-plaintext highlighter-rouge">cudaDeviceProp</code> structure.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">size_t</span> <span class="n">stack_size</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">AssertCuda</span><span class="p">(</span><span class="n">cudaDeviceSetLimit</span><span class="p">(</span><span class="n">cudaLimitStackSize</span><span class="p">,</span> <span class="n">stack_size</span><span class="p">));</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"CUDA stack size has been set to "</span> <span class="o">&lt;&lt;</span> <span class="n">stack_size</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">AssertCuda</span><span class="p">(</span>
+           <span class="n">cudaGetDeviceProperties</span><span class="p">(</span><span class="o">&amp;</span><span class="n">HierBEM</span><span class="o">::</span><span class="n">CUDAWrappers</span><span class="o">::</span><span class="n">device_properties</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Read a triangulation of two spheres from <code class="language-plaintext highlighter-rouge">two-spheres-fine.msh</code> and construct a topology between surfaces and volumes in the CAD model <code class="language-plaintext highlighter-rouge">two-spheres.brep</code>. As mentioned before, this topology is used to determine the direction of surface normal vectors. Also note that the <code class="language-plaintext highlighter-rouge">read_msh</code> function is a customized version defined in <a href="https://github.com/jihuan-tian/hierbem/blob/main/include/grid/grid_in_ext.h">hierbem/include/grid/grid_in_ext.h</a>, which reads surface entity tags in the Gmsh MSH file directly as material ids for cells in the triangulation.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">dim</span>      <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">spacedim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="c1">// Read the triangulation.</span>
+<span class="n">Triangulation</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">tria</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="nf">mesh_in</span><span class="p">(</span><span class="n">HBEM_TEST_MODEL_DIR</span> <span class="s">"two-spheres-fine.msh"</span><span class="p">);</span>
+<span class="n">read_msh</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">tria</span><span class="p">);</span>
+<span class="c1">// Generate surface-to-volume and volume-to-surface topology.</span>
+<span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">subdomain_topology</span><span class="p">;</span>
+<span class="n">subdomain_topology</span><span class="p">.</span><span class="n">generate_topology</span><span class="p">(</span><span class="n">HBEM_TEST_MODEL_DIR</span> <span class="s">"two-spheres.brep"</span><span class="p">,</span>
+                                     <span class="n">HBEM_TEST_MODEL_DIR</span> <span class="s">"two-spheres.msh"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The Gmsh file and CAD file are located in the folder specified by the CMake variable <code class="language-plaintext highlighter-rouge">HBEM_TEST_MODEL_DIR</code>, which is defined in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/CMakeLists.txt">hierbem/examples/CMakeLists.txt</a>:</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span>HBEM_TEST_MODEL_DIR $<span class="si">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="si">}</span>/tests/models/<span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="figures/2025-10-27_11-05-09-two-spheres-fine.png" alt="img" title="Mesh for the two spheres." /></p>
+
+<p>Define two manifolds for the spheres and assign these manifolds to the triangulation depending on material ids. A <code class="language-plaintext highlighter-rouge">std::map</code> is created which associates each material id with a manifold id.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">double</span>                                            <span class="n">inter_distance</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">manifold_id</span><span class="p">,</span> <span class="n">Manifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="n">manifolds</span><span class="p">;</span>
+<span class="n">Manifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>                                <span class="o">*</span><span class="n">left_sphere_manifold</span> <span class="o">=</span>
+  <span class="k">new</span> <span class="n">SphericalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span>
+                                       <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="o">-</span><span class="n">inter_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">Manifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">right_sphere_manifold</span> <span class="o">=</span>
+  <span class="k">new</span> <span class="n">SphericalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span>
+                                       <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">inter_distance</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="n">manifolds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">left_sphere_manifold</span><span class="p">;</span>
+<span class="n">manifolds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">right_sphere_manifold</span><span class="p">;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">EntityTag</span><span class="p">,</span> <span class="n">types</span><span class="o">::</span><span class="n">manifold_id</span><span class="o">&gt;</span> <span class="n">manifold_description</span><span class="p">;</span>
+<span class="n">manifold_description</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">manifold_description</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">cell</span> <span class="o">:</span> <span class="n">tria</span><span class="p">.</span><span class="n">active_cell_iterators</span><span class="p">())</span>
+  <span class="n">cell</span><span class="o">-&gt;</span><span class="n">set_all_manifold_ids</span><span class="p">(</span><span class="n">manifold_description</span><span class="p">[</span><span class="n">cell</span><span class="o">-&gt;</span><span class="n">material_id</span><span class="p">()]);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">m</span> <span class="o">:</span> <span class="n">manifolds</span><span class="p">)</span>
+  <span class="n">tria</span><span class="p">.</span><span class="n">set_manifold</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">m</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Create a list of <code class="language-plaintext highlighter-rouge">MappingInfo</code> objects which hold <code class="language-plaintext highlighter-rouge">MappingQExt</code> objects from 1st order to 2nd order. In HierBEM, this is used to realize numerical quadrature on curved surfaces. According to <code class="language-plaintext highlighter-rouge">material_id_to_mapping_index</code>, cells with different material ids can be assigned different mapping orders. However, in this example, we only use the 2nd order mapping for both spheres.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="n">mappings</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">mappings</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">material_id_to_mapping_index</span><span class="p">;</span>
+<span class="n">material_id_to_mapping_index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">material_id_to_mapping_index</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The creation of two function spaces as conforming finite dimensional approximation of Sobolev spaces \(H^{1/2}(\Gamma)\) and \(H^{-1/2}(\Gamma)\) is the same as previous examples.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FE_Q</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_half</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">dof_handler_H_half</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_half</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">H_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_half</span><span class="p">,</span>
+                                                    <span class="n">n_min_H_half</span><span class="p">);</span>
+
+<span class="n">FE_DGQ</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_minus_half</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">auto</span>                  <span class="n">dof_handler_H_minus_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_minus_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_minus_half</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">H_minus_half</span> <span class="o">=</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_minus_half</span><span class="p">,</span>
+                                                    <span class="n">n_min_H_minus_half</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We create two bilinear forms \(b_V\) and \(b_{\frac{1}{2}I+K}\) as well as their block cluster trees, one for the single layer potential operator \(V\) and the other for the double layer potential operator \(K\) plus a scaled identity operator.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bV</span><span class="p">(</span><span class="n">H_minus_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
+<span class="n">bV</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bIK</span><span class="p">(</span><span class="n">H_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
+<span class="n">bIK</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Then the two bilinear forms are discretized into two \(\mathcal{H}\)-matrices.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">thread_num</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span>   <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span>    <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">V</span> <span class="o">=</span> <span class="n">bV</span><span class="p">.</span><span class="n">build_hmatrix</span><span class="p">(</span>
+  <span class="n">thread_num</span><span class="p">,</span>
+  <span class="n">max_rank</span><span class="p">,</span>
+  <span class="n">epsilon</span><span class="p">,</span>
+  <span class="n">PlatformShared</span><span class="o">::</span><span class="n">LaplaceKernel</span><span class="o">::</span><span class="n">SingleLayerKernel</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(),</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="n">mappings</span><span class="p">,</span>
+  <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+  <span class="n">subdomain_topology</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">IK</span> <span class="o">=</span>
+  <span class="n">bIK</span><span class="p">.</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
+    <span class="n">thread_num</span><span class="p">,</span>
+    <span class="n">max_rank</span><span class="p">,</span>
+    <span class="n">epsilon</span><span class="p">,</span>
+    <span class="n">PlatformShared</span><span class="o">::</span><span class="n">LaplaceKernel</span><span class="o">::</span><span class="n">DoubleLayerKernel</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(),</span>
+    <span class="mf">1.0</span><span class="p">,</span>
+    <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">mappings</span><span class="p">,</span>
+    <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+    <span class="n">subdomain_topology</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Print out the leaf set information of \(\mathcal{H}\)-matrices. For each leaf node, the DoF index ranges in the block cluster, near field/far field flag and matrix rank are printed.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="nf">leaf_set</span><span class="p">(</span><span class="s">"V-leaf-set.dat"</span><span class="p">);</span>
+<span class="n">V</span><span class="o">-&gt;</span><span class="n">write_leaf_set_by_iteration</span><span class="p">(</span><span class="n">leaf_set</span><span class="p">);</span>
+<span class="n">leaf_set</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="n">leaf_set</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"IK-leaf-set.dat"</span><span class="p">);</span>
+<span class="n">IK</span><span class="o">-&gt;</span><span class="n">write_leaf_set_by_iteration</span><span class="p">(</span><span class="n">leaf_set</span><span class="p">);</span>
+<span class="n">leaf_set</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Finally, we release manifolds and mappings allocated on the heap.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">m</span> <span class="o">:</span> <span class="n">manifolds</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">second</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">)</span>
+    <span class="k">delete</span> <span class="n">m</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">m</span> <span class="o">:</span> <span class="n">mappings</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">)</span>
+    <span class="k">delete</span> <span class="n">m</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>After building this example and running the executable in the <code class="language-plaintext highlighter-rouge">CMAKE_CURRENT_BINARY_DIR</code> directory, two files <code class="language-plaintext highlighter-rouge">V-leaf-set.dat</code> and <code class="language-plaintext highlighter-rouge">IK-leaf-set.dat</code> are generated, the contents of which look like this.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0 25),[0 25),1,25
+[25 62),[0 25),1,25
+[25 46),[25 46),1,21
+[46 62),[25 46),1,16
+</code></pre></div></div>
+
+<p>These two files can be processed by the Asymptote script <code class="language-plaintext highlighter-rouge">plot-hmat.asy</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asy <span class="nt">-fpng</span> plot-hmat.asy
+</code></pre></div></div>
+
+<p>We can visualize the leaf set block structure of the two \(\mathcal{H}\)-matrices.</p>
+
+<p><img src="figures/V-leaf-set.png" alt="img" title="Leaf set block structure of the $$\mathcal{H}$$-matrix $$\mathcal{V} $$." /></p>
+
+<p><img src="figures/IK-leaf-set.png" alt="img" title="Leaf set block structure of the $$\mathcal{H}$$-matrix $$\frac{1}{2}\mathcal{M}+\mathcal{V} $$." /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/hierbem-site/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/hierbem-site/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
