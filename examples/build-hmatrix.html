@@ -434,8 +434,11 @@
 
 \[\begin{equation}
   \begin{aligned}
-    \lVert \mathcal{A}\big\vert_b - \mathcal{A}^{(k)}\big\vert_b \rVert_2 &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{L^2(P) \leftarrow L^2(Q)} \\
-    &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)} \rVert_{\mathrm{F}} \\
+    \lVert \mathcal{A}\big\vert_b - \mathcal{A}^{(k)}\big\vert_b \rVert_2 &amp;\leq \lVert
+    R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)}
+    \rVert_{L^2(P) \leftarrow L^2(Q)} \\
+    &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \lVert A_{PQ} - A_{PQ}^{(k)}
+    \rVert_{\mathrm{F}} \\
     &amp;\leq \lVert R_{\tau} \rVert_2 \lVert P_{\sigma} \rVert_2 \tilde{c}_1 (c_2'\eta)^m,
   \end{aligned}
 \end{equation}\]
@@ -545,29 +548,77 @@ vk = vk / vk(jk)
 
 <p>Moreover, a getter function <code class="language-plaintext highlighter-rouge">get_dof_handler</code> is provided, which will be used by <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code>.</p>
 
-<p>In the class <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code>, we add two new member functions <code class="language-plaintext highlighter-rouge">build_hmatrix</code> and <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code> for \(\mathcal{H}\)-matrix construction. The former is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator only, such as the single layer potential operator \(V\). The latter is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator plus a scaled identity operator, such as \(\frac{1}{2}I+K\) with \(K\) being the double layer potential operator. \(\frac{1}{2}I+K\) appears in the right hand side term \((\frac{1}{2}I+K)g\) of the Laplace equation with the Dirichlet boundary condition \(g\).</p>
+<p>The class <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code> has five template arguments as below.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">spacedim</span><span class="p">,</span>
+          <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span>
+          <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">RangeNumberType</span>  <span class="o">=</span> <span class="kt">double</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">KernelNumberType</span> <span class="o">=</span> <span class="kt">double</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">BEMBilinearForm</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="nl">private:</span>
+  <span class="n">KernelFunctionType</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span> <span class="n">kernel</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>                           <span class="o">&amp;</span><span class="n">trial_space</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>                           <span class="o">&amp;</span><span class="n">test_space</span><span class="p">;</span>
+  <span class="kt">bool</span>                                        <span class="n">is_symmetric</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">BlockClusterTree</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;&gt;</span> <span class="n">block_cluster_tree</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The meaning of these template arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">dim</code> is the manifold dimension.</li>
+  <li><code class="language-plaintext highlighter-rouge">spacedim</code> is the space dimension into which the manifold is embedded.</li>
+  <li><code class="language-plaintext highlighter-rouge">KernelFunctionType</code> is the type of the kernel function \(\kappa(x,y)\), which should also be a template type. Its first template argument is the space dimension of the coordinate variable \(x\) or \(y\). The second template argument is the type of the return value of \(\kappa(x,y)\).</li>
+  <li><code class="language-plaintext highlighter-rouge">RangeNumberType</code> is the number type used by the \(\mathcal{H}\)-matrix.</li>
+  <li><code class="language-plaintext highlighter-rouge">KernelNumberType</code> is the number type of the kernel function.</li>
+</ul>
+
+<p>It is possible that <code class="language-plaintext highlighter-rouge">RangeNumberType</code> and <code class="language-plaintext highlighter-rouge">KernelNumberType</code> are different. For example, in a complex valued Laplace problem, the boundary condition vector and the solution vector are complex valued containing the information of both amplitude and phase. Because HierBEM uses LAPACK for full matrix algebra, different number types for vectors and matrices are now allowed in a same function call. Hence, system matrices in the complex valued Laplace problem should also be complex valued. However, kernel functions are still real valued. Therefore, we need two template arguments to separately specify the number types for kernel functions (<code class="language-plaintext highlighter-rouge">KernelNumberType</code>) and matrices or vectors (<code class="language-plaintext highlighter-rouge">RangeNumberType</code>).</p>
+
+<p>The private member <code class="language-plaintext highlighter-rouge">kernel</code> of <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code> is the kernel function. Its first template argument is the variable dimension and the second argument <code class="language-plaintext highlighter-rouge">DeviceNumberType&lt;KernelNumberType&gt;</code> is a template alias type dependent on the kernel function value type <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is defined as</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">HostNumberType</span><span class="p">&gt;</span>
+<span class="k">using</span> <span class="n">DeviceNumberType</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">HostNumberType</span><span class="p">,</span>
+  <span class="n">complex</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a real valued type, such as <code class="language-plaintext highlighter-rouge">float</code> or <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is the same as <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a complex valued type, such as <code class="language-plaintext highlighter-rouge">std::complex&lt;float&gt;</code> or <code class="language-plaintext highlighter-rouge">std::complex&lt;double&gt;</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> uses our own complex type <code class="language-plaintext highlighter-rouge">HierBEM::complex</code> instead of <code class="language-plaintext highlighter-rouge">std::complex</code>. This is because CUDA at the moment does not support <code class="language-plaintext highlighter-rouge">std::complex</code>.</p>
+
+<p>The Boolean member <code class="language-plaintext highlighter-rouge">is_symmetric</code> of <code class="language-plaintext highlighter-rouge">BEMBilinearForm</code> indicates the symmetry of the bilinear form. A bilinear form is symmetric when the kernel function is symmetric, i.e. \(\kappa(x,y) == \kappa(y,x)\), and the trial space and trial space is a same space.</p>
+
+<p>We also add two new member functions <code class="language-plaintext highlighter-rouge">build_hmatrix</code> and <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code> for \(\mathcal{H}\)-matrix construction. The former is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator only, such as the single layer potential operator \(V\). The latter is used to build an \(\mathcal{H}\)-matrix for a bilinear form depending on a boundary integral operator plus a scaled identity operator, such as \(\frac{1}{2}I+K\) with \(K\) being the double layer potential operator. \(\frac{1}{2}I+K\) appears in the right hand side term \((\frac{1}{2}I+K)g\) of the Laplace equation with the Dirichlet boundary condition \(g\).</p>
 
 <p>The definition of the function <code class="language-plaintext highlighter-rouge">build_hmatrix</code> is given below.</p>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">spacedim</span><span class="p">,</span>
+          <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
           <span class="k">typename</span> <span class="nc">RangeNumberType</span><span class="p">,</span>
           <span class="k">typename</span> <span class="nc">KernelNumberType</span><span class="p">&gt;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span>
-<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_hmatrix</span><span class="p">(</span>
-  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">thread_num</span><span class="p">,</span>
-  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span><span class="p">,</span>
-  <span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">KernelFunctionType</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span>
-                                                  <span class="o">&amp;</span><span class="n">kernel</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span>         <span class="n">kernel_factor</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                 <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-                                   <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
-  <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                <span class="n">spacedim</span><span class="p">,</span>
+                <span class="n">KernelFunctionType</span><span class="p">,</span>
+                <span class="n">RangeNumberType</span><span class="p">,</span>
+                <span class="n">KernelNumberType</span><span class="o">&gt;::</span>
+  <span class="n">build_hmatrix</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>                       <span class="n">thread_num</span><span class="p">,</span>
+                <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>                       <span class="n">max_rank</span><span class="p">,</span>
+                <span class="k">const</span> <span class="kt">double</span>                             <span class="n">epsilon</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span> <span class="n">kernel_factor</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>         <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+                                                 <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+                <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">is_symmetric</span> <span class="o">?</span>
                                          <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
                                          <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
   <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
@@ -586,52 +637,30 @@ vk = vk / vk(jk)
     <span class="n">ACAConfig</span><span class="p">(</span><span class="n">max_rank</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">block_cluster_tree</span><span class="o">-&gt;</span><span class="n">get_eta</span><span class="p">()),</span>
     <span class="n">kernel</span><span class="p">,</span>
     <span class="n">kernel_factor</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
     <span class="n">sauter_quad_rule</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_dof_handler</span><span class="p">(),</span>
     <span class="nb">nullptr</span><span class="p">,</span>
     <span class="nb">nullptr</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
     <span class="n">mappings</span><span class="p">,</span>
     <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
     <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology</span><span class="p">),</span>
-    <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">());</span>
+    <span class="n">is_symmetric</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="n">hmat</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>The meaning of its template arguments:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">KernelFunctionType</code> is the type of the kernel function \(\kappa(x,y)\), which should also be a template type. Its first template argument is the space dimension of the coordinate variable \(x\) or \(y\). The second template argument is the number type returned from \(\kappa(x,y)\).</li>
-  <li><code class="language-plaintext highlighter-rouge">RangeNumberType</code> is the number type used by the \(\mathcal{H}\)-matrix.</li>
-  <li><code class="language-plaintext highlighter-rouge">KernelNumberType</code> is the number type of the kernel function.</li>
-</ul>
-
-<p>It is possible that <code class="language-plaintext highlighter-rouge">RangeNumberType</code> and <code class="language-plaintext highlighter-rouge">KernelNumberType</code> are different. For example, in a complex valued Laplace problem, the boundary condition vector and the solution vector are complex valued containing the information of both amplitude and phase. Because HierBEM uses LAPACK for full matrix algebra, different number types for vectors and matrices are now allowed in a same function call. Hence, system matrices in the complex valued Laplace problem should also be complex valued. However, kernel functions are still real valued. Therefore, we need two template arguments to separately specify the number types for kernel functions (<code class="language-plaintext highlighter-rouge">KernelNumberType</code>) and matrices or vectors (<code class="language-plaintext highlighter-rouge">RangeNumberType</code>).</p>
-
-<p>The meaning of function arguments of <code class="language-plaintext highlighter-rouge">build_hmatrix</code>:</p>
+<p>The meaning of the function arguments of <code class="language-plaintext highlighter-rouge">build_hmatrix</code>:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">thread_num</code> is the number of threads used to perform parallel \(\mathcal{H}\)-matrix assembly.</li>
   <li><code class="language-plaintext highlighter-rouge">max_rank</code> is the maximum rank allowed for a far field \(\mathcal{H}\)-matrix node. This means the maximum iteration of ACA will not exceed <code class="language-plaintext highlighter-rouge">max_rank</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">epsilon</code> is the error threshold for the norm of the remainder matrix in ACA. When the far field matrix approximation error is smaller than <code class="language-plaintext highlighter-rouge">epsilon</code>, the ACA algorithm exits.</li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">kernel</code> is a kernel function object. The first template argument is the variable dimension and the second argument <code class="language-plaintext highlighter-rouge">DeviceNumberType&lt;KernelNumberType&gt;</code> is a template alias type dependent on the kernel function value type <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is defined as</p>
-
-    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">HostNumberType</span><span class="p">&gt;</span>
-<span class="k">using</span> <span class="n">DeviceNumberType</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">is_floating_point_v</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="n">HostNumberType</span><span class="p">,</span>
-  <span class="n">complex</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">HostNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-</code></pre></div>    </div>
-
-    <p>When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a real valued type, such as <code class="language-plaintext highlighter-rouge">float</code> or <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> is the same as <code class="language-plaintext highlighter-rouge">KernelNumberType</code>. When <code class="language-plaintext highlighter-rouge">KernelNumberType</code> is a complex valued type, such as <code class="language-plaintext highlighter-rouge">std::complex&lt;float&gt;</code> or <code class="language-plaintext highlighter-rouge">std::complex&lt;double&gt;</code>, <code class="language-plaintext highlighter-rouge">DeviceNumberType</code> uses our own complex type <code class="language-plaintext highlighter-rouge">HierBEM::complex</code> instead of <code class="language-plaintext highlighter-rouge">std::complex</code>. This is because CUDA at the moment does not support <code class="language-plaintext highlighter-rouge">std::complex</code>.</p>
-  </li>
   <li><code class="language-plaintext highlighter-rouge">kernel_factor</code> is used to scale the kernel function’s return value. Usually, it is only 1.0.</li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">sauter_quad_rule</code> is a <code class="language-plaintext highlighter-rouge">SauterQuadratureRule</code> object, which is used to specify the Sauter quadrature orders. Sauter quadrature is a general numerical method for computing singular double boundary integrals, which appear in Galerkin BEM. It switches to a different set of quadrature points and weights, when \(K_x\) and \(K_y\) have a certain cell neighboring types, i.e.</p>
@@ -672,7 +701,7 @@ vk = vk / vk(jk)
 
 <p>Inside <code class="language-plaintext highlighter-rouge">build_hmatrix</code>, an \(\mathcal{H}\)-matrix is initialized by passing a block cluster tree, maximum rank, \(\mathcal{H}\)-matrix property and the block type of its root node.</p>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">is_symmetric</span> <span class="o">?</span>
                                        <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
                                        <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
 <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
@@ -684,49 +713,53 @@ vk = vk / vk(jk)
                                                        <span class="n">block_type</span><span class="p">);</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">property</code> specifies whether the \(\mathcal{H}\)-matrix is general, symmetric, lower triangular or upper triangular.</p>
+<p>The <code class="language-plaintext highlighter-rouge">property</code> of the enum type <code class="language-plaintext highlighter-rouge">HMatrixSupport::Property</code> specifies whether the \(\mathcal{H}\)-matrix is general, symmetric, lower triangular or upper triangular.</p>
 
 <ul>
-  <li>When it is general, all \(\mathcal{H}\)-matrix leaf nodes are created and allocated with memory.</li>
-  <li>When it is symmetric, only the diagonal blocks (which must belong to the near field) and matrix blocks in the lower triangular part are created and allocated with memory.
+  <li>When the \(\mathcal{H}\)-matrix’s <code class="language-plaintext highlighter-rouge">property</code> is general, all \(\mathcal{H}\)-matrix leaf nodes are created and allocated with memory.</li>
+  <li>When the bilinear form is symmetric, the associated \(\mathcal{H}\)-matrix is also symmetric. In this case, only the diagonal blocks (which must belong to the near field) and matrix blocks in the lower triangular part are created and allocated with memory.
     <ul>
       <li>For diagonal matrix blocks, memory is still allocated for the associated whole full matrix, but only the lower triangular matrix entries (including diagonal) are filled during matrix assembly and included into algebraic matrix computation.</li>
       <li>For matrix blocks in the upper triangular part, basic matrix information, such as dimension, associated block cluster node, etc., is still initialized and maintained, but the memory is not allocated. When performing matrix operations such as matrix-vector multiplication, the contribution from these blocks in the upper triangular part should be taken into account by transposing their counterparts in the lower triangular part.</li>
       <li>Matrix blocks in the lower triangular part are assembled as usual.</li>
     </ul>
   </li>
-  <li>When it is upper triangular, only the matrix blocks in the upper triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the lower triangular part have only basic matrix information but no memory is allocated.</li>
-  <li>When it is lower triangular, only the matrix blocks in the lower triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the upper triangular part have only basic matrix information but no memory is allocated.</li>
+  <li>When the \(\mathcal{H}\)-matrix is upper triangular, only the matrix blocks in the upper triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the lower triangular part have only basic matrix information but no memory is allocated.</li>
+  <li>When the \(\mathcal{H}\)-matrix is lower triangular, only the matrix blocks in the lower triangular part and the diagonal blocks are created and allocated with memory. The matrix blocks in the upper triangular part have only basic matrix information but no memory is allocated.</li>
 </ul>
 
-<p><code class="language-plaintext highlighter-rouge">block_type</code> of an \(\mathcal{H}\)-matrix node represents its location within the top level \(\mathcal{H}\)-matrix, which can be diagonal, lower triangular or upper triangular.</p>
+<p>The <code class="language-plaintext highlighter-rouge">block_type</code> of the enum type <code class="language-plaintext highlighter-rouge">HMatrixSupport::BlockType</code> of an \(\mathcal{H}\)-matrix node represents its location within the top level \(\mathcal{H}\)-matrix, which can be diagonal, lower triangular or upper triangular.</p>
 
-<p><img src="figures/2023-01-23-hmat-block-type.png" alt="img" title="Block types of an $$\mathcal{H}$$-matrix node." /> When initializing an \(\mathcal{H}\)-matrix, <code class="language-plaintext highlighter-rouge">block_type</code> is for the root node, which must be a diagonal block.</p>
+<p><img src="figures/2023-01-23-hmat-block-type.png" alt="img" title="Block types of an $$\mathcal{H}$$-matrix node." /> When initializing an \(\mathcal{H}\)-matrix, the argument <code class="language-plaintext highlighter-rouge">block_type</code> is applied for the root node, which must be a diagonal block.</p>
 
-<p>Next is the definition of the function <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code>.</p>
+<p>Next is the definition of the member function <code class="language-plaintext highlighter-rouge">build_hmatrix_with_mass_matrix</code>.</p>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spacedim</span><span class="p">&gt;</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">spacedim</span><span class="p">,</span>
+          <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">typename</span><span class="p">&gt;</span> <span class="k">typename</span> <span class="nc">KernelFunctionType</span><span class="p">,</span>
           <span class="k">typename</span> <span class="nc">RangeNumberType</span><span class="p">,</span>
           <span class="k">typename</span> <span class="nc">KernelNumberType</span><span class="p">&gt;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span>
-<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;::</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
-  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">thread_num</span><span class="p">,</span>
-  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span><span class="p">,</span>
-  <span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">KernelFunctionType</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span>
-                                          <span class="o">&amp;</span><span class="n">kernel</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span> <span class="n">kernel_factor</span><span class="p">,</span>
-  <span class="k">const</span> <span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">RangeNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span>
-                                                   <span class="n">mass_matrix_factor</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                 <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                               <span class="o">&amp;</span><span class="n">mass_matrix_quad_rule</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
-                                   <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
-  <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                <span class="n">spacedim</span><span class="p">,</span>
+                <span class="n">KernelFunctionType</span><span class="p">,</span>
+                <span class="n">RangeNumberType</span><span class="p">,</span>
+                <span class="n">KernelNumberType</span><span class="o">&gt;::</span>
+  <span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>                       <span class="n">thread_num</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>                       <span class="n">max_rank</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">double</span>                             <span class="n">epsilon</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">DeviceNumberType</span><span class="o">&lt;</span><span class="n">KernelNumberType</span><span class="o">&gt;</span> <span class="n">kernel_factor</span><span class="p">,</span>
+    <span class="k">const</span> <span class="k">typename</span> <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">RangeNumberType</span><span class="o">&gt;::</span><span class="n">real_type</span>
+                                                     <span class="n">mass_matrix_factor</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                 <span class="o">&amp;</span><span class="n">sauter_quad_rule</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span>                               <span class="o">&amp;</span><span class="n">mass_matrix_quad_rule</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingInfo</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*&gt;</span> <span class="o">&amp;</span><span class="n">mappings</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span>
+                                     <span class="o">&amp;</span><span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+    <span class="n">SubdomainTopology</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">subdomain_topology</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">()</span> <span class="o">?</span>
+  <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span>  <span class="n">property</span> <span class="o">=</span> <span class="n">is_symmetric</span> <span class="o">?</span>
                                          <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">symmetric</span> <span class="o">:</span>
                                          <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">Property</span><span class="o">::</span><span class="n">general</span><span class="p">;</span>
   <span class="n">HMatrixSupport</span><span class="o">::</span><span class="n">BlockType</span> <span class="n">block_type</span> <span class="o">=</span>
@@ -746,20 +779,20 @@ vk = vk / vk(jk)
     <span class="n">kernel</span><span class="p">,</span>
     <span class="n">kernel_factor</span><span class="p">,</span>
     <span class="n">mass_matrix_factor</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_dof_to_cell_topo</span><span class="p">(),</span>
     <span class="n">sauter_quad_rule</span><span class="p">,</span>
     <span class="n">mass_matrix_quad_rule</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_dof_handler</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_dof_handler</span><span class="p">(),</span>
     <span class="nb">nullptr</span><span class="p">,</span>
     <span class="nb">nullptr</span><span class="p">,</span>
-    <span class="n">test_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
-    <span class="n">trial_space</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">test_space</span><span class="p">.</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+    <span class="n">trial_space</span><span class="p">.</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
     <span class="n">mappings</span><span class="p">,</span>
     <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
     <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology</span><span class="p">),</span>
-    <span class="n">kernel</span><span class="p">.</span><span class="n">is_symmetric</span><span class="p">());</span>
+    <span class="n">is_symmetric</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="n">hmat</span><span class="p">;</span>
 <span class="p">}</span>
@@ -840,29 +873,28 @@ vk = vk / vk(jk)
 
 <p>The creation of two function spaces as conforming finite dimensional approximation of Sobolev spaces \(H^{1/2}(\Gamma)\) and \(H^{-1/2}(\Gamma)\) is the same as previous examples.</p>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FE_Q</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_half</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">dof_handler_H_half</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
-<span class="n">dof_handler_H_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_half</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">H_half</span> <span class="o">=</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_half</span><span class="p">,</span>
-                                                    <span class="n">n_min_H_half</span><span class="p">);</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FE_Q</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>       <span class="n">fe_H_half</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">dof_handler_H_half</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_half</span><span class="p">.</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_half</span><span class="p">);</span>
+<span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">H_half</span><span class="p">(</span><span class="n">dof_handler_H_half</span><span class="p">,</span> <span class="n">n_min_H_half</span><span class="p">);</span>
 
-<span class="n">FE_DGQ</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">fe_H_minus_half</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="k">auto</span>                  <span class="n">dof_handler_H_minus_half</span> <span class="o">=</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
-<span class="n">dof_handler_H_minus_half</span><span class="o">-&gt;</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_minus_half</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">H_minus_half</span> <span class="o">=</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">dof_handler_H_minus_half</span><span class="p">,</span>
-                                                    <span class="n">n_min_H_minus_half</span><span class="p">);</span>
+<span class="n">FE_DGQ</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span>     <span class="n">fe_H_minus_half</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">dof_handler_H_minus_half</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+<span class="n">dof_handler_H_minus_half</span><span class="p">.</span><span class="n">distribute_dofs</span><span class="p">(</span><span class="n">fe_H_minus_half</span><span class="p">);</span>
+<span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">H_minus_half</span><span class="p">(</span><span class="n">dof_handler_H_minus_half</span><span class="p">,</span>
+                                             <span class="n">n_min_H_minus_half</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>We create two bilinear forms \(b_V\) and \(b_{\frac{1}{2}I+K}\) as well as their block cluster trees, one for the single layer potential operator \(V\) and the other for the double layer potential operator \(K\) plus a scaled identity operator.</p>
 
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bV</span><span class="p">(</span><span class="n">H_minus_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SingleLayerKernel</span><span class="o">&gt;</span> <span class="n">bV</span><span class="p">(</span><span class="n">H_minus_half</span><span class="p">,</span>
+                                                     <span class="n">H_minus_half</span><span class="p">);</span>
 <span class="n">bV</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
-<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">bIK</span><span class="p">(</span><span class="n">H_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
+<span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">DoubleLayerKernel</span><span class="o">&gt;</span> <span class="n">bIK</span><span class="p">(</span><span class="n">H_half</span><span class="p">,</span> <span class="n">H_minus_half</span><span class="p">);</span>
 <span class="n">bIK</span><span class="p">.</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">n_min_block_cluster_tree</span><span class="p">);</span>
 </code></pre></div></div>
+
+<p>N.B. The kernel function types <code class="language-plaintext highlighter-rouge">SingleLayerKernel</code> and <code class="language-plaintext highlighter-rouge">DoubleLayerKernel</code> are in the namespace <code class="language-plaintext highlighter-rouge">HierBEM::PlatformShared::LaplaceKernel</code>, which should be used before the <code class="language-plaintext highlighter-rouge">main</code> function.</p>
 
 <p>Then the two bilinear forms are discretized into two \(\mathcal{H}\)-matrices.</p>
 
@@ -870,30 +902,27 @@ vk = vk / vk(jk)
 <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">max_rank</span>   <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">double</span>       <span class="n">epsilon</span>    <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">V</span> <span class="o">=</span> <span class="n">bV</span><span class="p">.</span><span class="n">build_hmatrix</span><span class="p">(</span>
-  <span class="n">thread_num</span><span class="p">,</span>
-  <span class="n">max_rank</span><span class="p">,</span>
-  <span class="n">epsilon</span><span class="p">,</span>
-  <span class="n">PlatformShared</span><span class="o">::</span><span class="n">LaplaceKernel</span><span class="o">::</span><span class="n">SingleLayerKernel</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(),</span>
-  <span class="mf">1.0</span><span class="p">,</span>
-  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-  <span class="n">mappings</span><span class="p">,</span>
-  <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
-  <span class="n">subdomain_topology</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">V</span> <span class="o">=</span>
+  <span class="n">bV</span><span class="p">.</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num</span><span class="p">,</span>
+                   <span class="n">max_rank</span><span class="p">,</span>
+                   <span class="n">epsilon</span><span class="p">,</span>
+                   <span class="mf">1.0</span><span class="p">,</span>
+                   <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                   <span class="n">mappings</span><span class="p">,</span>
+                   <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+                   <span class="n">subdomain_topology</span><span class="p">);</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">HMatrix</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">IK</span> <span class="o">=</span>
-  <span class="n">bIK</span><span class="p">.</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
-    <span class="n">thread_num</span><span class="p">,</span>
-    <span class="n">max_rank</span><span class="p">,</span>
-    <span class="n">epsilon</span><span class="p">,</span>
-    <span class="n">PlatformShared</span><span class="o">::</span><span class="n">LaplaceKernel</span><span class="o">::</span><span class="n">DoubleLayerKernel</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(),</span>
-    <span class="mf">1.0</span><span class="p">,</span>
-    <span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">mappings</span><span class="p">,</span>
-    <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
-    <span class="n">subdomain_topology</span><span class="p">);</span>
+  <span class="n">bIK</span><span class="p">.</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span><span class="n">thread_num</span><span class="p">,</span>
+                                     <span class="n">max_rank</span><span class="p">,</span>
+                                     <span class="n">epsilon</span><span class="p">,</span>
+                                     <span class="mf">1.0</span><span class="p">,</span>
+                                     <span class="mf">0.5</span><span class="p">,</span>
+                                     <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                                     <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                                     <span class="n">mappings</span><span class="p">,</span>
+                                     <span class="n">material_id_to_mapping_index</span><span class="p">,</span>
+                                     <span class="n">subdomain_topology</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>Print out the leaf set information of \(\mathcal{H}\)-matrices. For each leaf node, the DoF index ranges in the block cluster, near field/far field flag and matrix rank are printed.</p>
