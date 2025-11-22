@@ -1,0 +1,1156 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Solve the Laplace equation with a Dirichlet boundary condition on sphere - HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="Solve the Laplace equation with a Dirichlet boundary condition on sphere">
+<meta property="og:url" content="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-dirichlet.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-dirichlet.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/hierbem-site/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/hierbem-site/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/hierbem-site/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}",
+        supp: "{\\rm supp}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/hierbem-site/"><img src="/hierbem-site/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/hierbem-site/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Solve the Laplace equation with a Dirichlet boundary condition on sphere">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-dirichlet.html" itemprop="url">Solve the Laplace equation with a Dirichlet boundary condition on sphere
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#problem-description">Problem description</a></li><li><a href="#boundary-integral-equation-and-its-matrix-form-for-the-laplace-dirichlet-problem">Boundary integral equation and its matrix form for the Laplace Dirichlet problem</a></li><li><a href="#basic-idea-of-preconditioning">Basic idea of preconditioning</a></li><li><a href="#operator-preconditioning-based-on-pseudodifferential-operator-theory">Operator preconditioning based on pseudodifferential operator theory</a></li><li><a href="#stabilization-of-d">Stabilization of \(D\)</a><ul><li><a href="#general-idea-of-stabilization">General idea of stabilization</a></li><li><a href="#stabilization-of-d-based-on-l_2-orthogonality">Stabilization of \(D\) based on \(L_2\)-orthogonality</a></li></ul></li><li><a href="#discretization-of-operator-preconditioner">Discretization of operator preconditioner</a></li><li><a href="#build-operator-preconditioner-with-invertible-mass-matrix">Build operator preconditioner with invertible mass matrix</a></li><li><a href="#source-code-explanation">Source code explanation</a></li><li><a href="#results">Results</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="problem-description">Problem description</h1>
+
+<p>The Laplace equation with a Dirichlet boundary condition is generally given as</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    -\Delta u &amp;= 0 \quad x\in\Omega \\
+    \gamma_0^{\mathrm{int}} u &amp;= g_{\mathrm{D}} \quad x\in\Gamma,
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(u\in H^1(\Omega)\) and \(g_{\mathrm{D}}\in H^{1/2}(\Gamma)\).</p>
+
+<p>In this example, the domain \(\Omega\) is a unit ball in \(\mathbb{R}^3\) at the origin. For a point \(x\) on the spherical boundary \(\Gamma\), \(n(x)\) is the <strong>outward</strong> unit normal vector at \(x\). Assume there is a unit positive Dirac source \(\delta(x-x_0)\) at \(x_0\) which is outside the sphere, i.e. \(\lvert x_0 \rvert &gt; 1\). Then the potential produced by this Dirac source in the whole space <strong>except</strong> \(x_0\) is the fundamental solution of the Laplace equation:</p>
+
+\[\begin{equation}
+  u(x) = U^{\ast}(x,x_0) = \frac{1}{4\pi\norm{x-x_0}} \quad x\in \mathbb{R}^3, x\neq x_0,
+\end{equation}\]
+
+<p>Let the Dirichlet boundary condition \(g_{\mathrm{D}}\) be a restriction of this fundamental solution on the unit sphere \(\Gamma\). The interior conormal trace or Neumann trace of \(u\) is</p>
+
+\[\begin{equation}
+  \gamma_1^{\mathrm{int}}u = \frac{\partial u}{\partial n}\Big\vert_{\Gamma} = n(x)\cdot\nabla_x
+  \left( \frac{1}{4\pi\norm{x-x_0}} \right) = \frac{1}{4\pi}\frac{(n(x),
+    x_0-x)}{\norm{x-x_0}^3} \quad x\in\Gamma,
+\end{equation}\]
+
+<p>where \((n(x), x_0-x)\) is the inner product of \(n(x)\) and \(x_0-x\). The interior conormal trace \(\gamma_1^{\mathrm{int}} u\) is what we are going to solve using the Galerkin BEM.</p>
+
+<p>The model is illustrated in the following figure. It can be seen that, if the field point \(x\) is near the source point \(x_0\) and the normal vector \(n(x)\) points approximately toward \(x_0\), the inner product of \(n(x)\) and \(x_0-x\) is positive, which means the normal derivative of the potential is positive. If we consider the Laplace equation as describing a distribution of electric potential, the electric field at \(x\) generated by the positive charge at \(x_0\) points into the ball.</p>
+
+<p><img src="figures/2025-11-17-unit-sphere-laplace-interior-problem.png" alt="img" title="Unit sphere model for the Laplace equation with a Dirichlet boundary condition." /></p>
+
+<h1 id="boundary-integral-equation-and-its-matrix-form-for-the-laplace-dirichlet-problem">Boundary integral equation and its matrix form for the Laplace Dirichlet problem</h1>
+
+<p>As described in the <a href="build-hmatrix-on-subdomain.html">previous example</a>, the boundary integral equation associated with the PDE can be derived by following these steps.</p>
+
+<ol>
+  <li>
+    <p>Start from Green’s first identity.</p>
+
+\[\begin{equation}
+  a(u,v) = \int_{\Omega} (Lu)(x)v(x) \intd x + \int_{\Gamma} \gamma_1^{\rm int}u(x)
+  \gamma_0^{\rm int}v(x) \intd s.
+  \label{eq:green-1st-identity-general}
+\end{equation}\]
+  </li>
+  <li>
+    <p>Derive Green’s second identity by using the symmetry of the bilinear form \(a(u,v)\).</p>
+
+\[\begin{equation}
+  \begin{split}
+    \int_{\Omega} (Lu)(x)v(x) \intd x - \int_{\Omega}(Lv)(x)u(x) \intd x = \\
+    \int_{\Gamma}\gamma_1^{\rm int}v(x)\gamma_0^{\rm int}u(x) \intd s -
+    \int_{\Gamma} \gamma_1^{\rm int}u(x)\gamma_0^{\rm int}v(x) \intd s.
+  \end{split}
+  \label{eq:green-2nd-identity-general}
+\end{equation}\]
+  </li>
+  <li>
+    <p>Substitute the solution of the Laplace equation for \(u\) and the fundamental solution \(U^{\ast}(x,y)\) for \(v\) in Green’s second identity, we get the representation formula of the potential in the domain.</p>
+
+\[\begin{equation}
+  u(x) = \int_{\Gamma} U^{\ast}(x,y) \gamma_{1,y}^{\mathrm{int}} u(y) \intd s_y -
+  \int_{\Gamma} \gamma_{1,y}^{\mathrm{int}} U^{\ast}(x,y) \gamma_0^{\mathrm{int}}
+  u(y) \intd s_y \quad x\in\Omega.
+  \label{eq:representation-formula}
+\end{equation}\]
+  </li>
+  <li>
+    <p>Take the interior Dirichlet trace of the representation formula, we get the boundary integral equation for solving the Laplace Dirichlet problem, which is just the first equation in the Calderón system.</p>
+
+\[\begin{equation}
+  (V \gamma_1^{\mathrm{int}} u)(x) = ((\sigma I+K) \gamma_0^{\mathrm{int}}u)(x) = ((\sigma I+K) \tilde{g}_{\mathrm{D}})(x) \quad x\in\Gamma.
+  \label{eq:bie-for-dirichlet}
+\end{equation}\]
+  </li>
+</ol>
+
+<p>In Equation \eqref{eq:bie-for-dirichlet}, the interior conormal trace satisfies \(\gamma_1^{\mathrm{int}} u\in H^{-1/2}(\Gamma)\) and the interior Dirichlet trace satisfies \(\gamma_0^{\mathrm{int}} u\in H^{1/2}(\Gamma)\). Testing this BIE with \(v\in H^{-1/2}(\Gamma)\) yields the variational formulation</p>
+
+\[\begin{equation}
+  b_V(\gamma_1^{\mathrm{int}} u, v) = b_{\sigma I + K}(\tilde{g}_{\mathrm{D}}, v).
+\end{equation}\]
+
+<p>To discretize the variational formulation, we approximate \(H^{1/2}(\Gamma)\) with the piecewise linear Lagrange polynomial space and approximate \(H^{-1/2}(\Gamma)\) with the piecewise constant function space. Then we obtain the matrix form</p>
+
+\[\begin{equation}
+  \mathcal{V} [t] = \left[ \sigma \mathcal{M} + \mathcal{K}  \right] [g_{\mathrm{D}}].
+\end{equation}\]
+
+<p>Because \(b_V: H^{-1/2}(\Gamma) \times H^{-1/2}(\Gamma) \rightarrow \mathbb{R}\) is a symmetric bilinear form, i.e. the kernel function \(U^{\ast}(x,y)\) is symmetric and the trial and test spaces of \(b_V\) are a same function space \(H^{-1/2}(\Gamma)\), the matrix \(\mathcal{V}\) is also symmetric. Hence, the matrix equation can be iteratively solved by using the conjugate gradient (CG) method. When the number of DoFs is large, a preconditioner is needed to limit the condition number of the linear system, hence the number of iterations can be effectively controlled.</p>
+
+<h1 id="basic-idea-of-preconditioning">Basic idea of preconditioning</h1>
+
+<p>The single layer potential boundary integral operator \(V: H^{-1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\) is a bounded linear operator. The associated bilinear form \(b_V\) is also bounded:</p>
+
+\[\begin{equation}
+  b_v(w,w) = \langle Vw,w \rangle \leq c_2^V \lVert w \rVert_{H^{-1/2}(\Gamma)}^2 \quad \forall w\in H^{-1/2}(\Gamma).
+\end{equation}\]
+
+<p>Meanwhile, \(V\) is \(H^{-1/2}(\Gamma)\)-elliptic</p>
+
+\[\begin{equation}
+  \langle Vw,w  \rangle \geq c_1^V \lVert w \rVert_{H^{-1/2}(\Gamma)}^2 \quad w\in H^{-1/2}(\Gamma).
+\end{equation}\]
+
+<p>We can consider \(b_V(w,w)\) or \(\langle Vw,w \rangle\) as an energy norm for \(w\), while \(b_V(w,w)/\lVert w \rVert_{H^{-1/2}(\Gamma)}^2\) or \(\langle Vw,w \rangle/\lVert w \rVert_{H^{-1/2}(\Gamma)}^2\) as a normalized energy norm. \([c_1^V,c_2^V]\) is the range of this normalized energy norm, which is also the range of the spectrum of the operator \(V\).</p>
+
+<p>If we consider a finite dimensional subspace \(H^{-1/2}_h(\Gamma)\) of \(H^{-1/2}(\Gamma)\), the approximation function for \(w\) becomes \(w_h\). Let \(\{ \varphi_k \}_{k=1}^N\) be a basis of \(H^{-1/2}_h(\Gamma)\), then the function \(w_h\) can be represented as</p>
+
+\[\begin{equation}
+  w_h=\sum_{k=1}^N w_k\varphi_k.
+\end{equation}\]
+
+<p>\(w_h\) can be identified with a vector \([w]\in \mathbb{R}^N\) comprising the expansion coefficients \(\{ w_k \}_{k=1}^N\). The bilinear form \(b_V\) can be discretized into a matrix \(\mathcal{V}\), whose coefficient is</p>
+
+\[\begin{equation}
+  \mathcal{V}_{ij}=\langle V\varphi_j,\varphi_i \rangle.
+\end{equation}\]
+
+<p>This matrix \(\mathcal{V}\) has similar boundedness and ellipticity properties as the operator \(V\), but with different boundedness and ellipticity constants:</p>
+
+\[\begin{equation}
+  \tilde{c}_1^V \lVert [w] \rVert^{2} \leq [w]^{\mathrm{T}}\mathcal{V}[w] \leq
+  \tilde{c}_2^V \lVert [w] \rVert^{2} \quad \forall [w]\in \mathbb{R}^N.
+\end{equation}\]
+
+<p>\(\tilde{c}_1^V\) and \(\tilde{c}_2^V\) correspond to the minimum and maximum eigenvalues of \(\mathcal{V}\) and the range \([\tilde{c}_1^A,\tilde{c}_2^A]\) is the matrix spectrum. Because \(\mathcal{V}\) is a finite dimensional approximation of \(V\), it operates on a smaller space and we must have \(c_1^V\leq \tilde{c}_1^V\) and \(\tilde{c}_2^V\leq c_2^V\). Therefore, the matrix’s spectrum is contained within the operator’s spectrum: \(\)[\tilde{c}_1^A,\tilde{c}_2^A] \subset [c_1^A,c_2^A]$$.</p>
+
+<p>The basic idea of constructing a preconditioner for \(V\) is to select another operator \(B: H^{1/2}(\Gamma) \rightarrow H^{-1/2}(\Gamma)\) whose inverse \(B^{-1}: H^{-1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\) is <strong>spectrally equivalent</strong> to \(V\):</p>
+
+\[\begin{equation}
+  \gamma_1 \langle B^{-1}w,w \rangle \leq \langle Vw,w \rangle \leq \gamma_2 \langle B^{-1}w,w \rangle \quad \forall w\in H^{-1/2}(\Gamma).
+\end{equation}\]
+
+<p>If the spectrum of \(B\) is \([c_1^B,c_2^B]\), the spectrum of its inverse \(B^{-1}\) is \([\frac{1}{c_2^B},\frac{1}{c_1^B}]\). Then we have</p>
+
+\[\begin{equation}
+  \gamma_1=c_1^V c_1^B, \gamma_2=c_2^V c_2^B.
+\end{equation}\]
+
+<p>In the finite dimensional space \(H^{-1/2}_h(\Gamma)\), the spectral equivalence condition is</p>
+
+\[\begin{equation}
+  \gamma_1 \langle B^{-1}w_h,w_h \rangle \leq \langle Vw_h,w_h \rangle \leq \gamma_2 \langle B^{-1}w_h,w_h \rangle \quad \forall w_h\in H^{-1/2}_h(\Gamma).
+\end{equation}\]
+
+<p>After discretization, the spectral equivalence condition becomes</p>
+
+\[\begin{equation}
+  \gamma_1 \langle [B^{-1}] [w],[w] \rangle \leq \langle \mathcal{V}[w],[w] \rangle \leq \gamma_2 \langle [B^{-1}][w],[w] \rangle \quad \forall [w]\in \mathbb{R}^N.
+\end{equation}\]
+
+<p>The spectral equivalence condition determines the condition number \(\kappa\) of the preconditioned matrix system</p>
+
+\[\begin{equation}
+  \kappa([B^{-1}]^{-1}\mathcal{V}) \leq \frac{\gamma_2}{\gamma_1} = \frac{c_2^V c_2^B}{c_1^V c_1^B},
+\end{equation}\]
+
+<p>where the constants \(c_1^V, c_1^B, c_2^V, c_2^B\) do not depend on the geometric discretization nor the function discretization. This leads to a nice feature we desire: when an iterative solver is adopted to solve the preconditioned matrix system, the number of iterations is stable and will not increase with the problem size or existence of sharp geometric features.</p>
+
+<p>Finally, we clarify the terminology related to preconditioners:</p>
+
+<ol>
+  <li>\(B\) as an operator is called the <strong>preconditioner</strong> of \(V\), whose inverse \(B^{-1}\) is spectrally equivalence to \(A\).</li>
+  <li>The discretization of \(B^{-1}\) into a matrix \([B^{-1}]\) is called the <strong>preconditioning matrix</strong> of \(\mathcal{V}\).</li>
+  <li>The actual matrix multiplied to both sides of the matrix equation is the inverse matrix \([B^{-1}]^{-1}\). Of course, in a real implementation of a preconditioner, \([B^{-1}]^{-1}\) will never be computed via matrix inverse. Instead, it will be constructed with the help of the operator preconditioning theory.</li>
+</ol>
+
+<h1 id="operator-preconditioning-based-on-pseudodifferential-operator-theory">Operator preconditioning based on pseudodifferential operator theory</h1>
+
+<p>To find an appropriate preconditioner for the boundary integral operator \(V\), we can examine how \(V\) influences the frequency spectrum of an input function \(w\). If we can find an operator \(B\) which cancels either perfectly or partially the influence of \(V\) on \(w\)’s spectrum, the composition \(B V\) will be an approximation of the identity operator and \(B\) will be a good choice as a preconditioner for \(V\).</p>
+
+<p>We can analyze the frequency spectrum of a function with the Fourier transform. In the frequency domain, both partial differential operators and boundary integral operators can be treated in a same framework with the pseudodifferential operator theory. We already know the derivative properties of the Fourier transform:</p>
+
+<ul>
+  <li>
+    <p>Fourier transform on a rapidly decreasing function \(\varphi\)</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    D^{\alpha}(\mathcal{F}\varphi)(\xi) &amp;=
+    (-\rmi)^{\abs{\alpha}}\mathcal{F}(x^{\alpha}\varphi)(\xi) \\
+    \mathcal{F}(D^{\alpha}\varphi)(\xi)&amp;=\rmi^{\abs{\alpha}}\xi^{\alpha}(\mathcal{F}\varphi)(\xi)
+  \end{aligned}
+\end{equation}\]
+  </li>
+  <li>
+    <p>Fourier transform on a tempered distribution \(T\)</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    D^{\alpha}(\mathcal{F}T)&amp;=(-\rmi)^{\abs{\alpha}}\mathcal{F}(\xi^{\alpha}T)\\
+    \mathcal{F}(D^{\alpha}T)&amp;=\rmi^{\abs{\alpha}}x^{\alpha}(\mathcal{F}T)
+  \end{aligned}
+\end{equation}\]
+  </li>
+</ul>
+
+<p>When the partial differential operator \(D^{\alpha}\) is applied to a function \(\varphi\) or a distribution \(T\), it is equivalent to multiplying a factor \(\xi^{\alpha}\) or \(x^{\alpha}\) to the Fourier transform of the original \(\varphi\) or \(T\) then being scaled by a complex constant \(\mathrm{i}^{\lvert \alpha \rvert}\). Therefore, for a general linear partial differential operator</p>
+
+\[\begin{equation}
+  L = \sum_{\lvert \alpha \rvert\leq k} a_{\alpha}(x) D^{\alpha}, a_{\alpha}(x)\in C^{\infty}(\Omega),
+\end{equation}\]
+
+<p>its influence on a rapidly decreasing function \(u\) in the frequency domain is multiplying a polynomial \(\sigma_L(x,\xi)\) in the variable \(\xi\) to the spectrum \(\hat{u}(\xi)\) of \(u\), i.e.</p>
+
+\[\begin{equation}
+  \mathcal{F}(Lu)(\xi) = \sigma_L(x,\xi) \hat{u}(\xi) = \left( \sum_{\lvert \alpha
+      \rvert\leq k} a_{\alpha}(x)\mathrm{i}^{\lvert \alpha \rvert}\xi^{\alpha} \right)
+  \hat{u}(\xi).
+\end{equation}\]
+
+<p>If we generalize the polynomial \(\sigma_L(x,\xi)\) to a larger class of functions \(p(x,\xi)\), \(L\) can represent more types of linear operators, such as <strong>integral operators</strong>. This brings about the concept of pseudodifferential operators, which can handle partial differential and boundary integral operators in a same framework.</p>
+
+<p><strong>Definition (Space of symbols)</strong> The space of symbols of order \(m\) is a set containing all functions \(p(x,\xi)\in C^{\infty}(\Omega\times \mathbb{R}^d)\) such that for all multi-indices \(\alpha\) and \(\beta\) and any compact set \(K\subset\Omega\), there exists \(C_{\alpha,\beta,K}\) satisfying</p>
+
+\[\begin{equation}
+  \sup_{x\in K} \lvert D_x^{\beta}D_{\xi}^{\alpha}p(x,\xi) \rvert \leq C_{\alpha,\beta,K}(1+\lvert \xi \rvert)^{m-\lvert \alpha \rvert}.
+\end{equation}\]
+
+<p><strong>Definition (Pseudodifferential operator)</strong> A pseudodifferential operator \(p(x,D)\) of order \(m\) is a linear map from the test function space \(\mathcal{D}(\Omega)\) to \(C^{\infty}(\Omega)\) such that</p>
+
+\[\begin{equation}
+  \mathcal{F}(p(x,D)u) = p(x,\xi)\hat{u}(\xi),
+\end{equation}\]
+
+<p>where \(p(x,\xi)\) is a symbol of order \(m\).</p>
+
+<p>Assume the boundary integral operator \(V\) is a pseudodifferential operator of order \(m\). It has a symbol \(p(x,\xi)\) which is comparable to the polynomial \(1+\lvert \xi \rvert^m\). If the preconditioner \(B\) is another pseudodifferential operator of order \(-m\) whose symbol is comparable to \(\frac{1}{1+\lvert \xi \rvert^m}\), then the symbol of the composite operator \(BA\) will be comparable to \(1\), i.e. \(BA\) is similar to an identity operator. <strong>The operator preconditioning method is to look for a pseudodifferential operator having an opposite order compared to the original operator.</strong></p>
+
+<p>For boundary integral operators \(V, K, K', D\) in BEM, when they are considered as pseudodifferential operators, their orders are listed below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Boundary integral operator</th>
+      <th>Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(V: H^{-1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\)</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td>\(K: H^{1/2}(\Gamma) \rightarrow H^{1/2}(\Gamma)\)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>\(K': H^{-1/2}(\Gamma) \rightarrow H^{-1/2}(\Gamma)\)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>\(D: H^{1/2}(\Gamma) \rightarrow H^{-1/2}(\Gamma)\)</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the Laplace equation with a Dirichlet boundary condition, the main operator in the BIE is \(V\). When the boundary condition is of Neumann type, the main operator in the BIE is \(D\). \(V\) and \(D\) are pseudodifferential operators with opposite orders. Therefore, \(D\) is inherently the preconditioner of \(V\) and vice versa.</p>
+
+<p>In addition, from the following identities</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    VD &amp;= (\sigma I+K)((1-\sigma)I-K) \\
+    DV &amp;= (\sigma I+K')((1-\sigma)I-K'),
+  \end{aligned}
+\end{equation}\]
+
+<p>we can see that the terms on the right hand side involve \(K\) and \(K'\), both of which are zero order pseudodifferential operators. Therefore, the orders of \(VD\) and \(DV\) are zero. This further confirms that \(V\) and \(D\) are pseudodifferential operators of opposite orders.</p>
+
+<h1 id="stabilization-of-d">Stabilization of \(D\)</h1>
+
+<h2 id="general-idea-of-stabilization">General idea of stabilization</h2>
+
+<p>The operator \(D: H^{1/2}(\Gamma) \rightarrow H^{-1/2}(\Gamma)\) is not \(H^{1/2}(\Gamma)\)-elliptic but only satisfies a semi-elliptic condition</p>
+
+\[\begin{equation}
+  \langle Dv,v \rangle_{\Gamma} \geq \bar{c}_1^D \lvert v \rvert_{H^{1/2}(\Gamma)}^2 \quad \forall v\in H^{1/2}(\Gamma),
+  \label{eq:hypersingular-semi-elliptic}
+\end{equation}\]
+
+<p>where \(\lvert \cdot \rvert_{H^{1/2}(\Gamma)}\) is a semi-norm on \(H^{1/2}(\Gamma)\).</p>
+
+<p>Let \(v\in H^{1/2}(\Gamma)\) and \(Dv = 0\), then \(v\) is constant on each disjoint boundary component of \(\Gamma\). Assume \(\Gamma\) has \(r\) disjoint components, i.e. \(\Gamma = \bigcup_{i=1}^r \Gamma_i\) and \(\Gamma_i \cap \Gamma_j = \Phi\). Let \(\chi_i\) be an indicator function for \(\Gamma_i\), then \(\mathrm{span} \{ \chi_1,\cdots,\chi_r \}\) is the kernel of \(D\), which is non-trivial.</p>
+
+<p>Because \(D\) lacks \(H^{1/2}(\Gamma)\)-ellipticity and has a non-trivial kernel, it cannot be directly used to build a system matrix or preconditioning matrix. To become a workable preconditioner of \(V\) in the Dirichlet problem or an invertible main operator in the Neumann problem, \(D\) must be <strong>stabilized</strong> so that the ellipticity can be restored in a <strong>subspace</strong> of its domain, which is orthogonal to \(D\)’s kernel \(\ker D\).</p>
+
+<p>The concept of orthogonality used for defining the above subspace depends on how an inner product is defined for the Hilbert space \(H^{1/2}(\Gamma)\). Actually, we have different choices of inner products, which are induced from different choices of norm definitions. If these norms are equivalent to the standard Sobolev norm of \(H^{1/2}(\Gamma)\), \(D\) must be elliptic on this subspace orthogonal to \(\ker D\). Therefore, the general idea to stabilize a non-elliptic operator is:</p>
+
+<ol>
+  <li><strong>select a subspace</strong> and <strong>define an equivalent norm</strong>, so that the operator is elliptic in this subspace and the subspace is orthogonal to the operator’s non-trivial kernel;</li>
+  <li>incorporate the orthogonality condition into the operator’s bilinear form with the Lagrange multiplier method, hence a stabilized bilinear form is obtained.</li>
+</ol>
+
+<h2 id="stabilization-of-d-based-on-l_2-orthogonality">Stabilization of \(D\) based on \(L_2\)-orthogonality</h2>
+
+<p>In this example, we will select a subspace which is \(L_2\)-orthogonal to \(\ker D\). Using the standard \(L_2\) inner product, let a subspace of \(H^{1/2}(\Gamma)\) be orthogonal to \(\ker D\), i.e. orthogonal to all boundary indicator functions \(\{ \chi_i \}_{i=1}^r\), which is defined as</p>
+
+\[\begin{equation}
+  H_{\ast \ast}^{1/2}(\Gamma) := \{ v\in H^{1/2}(\Gamma): \langle v,\chi_i \rangle_{\Gamma} = 0, i=1,\cdots,r \}.
+\end{equation}\]
+
+<p>The equivalent norm for \(H^{1/2}(\Gamma)\) is defined as</p>
+
+\[\begin{equation}
+  \lVert v \rVert_{H_{\ast \ast}^{1/2}(\Gamma)} := \left\{ \sum_{i=1}^r \langle v,\chi_i \rangle_{\Gamma}^2 + \lvert v \rvert_{H^{1/2}(\Gamma)}^2 \right\}^{1/2}.
+\end{equation}\]
+
+<p>It can be proved that \(D\) is \(H_{\ast \ast}^{1/2}(\Gamma)\)-elliptic.</p>
+
+<p>The inner product induced from this norm is</p>
+
+\[\begin{equation}
+  \langle u,v \rangle_{H_{\ast \ast}^{1/2}(\Gamma)} := \sum_{i=1}^r \langle u,\chi_i \rangle_{\Gamma} \langle v,\chi_i \rangle_{\Gamma} + \lvert u \rvert_{H^{1/2}(\Gamma)} \lvert v \rvert_{H^{1/2}(\Gamma)}.
+\end{equation}\]
+
+<p>For any function \(v\in H_{\ast \ast}^{1/2}(\Gamma)\), it is orthogonal to all boundary indicator functions \(\{ \chi_i \}_{i=1}^r\) using this inner product, i.e. for any \(i=1,\cdots,r\),</p>
+
+\[\begin{equation}
+  \langle u,\chi_i \rangle_{H_{\ast \ast}^{1/2}(\Gamma)} = \sum_{j=1}^r \langle u,\chi_j \rangle_{\Gamma} \langle \chi_i,\chi_j \rangle_{\Gamma} + \lvert u \rvert_{H^{1/2}(\Gamma)} \lvert \chi_i \rvert_{H^{1/2}(\Gamma)} = 0.
+  \label{eq:h-star-star-constraints}
+\end{equation}\]
+
+<p>Therefore, \(H_{\ast \ast}^{1/2}(\Gamma)\) is orthogonal to \(\ker D\).</p>
+
+<p>Let \(Du=f\) be an operator equation with respect to \(D\) with \(u\in H^{1/2}(\Gamma)\) and \(f\in H^{-1/2}(\Gamma)\). Its variational formulation is</p>
+
+\[\begin{equation}
+  \langle Du,v \rangle_{\Gamma} = \langle f,v \rangle_{\Gamma} \quad \forall v\in H^{1/2}(\Gamma).
+\end{equation}\]
+
+<p>Now we restrict the solution \(u\) to the subspace \(H_{\ast \ast}^{1/2}(\Gamma)\), i.e. apply the constraints in Equation \eqref{eq:h-star-star-constraints}. Using the Lagrange multiplier method, we can obtain an equivalent saddle point problem: for all \(v\in H^{1/2}(\Gamma)\), find \(u \in H^{1/2}(\Gamma)\) such that</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \langle D u,v \rangle_{\Gamma} + \sum_{i=1}^r \lambda_i \langle v,\chi_i
+    \rangle_{\Gamma} &amp;= \langle f, v \rangle_{\Gamma} \\
+    \langle u, \chi_i \rangle_{\Gamma} &amp;= 0 \quad i=1,\cdots,r.
+  \end{aligned}
+\end{equation}\]
+
+<p>From the first equation, we can deduce that all Lagrange multipliers \(\lambda_1,\cdots,\lambda_r\) are zero. Introducing another factor \(\alpha\in \mathbb{R}^+\), we obtain a stabilized variational equation: for all \(v\in H^{1/2}(\Gamma)\), find \(u\in H^{1/2}(\Gamma)\) such that</p>
+
+\[\begin{equation}
+  \langle D u,v \rangle_{\Gamma} + \alpha \sum_{i=1}^r \langle u, \chi_i \rangle_{\Gamma} \langle v,\chi_i \rangle_{\Gamma} = \langle f,v \rangle_{\Gamma}.
+\end{equation}\]
+
+<p>The left hand side of this equation is a stabilized bilinear form \(\langle \hat{D}u, v \rangle_{\Gamma}\), which is \(H^{1/2}(\Gamma)\)-elliptic. \(\hat{D}\) is the stabilized version of \(D\). The solution of this equation is unique and must be in the subspace \(H_{\ast \ast}^{1/2}(\Gamma)\). For solving the Laplace equation with a Dirichlet boundary condition in this example, \(\hat{D}\) is the operator preconditioner of \(V\) and will be used to build the inverse of the preconditioning matrix.</p>
+
+<h1 id="discretization-of-operator-preconditioner">Discretization of operator preconditioner</h1>
+
+<p>The operator \(V\) maps from \(H^{-1/2}(\Gamma)\) to \(H^{1/2}(\Gamma)\). Its discretized Galerkin matrix \(\mathcal{V}\) maps from \(H^{-1/2}_h(\Gamma)\) to \(H^{-1/2}_h(\Gamma)\). The stabilized operator \(\hat{D}\) maps from \(H^{1/2}(\Gamma)\) to \(H^{-1/2}(\Gamma)\). Its discretized Galerkin matrix \(\hat{\mathcal{D}}\) maps from \(H^{1/2}_h(\Gamma)\) to \(H^{1/2}_h(\Gamma)\). Even though the composition of the two operators \(\hat{D}V\) is valid because the range space of \(V\) matches the domain space of \(\hat{D}\), the matrix \(\hat{\mathcal{D}}\) cannot be directly multiplied with \(\mathcal{V}\) because the row space of \(\mathcal{V}\) does not match the column space of \(\ha{\mathcal{D}}\). This means the discretization of \(\hat{D}V\) does not simply lead to \(\hat{\mathcal{D}}\mathcal{V}\).</p>
+
+<p>The root cause of this inconsistency is that Galerkin matrices of boundary integral operators do not associate the domain space with the range space, but with the dual space of the range space. When we consider finite dimensional approximation of these spaces, a vector in a domain space or a range space is called a <strong>strong form</strong> vector, while a vector in the dual space of the range space is a <strong>weak form</strong> vector, which is a direct projection of a vector in the range space to its dual space. Therefore, a boundary integral operator maps a strong form vector to another strong form vector, while its Galerkin matrix maps a strong form vector to a weak form vector.</p>
+
+<p>To discretize the composite operator \(\hat{D}V\), we should follow the commutative diagram below.</p>
+
+<p><img src="figures/2025-11-19-cd-for-discretizing-op-precond.png" alt="img" title="Commutative diagram for discretization of operator preconditioner." /></p>
+
+<p>We should start from discretizing the operator \(\hat{D}^{-1}\), which is spectrally equivalent to \(V\). Remember that spectral equivalence is the key idea underlying the operator preconditioning technique. Its matrix form is \([\hat{D}^{-1}]\), which is the preconditioning matrix of \(\mathcal{V}\). The actual matrix multiplied to both sides of the matrix form for the BIE is \([\hat{D}^{-1}]^{-1}\), which maps from \(H^{-1/2}_h(\Gamma)\) to \(H^{-1/2}_h(\Gamma)\) (marked in blue color in the diagram). Our task is to construct a matrix which has a same behavior as \([\hat{D}^{-1}]^{-1}\) and also maps from \(H^{-1/2}_h(\Gamma)\) to \(H^{-1/2}_h(\Gamma)\). We also notice that the operator \(\hat{D}^{-1}\) has no explicit formulation, so \([\hat{D}^{-1}]\) or \([\hat{D}^{-1}]^{-1}\) cannot be directly built. We only know the formulation of \(\hat{D}\) and how to build \(\hat{\mathcal{D}}\). Therefore, by following the red route in the diagram, the inverse of the preconditioning matrix can be indirectly constructed:</p>
+
+\[\begin{equation}
+  [\hat{D}^{-1}]^{-1} = \mathcal{M}_D^{-1} \hat{\mathcal{D}} \mathcal{M}_V^{-1},
+\end{equation}\]
+
+<p>where \(\mathcal{M}_V\) is the mass matrix mapping from the range space of \(V\), i.e. \(H^{1/2}_h(\Gamma)\), to its dual space \(H^{-1/2}_h(\Gamma)\) — that’s why its subscript is \(V\), \(\mathcal{M}_D\) is the mass matrix associated with \(\hat{D}\) mapping from \(H^{-1/2}_h(\Gamma)\) to \(H^{1/2}_h(\Gamma)\). Obviously, \(\mathcal{M}_D\) is the transpose of \(\mathcal{M}_V\). Therefore,</p>
+
+\[\begin{equation}
+  [\hat{D}^{-1}]^{-1} = \mathcal{M}_D^{-1} \hat{\mathcal{D}} \mathcal{M}_D^{-\mathrm{T}}.
+  \label{eq:inv-precond-mat}
+\end{equation}\]
+
+<p>Finally, the preconditioned system matrix for the Dirichlet problem is</p>
+
+\[\begin{equation}
+  \mathcal{M}_D^{-1} \hat{\mathcal{D}} \mathcal{M}_D^{-\mathrm{T}} \mathcal{V}.
+\end{equation}\]
+
+<h1 id="build-operator-preconditioner-with-invertible-mass-matrix">Build operator preconditioner with invertible mass matrix</h1>
+
+<p>According to Equation \eqref{eq:inv-precond-mat}, the mass matrix \(\mathcal{M}_D\) should be invertible.This mass matrix maps from \(H^{-1/2}_h(\Gamma)\) to \(H^{1/2}_h(\Gamma)\), which is induced by the duality pairing between these two spaces. Let \(I: H^{-1/2}(\Gamma) \rightarrow H^{-1/2}(\Gamma)\) be an identity operator. It defines a bilinear form \(b_I: H^{-1/2}(\Gamma) \times H^{1/2}(\Gamma) \rightarrow \mathbb{R}\) as</p>
+
+\[\begin{equation}
+  b_I(u,v) = \langle Iu, v \rangle = \langle u,v \rangle \quad u\in H^{-1/2}(\Gamma), v\in H^{1/2}(\Gamma).
+\end{equation}\]
+
+<p>With a finite dimensional approximation, we have \(I_h: H^{-1/2}_h(\Gamma) \rightarrow H^{-1/2}_h(\Gamma)\) and</p>
+
+\[\begin{equation}
+  b_{I_h}(u_h,v_h) = \langle I_hu_h, v_h \rangle = \langle u_h,v_h \rangle \quad u_h\in H^{-1/2}_h(\Gamma), v\in H^{1/2}_h(\Gamma).
+\end{equation}\]
+
+<p>Therefore, the mass matrix \(\mathcal{M}_D\) is a Galerkin discretization of the bilinear form \(b_{I_h}\). If the variational equation \(b_{I_h}(u_h,v_h) = \langle f,v_h \rangle\) with \(f\in H^{-1/2}(\Gamma)\) for all \(v_h\in H^{1/2}_h(\Gamma)\) has a unique solution, the bilinear form should satisfy a discrete \(\inf\sup\) condition</p>
+
+\[\begin{equation}
+  \inf_{u\in H^{-1/2}_h(\Gamma)} \sup_{v\in H^{1/2}_h(\Gamma)} \frac{a(u_h,v_h)}{\lVert u_h \rVert \lVert v_h \rVert} = \inf_{v\in H^{1/2}_h(\Gamma)} \sup_{u\in H^{-1/2}_h(\Gamma)} \frac{a(u_h,v_h)}{\lVert u_h \rVert \lVert v_h \rVert} = \alpha_h \geq 0.
+\end{equation}\]
+
+<p>When the number of basis functions for \(H^{-1/2}_h(\Gamma)\) is the same as that for \(H^{1/2}_h(\Gamma)\), this \(\inf\sup\) condition holds and the mass matrix \(\mathcal{M}_D\) is invertible.</p>
+
+<p>As mentioned in previous examples, we use the piecewise linear finite element <code class="language-plaintext highlighter-rouge">FE_Q(1)</code> for \(H^{1/2}_h(\Gamma)\) and piecewise constant finite element <code class="language-plaintext highlighter-rouge">FE_DGQ(0)</code> for \(H^{-1/2}_h(\Gamma)\). On a same triangulation, the number of basis functions in these two function spaces are always different. A practical way to make them equal is to construct <code class="language-plaintext highlighter-rouge">FE_DGQ(0)</code> on the original mesh (also called <strong>primal mesh</strong>), and to construct <code class="language-plaintext highlighter-rouge">FE_Q(1)</code> on the <strong>dual mesh</strong>. The number of basis functions in <code class="language-plaintext highlighter-rouge">FE_DGQ(0)</code> is equal to the number of cells in the primal mesh. Because each cell in the primal mesh corresponds to a vertex in the dual mesh and the support points of <code class="language-plaintext highlighter-rouge">FE_Q(1)</code> are located at vertices in the dual mesh, the number of basis functions in these two function spaces are equal.</p>
+
+<p><img src="figures/2025-11-20-primal-and-dual-mesh.png" alt="img" title="Primal mesh and dual mesh" /></p>
+
+<p>In the implementation of operator preconditioners, the dual mesh will not be explicitly generated. Instead, we perform a global refinement of the primal mesh. Thanks to the multigrid functionality provided by deal.II, we can construct function spaces on both the primal mesh and the refined mesh, i.e. distribute DoFs of a DoF handler on the multigrid. The basis functions on the dual mesh will be constructed by combining corresponding basis functions on the refined mesh.</p>
+
+<p>Let \(\Gamma_h\) be the primal mesh, \(\bar{\Gamma}_h\) be the refined mesh and \(\hat{\Gamma}_h\) be the dual mesh. In the context of operator preconditioning, we call the domain space \(H^{-1/2}(\Gamma)\) of the main operator \(V\) in the BIE the primal space and the range space \(H^{1/2}(\Gamma)\) of \(V\) the dual space, i.e. dual to the domain space. Then in Equation \eqref{eq:inv-precond-mat}, the matrix \(\mathcal{M}_D\) maps from the primal space on the primal mesh to the dual space on the dual mesh, i.e.</p>
+
+\[\begin{equation}
+  \mathcal{M}_D: H^{-1/2}_h(\Gamma_h) \rightarrow H^{1/2}_h(\hat{\Gamma}_h).
+\end{equation}\]
+
+<p>The matrix \(\hat{\mathcal{D}}\) maps from the dual space on the dual mesh to itself</p>
+
+\[\begin{equation}
+  \hat{\mathcal{D}}: H^{1/2}_h(\hat{\Gamma}_h) \rightarrow H^{1/2}_h(\hat{\Gamma}_h).
+\end{equation}\]
+
+<p>Because the dual mesh \(\hat{\Gamma}_h\) is not constructed, \(\mathcal{M}_D\) and \(\hat{\mathcal{D}}\) cannot be directly built. Actually, we first build a mass matrix \(\mathcal{M}_D(\bar{\Gamma}_h)\) mapping from the primal space on the <strong>refined mesh</strong> to the dual space on the <strong>refined mesh</strong>, i.e.</p>
+
+\[\begin{equation}
+  \mathcal{M}_D(\bar{\Gamma}_h): H^{-1/2}_h(\bar{\Gamma}_h) \rightarrow H^{1/2}_h(\bar{\Gamma}_h).
+\end{equation}\]
+
+<p>Then we build a matrix \(\hat{\mathcal{D}}(\bar{\Gamma}_h)\) mapping from the dual space on the <strong>refined mesh</strong> to itself</p>
+
+\[\begin{equation}
+  \hat{\mathcal{D}}(\bar{\Gamma}_h): H^{1/2}_h(\bar{\Gamma}_h) \rightarrow H^{1/2}_h(\bar{\Gamma}_h).
+\end{equation}\]
+
+<p>Next we need a matrix \(C_d\) called the <strong>averaging matrix</strong>, which defines how a basis function in the <strong>dual space</strong> on the <strong>dual mesh</strong> is constructed from several basis functions in the <strong>dual space</strong> on the <strong>refined mesh</strong>. Therefore, \(C_d\) maps from \(H^{1/2}_h(\bar{\Gamma}_h)\) to \(H^{1/2}_h(\hat{\Gamma}_h)\). We also need a matrix \(C_p\) called the <strong>coupling matrix</strong>, which defines how a basis function in the <strong>primal space</strong> on the <strong>primal mesh</strong> is constructed from several basis functions in the <strong>primal space</strong> on the <strong>refined mesh</strong>. Hence, \(C_p\) maps from \(H^{-1/2}_h(\bar{\Gamma}_h)\) to \(H^{-1/2}_h(\Gamma_h)\).</p>
+
+<p>Let \(i\) be a row index of \(C_d\), which represents a DoF in the dual space on the dual mesh, i.e. \(H^{1/2}_h(\hat{\Gamma}_h)\). Its support point is the center of each cell in the primal mesh. Let \(j\) be a column index of \(C_d\), which represents a DoF in the dual space on the refined mesh, i.e. \(H^{1/2}_h(\bar{\Gamma}_h)\). Its support point is a vertex in the refined mesh. Then the coefficient \(C_d(i,j)\) can be determined according to these rules:</p>
+
+<ol>
+  <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is in the interior of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 1\).</li>
+  <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is in the middle of an edge of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 0.5\).</li>
+  <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is a vertex of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 1/N_v\), where \(N_v\) is the number of primal cells sharing this vertex.</li>
+  <li>In other cases, \(C_d(i,j) = 0\).</li>
+</ol>
+
+<p>This is illustrated in the following figure. The quadrangular cells with black borders are primal cells, while the cells with green borders are refined cells.</p>
+
+<p><img src="figures/2025-11-21-linking-matrix-coefficients-for-operator-preconditioner_Cd-dirichlet.png" alt="img" title="Coefficients of the averaging matrix $$C_d$$ used in Dirichlet problems." /></p>
+
+<p>Let \(i\) be a row index of \(C_p\), which represents a DoF in the primal space on the primal mesh, i.e. \(H^{-1/2}_h(\Gamma_h)\). It support point is the center of each cell in the primal mesh. Let \(j\) be a column index of \(C_p\), which represents a DoF in the primal space on the refined mesh, i.e. \(H^{-1/2}_h(\bar{\Gamma}_h)\). Its support point is the center of each cell in the refined mesh. The coefficient \(C_p(i,j) = 1\), if the cell related to \(j\) in the refined mesh is a child of the cell related to \(i\) in the primal mesh, otherwise \(C_p(i,j) = 0\). This is illustrated in the following figure.</p>
+
+<p><img src="figures/2025-11-21-linking-matrix-coefficients-for-operator-preconditioner_Cp-dirichlet.png" alt="img" title="Coefficients of the coupling matrix $$C_p$$ used in Dirichlet problems." /></p>
+
+<p>Now the mass matrix \(\mathcal{M}_D\) can be computed as</p>
+
+\[\begin{equation}
+  \mathcal{M}_D = C_d \mathcal{M}_D(\bar{\Gamma}_h) C_p^{\mathrm{T}}.
+\end{equation}\]
+
+<p>\(\hat{\mathcal{D}}\) can be computed as</p>
+
+\[\begin{equation}
+  \hat{\mathcal{D}} = C_d \hat{\mathcal{D}}(\bar{\Gamma}_h) C_d^{\mathrm{T}}.
+\end{equation}\]
+
+<p>Finally, the inverse of the preconditioning matrix is</p>
+
+\[\begin{equation}
+  [\hat{D}^{-1}]^{-1} = \left( C_d \mathcal{M}_D(\bar{\Gamma}_h) C_p^{\mathrm{T}} \right)^{-1} \left( C_d \hat{\mathcal{D}}(\bar{\Gamma}_h) C_d^{\mathrm{T}} \right) \left( C_d \mathcal{M}_D(\bar{\Gamma}_h) C_p^{\mathrm{T}} \right)^{-\mathrm{T}}.
+\end{equation}\]
+
+<h1 id="source-code-explanation">Source code explanation</h1>
+
+<p>After clarifying theories about the boundary integral equation for the Laplace problem with a Dirichlet boundary condition and the operator preconditioning technique, we now go through the example source code in the file <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/laplace-dirichlet/solve-laplace-dirichlet.cu">hierbem/examples/laplace-dirichlet/solve-laplace-dirichlet.cu</a>. In HierBEM, the Laplace solver which can handle different types of boundary conditions is encapsulated in the class <code class="language-plaintext highlighter-rouge">LaplaceBEM</code>. The operator preconditioner used for preconditioning the operator \(V\) is implemented in the class <code class="language-plaintext highlighter-rouge">PreconditionerForLaplaceDirichlet</code>.</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">solve-laplace-dirichlet.cu</code>, we first define a function class <code class="language-plaintext highlighter-rouge">DirichletBC</code> which defines the potential distribution on the sphere. It will be assigned as the Dirichlet boundary condition.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DirichletBC</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">DirichletBC</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="p">,</span> <span class="n">x0</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="n">DirichletBC</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x0_</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="p">,</span> <span class="n">x0</span><span class="p">(</span><span class="n">x0_</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">double</span>
+  <span class="n">value</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">component</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">component</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">4.0</span> <span class="o">/</span> <span class="n">numbers</span><span class="o">::</span><span class="n">PI</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">x0</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">x0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Then another function class <code class="language-plaintext highlighter-rouge">AnalyticalSolution</code> is defined for the interior conormal trace on the sphere. This is just the analytical solution of the Laplace equation, which can be compared with our numerical solution.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AnalyticalSolution</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">AnalyticalSolution</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="p">,</span> <span class="n">x0</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">center</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">radius</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="n">AnalyticalSolution</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">x0_</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">center_</span><span class="p">,</span>
+                     <span class="kt">double</span>          <span class="n">radius_</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">Function</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="p">,</span> <span class="n">x0</span><span class="p">(</span><span class="n">x0_</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">center</span><span class="p">(</span><span class="n">center_</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">radius</span><span class="p">(</span><span class="n">radius_</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">double</span>
+  <span class="n">value</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">component</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">component</span><span class="p">;</span>
+
+    <span class="n">Tensor</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">diff_vector</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span> <span class="o">*</span> <span class="n">diff_vector</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span> <span class="o">/</span> <span class="n">numbers</span><span class="o">::</span><span class="n">PI</span> <span class="o">/</span>
+           <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">diff_vector</span><span class="p">.</span><span class="n">norm</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="n">radius</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">x0</span><span class="p">;</span>
+  <span class="n">Point</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">;</span>
+  <span class="kt">double</span>   <span class="n">radius</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>In the <code class="language-plaintext highlighter-rouge">main</code> function, we create a <code class="language-plaintext highlighter-rouge">LaplaceBEM</code> object initialized with parameters for the finite elements, cluster and block cluster trees, H-matrices and preconditioners, etc.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">dim</span>      <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">spacedim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">LaplaceBEM</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">bem</span><span class="p">(</span>
+  <span class="mi">1</span><span class="p">,</span> <span class="c1">// fe order for dirichlet space</span>
+  <span class="mi">0</span><span class="p">,</span> <span class="c1">// fe order for neumann space</span>
+  <span class="n">LaplaceBEM</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">ProblemType</span><span class="o">::</span><span class="n">DirichletBCProblem</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>                        <span class="c1">// is interior problem</span>
+  <span class="mi">32</span><span class="p">,</span>                          <span class="c1">// n_min for cluster tree</span>
+  <span class="mi">32</span><span class="p">,</span>                          <span class="c1">// n_min for block cluster tree</span>
+  <span class="mf">0.8</span><span class="p">,</span>                         <span class="c1">// eta for H-matrix</span>
+  <span class="mi">10</span><span class="p">,</span>                          <span class="c1">// max rank for H-matrix</span>
+  <span class="mf">0.01</span><span class="p">,</span>                        <span class="c1">// aca epsilon for H-matrix</span>
+  <span class="mf">1.0</span><span class="p">,</span>                         <span class="c1">// eta for preconditioner</span>
+  <span class="mi">5</span><span class="p">,</span>                           <span class="c1">// max rank for preconditioner</span>
+  <span class="mf">0.1</span><span class="p">,</span>                         <span class="c1">// aca epsilon for preconditioner</span>
+  <span class="n">MultithreadInfo</span><span class="o">::</span><span class="n">n_threads</span><span class="p">()</span> <span class="c1">// Number of threads used for ACA</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>We also set other properties of the <code class="language-plaintext highlighter-rouge">LaplaceBEM</code> object, such as project name, preconditioner type and H-matrix/vector multiplication type. The preconditioner type is set to operator preconditioning (<code class="language-plaintext highlighter-rouge">PreconditionerType::OperatorPreconditioning</code>). The H-matrix/vector multiplication type is set to serial iterative (<code class="language-plaintext highlighter-rouge">IterativeSolverVmultType::SerialIterative</code>), which means iteration will be performed over the leaf nodes of the system H-matrix. Each leaf node matrix will be multiplied with a corresponding block in the input vector, which matches the column index range of the leaf node. The multiplication results will be assembled into a corresponding block in the output vector, which matches the row index range of the leaf node.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bem</span><span class="p">.</span><span class="n">set_project_name</span><span class="p">(</span><span class="s">"solve-laplace-dirichlet"</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">set_preconditioner_type</span><span class="p">(</span><span class="n">PreconditionerType</span><span class="o">::</span><span class="n">OperatorPreconditioning</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">set_iterative_solver_vmult_type</span><span class="p">(</span><span class="n">IterativeSolverVmultType</span><span class="o">::</span><span class="n">SerialIterative</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>As in previous examples, we generate a triangulation for the sphere, define a sphere manifold and assign it to the triangulation, define a map from manifold id to mapping order as well as a subdomain topology relating volumes and surfaces in the model.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">center</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">double</span>          <span class="nf">radius</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span>    <span class="n">refinement</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="n">Triangulation</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">tria</span><span class="p">;</span>
+<span class="n">GridGenerator</span><span class="o">::</span><span class="n">hyper_sphere</span><span class="p">(</span><span class="n">tria</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+<span class="n">tria</span><span class="p">.</span><span class="n">refine_global</span><span class="p">(</span><span class="n">refinement</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_triangulation</span><span class="p">()</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tria</span><span class="p">);</span>
+
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_description</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">SphericalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">spherical_manifold</span> <span class="o">=</span>
+  <span class="k">new</span> <span class="n">SphericalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifolds</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">spherical_manifold</span><span class="p">;</span>
+
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_id_to_mapping_order</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">bem</span><span class="p">.</span><span class="n">get_subdomain_topology</span><span class="p">().</span><span class="n">generate_single_domain_topology_for_dealii_model</span><span class="p">(</span>
+  <span class="p">{</span><span class="mi">0</span><span class="p">});</span>
+</code></pre></div></div>
+
+<p>Then we create a <code class="language-plaintext highlighter-rouge">DirichletBC</code> object and assign the Dirichlet boundary condition to the solver.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">source_loc</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">);</span>
+<span class="n">DirichletBC</span>     <span class="nf">dirichlet_bc</span><span class="p">(</span><span class="n">source_loc</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">assign_dirichlet_bc</span><span class="p">(</span><span class="n">dirichlet_bc</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Next, we run the solver.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bem</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>The member function <code class="language-plaintext highlighter-rouge">run</code> includes the following stages, which are defined in the header file <a href="https://github.com/jihuan-tian/hierbem/blob/main/include/laplace/laplace_bem.priv.hcu">hierbem/include/laplace/laplace_bem.priv.hcu</a>.</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">setup_system</code>: Setup the solver by allocating memory for matrices and vectors, initializing function spaces and bilinear forms, interpolating the boundary condition into a vector, etc.</p>
+
+    <p>In this function, we create function spaces for \(H^{1/2}_h(\Gamma_h)\) (<code class="language-plaintext highlighter-rouge">dirichlet_space_on_dirichlet_domain_</code>) and \(H^{-1/2}_h(\Gamma_h)\) (<code class="language-plaintext highlighter-rouge">neumann_space_on_dirichlet_domain_</code>). During their creation, cluster trees are also generated.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dirichlet_space_on_dirichlet_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">);</span>
+<span class="n">neumann_space_on_dirichlet_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Then we create two bilinear forms \(b_V\) and \(b_{\sigma I+K}\) from corresponding function spaces.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bV1_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">SingleLayerKernel</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">bI1K2_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                          <span class="n">spacedim</span><span class="p">,</span>
+                                          <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                          <span class="n">DoubleLayerKernel</span><span class="p">,</span>
+                                          <span class="n">RangeNumberType</span><span class="p">,</span>
+                                          <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>With these two bilinear forms, block cluster trees can be built, which will be used to define hierarchical structures of \(\mathcal{H}\)-matrices.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bV1_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bI1K2_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Next, the Dirichlet boundary condition defined in the class <code class="language-plaintext highlighter-rouge">DirichletBC</code> is interpolated into a vector <code class="language-plaintext highlighter-rouge">dirichlet_bc_</code> in the external DoF numbering. This vector is also converted to another vector (<code class="language-plaintext highlighter-rouge">dirichlet_bc_internal_dof_numbering_</code>) in the internal DoF numbering.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interpolate_dirichlet_bc</span><span class="p">();</span>
+<span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">n_dofs_for_dirichlet_space</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_dirichlet_domain_</span>
+  <span class="o">-&gt;</span><span class="n">convert_vector_e2i</span><span class="p">(</span><span class="n">dirichlet_bc_</span><span class="p">,</span> <span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Finally, we allocate memory for the right hand side vector in the internal DoF numbering (<code class="language-plaintext highlighter-rouge">system_rhs_on_dirichlet_domain_</code>) and the solution vector in both DoF numberings (<code class="language-plaintext highlighter-rouge">neumann_data_</code> and <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_internal_dof_numbering_</code>).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">n_dofs_for_neumann_space</span><span class="p">);</span>
+<span class="n">neumann_data_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">n_dofs_for_neumann_space</span><span class="p">);</span>
+<span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">assemble_hmatrix_system</code>: Discretize the bilinear forms \(b_V\) and \(b_{\sigma I+K}\) into \(\mathcal{H}\)-matrices \(\mathcal{V}\) and \(\sigma \mathcal{M} + \mathcal{K}\). Compute the right hand side vector, which is the product of \((\sigma \mathcal{M} + \mathcal{K})[g_{\mathrm{D}}]\). Once this vector is computed, the \(\mathcal{H}\)-matrix \(\sigma \mathcal{M} + \mathcal{K}\) is released.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">I1K2_hmat_</span> <span class="o">=</span>
+  <span class="n">bI1K2_</span><span class="o">-&gt;</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                                         <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                                         <span class="n">aca_relative_error_</span><span class="p">,</span>
+                                         <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+                                         <span class="n">real_type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+                                         <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                                         <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span>
+                                           <span class="n">fe_order_for_dirichlet_space_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                                         <span class="n">mappings_</span><span class="p">,</span>
+                                         <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                                         <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">I1K2_hmat_</span><span class="o">-&gt;</span><span class="n">vmult</span><span class="p">(</span><span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">,</span>
+                  <span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">);</span>
+<span class="n">I1K2_hmat_</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+    
+<span class="n">V1_hmat_</span> <span class="o">=</span> <span class="n">bV1_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">assemble_hmatrix_preconditioner</code>: Build the operator preconditioner for \(V\).</p>
+
+    <p>We first make a copy of the triangulation and perform a global refinement. We are going to distribute DoFs on this 2-level multigrid.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mg_tria_for_preconditioner_</span><span class="p">.</span><span class="n">copy_triangulation</span><span class="p">(</span><span class="n">tria_</span><span class="p">);</span>
+<span class="n">mg_tria_for_preconditioner_</span><span class="p">.</span><span class="n">refine_global</span><span class="p">();</span>
+</code></pre></div>    </div>
+
+    <p>Then we create and setup a preconditioner object <code class="language-plaintext highlighter-rouge">PreconditionerForLaplaceDirichlet</code>.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">operator_preconditioner_dirichlet_</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PreconditionerForLaplaceDirichlet</span><span class="o">&lt;</span>
+  <span class="n">dim</span><span class="p">,</span>
+  <span class="n">spacedim</span><span class="p">,</span>
+  <span class="n">RangeNumberType</span><span class="p">,</span>
+  <span class="n">KernelNumberType</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">fe_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">fe_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">mg_tria_for_preconditioner_</span><span class="p">,</span>
+  <span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+  <span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">get_external_to_internal_dof_numbering</span><span class="p">());</span>
+    
+<span class="n">operator_preconditioner_dirichlet_</span><span class="o">-&gt;</span><span class="n">setup_preconditioner</span><span class="p">(</span>
+  <span class="n">thread_num_</span><span class="p">,</span>
+  <span class="n">HMatrixParameters</span><span class="p">(</span><span class="n">n_min_for_ct_</span><span class="p">,</span>
+                    <span class="n">n_min_for_bct_</span><span class="p">,</span>
+                    <span class="n">eta_</span><span class="p">,</span>
+                    <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                    <span class="n">aca_relative_error_</span><span class="p">),</span>
+  <span class="n">subdomain_topology_</span><span class="p">,</span>
+  <span class="n">mappings_</span><span class="p">,</span>
+  <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+  <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology_</span><span class="p">),</span>
+  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="n">QGauss</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fe_for_dirichlet_space_</span><span class="p">.</span><span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">solve</code>: In this function, we solve the system matrix using the iterative CG solver and the operator preconditioner.</p>
+
+    <p>First, we create a solve control object and a solver object.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SolverControl</span>                            <span class="nf">solver_control</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">SolverCGGeneral</span><span class="o">&lt;</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">RangeNumberType</span><span class="o">&gt;&gt;</span> <span class="n">solver</span><span class="p">(</span><span class="n">solver_control</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Then we set the H-matrix/vector multiplication strategy for the system \(\mathcal{H}\)-matrix \(\mathcal{V}\), which will be called by the iterative solver. Because \(\mathcal{V}\) is a symmetric matrix and only its diagonal and lower triangular matrix blocks are stored, during its multiplication with a vector, both matrix/vector multiplication (<code class="language-plaintext highlighter-rouge">vmult</code>) and transposed-matrix/vector multiplication (<code class="language-plaintext highlighter-rouge">Tvmult</code>) are needed. Hence the third and fourth arguments of <code class="language-plaintext highlighter-rouge">set_hmatrix_vmult_strategy_for_iterative_solver</code> are set to <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span><span class="o">*</span><span class="n">V1_hmat_</span><span class="p">,</span>
+                                                <span class="n">vmult_type_</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Similarly, we set the H-matrix/vector multiplication strategy for the matrix \(\hat{\mathcal{D}}(\bar{\Gamma}_h)\) on the refined mesh used in the preconditioner.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span>
+  <span class="n">operator_preconditioner_dirichlet_</span><span class="o">-&gt;</span><span class="n">get_preconditioner_hmatrix</span><span class="p">(),</span>
+  <span class="n">vmult_type_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Then the linear system of the BIE can be solved using the preconditioned CG method. The returned solution vector <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_internal_dof_numbering_</code> is in the internal DoF numbering, which will be converted to the vector <code class="language-plaintext highlighter-rouge">neumann_data_</code> in the external DoF numbering .</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">solver</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="o">*</span><span class="n">V1_hmat_</span><span class="p">,</span>
+             <span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">,</span>
+             <span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">,</span>
+             <span class="o">*</span><span class="n">operator_preconditioner_dirichlet_</span><span class="p">);</span>
+<span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">convert_vector_i2e</span><span class="p">(</span>
+  <span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">,</span>
+  <span class="n">neumann_data_</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">output_results</code>: In this function, we add the solution vector and the boundary condition vector to the <code class="language-plaintext highlighter-rouge">DataOut</code> object, which will be written into a VTK file and can be visualized in ParaView.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span>          <span class="n">vtk_output</span><span class="p">;</span>
+<span class="n">DataOut</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">data_out</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span>          <span class="nf">data_file</span><span class="p">(</span><span class="n">project_name_</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">".output"</span><span class="p">));</span>
+    
+<span class="n">vtk_output</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">project_name_</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">".vtk"</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    
+<span class="n">data_out</span><span class="p">.</span><span class="n">add_data_vector</span><span class="p">(</span><span class="n">dof_handler_for_neumann_space_</span><span class="p">,</span>
+                         <span class="n">neumann_data_</span><span class="p">,</span>
+                         <span class="s">"neumann_data"</span><span class="p">);</span>
+<span class="n">data_out</span><span class="p">.</span><span class="n">add_data_vector</span><span class="p">(</span><span class="n">dof_handler_for_dirichlet_space_</span><span class="p">,</span>
+                         <span class="n">dirichlet_bc_</span><span class="p">,</span>
+                         <span class="s">"dirichlet_data"</span><span class="p">);</span>
+    
+<span class="n">data_out</span><span class="p">.</span><span class="n">build_patches</span><span class="p">();</span>
+<span class="n">data_out</span><span class="p">.</span><span class="n">write_vtk</span><span class="p">(</span><span class="n">vtk_output</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>We also output the solution vector to a text file.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print_vector_to_mat</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span> <span class="s">"solution"</span><span class="p">,</span> <span class="n">neumann_data_</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>After <code class="language-plaintext highlighter-rouge">bem.run()</code> finishes, we call the function <code class="language-plaintext highlighter-rouge">output_analytical_solution</code> defined in this example, which interpolates the analytical solution function into a vector and writes it into a file, so that we can compare the numerical solution with the analytical solution.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">dim</span><span class="p">,</span>
+          <span class="kt">int</span> <span class="n">spacedim</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">RangeNumberType</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="nc">KernelNumberType</span><span class="p">&gt;</span>
+<span class="kt">void</span>
+<span class="nf">output_analytical_solution</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">LaplaceBEM</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="p">,</span> <span class="n">KernelNumberType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">bem</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">source_loc</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">center</span><span class="p">,</span>
+  <span class="k">const</span> <span class="kt">double</span>           <span class="n">radius</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="n">DoFHandler</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">dof_handler</span> <span class="o">=</span> <span class="n">bem</span><span class="p">.</span><span class="n">get_dof_handler_neumann</span><span class="p">();</span>
+  <span class="n">Vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span>                   <span class="n">analytical_solution</span><span class="p">(</span><span class="n">dof_handler</span><span class="p">.</span><span class="n">n_dofs</span><span class="p">());</span>
+  <span class="c1">// We use the 2nd order mapping to interpolate the analytical solution.</span>
+  <span class="n">VectorTools</span><span class="o">::</span><span class="n">interpolate</span><span class="p">(</span><span class="n">bem</span><span class="p">.</span><span class="n">get_mappings</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">get_mapping</span><span class="p">(),</span>
+                           <span class="n">dof_handler</span><span class="p">,</span>
+                           <span class="n">AnalyticalSolution</span><span class="p">(</span><span class="n">source_loc</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">),</span>
+                           <span class="n">analytical_solution</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">out</span><span class="p">(</span><span class="s">"analytical-solution.output"</span><span class="p">);</span>
+  <span class="n">print_vector_to_mat</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s">"analytical_solution"</span><span class="p">,</span> <span class="n">analytical_solution</span><span class="p">);</span>
+  <span class="n">out</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="results">Results</h1>
+
+<p>The distribution of the interior conormal trace on the sphere is given below.</p>
+
+<p><img src="figures/2025-11-22-solve-laplace-dirichlet-interior-conormal-trace.png" alt="img" title="Distribution of the interior conormal trace on the sphere." /></p>
+
+<p>The analytical and numerical solution vectors are plotted together in the following figure.</p>
+
+<p><img src="figures/2025-11-22-solve-laplace-dirichlet-example.png" alt="img" title="Analytical and numerical solutions of the Laplace equation with a Dirichlet boundary condition." /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/hierbem-site/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/hierbem-site/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
