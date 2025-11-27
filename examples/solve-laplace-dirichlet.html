@@ -326,7 +326,7 @@
     <p>Take the interior Dirichlet trace of the representation formula, we get the boundary integral equation for solving the Laplace Dirichlet problem, which is just the first equation in the Calderón system.</p>
 
 \[\begin{equation}
-  (V \gamma_1^{\mathrm{int}} u)(x) = ((\sigma I+K) \gamma_0^{\mathrm{int}}u)(x) = ((\sigma I+K) \tilde{g}_{\mathrm{D}})(x) \quad x\in\Gamma.
+  (V \gamma_1^{\mathrm{int}} u)(x) = ((\sigma I+K) \gamma_0^{\mathrm{int}}u)(x) = ((\sigma I+K) g_{\mathrm{D}})(x) \quad x\in\Gamma.
   \label{eq:bie-for-dirichlet}
 \end{equation}\]
   </li>
@@ -335,7 +335,7 @@
 <p>In Equation \eqref{eq:bie-for-dirichlet}, the interior conormal trace satisfies \(\gamma_1^{\mathrm{int}} u\in H^{-1/2}(\Gamma)\) and the interior Dirichlet trace satisfies \(\gamma_0^{\mathrm{int}} u\in H^{1/2}(\Gamma)\). Testing this BIE with \(v\in H^{-1/2}(\Gamma)\) yields the variational formulation</p>
 
 \[\begin{equation}
-  b_V(\gamma_1^{\mathrm{int}} u, v) = b_{\sigma I + K}(\tilde{g}_{\mathrm{D}}, v).
+  b_V(\gamma_1^{\mathrm{int}} u, v) = b_{\sigma I + K}(g_{\mathrm{D}}, v).
 \end{equation}\]
 
 <p>To discretize the variational formulation, we approximate \(H^{1/2}(\Gamma)\) with the piecewise linear Lagrange polynomial space and approximate \(H^{-1/2}(\Gamma)\) with the piecewise constant function space. Then we obtain the matrix form</p>
@@ -693,7 +693,7 @@
 
 <ol>
   <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is in the interior of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 1\).</li>
-  <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is in the middle of an edge of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 0.5\).</li>
+  <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is in the middle of an edge of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), if the edge is shared by two primal cells, \(C_d(i,j) = 0.5\); if the edge is at the boundary, \(C_d(i,j) = 1\).</li>
   <li>When the support point of the \(j\)-th DoF in \(H^{1/2}_h(\bar{\Gamma}_h)\) is a vertex of the primal cell containing the \(i\)-th DoF in \(H^{1/2}_h(\hat{\Gamma}_h)\), \(C_d(i,j) = 1/N_v\), where \(N_v\) is the number of primal cells sharing this vertex.</li>
   <li>In other cases, \(C_d(i,j) = 0\).</li>
 </ol>
