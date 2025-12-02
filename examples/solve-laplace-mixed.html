@@ -1,0 +1,1146 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Solve the Laplace equation with mixed boundary conditions on a cylinder - HierBEM Library</title>
+<meta name="description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HierBEM Library">
+<meta property="og:title" content="Solve the Laplace equation with mixed boundary conditions on a cylinder">
+<meta property="og:url" content="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-mixed.html">
+
+
+  <meta property="og:description" content="A hierarchical matrix based 3D Galerkin boundary element (BEM) C++ library">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-mixed.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/hierbem-site/feed.xml" type="application/atom+xml" rel="alternate" title="HierBEM Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/hierbem-site/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/hierbem-site/assets/images/favicon.ico">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/SVG"],
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/AMScd.js"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      skipTags: ["script","noscript","style","textarea","pre","code"],
+      processEscapes: true,
+      processEnvironments: true,
+      preview: "TeX"
+    },
+    TeX: {
+      Macros: {
+        intd: "\\,{\\rm d}",
+        diff: "{\\rm d}",
+        Diff: "{\\rm D}",
+        pdiff: "\\partial",
+        DD: ["\\frac{\\diff}{\\diff #2}\\left( #1 \\right)", 2],
+        Dd: ["\\frac{\\diff #1}{\\diff #2}", 2],
+        PD: ["\\frac{\\pdiff}{\\pdiff #2}\\left( #1 \\right)", 2],
+        Pd: ["\\frac{\\pdiff #1}{\\pdiff #2}", 2],
+        rme: "{\\rm e}",
+        rmi: "{\\rm i}",
+        rmj: "{\\rm j}",
+        vect: ["\\boldsymbol{#1}", 1],
+        dform: ["\\overset{\\rightharpoonup}{\\boldsymbol{#1}}", 1],
+        cochain: ["\\overset{\\rightharpoonup}{#1}", 1],
+        bigabs: ["\\bigg\\lvert#1\\bigg\\rvert", 1],
+        Abs: ["\\big\\lvert#1\\big\\rvert", 1],
+        abs: ["\\lvert#1\\rvert", 1],
+        bignorm: ["\\bigg\\lVert#1\\bigg\\rVert", 1],
+        Norm: ["\\big\\lVert#1\\big\\rVert", 1],
+        norm: ["\\lVert#1\\rVert", 1],
+        normvect: "\\vect{n}",
+        ouset: ["\\overset{#3}{\\underset{#2}{#1}}", 3],
+        cscript: ["\\;\\; #1", 1],
+        suchthat: "\\textit{S.T. }",
+        prefstar: "\\ast",
+        restrict: "\\big\\vert",
+        sgn: "{\\rm sgn}",
+        erf: "{\\rm erf}",
+        Bd: "{\\rm Bd}",
+        Int: "{\\rm Int}",
+        dim: "{\\rm dim}",
+        rank: "{\\rm rank}",
+        range: "{\\rm range}",
+        divergence: "{\\rm div}",
+        curl: "{\\rm curl}",
+        grad: "{\\rm grad}",
+        tr: "{\\rm tr}",
+        lhs: "{\\rm LHS}",
+        rhs: "{\\rm RHS}",
+        span: "{\\rm span}",
+        diag: "{\\rm diag}",
+        argmin: "{\\rm argmin}",
+        argmax: "{\\rm argmax}",
+        esssup: "{\\rm esssup}",
+        essinf: "{\\rm essinf}",
+        kernel: "{\\rm ker}",
+        image: "{\\rm Im}",
+        diam: "{\\rm diam}",
+        dist: "{\\rm dist}",
+        const: "{\\rm const}",
+        real: "{\\rm Re}",
+        imag: "{\\rm Imag}",
+        supp: "{\\rm supp}"
+      },
+      equationNumbers: { autoNumber: "AMS" }
+    }
+  });
+</script>
+<script type="text/javascript" src="/hierbem-site/js/MathJax/MathJax.js?config=TeX-AMS_SVG"></script>
+
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/hierbem-site/"><img src="/hierbem-site/assets/images/hierbem.png" alt="HierBEM Library"></a>
+        
+        <a class="site-title" href="/hierbem-site/">
+          HierBEM Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/build.html"
+                
+                
+              >Build</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/examples/"
+                
+                
+              >Examples</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/hierbem-site/documentation.html"
+                
+                
+              >Documentation</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Solve the Laplace equation with mixed boundary conditions on a cylinder">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://jihuan-tian.github.io/hierbem-site/examples/solve-laplace-mixed.html" itemprop="url">Solve the Laplace equation with mixed boundary conditions on a cylinder
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#problem-description">Problem description</a></li><li><a href="#boundary-integral-equations-and-their-discretization">Boundary integral equations and their discretization</a></li><li><a href="#solve-the-block-matrix-using-schur-complement">Solve the block matrix using Schur complement</a></li><li><a href="#construct-operator-preconditioners-on-subdomains">Construct operator preconditioners on subdomains</a></li><li><a href="#source-code-explanation">Source code explanation</a></li><li><a href="#results">Results</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="problem-description">Problem description</h1>
+
+<p>In this example, we demonstrate how to solve the Laplace equation with mixed boundary conditions using HierBEM. The Laplace equation is</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    -\Delta u &amp;= 0 \quad x\in\Omega, \\
+    \gamma_0^{\mathrm{int}} u &amp;= g_{\mathrm{D}} \quad x\in\Gamma_{\mathrm{D}}, \\
+    \gamma_1^{\mathrm{int}} u &amp;= g_{\mathrm{N}} \quad x\in\Gamma_{\mathrm{N}},
+  \end{aligned}
+\end{equation}\]
+
+<p>where \(u\in H^1(\Omega)\), \(g_{\mathrm{D}}\in H^{1/2}(\Gamma_{\mathrm{D}})\) and \(g_{\mathrm{N}}\in H^{-1/2}(\Gamma_{\mathrm{N}})\).</p>
+
+<p>As shown in the following figure, the problem domain is a cylinder. We assign a Dirichlet boundary condition \(\gamma_0^{\mathrm{int}} u = 1\) to the surface with the entity tag 2 and another Dirichlet boundary condition \(\gamma_0^{\mathrm{int}} u = 0\) to the surface with the entity tag 3. For the surface with the entity tag 1, we assign a homogeneous Neumann boundary condition \(\gamma_1^{\mathrm{int}} u = 0\).</p>
+
+<p><img src="figures/2025-11-28-cylinder.png" alt="img" title="Cylinder model assigned with mixed boundary conditions." /></p>
+
+<h1 id="boundary-integral-equations-and-their-discretization">Boundary integral equations and their discretization</h1>
+
+<p>In the example “<a href="build-hmatrix-on-subdomain.html">Build an H-matrix on a subdomain</a>”, we have obtained two boundary integral equations (BIEs) for the Laplace equation with mixed boundary conditions:</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    (V \gamma_1^{\mathrm{int}}u)(x) &amp;= \left[ (\sigma I + K) \gamma_0^{\mathrm{int}}u
+    \right](x) \quad x\in\Gamma_{\mathrm{D}}, \\
+    (D \gamma_0^{\mathrm{int}}u)(x) &amp;= \left\{ \left[ (1-\sigma)I - K' \right]
+      \gamma_1^{\mathrm{int}}u \right\}(x) \quad x\in\Gamma_{\mathrm{N}}.
+  \end{aligned}
+  \label{eq:bies-for-mixed-bc}
+\end{equation}\]
+
+<p>We have also extended the boundary conditions \(g_{\mathrm{D}}\) and \(g_{\mathrm{N}}\) to the whole boundary \(\Gamma\) as \(\tilde{g}_{\mathrm{D}}\) and \(\tilde{g}_{\mathrm{N}}\) respectively:</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \tilde{g}_{\mathrm{D}}\in H^{1/2}(\Gamma), \tilde{g}_{\mathrm{D}}(x) &amp;=
+    g_{\mathrm{D}}(x) \quad (x\in\Gamma_{\mathrm{D}}), \\
+    \tilde{g}_{\mathrm{N}}\in H^{-1/2}(\Gamma), \tilde{g}_{\mathrm{N}}(x) &amp;=
+    g_{\mathrm{N}}(x) \quad (x\in\Gamma_{\mathrm{N}}).
+  \end{aligned}
+\end{equation}\]
+
+<p>In HierBEM, we simply extend \(g_{\mathrm{D}}\) and \(g_{\mathrm{N}}\) with zeros. Then \(\tilde{g}_{\mathrm{D}}\in \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast})\) and \(\tilde{g}_{\mathrm{N}}\in \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}})\).</p>
+
+<p>After splitting the interior Dirichlet trace \(\gamma_0^{\mathrm{int}}u\) and the conormal trace \(\gamma_1^{\mathrm{int}}u\) as</p>
+
+\[\begin{equation}
+  \gamma_0^{\mathrm{int}}u = \tilde{u} + \tilde{g}_{\mathrm{D}}, \gamma_1^{\mathrm{int}}u = \tilde{t} + \tilde{g}_{\mathrm{N}},
+\end{equation}\]
+
+<p>the BIEs become</p>
+
+\[\begin{equation}
+  \begin{pmatrix}
+    V_1 &amp; -K_1 \\
+    K_1' &amp; D_1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \tilde{t} \\ \tilde{u}
+  \end{pmatrix}
+  = \begin{pmatrix}
+    \sigma I_1 + K_2 &amp; -V_2 \\
+    -D_2 &amp; (1-\sigma) I_2 - K_2'
+  \end{pmatrix}
+  \begin{pmatrix}
+    \tilde{g}_{\mathrm{D}} \\ \tilde{g}_{\mathrm{N}}
+  \end{pmatrix},
+  \label{eq:bies-in-matrix-form}
+\end{equation}\]
+
+<p>where \(\tilde{u}\in \tilde{H}^{1/2}(\Gamma_{\mathrm{N}})\) and \(\tilde{t}\in\tilde{H}^{-1/2}(\Gamma_{\mathrm{D}})\).</p>
+
+<p>Testing the first BIE in Equation \eqref{eq:bies-in-matrix-form} with \(v\in\tilde{H}^{-1/2}(\Gamma_{\mathrm{D}})\) and the second BIE with \(q\in\tilde{H}^{1/2}(\Gamma_{\mathrm{N}})\) yields the variational formulation</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    b_{V_1}(\tilde{t},v) - b_{K_1}(\tilde{u},v) &amp;= b_{\sigma I_1+K_2}(\tilde{g}_{\mathrm{D}},v) -
+    b_{V_2}(\tilde{g}_{\mathrm{N}},v), \\
+    b_{K_1'}(\tilde{t},q) + b_{D_1}(\tilde{u},q) &amp;= -b_{D_2}(\tilde{g}_{\mathrm{D}},q) +
+    b_{(1-\sigma)I_2-K_2'}(\tilde{g}_{\mathrm{N}},q).
+  \end{aligned}
+  \label{eq:variational-form}
+\end{equation}\]
+
+<p>The function spaces of the boundary integral operators and bilinear forms are listed below.</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    V_1 &amp;: \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow H^{1/2}(\Gamma_{\mathrm{D}})
+    \quad b_{V_1}: \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \times
+    \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow \mathbb{R} \\
+    K_1 &amp;: \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow H^{1/2}(\Gamma_{\mathrm{D}})
+    \quad b_{K_1}: \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \times
+    \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow \mathbb{R} \\
+    K_1' &amp;: \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow
+    H^{-1/2}(\Gamma_{\mathrm{N}}) \quad b_{K_1'}: \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}})
+    \times \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow \mathbb{R} \\
+    D_1 &amp;: \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow H^{-1/2}(\Gamma_{\mathrm{N}})
+    \quad b_{D_1}: \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \times
+    \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow \mathbb{R} \\
+    I_1 &amp;: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \rightarrow
+    H^{1/2}(\Gamma_{\mathrm{D}}) \quad b_{I_1}: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \times
+    \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow \mathbb{R} \\
+    K_2 &amp;: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \rightarrow
+    H^{1/2}(\Gamma_{\mathrm{D}}) \quad b_{K_2}: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \times
+    \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow \mathbb{R} \\
+    V_2 &amp;: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}}) \rightarrow H^{1/2}(\Gamma_{\mathrm{D}})
+    \quad b_{V_2}: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}}) \times \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}})
+    \rightarrow \mathbb{R} \\
+    D_2 &amp;: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \rightarrow
+    H^{-1/2}(\Gamma_{\mathrm{N}}) \quad b_{D_2}: \tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \times
+    \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow \mathbb{R} \\
+    I_2 &amp;: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}}) \rightarrow H^{-1/2}(\Gamma_{\mathrm{N}})
+    \quad b_{I_2}: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}}) \times
+    \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow \mathbb{R} \\
+    K_2' &amp;: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}}) \rightarrow
+    H^{-1/2}(\Gamma_{\mathrm{N}}) \quad b_{K_2'}: \tilde{H}^{-1/2}(\Gamma_{\mathrm{N}})
+    \times \tilde{H}^{1/2}(\Gamma_{\mathrm{N}}) \rightarrow \mathbb{R}
+  \end{aligned}
+\end{equation}\]
+
+<p>Using the piecewise linear finite element for \(H^{1/2}\) related spaces and the piecewise constant finite element for \(H^{-1/2}\) related spaces, the above variational formulation can be discretized as</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    \begin{pmatrix}
+      \mathcal{V}_1 &amp; -\mathcal{K}_1 \\
+      \mathcal{K}_1^{\mathrm{T}} &amp; \mathcal{D}_1
+    \end{pmatrix}
+    \begin{pmatrix}
+      [\tilde{t}] \\ [\tilde{u}]
+    \end{pmatrix}
+    = \begin{pmatrix}
+      \sigma \mathcal{M}_1 + \mathcal{K}_2 &amp; -\mathcal{V}_2 \\
+      -\mathcal{D}_2 &amp; (1-\sigma) \mathcal{M}_2 - \mathcal{K}_2'
+    \end{pmatrix}
+    \begin{pmatrix}
+      [\tilde{g}_{\mathrm{D}}] \\ [\tilde{g}_{\mathrm{N}}]
+    \end{pmatrix},
+  \end{aligned}
+  \label{eq:matrix-form}
+\end{equation}\]
+
+<p>where \(\mathcal{K}_1'\) is replaced with \(\mathcal{K}_1^{\mathrm{T}}\), because \(K_1'\) is the adjoint operator of \(K_1\). The left hand side is a skew symmetric block matrix.</p>
+
+<h1 id="solve-the-block-matrix-using-schur-complement">Solve the block matrix using Schur complement</h1>
+
+<p>We have obtained the matrix form of the boundary integral equation in \eqref{eq:matrix-form} for the Laplace PDE with mixed boundary conditions. This is a \(2\times 2\) block matrix system involving two variables \([\tilde{t}]\) and \([\tilde{u}]\). The Schur complement method is usually adopted to solve such a system of equations, which is equivalent to the Gauss-Seidel or Gauss elimination method for a \(2\times 2\) matrix. The advantage of the Schur complement method is that by decomposing the original large system matrix into two smaller problems, less memory is needed and the iterative solver converges faster.</p>
+
+<p>Let a general \(2\times 2\) block matrix system be given as</p>
+
+\[\begin{equation}
+  \begin{pmatrix}
+    M_{11} &amp; M_{12} \\
+    M_{21} &amp; M_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    u \\
+    w
+  \end{pmatrix} =
+  \begin{pmatrix}
+    f_1 \\
+    f_2
+  \end{pmatrix}.
+\end{equation}\]
+
+<p>The Schur complement method comprises the following steps.</p>
+
+<ol>
+  <li>
+    <p>Multiply the equation in the first row with \(-M_{21}M_{11}^{-1}\) and add the result to the second row:</p>
+
+\[\begin{equation}
+  \begin{pmatrix}
+    M_{11} &amp; M_{12} \\
+    0 &amp; M_{22} - M_{21}M_{11}^{-1}M_{12}
+  \end{pmatrix}
+  \begin{pmatrix}
+    u \\ w
+  \end{pmatrix} =
+  \begin{pmatrix}
+    f_1 \\ f_2 - M_{21}M_{11}^{-1}f_1
+  \end{pmatrix}.
+\end{equation}\]
+
+    <p>Here, \(M_{22} - M_{21}M_{11}^{-1}M_{12}\) is called the Schur complement of \(M\) with respect to the matrix block \(M_{11}\).</p>
+  </li>
+  <li>
+    <p>Solve the equation in the second row for \(w\).</p>
+
+\[\begin{equation}
+  \left( M_{22} - M_{21}M_{11}^{-1}M_{12} \right) w = f_2 - M_{21}M_{11}^{-1} f_1.
+\end{equation}\]
+  </li>
+  <li>
+    <p>Substitute \(w\) into the equation in the first row and solve the following equation for \(u\).</p>
+
+\[\begin{equation}
+\label{eq:2}
+M_{11} u = f_1 - M_{12}w.
+\end{equation}\]
+  </li>
+</ol>
+
+<h1 id="construct-operator-preconditioners-on-subdomains">Construct operator preconditioners on subdomains</h1>
+
+<p>With the Schur complement method applied to Equation \eqref{eq:matrix-form}, we need to solve the following two equations:</p>
+
+\[\begin{equation}
+  (\mathcal{D}_1 + \mathcal{K}_1^{\mathrm{T}} \mathcal{V}_1^{-1} \mathcal{K}_1) [\tilde{u}] = f_2 - \mathcal{K}_1^{\mathrm{T}} \mathcal{V}_1^{-1} f_1,
+  \label{eq:schur-first}
+\end{equation}\]
+
+\[\begin{equation}
+  \mathcal{V}_1 [\tilde{t}] = f_1 + \mathcal{K}_1 [\tilde{u}],
+  \label{eq:schur-second}
+\end{equation}\]
+
+<p>where</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    f_1 &amp;= (\sigma \mathcal{M}_1 + \mathcal{K}_2) [\tilde{g}_{\mathrm{D}}] - \mathcal{V}_2
+    [\tilde{g}_{\mathrm{N}}], \\
+    f_2 &amp;= -\mathcal{D}_2[\tilde{g}_{\mathrm{D}}] + \left[ (1-\sigma) \mathcal{M}_2 -
+      \mathcal{K}_2' \right] [\tilde{g}_{\mathrm{N}}].
+  \end{aligned}
+\end{equation}\]
+
+<p>When Equation \eqref{eq:schur-first} is solved using an iteration solver such as CG, matrix/vector multiplication should be implemented for \(\mathcal{D}_1 + \mathcal{K}_1^{\mathrm{T}} \mathcal{V}_1^{-1} \mathcal{K}_1\). Let \(x\) be its input vector and \(y\) be the corresponding output vector. To compute \((\mathcal{D}_1 + \mathcal{K}_1^{\mathrm{T}} \mathcal{V}_1^{-1} \mathcal{K}_1) x\), we need to successively compute</p>
+
+\[\begin{equation}
+  \begin{aligned}
+    z_1 &amp;= \mathcal{K}_1 x, \\
+    z_2 &amp;= \mathcal{V}_1^{-1} z_1, \\
+    z_3 &amp;= \mathcal{K}_1^{\mathrm{T}} z_2, \\
+    y &amp;= \mathcal{D}_1 x + z_3.
+  \end{aligned}
+\end{equation}\]
+
+<p>To compute the above \(z_2\), it is equivalent to solve</p>
+
+\[\begin{equation}
+  \mathcal{V}_1 z_2 = z_1.
+\end{equation}\]
+
+<p>Meanwhile, during the evaluation of the right hand side vector of Equation \eqref{eq:schur-first}, \(\mathcal{V}_1^{-1} f_1\) should be computed by solving the equation</p>
+
+\[\begin{equation}
+  \mathcal{V}_1 z_4 = f_1.
+\end{equation}\]
+
+<p>In addition, Equation \eqref{eq:schur-second} also contains the matrix \(\mathcal{V}_1\). In all these three cases, \(\mathcal{V}_1\) will be solved. If the operator preconditioning method is used, the boundary integral operator \(V_1: \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}}) \rightarrow H^{1/2}(\Gamma_{\mathrm{D}})\) should be preconditioned by the operator \(D: H^{1/2}(\Gamma_{\mathrm{D}}) \rightarrow \tilde{H}^{-1/2}(\Gamma_{\mathrm{D}})\). Because \(D\) as a preconditioner here has different domain and range spaces from \(D_1\) and \(D_2\) in Equation \eqref{eq:bies-in-matrix-form}, we write it as \(D_3\). Compared to the preconditioner \(D\) used for the <a href="solve-laplace-dirichlet.html#stabilization-of-d">Dirichlet problem</a>, \(D_3\) is built on the subdomain \(\Gamma_{\mathrm{D}}\) instead of the whole boundary \(\Gamma\). When the hypersingular boundary integral operator \(D\) is defined on a subdomain, it is elliptic and does not need stabilization.</p>
+
+<p>Also note that in the implementation of HierBEM, the domain space of \(D_3\) is enlarged from \(H^{1/2}(\Gamma_{\mathrm{D}})\) to \(\tilde{H}^{1/2}(\Gamma_{\mathrm{D}}^{\ast})\), which includes DoFs at the interface between \(\Gamma_{\mathrm{D}}\) and \(\Gamma_{\mathrm{N}}\) as well as the part of their support sets lying within \(\Gamma_{\mathrm{N}}\). If this part of the support sets is not included, which is the situation for \(H^{1/2}(\Gamma_{\mathrm{D}})\), the iterative solver does not converge for the preconditioned system. An illustration of the DoFs in the finite dimensional space \(\tilde{H}_h^{1/2}(\Gamma_{\mathrm{D}}^{\ast})\) and their support sets is given below, which has already been explained in the <a href="build-hmatrix-on-subdomain.html#discretization-of-bilinear-forms-into-galerkin-matrices">previous example</a>. Obviously, when the mesh size \(h \rightarrow 0\), \(\tilde{H}_h^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) \rightarrow H^{1/2}(\Gamma_{\mathrm{D}})\).</p>
+
+<p><img src="figures/2025-11-03-select-dofs-for-sobolev-spaces-on-subdomain_dirichlet-bc.png" alt="img" title="DoFs in $$\tilde{H}_h^{1/2}(\Gamma_{\mathrm{D}}^{\ast}) $$ and their support sets." /></p>
+
+<p>The commutative diagram for discretizing the preconditioner \(D_3\) is given below.</p>
+
+<p><img src="figures/2025-12-01-cd-for-discretizing-op-precond-for-V-mixed.png" alt="img" title="Commutative diagram for discretization of the operator preconditioner $$D_3 $$." /></p>
+
+<p>Let \(\Gamma_{\mathrm{D},h}\) be the primal mesh on the original subdomain \(\Gamma_{\mathrm{D}}\), \(\bar{\Gamma}_{\mathrm{D},h}\) be its refined mesh and \(\hat{\Gamma}_{\mathrm{D},h}\) be its dual mesh. Let \(\Gamma_{\mathrm{D},h}^{\ast}\) be the primal mesh of the extended subdomain \(\Gamma_{\mathrm{D}}^{\ast}\), \(\bar{\Gamma}_{\mathrm{D}}^{\ast}\) be its refined mesh and \(\hat{\Gamma}_{\mathrm{D}}^{\ast}\) be its dual mesh. With the averaging matrix \(C_d: \tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{D},h}^{\ast}) \rightarrow \tilde{H}_h^{1/2}(\hat{\Gamma}_{\mathrm{D},h}^{\ast})\), coupling matrix \(C_p: \tilde{H}_h^{-1/2}(\bar{\Gamma}_{\mathrm{D},h}) \rightarrow \tilde{H}_h^{-1/2}(\Gamma_{\mathrm{D},h})\), mass matrix \(\mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h}, \bar{\Gamma}_{\mathrm{D},h}^{\ast}): \tilde{H}_h^{-1/2}(\bar{\Gamma}_{\mathrm{D},h}) \rightarrow \tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{D},h}^{\ast})\) and Galerkin matrix of the preconditioner \(\mathcal{D}_3(\bar{\Gamma}_{\mathrm{D},h}^{\ast}): \tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{D},h}^{\ast}) \rightarrow \tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{D},h}^{\ast})\), the inverse of the precondition matrix is</p>
+
+\[\begin{equation}
+  \begin{split}
+  [D_3^{-1}]^{-1} = \left( C_d \mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h},
+    \bar{\Gamma}_{\mathrm{D},h}^{\ast}) C_p^{\mathrm{T}} \right)^{-1} \cdot \left( C_d
+    \mathcal{D}_3(\bar{\Gamma}_{\mathrm{D},h}^{\ast}) C_d^{\mathrm{T}} \right) \cdot \\
+  \left( C_d \mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h},
+    \bar{\Gamma}_{\mathrm{D},h}^{\ast}) C_p^{\mathrm{T}} \right)^{-\mathrm{T}}.
+  \end{split}
+\end{equation}\]
+
+<p>N.B. The basis functions in the domain space of \(\mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h}, \bar{\Gamma}_{\mathrm{D},h}^{\ast})\) do not overlap with basis functions in its range space in the one layer of cells in \(\bar{\Gamma}_{\mathrm{D},h}^{\ast}\) which extends into \(\Gamma_{\mathrm{N}}\). Therefore, when we assemble \(\mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h}, \bar{\Gamma}_{\mathrm{D},h}^{\ast})\), we only consider cells in \(\bar{\Gamma}_{\mathrm{D},h}\). The DoFs and their support sets in the domain and range spaces of \(\mathcal{M}_{D_3}(\bar{\Gamma}_{\mathrm{D},h}, \bar{\Gamma}_{\mathrm{D},h}^{\ast})\) are shown in the following two figures.</p>
+
+<p><img src="figures/2025-11-03-select-dofs-for-sobolev-spaces-on-subdomain_MD3-domain-space.png" alt="img" title="DoFs in $$\tilde{H}_h^{-1/2}(\bar{\Gamma}_{\mathrm{D},h})$$ and their support sets." /></p>
+
+<p><img src="figures/2025-11-03-select-dofs-for-sobolev-spaces-on-subdomain_MD3-range-space.png" alt="img" title="DoFs in $$\tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{D},h}^{\ast})$$ and their support sets." /></p>
+
+<p>In Equation \eqref{eq:schur-first}, \(\mathcal{D}_1\) plays a dominating role in \(\mathcal{D}_1 + \mathcal{K}_1^{\mathrm{T}} \mathcal{V}_1^{-1} \mathcal{K}_1\), therefore we can use the operator preconditioner of \(D_1\), i.e. \(V: H^{-1/2}(\Gamma_{\mathrm{N}}) \rightarrow \tilde{H}^{1/2}(\Gamma_{\mathrm{N}})\), to precondition this equation. To differentiate this preconditioner \(V\) from \(V_1\) and \(V_2\) in Equation \eqref{eq:bies-in-matrix-form}, we write it as \(V_3\). Compared to the preconditioner \(V\) used for the <a href="solve-laplace-neumann.html#operator-preconditioning-of-hatd">Neumann problem</a>, \(V_3\) is constructed on the subdomain \(\Gamma_{\mathrm{N}}\).</p>
+
+<p>The commutative diagram for discretizing the preconditioner \(V_3\) is shown below.</p>
+
+<p><img src="figures/2025-12-01-cd-for-discretizing-op-precond-for-D-mixed.png" alt="img" title="Commutative diagram for discretization of the operator preconditioner $$V_3 $$." /></p>
+
+<p>Let \(\Gamma_{\mathrm{N},h}\) be the primal mesh on the subdomain \(\Gamma_{\mathrm{N}}\), \(\bar{\Gamma}_{\mathrm{N},h}\) be its refined mesh and \(\hat{\Gamma}_{\mathrm{N},h}\) be its dual mesh. With the averaging matrix \(C_d: H_h^{-1/2}(\bar{\Gamma}_{\mathrm{N},h}) \rightarrow H_h^{-1/2}(\hat{\Gamma}_{\mathrm{N},h})\), coupling matrix \(C_p: \tilde{H}_h^{1/2}(\bar{\Gamma}_{\mathrm{N},h}) \rightarrow \tilde{H}_h^{1/2}(\Gamma_{\mathrm{N},h})\), mass matrix \(\mathcal{M}_{V_3}(\bar{\Gamma}_{\mathrm{N},h})\) and Galerkin matrix of the preconditioner \(\mathcal{V}_3(\bar{\Gamma}_{\mathrm{N},h}): H_h^{-1/2}(\bar{\Gamma}_{\mathrm{N},h}) \rightarrow H_h^{-1/2}(\bar{\Gamma}_{\mathrm{N},h})\), the inverse of the precondition matrix is</p>
+
+\[\begin{equation}
+  \begin{split}
+  [V_3^{-1}]^{-1} = \left( C_d \mathcal{M}_{V_3}(\bar{\Gamma}_{\mathrm{N},h})
+    C_p^{\mathrm{T}} \right)^{-1} \cdot \left( C_d
+    \mathcal{V}_3(\bar{\Gamma}_{\mathrm{N},h}) C_d^{\mathrm{T}} \right) \cdot \\
+  \left( C_d \mathcal{M}_{V_3}(\bar{\Gamma}_{\mathrm{N},h}) C_p^{\mathrm{T}}
+  \right)^{-\mathrm{T}}.
+  \end{split}
+\end{equation}\]
+
+<h1 id="source-code-explanation">Source code explanation</h1>
+
+<p>In the <code class="language-plaintext highlighter-rouge">main</code> function in <a href="https://github.com/jihuan-tian/hierbem/blob/main/examples/laplace-mixed/solve-laplace-mixed.cu">hierbem/examples/laplace-mixed/solve-laplace-mixed.cu</a>, we first create a <code class="language-plaintext highlighter-rouge">LaplaceBEM</code> object with the problem type <code class="language-plaintext highlighter-rouge">MixedBCProblem</code>. Similar as before, we use operator preconditioning and serial iterative \(\mathcal{H}\)-matrix/vector multiplication.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">dim</span>      <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">spacedim</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="n">LaplaceBEM</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span>
+  <span class="n">bem</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="c1">// fe order for dirichlet space</span>
+      <span class="mi">0</span><span class="p">,</span> <span class="c1">// fe order for neumann space</span>
+      <span class="n">LaplaceBEM</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">ProblemType</span><span class="o">::</span><span class="n">MixedBCProblem</span><span class="p">,</span>
+      <span class="nb">true</span><span class="p">,</span>                        <span class="c1">// is interior problem</span>
+      <span class="mi">32</span><span class="p">,</span>                          <span class="c1">// n_min for cluster tree</span>
+      <span class="mi">32</span><span class="p">,</span>                          <span class="c1">// n_min for block cluster tree</span>
+      <span class="mf">0.8</span><span class="p">,</span>                         <span class="c1">// eta for H-matrix</span>
+      <span class="mi">10</span><span class="p">,</span>                          <span class="c1">// max rank for H-matrix</span>
+      <span class="mf">0.01</span><span class="p">,</span>                        <span class="c1">// aca epsilon for H-matrix</span>
+      <span class="mf">1.0</span><span class="p">,</span>                         <span class="c1">// eta for preconditioner</span>
+      <span class="mi">5</span><span class="p">,</span>                           <span class="c1">// max rank for preconditioner</span>
+      <span class="mf">0.1</span><span class="p">,</span>                         <span class="c1">// aca epsilon for preconditioner</span>
+      <span class="n">MultithreadInfo</span><span class="o">::</span><span class="n">n_threads</span><span class="p">()</span> <span class="c1">// Number of threads used for ACA</span>
+  <span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">set_project_name</span><span class="p">(</span><span class="s">"solve-laplace-mixed"</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">set_preconditioner_type</span><span class="p">(</span><span class="n">PreconditionerType</span><span class="o">::</span><span class="n">OperatorPreconditioning</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">set_iterative_solver_vmult_type</span><span class="p">(</span><span class="n">IterativeSolverVmultType</span><span class="o">::</span><span class="n">SerialIterative</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Next we read mesh and CAD files for the cylinder model.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="nf">mesh_in</span><span class="p">(</span><span class="n">HBEM_TEST_MODEL_DIR</span> <span class="s">"cylinder.msh"</span><span class="p">);</span>
+<span class="n">read_msh</span><span class="p">(</span><span class="n">mesh_in</span><span class="p">,</span> <span class="n">bem</span><span class="p">.</span><span class="n">get_triangulation</span><span class="p">());</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_subdomain_topology</span><span class="p">().</span><span class="n">generate_topology</span><span class="p">(</span><span class="n">HBEM_TEST_MODEL_DIR</span>
+                                               <span class="s">"cylinder.brep"</span><span class="p">,</span>
+                                               <span class="n">HBEM_TEST_MODEL_DIR</span>
+                                               <span class="s">"cylinder.msh"</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_triangulation</span><span class="p">().</span><span class="n">refine_global</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We assign a cylindrical manifold and a second order mapping to surface #1 of the cylinder. For surface #2 and #3, we assign a flat manifold and a first order mapping.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FlatManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">flat_manifold</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlatManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">CylindricalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">cyl_manifold</span> <span class="o">=</span>
+  <span class="k">new</span> <span class="n">CylindricalManifold</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifolds</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">flat_manifold</span><span class="p">;</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifolds</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cyl_manifold</span><span class="p">;</span>
+
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_description</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_description</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_description</span><span class="p">()[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_id_to_mapping_order</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">get_manifold_id_to_mapping_order</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then we assign the Dirichlet boundary condition and Neumann boundary condition.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Functions</span><span class="o">::</span><span class="n">ConstantFunction</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">f1</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="n">Functions</span><span class="o">::</span><span class="n">ConstantFunction</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="o">&gt;</span> <span class="n">f2</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">assign_neumann_bc</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">assign_dirichlet_bc</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">bem</span><span class="p">.</span><span class="n">assign_dirichlet_bc</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>During <code class="language-plaintext highlighter-rouge">bem.run()</code>, the following stages are performed, which are defined in the header file <a href="https://github.com/jihuan-tian/hierbem/blob/main/include/laplace/laplace_bem.priv.hcu">hierbem/include/laplace/laplace_bem.priv.hcu</a>.</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">setup_system</code>: Four function spaces as well as their cluster trees are created: <code class="language-plaintext highlighter-rouge">dirichlet_space_on_dirichlet_domain_</code> for \(\tilde{H}_h^{1/2}(\Gamma_{\mathrm{D}}^{\ast})\), <code class="language-plaintext highlighter-rouge">dirichlet_space_on_neumann_domain_</code> for \(\tilde{H}_h^{1/2}(\Gamma_{\mathrm{N}})\), <code class="language-plaintext highlighter-rouge">neumann_space_on_dirichlet_domain_</code> for \(\tilde{H}_h^{-1/2}(\Gamma_{\mathrm{D}})\) and <code class="language-plaintext highlighter-rouge">neumann_space_on_neumann_domain_</code> for \(\tilde{H}_h^{-1/2}(\Gamma_{\mathrm{N}})\).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dirichlet_space_on_dirichlet_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">,</span>
+  <span class="n">dirichlet_bc_definition_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">false</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_neumann_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">,</span>
+  <span class="n">neumann_bc_definition_</span><span class="p">,</span>
+  <span class="nb">false</span><span class="p">,</span>
+  <span class="nb">false</span><span class="p">);</span>
+<span class="n">neumann_space_on_dirichlet_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">,</span>
+  <span class="n">dirichlet_bc_definition_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">false</span><span class="p">);</span>
+<span class="n">neumann_space_on_neumann_domain_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span>
+  <span class="n">BEMFunctionSpace</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="p">,</span> <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span> <span class="n">real_type</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="n">dof_handler_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">n_min_for_ct_</span><span class="p">,</span>
+  <span class="n">neumann_bc_definition_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">false</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Create bilinear forms \(b_{V_1}\), \(b_{K_1}\), \(b_{D_1}\), \(b_{\sigma I_1 + K_2}\), \(b_{V_2}\), \(b_{D_2}\) and \(b_{(1-\sigma) I_2 - K_2'}\).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bV1_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">SingleLayerKernel</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">bK1_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">DoubleLayerKernel</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_neumann_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">bD1_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">HyperSingularKernelRegular</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_neumann_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_neumann_domain_</span><span class="p">);</span>
+<span class="n">bI1K2_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                          <span class="n">spacedim</span><span class="p">,</span>
+                                          <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                          <span class="n">DoubleLayerKernel</span><span class="p">,</span>
+                                          <span class="n">RangeNumberType</span><span class="p">,</span>
+                                          <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">bV2_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">SingleLayerKernel</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">neumann_space_on_neumann_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">neumann_space_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">bD2_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                        <span class="n">spacedim</span><span class="p">,</span>
+                                        <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                        <span class="n">HyperSingularKernelRegular</span><span class="p">,</span>
+                                        <span class="n">RangeNumberType</span><span class="p">,</span>
+                                        <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_neumann_domain_</span><span class="p">);</span>
+<span class="n">bI2K_prime2_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">BEMBilinearForm</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span>
+                                                <span class="n">spacedim</span><span class="p">,</span>
+                                                <span class="n">SearchableMaterialIdContainer</span><span class="p">,</span>
+                                                <span class="n">AdjointDoubleLayerKernel</span><span class="p">,</span>
+                                                <span class="n">RangeNumberType</span><span class="p">,</span>
+                                                <span class="n">KernelNumberType</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+  <span class="o">*</span><span class="n">neumann_space_on_neumann_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">dirichlet_space_on_neumann_domain_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Then create corresponding block cluster trees.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bV1_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bK1_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bD1_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bI1K2_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bV2_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bD2_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+<span class="n">bI2K_prime2_</span><span class="o">-&gt;</span><span class="n">build_block_cluster_tree</span><span class="p">(</span><span class="n">eta_</span><span class="p">,</span> <span class="n">n_min_for_bct_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>The Dirichlet and Neumann boundary conditions are interpolated on corresponding subdomains.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interpolate_dirichlet_bc</span><span class="p">();</span>
+<span class="n">dirichlet_bc_on_selected_dofs_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_dirichlet_domain</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_dirichlet_domain_</span>
+  <span class="o">-&gt;</span><span class="n">extract_selected_dofs</span><span class="p">(</span><span class="n">dirichlet_bc_</span><span class="p">,</span> <span class="n">dirichlet_bc_on_selected_dofs_</span><span class="p">);</span>
+<span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_dirichlet_domain</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">convert_vector_e2i</span><span class="p">(</span>
+  <span class="n">dirichlet_bc_on_selected_dofs_</span><span class="p">,</span>
+  <span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">);</span>
+    
+<span class="n">interpolate_neumann_bc</span><span class="p">();</span>
+<span class="n">neumann_bc_on_selected_dofs_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">n_dofs_for_neumann_space_on_neumann_domain</span><span class="p">);</span>
+<span class="n">neumann_space_on_neumann_domain_</span>
+  <span class="o">-&gt;</span><span class="n">extract_selected_dofs</span><span class="p">(</span><span class="n">neumann_bc_</span><span class="p">,</span> <span class="n">neumann_bc_on_selected_dofs_</span><span class="p">);</span>
+<span class="n">neumann_bc_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space_on_neumann_domain</span><span class="p">);</span>
+<span class="n">neumann_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">convert_vector_e2i</span><span class="p">(</span>
+  <span class="n">neumann_bc_on_selected_dofs_</span><span class="p">,</span>
+  <span class="n">neumann_bc_internal_dof_numbering_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Allocate memory for right hand side vectors. Because the linear system is a \(2\times 2\) block matrix, there are two right hand side vectors <code class="language-plaintext highlighter-rouge">system_rhs_on_dirichlet_domain_</code> and <code class="language-plaintext highlighter-rouge">system_rhs_on_neumann_domain_</code>.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space_on_dirichlet_domain</span><span class="p">);</span>
+<span class="n">system_rhs_on_neumann_domain_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_neumann_domain</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Allocate memory for solution vectors. <code class="language-plaintext highlighter-rouge">dirichlet_data_</code> is the vector holding all Dirichlet data on \(\Gamma\) and <code class="language-plaintext highlighter-rouge">neumann_data_</code> holds the Neumann data. Both of them adopt the original DoF numbering provided by corresponding DoF handlers. <code class="language-plaintext highlighter-rouge">dirichlet_data_on_neumann_domain_</code> is \([\tilde{u}]\) and <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_</code> is \([\tilde{t}]\). They hold DoFs in subdomains, which are selected from the complete DoFs in their DoF handlers. Therefore, <code class="language-plaintext highlighter-rouge">~dirichlet_data_on_neumann_domain_</code> and <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_</code> adopt the <strong>local</strong> <strong>external</strong> DoF numbering. Meanwhile, <code class="language-plaintext highlighter-rouge">dirichlet_data_on_neumann_domain_internal_dof_numbering_</code> and <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_internal_dof_numbering_</code> are associated vectors with the <strong>local</strong> <strong>internal</strong> DoF numbering. Finally, <code class="language-plaintext highlighter-rouge">solution_on_combined_domain_internal_dof_numbering_</code> is a concatenation of <code class="language-plaintext highlighter-rouge">dirichlet_data_on_neumann_domain_internal_dof_numbering_</code> and <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_internal_dof_numbering_</code>.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dirichlet_data_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">dof_handler_for_dirichlet_space_</span><span class="p">.</span><span class="n">n_dofs</span><span class="p">());</span>
+<span class="n">neumann_data_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span><span class="n">dof_handler_for_neumann_space_</span><span class="p">.</span><span class="n">n_dofs</span><span class="p">());</span>
+    
+<span class="n">dirichlet_data_on_neumann_domain_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_neumann_domain</span><span class="p">);</span>
+<span class="n">neumann_data_on_dirichlet_domain_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space_on_dirichlet_domain</span><span class="p">);</span>
+    
+<span class="n">dirichlet_data_on_neumann_domain_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_neumann_domain</span><span class="p">);</span>
+<span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space_on_dirichlet_domain</span><span class="p">);</span>
+<span class="n">solution_on_combined_domain_internal_dof_numbering_</span><span class="p">.</span><span class="n">reinit</span><span class="p">(</span>
+  <span class="n">n_dofs_for_neumann_space_on_dirichlet_domain</span> <span class="o">+</span>
+  <span class="n">n_dofs_for_dirichlet_space_on_neumann_domain</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">assemble_hmatrix_system</code>: We first assemble \(\mathcal{H}\)-matrices on the right hand side of the equation, namely \(\sigma \mathcal{M}_1 + \mathcal{K}_2\), \(-\mathcal{V}_2\), \(-\mathcal{D}_2\) and \((1-\sigma) \mathcal{M}_2 - \mathcal{K}_2'\).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">I1K2_hmat_</span> <span class="o">=</span>
+  <span class="n">bI1K2_</span><span class="o">-&gt;</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                                         <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                                         <span class="n">aca_relative_error_</span><span class="p">,</span>
+                                         <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+                                         <span class="n">real_type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+                                         <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                                         <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span>
+                                           <span class="n">fe_order_for_dirichlet_space_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                                         <span class="n">mappings_</span><span class="p">,</span>
+                                         <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                                         <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">I2K_prime2_hmat_</span> <span class="o">=</span> <span class="n">bI2K_prime2_</span><span class="o">-&gt;</span><span class="n">build_hmatrix_with_mass_matrix</span><span class="p">(</span>
+  <span class="n">thread_num_</span><span class="p">,</span>
+  <span class="n">max_hmat_rank_</span><span class="p">,</span>
+  <span class="n">aca_relative_error_</span><span class="p">,</span>
+  <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+  <span class="n">real_type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="n">QGauss</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fe_order_for_dirichlet_space_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="n">mappings_</span><span class="p">,</span>
+  <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+  <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">V2_hmat_</span> <span class="o">=</span> <span class="n">bV2_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">D2_hmat_</span> <span class="o">=</span> <span class="n">bD2_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>These \(\mathcal{H}\)-matrices are used to compute right hand side vectors as below.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">I1K2_hmat_</span><span class="o">-&gt;</span><span class="n">vmult</span><span class="p">(</span><span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">,</span>
+                  <span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">);</span>
+<span class="n">V2_hmat_</span><span class="o">-&gt;</span><span class="n">vmult_add</span><span class="p">(</span><span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">,</span>
+                    <span class="n">neumann_bc_internal_dof_numbering_</span><span class="p">);</span>
+    
+<span class="n">D2_hmat_</span><span class="o">-&gt;</span><span class="n">vmult</span><span class="p">(</span><span class="n">system_rhs_on_neumann_domain_</span><span class="p">,</span>
+                <span class="n">dirichlet_bc_internal_dof_numbering_</span><span class="p">);</span>
+<span class="n">I2K_prime2_hmat_</span><span class="o">-&gt;</span><span class="n">vmult_add</span><span class="p">(</span><span class="n">system_rhs_on_neumann_domain_</span><span class="p">,</span>
+                            <span class="n">neumann_bc_internal_dof_numbering_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Once right hand side vectors are built, the above \(\mathcal{H}\)-matrices are released.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">I1K2_hmat_</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+<span class="n">I2K_prime2_hmat_</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+<span class="n">V2_hmat_</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+<span class="n">D2_hmat_</span><span class="o">-&gt;</span><span class="n">release</span><span class="p">();</span>
+</code></pre></div>    </div>
+
+    <p>Then we assemble \(\mathcal{H}\)-matrices on the left hand side of the equation, namely \(\mathcal{V}_1\), \(-\mathcal{K}_1\) and \(\mathcal{D}_1\).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">V1_hmat_</span> <span class="o">=</span> <span class="n">bV1_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">K1_hmat_</span> <span class="o">=</span> <span class="n">bK1_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+    
+<span class="n">D1_hmat_</span> <span class="o">=</span> <span class="n">bD1_</span><span class="o">-&gt;</span><span class="n">build_hmatrix</span><span class="p">(</span><span class="n">thread_num_</span><span class="p">,</span>
+                               <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                               <span class="n">aca_relative_error_</span><span class="p">,</span>
+                               <span class="n">CUDAKernelNumberType</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+                               <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                               <span class="n">mappings_</span><span class="p">,</span>
+                               <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+                               <span class="n">subdomain_topology_</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>These \(\mathcal{H}\)-matrices on the left hand side are wrapped into a skew symmetric block matrix.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">M_hmat_</span> <span class="o">=</span> <span class="n">HBlockMatrixSkewSymm</span><span class="o">&lt;</span><span class="n">spacedim</span><span class="p">,</span> <span class="n">RangeNumberType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">V1_hmat_</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+                                                          <span class="n">K1_hmat_</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span>
+                                                          <span class="n">D1_hmat_</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">assemble_hmatrix_preconditioner</code>: To build operator preconditioners, we generate a two-level multigrid as before.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mg_tria_for_preconditioner_</span><span class="p">.</span><span class="n">copy_triangulation</span><span class="p">(</span><span class="n">tria_</span><span class="p">);</span>
+<span class="n">mg_tria_for_preconditioner_</span><span class="p">.</span><span class="n">refine_global</span><span class="p">();</span>
+</code></pre></div>    </div>
+
+    <p>Then we extract material indices for \(\Gamma_{\mathrm{D}}\) and \(\Gamma_{\mathrm{N}}\) into two sets, which will be used to specify the subdomains of the preconditioners.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="o">&gt;</span> <span class="n">dirichlet_domain_material_ids</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">bc</span> <span class="o">:</span> <span class="n">dirichlet_bc_definition_</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">dirichlet_domain_material_ids</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+  <span class="p">}</span>
+    
+<span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">types</span><span class="o">::</span><span class="n">material_id</span><span class="o">&gt;</span> <span class="n">neumann_domain_material_ids</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="n">bc</span> <span class="o">:</span> <span class="n">neumann_bc_definition_</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">neumann_domain_material_ids</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">bc</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>The preconditioner \(D_3\) is encapsulated in the class <code class="language-plaintext highlighter-rouge">PreconditionerForLaplaceDirichlet</code> and the preconditioner \(V_3\) is encapsulated in the class <code class="language-plaintext highlighter-rouge">PreconditionerForLaplaceNeumann</code>. Here we create and set up these two preconditioner objects.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">operator_preconditioner_dirichlet_</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PreconditionerForLaplaceDirichlet</span><span class="o">&lt;</span>
+  <span class="n">dim</span><span class="p">,</span>
+  <span class="n">spacedim</span><span class="p">,</span>
+  <span class="n">RangeNumberType</span><span class="p">,</span>
+  <span class="n">KernelNumberType</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">fe_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">fe_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">mg_tria_for_preconditioner_</span><span class="p">,</span>
+  <span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+  <span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">get_external_to_internal_dof_numbering</span><span class="p">(),</span>
+  <span class="n">dirichlet_domain_material_ids</span><span class="p">);</span>
+    
+<span class="n">operator_preconditioner_neumann_</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PreconditionerForLaplaceNeumann</span><span class="o">&lt;</span>
+  <span class="n">dim</span><span class="p">,</span>
+  <span class="n">spacedim</span><span class="p">,</span>
+  <span class="n">RangeNumberType</span><span class="p">,</span>
+  <span class="n">KernelNumberType</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">fe_for_dirichlet_space_</span><span class="p">,</span>
+  <span class="n">fe_for_neumann_space_</span><span class="p">,</span>
+  <span class="n">mg_tria_for_preconditioner_</span><span class="p">,</span>
+  <span class="n">dirichlet_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">get_internal_to_external_dof_numbering</span><span class="p">(),</span>
+  <span class="n">dirichlet_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">get_external_to_internal_dof_numbering</span><span class="p">(),</span>
+  <span class="n">neumann_domain_material_ids</span><span class="p">);</span>
+    
+<span class="n">operator_preconditioner_dirichlet_</span><span class="o">-&gt;</span><span class="n">setup_preconditioner</span><span class="p">(</span>
+  <span class="n">thread_num_</span><span class="p">,</span>
+  <span class="n">HMatrixParameters</span><span class="p">(</span><span class="n">n_min_for_ct_</span><span class="p">,</span>
+                    <span class="n">n_min_for_bct_</span><span class="p">,</span>
+                    <span class="n">eta_</span><span class="p">,</span>
+                    <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                    <span class="n">aca_relative_error_</span><span class="p">),</span>
+  <span class="n">subdomain_topology_</span><span class="p">,</span>
+  <span class="n">mappings_</span><span class="p">,</span>
+  <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+  <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology_</span><span class="p">),</span>
+  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="n">QGauss</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fe_for_dirichlet_space_</span><span class="p">.</span><span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    
+<span class="n">operator_preconditioner_neumann_</span><span class="o">-&gt;</span><span class="n">setup_preconditioner</span><span class="p">(</span>
+  <span class="n">thread_num_</span><span class="p">,</span>
+  <span class="n">HMatrixParameters</span><span class="p">(</span><span class="n">n_min_for_ct_</span><span class="p">,</span>
+                    <span class="n">n_min_for_bct_</span><span class="p">,</span>
+                    <span class="n">eta_</span><span class="p">,</span>
+                    <span class="n">max_hmat_rank_</span><span class="p">,</span>
+                    <span class="n">aca_relative_error_</span><span class="p">),</span>
+  <span class="n">subdomain_topology_</span><span class="p">,</span>
+  <span class="n">mappings_</span><span class="p">,</span>
+  <span class="n">material_id_to_mapping_index_</span><span class="p">,</span>
+  <span class="n">SurfaceNormalDetector</span><span class="o">&lt;</span><span class="n">dim</span><span class="p">,</span> <span class="n">spacedim</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subdomain_topology_</span><span class="p">),</span>
+  <span class="n">SauterQuadratureRule</span><span class="o">&lt;</span><span class="n">dim</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="n">QGauss</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fe_for_dirichlet_space_</span><span class="p">.</span><span class="n">degree</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">solve</code>: First, we set the \(\mathcal{H}\)-matrix/vector multiplication strategy for the matrix blocks within the skew symmetric matrix. Matrix block <code class="language-plaintext highlighter-rouge">M11</code> is \(\mathcal{V}_1\), <code class="language-plaintext highlighter-rouge">M12</code> is \(-\mathcal{K}_1\) and <code class="language-plaintext highlighter-rouge">M22</code> is \(\mathcal{D}_1\). <code class="language-plaintext highlighter-rouge">M11</code> and <code class="language-plaintext highlighter-rouge">M22</code> are symmetric positive definite matrices, which require both <code class="language-plaintext highlighter-rouge">vmult</code> and <code class="language-plaintext highlighter-rouge">Tvmult</code> methods. Even though <code class="language-plaintext highlighter-rouge">M12</code> is not symmetric, because we need its transpose to represent the matrix block \(\mathcal{K}_1'\), both <code class="language-plaintext highlighter-rouge">vmult</code> and <code class="language-plaintext highlighter-rouge">Tvmult</code> methods are needed.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span><span class="n">M_hmat_</span><span class="p">.</span><span class="n">get_M11</span><span class="p">(),</span>
+                                                <span class="n">vmult_type_</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">);</span>
+<span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span><span class="n">M_hmat_</span><span class="p">.</span><span class="n">get_M12</span><span class="p">(),</span>
+                                                <span class="n">vmult_type_</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">);</span>
+<span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span><span class="n">M_hmat_</span><span class="p">.</span><span class="n">get_M22</span><span class="p">(),</span>
+                                                <span class="n">vmult_type_</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">,</span>
+                                                <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Similarly, we set the \(\mathcal{H}\)-matrix/vector multiplication strategy for the two preconditioners.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span>
+  <span class="n">operator_preconditioner_dirichlet_</span><span class="o">-&gt;</span><span class="n">get_preconditioner_hmatrix</span><span class="p">(),</span>
+  <span class="n">vmult_type_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">);</span>
+<span class="n">set_hmatrix_vmult_strategy_for_iterative_solver</span><span class="p">(</span>
+  <span class="n">operator_preconditioner_neumann_</span><span class="o">-&gt;</span><span class="n">get_preconditioner_hmatrix</span><span class="p">(),</span>
+  <span class="n">vmult_type_</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>Then we solve the block matrix system using the Schur complement method.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">solve_hblockmatrix_skew_symm_using_schur_complement</span><span class="p">(</span>
+  <span class="n">M_hmat_</span><span class="p">,</span>
+  <span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">,</span>
+  <span class="n">dirichlet_data_on_neumann_domain_internal_dof_numbering_</span><span class="p">,</span>
+  <span class="n">system_rhs_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="n">system_rhs_on_neumann_domain_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">operator_preconditioner_dirichlet_</span><span class="p">,</span>
+  <span class="o">*</span><span class="n">operator_preconditioner_neumann_</span><span class="p">,</span>
+  <span class="mi">1000</span><span class="p">,</span>
+  <span class="n">real_type</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">),</span>
+  <span class="nb">true</span><span class="p">,</span>
+  <span class="nb">true</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>After getting the two solution vectors <code class="language-plaintext highlighter-rouge">neumann_data_on_dirichlet_domain_internal_dof_numbering_</code> and <code class="language-plaintext highlighter-rouge">dirichlet_data_on_neumann_domain_internal_dof_numbering_</code> in the local internal DoF numbering on subdomains \(\Gamma_{\mathrm{D}}\) and \(\Gamma_{\mathrm{N}}\) respectively, we need to convert them to external DoF numbering first, then combine them with corresponding boundary condition data, which form complete Dirichlet and Neumann data on the whole boundary \(\Gamma\).</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">convert_vector_i2e</span><span class="p">(</span>
+  <span class="n">neumann_data_on_dirichlet_domain_internal_dof_numbering_</span><span class="p">,</span>
+  <span class="n">neumann_data_on_dirichlet_domain_</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">convert_vector_i2e</span><span class="p">(</span>
+  <span class="n">dirichlet_data_on_neumann_domain_internal_dof_numbering_</span><span class="p">,</span>
+  <span class="n">dirichlet_data_on_neumann_domain_</span><span class="p">);</span>
+    
+<span class="n">dirichlet_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">assemble_selected_dofs_into_full_dofs</span><span class="p">(</span>
+  <span class="n">dirichlet_data_on_neumann_domain_</span><span class="p">,</span>
+  <span class="n">dirichlet_data_</span><span class="p">);</span>
+<span class="n">dirichlet_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">assemble_selected_dofs_into_full_dofs</span><span class="p">(</span>
+  <span class="n">dirichlet_bc_on_selected_dofs_</span><span class="p">,</span>
+  <span class="n">dirichlet_data_</span><span class="p">);</span>
+    
+<span class="n">neumann_space_on_dirichlet_domain_</span><span class="o">-&gt;</span><span class="n">assemble_selected_dofs_into_full_dofs</span><span class="p">(</span>
+  <span class="n">neumann_data_on_dirichlet_domain_</span><span class="p">,</span>
+  <span class="n">neumann_data_</span><span class="p">);</span>
+<span class="n">neumann_space_on_neumann_domain_</span><span class="o">-&gt;</span><span class="n">assemble_selected_dofs_into_full_dofs</span><span class="p">(</span>
+  <span class="n">neumann_bc_on_selected_dofs_</span><span class="p">,</span>
+  <span class="n">neumann_data_</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">output_results</code>: Add the complete Dirichlet and Neumann data vectors on the whole boundary \(\Gamma\) to the <code class="language-plaintext highlighter-rouge">DataOut</code> object. Write the combined solution vector <code class="language-plaintext highlighter-rouge">solution_on_combined_domain_internal_dof_numbering_</code> (internal DoF numbering), complete Neumann data <code class="language-plaintext highlighter-rouge">neumann_data_</code> (external DoF numbering) and complete Dirichlet data <code class="language-plaintext highlighter-rouge">dirichlet_data_</code> (external DoF numbering) to a text file.</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vtk_output</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">project_name_</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">".vtk"</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    
+<span class="n">data_out</span><span class="p">.</span><span class="n">add_data_vector</span><span class="p">(</span><span class="n">dof_handler_for_dirichlet_space_</span><span class="p">,</span>
+                         <span class="n">dirichlet_data_</span><span class="p">,</span>
+                         <span class="s">"dirichlet_data"</span><span class="p">);</span>
+<span class="n">data_out</span><span class="p">.</span><span class="n">add_data_vector</span><span class="p">(</span><span class="n">dof_handler_for_neumann_space_</span><span class="p">,</span>
+                         <span class="n">neumann_data_</span><span class="p">,</span>
+                         <span class="s">"neumann_data"</span><span class="p">);</span>
+    
+<span class="n">data_out</span><span class="p">.</span><span class="n">build_patches</span><span class="p">();</span>
+<span class="n">data_out</span><span class="p">.</span><span class="n">write_vtk</span><span class="p">(</span><span class="n">vtk_output</span><span class="p">);</span>
+    
+<span class="k">constexpr</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">field_width</span> <span class="o">=</span>
+  <span class="n">numbers</span><span class="o">::</span><span class="n">NumberTraits</span><span class="o">&lt;</span><span class="n">RangeNumberType</span><span class="o">&gt;::</span><span class="n">is_complex</span> <span class="o">?</span> <span class="mi">35</span> <span class="o">:</span> <span class="mi">25</span><span class="p">;</span>
+<span class="n">print_vector_to_mat</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span>
+                    <span class="s">"solution_on_combined_domain_internal_dof_numbering"</span><span class="p">,</span>
+                    <span class="n">solution_on_combined_domain_internal_dof_numbering_</span><span class="p">,</span>
+                    <span class="nb">false</span><span class="p">,</span>
+                    <span class="mi">15</span><span class="p">,</span>
+                    <span class="n">field_width</span><span class="p">);</span>
+<span class="n">print_vector_to_mat</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span>
+                    <span class="s">"neumann_data"</span><span class="p">,</span>
+                    <span class="n">neumann_data_</span><span class="p">,</span>
+                    <span class="nb">false</span><span class="p">,</span>
+                    <span class="mi">15</span><span class="p">,</span>
+                    <span class="n">field_width</span><span class="p">);</span>
+<span class="n">print_vector_to_mat</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span>
+                    <span class="s">"dirichlet_data"</span><span class="p">,</span>
+                    <span class="n">dirichlet_data_</span><span class="p">,</span>
+                    <span class="nb">false</span><span class="p">,</span>
+                    <span class="mi">15</span><span class="p">,</span>
+                    <span class="n">field_width</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="results">Results</h1>
+
+<p>The following figure shows the potential distribution on the cylinder.</p>
+
+<p><img src="figures/2025-12-01-laplace-mixed-dirichlet-data.png" alt="img" title="Potential distribution on the cylinder." /></p>
+
+<p>The following figure shows the interior conormal trace of the potential on the cylinder.</p>
+
+<p><img src="figures/2025-12-01-laplace-mixed-neumann-data.png" alt="img" title="Interior conormal trace of the potential on the cylinder." /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/hierbem-site/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">Copyright &copy; 2020 - 2025 by <a href="mailto:jihuan_tian@hotmail.com">Jihuan Tian</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/hierbem-site/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
