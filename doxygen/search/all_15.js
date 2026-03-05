@@ -9,6 +9,6 @@ var searchData=
   ['updatetasknodeforluorcholesky_6',['UpdateTaskNodeForLUOrCholesky',['../classHMatrix_1_1UpdateTaskNodeForLUOrCholesky.html',1,'HMatrix']]],
   ['upper_5ftriangular_7',['upper_triangular',['../classLAPACKFullMatrixExt.html#afd0c61566473b8abc23d5ce077cc967c',1,'LAPACKFullMatrixExt::upper_triangular()'],['../hmatrix__support_8h.html#a2651831f827cb8204df1771cf48301a2ae8f0ff453733b8623d87c0c907e84401',1,'HMatrixSupport::upper_triangular()']]],
   ['upper_5ftriangular_5fblock_8',['upper_triangular_block',['../hmatrix__support_8h.html#af15801e7429722907d3e51571eece28ca0f4644e47fbbf8bbb216754828c63948',1,'HMatrixSupport']]],
-  ['use_5fhmat_5f_9',['use_hmat_',['../classLaplaceBEM_1_1Priv.html#adcad1bb0633dad1f2cd5c29469d60e30',1,'LaplaceBEM::Priv']]],
+  ['use_5fhmat_5f_9',['use_hmat_',['../classHelmholtzAcousticBEM_1_1Priv.html#af5c3461b0a183a1fc53a42f2ea5aedc6',1,'HelmholtzAcousticBEM::Priv::use_hmat_()'],['../classLaplaceBEM_1_1Priv.html#adcad1bb0633dad1f2cd5c29469d60e30',1,'LaplaceBEM::Priv::use_hmat_()']]],
   ['utilities_2eh_10',['utilities.h',['../utilities_8h.html',1,'']]]
 ];

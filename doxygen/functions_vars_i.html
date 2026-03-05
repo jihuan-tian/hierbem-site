@@ -157,6 +157,7 @@ $(function() {
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>i_local_index&#160;:&#160;<a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskScalarData.html#ac9c176794a72e7e190828d1f6b914089">CUDAWrappers::SauterQuadratureTaskScalarData</a></li>
 <li>if_all_near_field_hmat_entries_added&#160;:&#160;<a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#a29a13252aa8601d077cf72dd1eeb762a">CUDAWrappers::SauterQuadratureTaskRingBuffer&lt; capacity, dim, spacedim, RangeNumberType, KernelNumberType &gt;</a></li>
+<li>include_boundary_dofs&#160;:&#160;<a class="el" href="classBEMFunctionSpace.html#a0b24d7a65c0edebd924e7df32b70335c">BEMFunctionSpace&lt; dim, spacedim &gt;</a></li>
 <li>index_range&#160;:&#160;<a class="el" href="classCluster.html#a273d6713db35641708a85c4edd151b2a">Cluster&lt; spacedim, Number &gt;</a></li>
 <li>index_set&#160;:&#160;<a class="el" href="classCluster.html#a93791a440f03b43cdfa89e48be33cddb">Cluster&lt; spacedim, Number &gt;</a></li>
 <li>index_sets_cleared&#160;:&#160;<a class="el" href="classClusterTree.html#a25b5b42d62faf54c5046e3f5566429ed">ClusterTree&lt; spacedim, Number &gt;</a></li>
@@ -164,13 +165,14 @@ $(function() {
 <li>ipiv&#160;:&#160;<a class="el" href="classLAPACKFullMatrixExt.html#a436d7290d5b2b17c0691b5b63cca36fa">LAPACKFullMatrixExt&lt; Number &gt;</a></li>
 <li>is_admissible&#160;:&#160;<a class="el" href="classBlockCluster.html#ae85d165894d10b7e58fbe20edd506abe">BlockCluster&lt; spacedim, Number &gt;</a></li>
 <li>is_complex&#160;:&#160;<a class="el" href="structnumbers_1_1NumberTraits_3_01HierBEM_1_1complex_3_01number_01_4_01_4.html#ae6519744d6cc3a152678d4231c6a6bd6">numbers::NumberTraits&lt; HierBEM::complex&lt; number &gt; &gt;</a></li>
-<li>is_full_domain&#160;:&#160;<a class="el" href="classOperatorPreconditioner.html#aff3608fa1f89a3f1ad03608b649caae6">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;</a></li>
-<li>is_interior_problem_&#160;:&#160;<a class="el" href="classLaplaceBEM_1_1Priv.html#a542d4a29dd00e31b977ccd8721d8f5f2">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv</a></li>
+<li>is_full_domain&#160;:&#160;<a class="el" href="classBEMFunctionSpace.html#a9d2cbc13c681a040b78081884c316358">BEMFunctionSpace&lt; dim, spacedim &gt;</a>, <a class="el" href="classOperatorPreconditioner.html#a7ebd901c6fc1a484a33f5a48873cd323">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;</a></li>
+<li>is_interior_problem_&#160;:&#160;<a class="el" href="classHelmholtzAcousticBEM_1_1Priv.html#a92ba6d077d22d7f3637f4785a6f6ba66">HelmholtzAcousticBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv</a>, <a class="el" href="classLaplaceBEM_1_1Priv.html#a542d4a29dd00e31b977ccd8721d8f5f2">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv</a></li>
 <li>is_kx_normal_inward&#160;:&#160;<a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskScalarData.html#a50b36b828462f3a25d2e847475eb2355">CUDAWrappers::SauterQuadratureTaskScalarData</a></li>
 <li>is_ky_normal_inward&#160;:&#160;<a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskScalarData.html#aca8cf9d68a1338df3803ad2b6ff5cf9a">CUDAWrappers::SauterQuadratureTaskScalarData</a></li>
 <li>is_left_precondition&#160;:&#160;<a class="el" href="classSolverDQGMRES.html#a916806e83e55b7ee9b33ac0fc4c37b8c">SolverDQGMRES&lt; VectorType &gt;</a></li>
 <li>is_near_field&#160;:&#160;<a class="el" href="classBlockCluster.html#a6f719cbd6a646328f8128355c857745a">BlockCluster&lt; spacedim, Number &gt;</a></li>
-<li>is_subdomain_open&#160;:&#160;<a class="el" href="classOperatorPreconditioner.html#a662df08c1d63631afacd5bbd038bd3b7">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;</a></li>
+<li>is_spd&#160;:&#160;<a class="el" href="classHMatrixSymmPreconditioner.html#aff16a999d1cb0e3385fda629a1806b9a">HMatrixSymmPreconditioner&lt; spacedim, Number &gt;</a></li>
+<li>is_subdomain_open&#160;:&#160;<a class="el" href="classOperatorPreconditioner.html#a3f21370ff6cfcfb99714916076b3deee">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;</a></li>
 <li>is_subtree&#160;:&#160;<a class="el" href="classBlockClusterTree.html#a8dc01af98989bb71246fa2cd4d7307da">BlockClusterTree&lt; spacedim, Number &gt;</a></li>
 <li>iwork&#160;:&#160;<a class="el" href="classLAPACKFullMatrixExt.html#ac091f1f6af485b451c4c9398abb67230">LAPACKFullMatrixExt&lt; Number &gt;</a></li>
 </ul>

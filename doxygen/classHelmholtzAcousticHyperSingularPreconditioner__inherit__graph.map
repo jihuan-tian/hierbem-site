@@ -1,0 +1,5 @@
+<map id="HelmholtzAcousticHyperSingularPreconditioner&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;" name="HelmholtzAcousticHyperSingularPreconditioner&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;">
+<area shape="rect" id="node1" title="Class for the dual mesh operator preconditioner, which preconditions the hyper singular boundary inte..." alt="" coords="5,2749,275,2929"/>
+<area shape="rect" id="node2" href="$classHyperSingularPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the hyper singular boun..." alt="" coords="15,2507,265,2701"/>
+<area shape="rect" id="node3" href="$classOperatorPreconditioner.html" title="Abstract class for dual mesh operator preconditioning." alt="" coords="35,5,245,2459"/>
+</map>

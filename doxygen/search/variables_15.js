@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['v1_0',['v1',['../classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html#aca2853e025e143b56413584bc6393987',1,'OperatorPreconditioner::MassMatrixTransposeTriple::v1()'],['../classOperatorPreconditioner.html#af293ef281e5cbd7de79b225e9e7f06aa',1,'OperatorPreconditioner::v1()'],['../classOperatorPreconditioner_1_1MassMatrixTriple.html#ac2b3cd0403b9f0801c2f37e4ec12960a',1,'OperatorPreconditioner::MassMatrixTriple::v1()']]],
-  ['v1_5fhmat_5f_1',['V1_hmat_',['../classLaplaceBEM_1_1Priv.html#a3a87156bfc97b2006e8bbe404154cca8',1,'LaplaceBEM::Priv']]],
-  ['v1_5fhmat_5fpreconditioner_5f_2',['V1_hmat_preconditioner_',['../classLaplaceBEM_1_1Priv.html#aedd81827b4d44b0868db013ad02818d6',1,'LaplaceBEM::Priv']]],
-  ['v1_5fmatrix_5f_3',['V1_matrix_',['../classLaplaceBEM_1_1Priv.html#a521442c819a8ee0fb80d655011f57514',1,'LaplaceBEM::Priv']]],
-  ['v2_4',['v2',['../classOperatorPreconditioner_1_1MassMatrixTriple.html#a985b646a5fbd80ae35e25b1866010d6d',1,'OperatorPreconditioner::MassMatrixTriple::v2()'],['../classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html#ad053d3ec1a1eb122f8479bba43e444ac',1,'OperatorPreconditioner::MassMatrixTransposeTriple::v2()'],['../classOperatorPreconditioner.html#a57e6a5f6ceaee81c0ce3c9025e56352a',1,'OperatorPreconditioner::v2()']]],
-  ['v2_5finternal_5fdof_5fnumbering_5',['v2_internal_dof_numbering',['../classOperatorPreconditioner.html#ab178552b6af313f39bdeb5cbf7356609',1,'OperatorPreconditioner']]],
-  ['v3_6',['v3',['../classOperatorPreconditioner.html#a687ff75a7b42deeeaaee97ed6b7e33f1',1,'OperatorPreconditioner']]],
-  ['v3_5fexternal_5fdof_5fnumbering_7',['v3_external_dof_numbering',['../classOperatorPreconditioner.html#a7ca469c426b0595b7c357ac2a20cb9fd',1,'OperatorPreconditioner']]],
+  ['v1_0',['v1',['../classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html#af19cc5f267628f491e189373ecf457dc',1,'OperatorPreconditioner::MassMatrixTransposeTriple::v1()'],['../classOperatorPreconditioner.html#aef99b97f8ab0f35eda9ee2534b3e8a36',1,'OperatorPreconditioner::v1()'],['../classOperatorPreconditioner_1_1MassMatrixTriple.html#a58bf512bc430e9dd58f532e77ffc6259',1,'OperatorPreconditioner::MassMatrixTriple::v1()']]],
+  ['v1_5fhmat_5f_1',['V1_hmat_',['../classHelmholtzAcousticBEM_1_1Priv.html#a8840d5a2c0c969d75da89240f3d660b4',1,'HelmholtzAcousticBEM::Priv::V1_hmat_()'],['../classLaplaceBEM_1_1Priv.html#aed3f254639dff007eba4a8955477758d',1,'LaplaceBEM::Priv::V1_hmat_()']]],
+  ['v1_5fhmat_5fpreconditioner_5f_2',['V1_hmat_preconditioner_',['../classHelmholtzAcousticBEM_1_1Priv.html#a3cd93e6c1af5477f3f7a276e975dace3',1,'HelmholtzAcousticBEM::Priv::V1_hmat_preconditioner_()'],['../classLaplaceBEM_1_1Priv.html#aedd81827b4d44b0868db013ad02818d6',1,'LaplaceBEM::Priv::V1_hmat_preconditioner_()']]],
+  ['v1_5fmat_5f_3',['V1_mat_',['../classHelmholtzAcousticBEM_1_1Priv.html#a2e4b31ee7f0d9287f6d56cca81d62277',1,'HelmholtzAcousticBEM::Priv::V1_mat_()'],['../classLaplaceBEM_1_1Priv.html#a064a870c00efa45319e6c439d52f0ae7',1,'LaplaceBEM::Priv::V1_mat_()']]],
+  ['v2_4',['v2',['../classOperatorPreconditioner_1_1MassMatrixTriple.html#ae280cd8bf8b422262a61bfc45d353f07',1,'OperatorPreconditioner::MassMatrixTriple::v2()'],['../classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html#ab0def8f88e1266bac0e63461caa8bfe0',1,'OperatorPreconditioner::MassMatrixTransposeTriple::v2()'],['../classOperatorPreconditioner.html#a01800701e6720acc05b12451001d68d3',1,'OperatorPreconditioner::v2()']]],
+  ['v2_5finternal_5fdof_5fnumbering_5',['v2_internal_dof_numbering',['../classOperatorPreconditioner.html#a2072e0bd64300c474294c17a67e7c905',1,'OperatorPreconditioner']]],
+  ['v3_6',['v3',['../classOperatorPreconditioner.html#a280b468b92e842815039b5c7bcc04393',1,'OperatorPreconditioner']]],
+  ['v3_5fexternal_5fdof_5fnumbering_7',['v3_external_dof_numbering',['../classOperatorPreconditioner.html#a9a94fc2b5caace05f61037dae8ec37f3',1,'OperatorPreconditioner']]],
   ['values_8',['values',['../classCUDAWrappers_1_1CUDATable.html#ab6011d66b248fa6795ad82365a039945',1,'CUDAWrappers::CUDATable']]],
   ['values_5fat_5fall_5fquad_5fpoints_5fgpu_9',['values_at_all_quad_points_gpu',['../classCUDAWrappers_1_1SauterQuadratureTaskBufferForVector.html#adb0be2c34f350baace7b557af4205257',1,'CUDAWrappers::SauterQuadratureTaskBufferForVector']]],
   ['vector_5felement_5fvalues_5fgpu_10',['vector_element_values_gpu',['../classCUDAWrappers_1_1SauterQuadratureTaskBufferForVector.html#ae3c70c84f4a1196d72cbc680ef1f49df',1,'CUDAWrappers::SauterQuadratureTaskBufferForVector']]],
@@ -15,5 +15,5 @@ var searchData=
   ['vmult_5fresult_5findex_5frange_12',['vmult_result_index_range',['../structHMatrix_1_1VmultOrTvmultThreadData.html#a386d75d7e8b3148741a000396ae4db2f',1,'HMatrix::VmultOrTvmultThreadData']]],
   ['vmult_5fresult_5findex_5franges_5fcontributed_5ffrom_5fother_5fthreads_13',['vmult_result_index_ranges_contributed_from_other_threads',['../structHMatrix_1_1VmultOrTvmultThreadData.html#a925a5bf06a69967a73f09464b2ef2003',1,'HMatrix::VmultOrTvmultThreadData']]],
   ['vmult_5fstrategy_14',['vmult_strategy',['../classHMatrix.html#aab1fa017f02f9e961774f31200ab65b8',1,'HMatrix']]],
-  ['vmult_5ftype_5f_15',['vmult_type_',['../classLaplaceBEM_1_1Priv.html#a9e145cd7b919be8c87654260e493250e',1,'LaplaceBEM::Priv']]]
+  ['vmult_5ftype_5f_15',['vmult_type_',['../classHelmholtzAcousticBEM_1_1Priv.html#ac52bf86afc7d4edc05c0d8b8bbebdf33',1,'HelmholtzAcousticBEM::Priv::vmult_type_()'],['../classLaplaceBEM_1_1Priv.html#a9e145cd7b919be8c87654260e493250e',1,'LaplaceBEM::Priv::vmult_type_()']]]
 ];

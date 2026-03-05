@@ -1,11 +1,17 @@
 <map id="include/platform_shared/laplace_kernels.h" name="include/platform_shared/laplace_kernels.h">
-<area shape="rect" id="node1" title="Introduction of laplace_kernels.h." alt="" coords="347,5,507,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,160,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="184,95,317,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="308,177,449,203"/>
-<area shape="rect" id="node5" title=" " alt="" coords="392,95,461,121"/>
-<area shape="rect" id="node6" href="$config_8h.html" title="Configurations for building the project." alt="" coords="661,177,729,203"/>
-<area shape="rect" id="node7" href="$tensor_8h.html" title="Introduction of tensor.h." alt="" coords="486,95,653,121"/>
-<area shape="rect" id="node9" href="$utilities_8h.html" title="Introduction of utilities.h." alt="" coords="728,95,899,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="492,169,636,211"/>
+<area shape="rect" id="node1" title="Introduction of laplace_kernels.h." alt="" coords="256,5,416,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="918,259,1073,285"/>
+<area shape="rect" id="node3" title=" " alt="" coords="22,95,156,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="113,177,254,203"/>
+<area shape="rect" id="node5" title=" " alt="" coords="230,95,300,121"/>
+<area shape="rect" id="node6" href="$types_8h.html" title="Definition of kernel function types of boundary integral operators in BEM." alt="" coords="498,177,592,203"/>
+<area shape="rect" id="node7" href="$config_8h.html" title="Configurations for building the project." alt="" coords="470,259,538,285"/>
+<area shape="rect" id="node8" href="$tensor_8h.html" title="Introduction of tensor.h." alt="" coords="324,95,491,121"/>
+<area shape="rect" id="node10" href="$utilities_8h.html" title="Introduction of utilities.h." alt="" coords="612,95,782,121"/>
+<area shape="rect" id="node9" title=" " alt="" coords="329,169,473,211"/>
+<area shape="rect" id="node11" title=" " alt="" coords="668,177,726,203"/>
+<area shape="rect" id="node12" href="$number__traits_8h.html" title="Definition of ranks for different types of numbers." alt="" coords="750,177,908,203"/>
+<area shape="rect" id="node13" title=" " alt="" coords="562,259,632,285"/>
+<area shape="rect" id="node14" title=" " alt="" coords="657,259,740,285"/>
+<area shape="rect" id="node15" title=" " alt="" coords="764,259,894,285"/>
 </map>

@@ -161,8 +161,10 @@ $(function() {
   <div class="headertitle"><div class="title">operator_preconditioner.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;deal.II/base/logstream.h&gt;</code><br />
-<code>#include &lt;deal.II/base/numbers.h&gt;</code><br />
+
+<p>Definition of the abstract class for dual mesh operator preconditioner.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;deal.II/base/numbers.h&gt;</code><br />
 <code>#include &lt;deal.II/base/point.h&gt;</code><br />
 <code>#include &lt;deal.II/base/quadrature.h&gt;</code><br />
 <code>#include &lt;deal.II/base/subscriptor.h&gt;</code><br />
@@ -175,23 +177,22 @@ $(function() {
 <code>#include &lt;deal.II/lac/precondition.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/solver_control.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/sparse_matrix.h&gt;</code><br />
+<code>#include &lt;deal.II/lac/sparse_matrix.templates.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/sparsity_pattern.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/vector.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/vector_operations_internal.h&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;bem/bem_general.hcu&quot;</code><br />
-<code>#include &quot;bem/bem_kernels.hcu&quot;</code><br />
 <code>#include &quot;<a class="el" href="subdomain__topology_8h_source.html">cad_mesh/subdomain_topology.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="block__cluster__tree_8h_source.html">cluster_tree/block_cluster_tree.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
-<code>#include &quot;cuda_complex.hcu&quot;</code><br />
 <code>#include &quot;dofs/dof_to_cell_topology.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="dof__tools__ext_8h_source.html">dofs/dof_tools_ext.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="grid__out__ext_8h_source.html">grid/grid_out_ext.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="aca__plus_8hcu_source.html">hmatrix/aca_plus/aca_plus.hcu</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hmatrix_8h_source.html">hmatrix/hmatrix.h</a>&quot;</code><br />
 <code>#include &quot;hmatrix/hmatrix_parameters.h&quot;</code><br />
@@ -200,34 +201,39 @@ $(function() {
 <code>#include &quot;<a class="el" href="solver__gmres__general_8h_source.html">solvers/solver_gmres_general.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug__tools_8h_source.html">utilities/debug_tools.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="generic__functors_8h_source.html">utilities/generic_functors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="number__traits_8h_source.html">utilities/number_traits.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for operator_preconditioner.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="operator__preconditioner_8h__incl.svg" width="11491" height="931"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="operator__preconditioner_8h__incl.svg" width="11150" height="946"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="operator__preconditioner_8h__dep__incl.svg" width="390" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="operator__preconditioner_8h__dep__incl.svg" width="835" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="operator__preconditioner_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class for dual mesh operator preconditioning.  <a href="classOperatorPreconditioner.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class encapsulates the product of three matrices: \(C_d M_r
 C_p^{\mathrm{T}}\).  <a href="classOperatorPreconditioner_1_1MassMatrixTriple.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTransposeTriple</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTransposeTriple</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class encapsulates the transpose of the product of three matrices: \(C_d M_r C_p^{\mathrm{T}}\), which is actually \(C_p
 M_r^{\mathrm{T}} C_d^{\mathrm{T}}\).  <a href="classOperatorPreconditioner_1_1MassMatrixTransposeTriple.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section date"><dt>Date</dt><dd>2024-12-02 </dd></dl>
+<div class="textblock"><p >Definition of the abstract class for dual mesh operator preconditioner. </p>
+<dl class="section date"><dt>Date</dt><dd>2024-12-02 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jihuan Tian </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>

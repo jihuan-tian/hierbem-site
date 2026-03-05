@@ -1,0 +1,102 @@
+<map id="examples/build&#45;hmatrix/build&#45;hmatrix.cu" name="examples/build&#45;hmatrix/build&#45;hmatrix.cu">
+<area shape="rect" id="node1" title="Example for building an H&#45;matrix." alt="" coords="3099,5,3255,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="2409,884,2577,911"/>
+<area shape="rect" id="node3" title=" " alt="" coords="7895,884,8049,911"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1549,884,1683,911"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1847,616,2001,657"/>
+<area shape="rect" id="node6" title=" " alt="" coords="7566,884,7703,911"/>
+<area shape="rect" id="node7" title=" " alt="" coords="2137,713,2306,739"/>
+<area shape="rect" id="node8" title=" " alt="" coords="817,713,972,739"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1493,102,1619,129"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1999,713,2113,739"/>
+<area shape="rect" id="node11" title=" " alt="" coords="5547,713,5685,739"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1427,802,1578,829"/>
+<area shape="rect" id="node13" title=" " alt="" coords="2221,102,2368,129"/>
+<area shape="rect" id="node14" title=" " alt="" coords="2392,95,2528,136"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1705,802,1821,829"/>
+<area shape="rect" id="node16" title=" " alt="" coords="10170,884,10281,911"/>
+<area shape="rect" id="node17" title=" " alt="" coords="6264,802,6331,829"/>
+<area shape="rect" id="node18" title=" " alt="" coords="7824,713,7896,739"/>
+<area shape="rect" id="node19" title=" " alt="" coords="313,884,359,911"/>
+<area shape="rect" id="node20" title=" " alt="" coords="996,713,1065,739"/>
+<area shape="rect" id="node21" title=" " alt="" coords="4144,884,4203,911"/>
+<area shape="rect" id="node22" href="$gmsh__manipulation_8h.html" title="Introduction of gmsh_manipulation.h." alt="" coords="2737,713,2946,739"/>
+<area shape="rect" id="node27" href="$subdomain__topology_8h.html" title="Introduction of subdomain_topology.h." alt="" coords="2797,616,2947,657"/>
+<area shape="rect" id="node29" href="$block__cluster__tree_8h.html" title="Implementation of the class BlockClusterTree." alt="" coords="4889,363,5015,404"/>
+<area shape="rect" id="node40" href="$cluster__tree_8h_source.html" title=" " alt="" coords="4945,534,5047,561"/>
+<area shape="rect" id="node53" href="$number__traits_8h.html" title="Definition of ranks for different types of numbers." alt="" coords="9325,802,9483,829"/>
+<area shape="rect" id="node54" href="$dof__to__cell__topology_8h_source.html" title=" " alt="" coords="3443,534,3623,561"/>
+<area shape="rect" id="node55" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="2387,452,2527,479"/>
+<area shape="rect" id="node64" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="1695,534,1857,561"/>
+<area shape="rect" id="node65" href="$grid__in__ext_8h.html" title="Introduction of grid_in_ext.h." alt="" coords="418,713,539,739"/>
+<area shape="rect" id="node69" title=" " alt="" coords="6687,102,6823,129"/>
+<area shape="rect" id="node70" href="$aca__config_8h_source.html" title=" " alt="" coords="3901,184,4048,225"/>
+<area shape="rect" id="node71" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="8064,95,8211,136"/>
+<area shape="rect" id="node84" href="$laplace__kernels_8h.html" title="Introduction of laplace_kernels.h." alt="" coords="3173,705,3333,747"/>
+<area shape="rect" id="node88" href="$sauter__quadrature__tools_8h.html" title="Introduction of sauter_quadrature_tools.h." alt="" coords="4301,363,4491,404"/>
+<area shape="rect" id="node89" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="7040,281,7163,307"/>
+<area shape="rect" id="node94" href="$hmatrix__support_8h.html" title="Adapted from deal.ii/lac/lapack_support.h and define some features for an &#45;matrix." alt="" coords="5912,713,6085,739"/>
+<area shape="rect" id="node23" title=" " alt="" coords="2157,802,2222,829"/>
+<area shape="rect" id="node24" title=" " alt="" coords="3975,884,4025,911"/>
+<area shape="rect" id="node25" href="$config_8h.html" title="Configurations for building the project." alt="" coords="5103,884,5171,911"/>
+<area shape="rect" id="node26" href="$vector__arithmetic_8h.html" title="Introduction of vector_arithmetic.h." alt="" coords="2957,795,3099,836"/>
+<area shape="rect" id="node28" title=" " alt="" coords="3560,713,3635,739"/>
+<area shape="rect" id="node30" title=" " alt="" coords="4857,795,4999,836"/>
+<area shape="rect" id="node31" href="$block__cluster_8h.html" title="Implementation of the class BlockCluster." alt="" coords="5099,452,5210,479"/>
+<area shape="rect" id="node41" href="$tree_8h.html" title="Implementation of the classes for binary tree node, general tree node and functions for manipulating ..." alt="" coords="4505,623,4559,650"/>
+<area shape="rect" id="node43" href="$debug__tools_8h.html" title="This file includes a bunch of helper functions for printing out and visualizing information about gri..." alt="" coords="5750,623,5898,650"/>
+<area shape="rect" id="node49" href="$lapack__full__matrix__ext_8h_source.html" title=" " alt="" coords="6947,705,7091,747"/>
+<area shape="rect" id="node32" href="$cluster_8h.html" title="Implementation of the class Cluster." alt="" coords="5119,623,5191,650"/>
+<area shape="rect" id="node33" title=" " alt="" coords="7097,884,7159,911"/>
+<area shape="rect" id="node34" href="$generic__functors_8h.html" title="This header file contains a set of self&#45;defined generic functors." alt="" coords="5277,802,5451,829"/>
+<area shape="rect" id="node35" title=" " alt="" coords="3188,884,3329,911"/>
+<area shape="rect" id="node36" title=" " alt="" coords="9455,884,9585,911"/>
+<area shape="rect" id="node37" title=" " alt="" coords="5511,884,5569,911"/>
+<area shape="rect" id="node38" title=" " alt="" coords="6866,884,6955,911"/>
+<area shape="rect" id="node39" title=" " alt="" coords="9732,884,9815,911"/>
+<area shape="rect" id="node42" title=" " alt="" coords="4278,713,4357,739"/>
+<area shape="rect" id="node44" title=" " alt="" coords="8232,713,8395,739"/>
+<area shape="rect" id="node45" title=" " alt="" coords="7921,713,8055,739"/>
+<area shape="rect" id="node46" title=" " alt="" coords="1845,802,1979,829"/>
+<area shape="rect" id="node47" title=" " alt="" coords="6355,802,6410,829"/>
+<area shape="rect" id="node48" title=" " alt="" coords="6413,713,6467,739"/>
+<area shape="rect" id="node50" title=" " alt="" coords="8679,884,8750,911"/>
+<area shape="rect" id="node51" title=" " alt="" coords="8347,802,8405,829"/>
+<area shape="rect" id="node52" title=" " alt="" coords="6587,802,6656,829"/>
+<area shape="rect" id="node56" title=" " alt="" coords="2273,534,2423,561"/>
+<area shape="rect" id="node57" title=" " alt="" coords="1882,527,2030,568"/>
+<area shape="rect" id="node58" title=" " alt="" coords="144,802,299,829"/>
+<area shape="rect" id="node59" title=" " alt="" coords="2054,527,2183,568"/>
+<area shape="rect" id="node60" title=" " alt="" coords="2208,534,2248,561"/>
+<area shape="rect" id="node61" href="$bem__tools_8h.html" title="Introduction of bem_tools.h." alt="" coords="2127,623,2249,650"/>
+<area shape="rect" id="node62" title=" " alt="" coords="2601,884,2671,911"/>
+<area shape="rect" id="node63" href="$mapping__q__ext_8h.html" title="Extend the class MappingQ." alt="" coords="1546,713,1721,739"/>
+<area shape="rect" id="node66" title=" " alt="" coords="373,802,525,829"/>
+<area shape="rect" id="node67" title=" " alt="" coords="549,802,685,829"/>
+<area shape="rect" id="node68" title=" " alt="" coords="709,802,896,829"/>
+<area shape="rect" id="node72" title=" " alt="" coords="8851,713,8997,739"/>
+<area shape="rect" id="node73" title=" " alt="" coords="8438,273,8573,315"/>
+<area shape="rect" id="node74" title=" " alt="" coords="8201,191,8335,218"/>
+<area shape="rect" id="node75" title=" " alt="" coords="8387,370,8461,397"/>
+<area shape="rect" id="node76" title=" " alt="" coords="8360,191,8421,218"/>
+<area shape="rect" id="node77" title=" " alt="" coords="8446,191,8573,218"/>
+<area shape="rect" id="node78" title=" " alt="" coords="4499,452,4560,479"/>
+<area shape="rect" id="node79" title=" " alt="" coords="8851,191,8917,218"/>
+<area shape="rect" id="node80" title=" " alt="" coords="8941,191,9000,218"/>
+<area shape="rect" id="node81" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="3798,623,3949,650"/>
+<area shape="rect" id="node82" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="3861,713,4000,739"/>
+<area shape="rect" id="node83" href="$cu__table_8hcu_source.html" title=" " alt="" coords="3994,802,4174,829"/>
+<area shape="rect" id="node87" href="$config__accessor_8h_source.html" title=" " alt="" coords="4596,273,4716,315"/>
+<area shape="rect" id="node97" href="$sequence__partition_8h_source.html" title=" " alt="" coords="6016,363,6163,404"/>
+<area shape="rect" id="node98" href="$linalg_8h.html" title=" " alt="" coords="9003,623,9149,650"/>
+<area shape="rect" id="node99" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="6396,191,6612,218"/>
+<area shape="rect" id="node100" href="$unary__template__arg__containers_8h.html" title="Definitions of STL container types with unary template argument." alt="" coords="6833,795,6989,836"/>
+<area shape="rect" id="node85" href="$types_8h.html" title="Definition of kernel function types of boundary integral operators in BEM." alt="" coords="3621,802,3715,829"/>
+<area shape="rect" id="node86" href="$tensor_8h.html" title="Introduction of tensor.h." alt="" coords="3175,802,3342,829"/>
+<area shape="rect" id="node90" title=" " alt="" coords="6693,363,6824,404"/>
+<area shape="rect" id="node91" title=" " alt="" coords="8419,713,8573,739"/>
+<area shape="rect" id="node92" title=" " alt="" coords="6849,370,7015,397"/>
+<area shape="rect" id="node93" title=" " alt="" coords="7039,370,7097,397"/>
+<area shape="rect" id="node95" href="$hmatrix__vmult__strategy_8h.html" title="Strategies for top level H&#45;matrix/vector multiplications, namely, vmult , Tvmult ,..." alt="" coords="6853,616,7003,657"/>
+<area shape="rect" id="node96" href="$rkmatrix_8h.html" title="Definition of rank&#45;k matrix." alt="" coords="7564,623,7644,650"/>
+</map>

@@ -1,8 +1,15 @@
 <map id="include/preconditioners/operator_preconditioner.h" name="include/preconditioners/operator_preconditioner.h">
-<area shape="rect" id="node1" title=" " alt="" coords="108,5,280,47"/>
-<area shape="rect" id="node2" href="$preconditioner__for__laplace__dirichlet_8h.html" title=" " alt="" coords="5,95,183,151"/>
-<area shape="rect" id="node6" href="$preconditioner__for__laplace__neumann_8h.html" title=" " alt="" coords="207,95,384,151"/>
-<area shape="rect" id="node3" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="117,199,271,240"/>
-<area shape="rect" id="node4" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="117,288,271,329"/>
-<area shape="rect" id="node5" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="129,377,259,419"/>
+<area shape="rect" id="node1" title="Definition of the abstract class for dual mesh operator preconditioner." alt="" coords="316,5,488,47"/>
+<area shape="rect" id="node2" href="$preconditioner__for__helmholtz__acoustic__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Helmholtz ..." alt="" coords="5,199,209,255"/>
+<area shape="rect" id="node6" href="$preconditioner__for__helmholtz__acoustic__single__layer__bio_8h_source.html" title=" " alt="" coords="234,199,426,255"/>
+<area shape="rect" id="node7" href="$preconditioner__for__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator." alt="" coords="135,95,303,151"/>
+<area shape="rect" id="node8" href="$preconditioner__for__laplace__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Laplace eq..." alt="" coords="451,199,628,255"/>
+<area shape="rect" id="node12" href="$preconditioner__for__laplace__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator in the La..." alt="" coords="652,199,829,255"/>
+<area shape="rect" id="node13" href="$preconditioner__for__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator." alt="" coords="378,95,549,151"/>
+<area shape="rect" id="node3" href="$helmholtz__acoustic__bem_8priv_8hcu_source.html" title=" " alt="" coords="128,303,311,344"/>
+<area shape="rect" id="node4" href="$helmholtz__acoustic__bem_8impl_8hcu.html" title="Call member functions of pimpl from HelmholtzAcousticBEM." alt="" coords="128,392,311,433"/>
+<area shape="rect" id="node5" href="$helmholtz__acoustic__bem_8cu_source.html" title=" " alt="" coords="139,481,299,523"/>
+<area shape="rect" id="node9" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="563,303,716,344"/>
+<area shape="rect" id="node10" href="$laplace__bem_8impl_8hcu.html" title="Implementation of pimpl member functions to be called by LaplaceBEM." alt="" coords="563,392,716,433"/>
+<area shape="rect" id="node11" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="574,481,705,523"/>
 </map>

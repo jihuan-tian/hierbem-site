@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classRkMatrix.html" title=" " alt="" coords="5,5,143,32"/>
+<area shape="rect" id="node1" href="$classOperatorPreconditioner.html" title="Abstract class for dual mesh operator preconditioning." alt="" coords="5,125,216,181"/>
+<area shape="rect" id="node2" href="$classHyperSingularPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the hyper singular boun..." alt="" coords="264,93,515,134"/>
+<area shape="rect" id="node5" href="$classSingleLayerPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the single layer potent..." alt="" coords="264,173,515,214"/>
+<area shape="rect" id="node3" href="$classHelmholtzAcousticHyperSingularPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the hyper singular boundary inte..." alt="" coords="563,5,832,61"/>
+<area shape="rect" id="node4" href="$classLaplaceHyperSingularPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the hyper singular boundary inte..." alt="" coords="576,85,819,141"/>
+<area shape="rect" id="node6" href="$classHelmholtzAcousticSingleLayerPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the single layer potential bound..." alt="" coords="563,165,832,221"/>
+<area shape="rect" id="node7" href="$classLaplaceSingleLayerPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the single layer potential bound..." alt="" coords="576,245,819,301"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="include/helmholtz/helmholtz_acoustic_bem.h" name="include/helmholtz/helmholtz_acoustic_bem.h">
+<area shape="rect" id="node1" title="Definition of the class for solving the Helmholtz acoustic equation using BEM." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$helmholtz__acoustic__bem_8impl_8hcu.html" title="Call member functions of pimpl from HelmholtzAcousticBEM." alt="" coords="5,184,188,225"/>
+<area shape="rect" id="node4" href="$helmholtz__acoustic__bem_8priv_8hcu_source.html" title=" " alt="" coords="71,95,253,136"/>
+<area shape="rect" id="node3" href="$helmholtz__acoustic__bem_8cu_source.html" title=" " alt="" coords="17,273,177,315"/>
+</map>

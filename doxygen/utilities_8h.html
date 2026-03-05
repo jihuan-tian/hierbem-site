@@ -164,16 +164,21 @@ $(function() {
 
 <p>Introduction of <a class="el" href="utilities_8h.html" title="Introduction of utilities.h.">utilities.h</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;deal.II/base/numbers.h&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="number__traits_8h_source.html">utilities/number_traits.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for utilities.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="utilities_8h__incl.svg" width="171" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="utilities_8h__incl.svg" width="615" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="utilities_8h__dep__incl.svg" width="790" height="871"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="utilities_8h__dep__incl.svg" width="1660" height="990"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="utilities_8h_source.html">Go to the source code of this file.</a></p>
@@ -183,6 +188,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac55195838c88d216cbdbf36cd682d82a"><td class="memTemplParams" colspan="2">template&lt;int N, typename T &gt; </td></tr>
 <tr class="memitem:ac55195838c88d216cbdbf36cd682d82a"><td class="memTemplItemLeft" align="right" valign="top">HBEM_ATTR_HOST HBEM_ATTR_DEV T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="utilities_8h.html#ac55195838c88d216cbdbf36cd682d82a">PlatformShared::Utilities::fixed_power</a> (const T x)</td></tr>
 <tr class="separator:ac55195838c88d216cbdbf36cd682d82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6975673ff58e1f0fa01fb88964536888"><td class="memTemplParams" colspan="2">template&lt;typename Number &gt; </td></tr>
+<tr class="memitem:a6975673ff58e1f0fa01fb88964536888"><td class="memTemplItemLeft" align="right" valign="top">HBEM_ATTR_DEV Number&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a6975673ff58e1f0fa01fb88964536888">PlatformShared::Utilities::exp</a> (const Number x)</td></tr>
+<tr class="separator:a6975673ff58e1f0fa01fb88964536888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Introduction of <a class="el" href="utilities_8h.html" title="Introduction of utilities.h.">utilities.h</a>. </p>
@@ -191,6 +199,41 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="utilities_8h_source.html">utilities.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6975673ff58e1f0fa01fb88964536888" name="a6975673ff58e1f0fa01fb88964536888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6975673ff58e1f0fa01fb88964536888">&#9670;&nbsp;</a></span>exp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Number &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HBEM_ATTR_DEV Number PlatformShared::Utilities::exp </td>
+          <td>(</td>
+          <td class="paramtype">const Number&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Exponential function for real and complex values on the device. </p>
+
+<p class="definition">Definition at line <a class="el" href="utilities_8h_source.html#l00056">56</a> of file <a class="el" href="utilities_8h_source.html">utilities.h</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8h_source.html#l00056">PlatformShared::Utilities::exp()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="utilities_8h_source.html#l00056">PlatformShared::Utilities::exp()</a>.</p>
+
+</div>
+</div>
 <a id="ac55195838c88d216cbdbf36cd682d82a" name="ac55195838c88d216cbdbf36cd682d82a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac55195838c88d216cbdbf36cd682d82a">&#9670;&nbsp;</a></span>fixed_power()</h2>
 
@@ -217,7 +260,7 @@ template&lt;int N, typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utilities_8h_source.html#l00032">32</a> of file <a class="el" href="utilities_8h_source.html">utilities.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utilities_8h_source.html#l00039">39</a> of file <a class="el" href="utilities_8h_source.html">utilities.h</a>.</p>
 
 </div>
 </div>

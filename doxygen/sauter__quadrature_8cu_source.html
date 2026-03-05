@@ -159,7 +159,7 @@ $(function() {
   <div class="headertitle"><div class="title">sauter_quadrature.cu</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (C) 2022-2025 Jihuan Tian &lt;jihuan_tian@hotmail.com&gt;</span></div>
+<a href="sauter__quadrature_8cu.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (C) 2022-2025 Jihuan Tian &lt;jihuan_tian@hotmail.com&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// This file is part of the HierBEM library.</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
@@ -169,33 +169,34 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// option) any later version. The full text of the license can be found in the</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// file LICENSE at the top level directory of HierBEM.</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="config_8h.html">config.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;quadrature/sauter_quadrature.hcu&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span>HierBEM</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keyword">namespace </span>CUDAWrappers</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    cudaDeviceProp device_properties;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  } <span class="comment">// namespace CUDAWrappers</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  print_dof_to_cell_topology(</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> std::vector&lt;std::vector&lt;unsigned int&gt;&gt; &amp;dof_to_cell_topo)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;dof_to_cell : dof_to_cell_topo)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        std::cout &lt;&lt; counter &lt;&lt; <span class="stringliteral">&quot;: &quot;</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> cell_index : dof_to_cell)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>          {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            std::cout &lt;&lt; cell_index &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>          }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        counter++;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} <span class="comment">// namespace HierBEM</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="config_8h.html">config.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;quadrature/sauter_quadrature.hcu&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span>HierBEM</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">namespace </span>CUDAWrappers</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    cudaDeviceProp <a class="code hl_variable" href="build-hmatrix-on-subdomain_8cu.html#a077d915d0c0272bef3597efa9bb2bd36">device_properties</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  } <span class="comment">// namespace CUDAWrappers</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  print_dof_to_cell_topology(</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> std::vector&lt;std::vector&lt;unsigned int&gt;&gt; &amp;dof_to_cell_topo)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;dof_to_cell : dof_to_cell_topo)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        std::cout &lt;&lt; counter &lt;&lt; <span class="stringliteral">&quot;: &quot;</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> cell_index : dof_to_cell)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>          {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            std::cout &lt;&lt; cell_index &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>          }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        counter++;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace HierBEM</span></div>
+<div class="ttc" id="abuild-hmatrix-on-subdomain_8cu_html_a077d915d0c0272bef3597efa9bb2bd36"><div class="ttname"><a href="build-hmatrix-on-subdomain_8cu.html#a077d915d0c0272bef3597efa9bb2bd36">HierBEM::CUDAWrappers::device_properties</a></div><div class="ttdeci">cudaDeviceProp device_properties</div><div class="ttdef"><b>Definition:</b> <a href="build-hmatrix_8cu_source.html#l00589">build-hmatrix.cu:589</a></div></div>
 <div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div><div class="ttdoc">Configurations for building the project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

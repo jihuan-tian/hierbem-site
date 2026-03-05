@@ -1,49 +1,69 @@
 <map id="include/linear_algebra/blas_templates.h" name="include/linear_algebra/blas_templates.h">
-<area shape="rect" id="node1" title="Template based BLAS functions." alt="" coords="3032,5,3179,47"/>
-<area shape="rect" id="node2" href="$blas__helpers_8h.html" title="Helper functions for calling BLAS functions." alt="" coords="3032,95,3179,136"/>
-<area shape="rect" id="node3" href="$lapack__full__matrix__ext_8h_source.html" title=" " alt="" coords="1590,184,1757,225"/>
-<area shape="rect" id="node37" href="$linalg_8h.html" title=" " alt="" coords="2572,720,2719,761"/>
-<area shape="rect" id="node39" href="$solver__cg__general_8h.html" title="CG solver which can handle complex values." alt="" coords="2995,817,3143,858"/>
-<area shape="rect" id="node40" href="$schur__complement_8h_source.html" title=" " alt="" coords="3097,921,3242,962"/>
-<area shape="rect" id="node4" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="733,638,928,665"/>
-<area shape="rect" id="node12" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="1449,817,1583,858"/>
-<area shape="rect" id="node16" href="$bem__tools_8h.html" title="Introduction of bem_tools.h." alt="" coords="594,281,761,307"/>
-<area shape="rect" id="node17" href="$bem__values_8hcu_source.html" title=" " alt="" coords="869,459,1059,486"/>
-<area shape="rect" id="node19" href="$cu__debug__tools_8hcu_source.html" title=" " alt="" coords="1155,631,1282,672"/>
-<area shape="rect" id="node20" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="204,720,353,761"/>
-<area shape="rect" id="node25" href="$block__cluster__tree_8h.html" title="Implementation of the class BlockClusterTree." alt="" coords="1662,541,1805,583"/>
-<area shape="rect" id="node26" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="1835,638,2003,665"/>
-<area shape="rect" id="node36" href="$rkmatrix_8h.html" title="Definition of rank&#45;k matrix." alt="" coords="2078,459,2250,486"/>
-<area shape="rect" id="node43" href="$debug__tools_8h.html" title="This file includes a bunch of helper functions for printing out and visualizing information about gri..." alt="" coords="1600,273,1747,315"/>
-<area shape="rect" id="node47" href="$read__octave__data_8h.html" title="Introduction of read_octave_data.h." alt="" coords="2666,541,2803,583"/>
-<area shape="rect" id="node5" href="$bem__general_8hcu_source.html" title=" " alt="" coords="869,824,1064,851"/>
-<area shape="rect" id="node9" href="$operator__preconditioner_8h.html" title=" " alt="" coords="1247,921,1419,962"/>
-<area shape="rect" id="node14" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="969,720,1124,761"/>
-<area shape="rect" id="node6" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="1937,1121,2090,1163"/>
-<area shape="rect" id="node7" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="30,1211,183,1252"/>
-<area shape="rect" id="node8" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="41,1300,172,1341"/>
-<area shape="rect" id="node10" href="$preconditioner__for__laplace__dirichlet_8h.html" title=" " alt="" coords="1409,1017,1586,1073"/>
-<area shape="rect" id="node11" href="$preconditioner__for__laplace__neumann_8h.html" title=" " alt="" coords="1207,1017,1385,1073"/>
-<area shape="rect" id="node13" href="$aca__plus_8cu_source.html" title=" " alt="" coords="1443,921,1586,962"/>
-<area shape="rect" id="node15" href="$sauter__quadrature_8cu_source.html" title=" " alt="" coords="1139,817,1285,858"/>
-<area shape="rect" id="node24" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="387,363,557,404"/>
-<area shape="rect" id="node18" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="1038,541,1181,583"/>
-<area shape="rect" id="node21" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="311,1121,451,1163"/>
-<area shape="rect" id="node22" href="$laplace__bem_8h.html" title="Implementation of BEM involving kernel functions and singular numerical quadratures." alt="" coords="195,921,349,962"/>
-<area shape="rect" id="node23" href="$dof__tools__ext_8cc_source.html" title=" " alt="" coords="195,817,322,858"/>
-<area shape="rect" id="node27" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="499,809,693,865"/>
-<area shape="rect" id="node33" href="$hblockmatrix__skew__symm_8h.html" title="Introduction of hblockmatrix_skew_symm.h." alt="" coords="2681,817,2869,858"/>
-<area shape="rect" id="node34" href="$hblockmatrix__skew__symm__preconditioner_8h.html" title="Introduction of hblockmatrix_skew_symm_preconditioner.h." alt="" coords="2376,817,2656,858"/>
-<area shape="rect" id="node35" href="$hmatrix__symm__preconditioner_8h.html" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices." alt="" coords="1813,720,2024,761"/>
-<area shape="rect" id="node28" href="$ddm__efield__matrix_8h.html" title="Introduction of ddm_efield_matrix.h." alt="" coords="773,1025,915,1066"/>
-<area shape="rect" id="node29" href="$subdomain__hmatrix__for__charge__neutrality__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_charge_neutrality_eqn.h." alt="" coords="667,913,834,969"/>
-<area shape="rect" id="node30" href="$subdomain__hmatrix__for__global__preconditioning_8h.html" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="424,913,592,969"/>
-<area shape="rect" id="node32" href="$subdomain__hmatrix__for__transmission__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_transmission_eqn.h." alt="" coords="858,913,1019,969"/>
-<area shape="rect" id="node31" href="$ddm__efield__global__preconditioner_8h.html" title="Introduction of ddm_efield_global_preconditioner.h." alt="" coords="368,1025,597,1066"/>
-<area shape="rect" id="node38" href="$data__out__ext_8h_source.html" title=" " alt="" coords="2725,1025,2880,1066"/>
-<area shape="rect" id="node42" href="$solver__gmres__general_8h.html" title="GMRES solver which can handle complex values." alt="" coords="2153,817,2301,858"/>
-<area shape="rect" id="node41" href="$solve__hblockmatrix__skew__symm_8h_source.html" title=" " alt="" coords="3045,1025,3240,1066"/>
-<area shape="rect" id="node44" href="$cluster__tree_8h_source.html" title=" " alt="" coords="1862,363,1997,404"/>
-<area shape="rect" id="node46" href="$debug__tools_8cc.html" title="Introduction of debug_tools.cc." alt="" coords="1611,363,1735,404"/>
-<area shape="rect" id="node45" href="$block__cluster_8h.html" title="Implementation of the class BlockCluster." alt="" coords="1817,452,1951,493"/>
+<area shape="rect" id="node1" title="Template based BLAS functions." alt="" coords="5424,5,5571,47"/>
+<area shape="rect" id="node2" href="$blas__helpers_8h.html" title="Helper functions for calling BLAS functions." alt="" coords="5424,95,5571,136"/>
+<area shape="rect" id="node3" href="$lapack__full__matrix__ext_8h_source.html" title=" " alt="" coords="2361,184,2527,225"/>
+<area shape="rect" id="node56" href="$linalg_8h.html" title=" " alt="" coords="4968,720,5115,761"/>
+<area shape="rect" id="node58" href="$solver__cg__general_8h.html" title="CG solver which can handle complex values." alt="" coords="5454,817,5602,858"/>
+<area shape="rect" id="node59" href="$schur__complement_8h_source.html" title=" " alt="" coords="5566,921,5711,962"/>
+<area shape="rect" id="node4" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="2169,638,2364,665"/>
+<area shape="rect" id="node6" href="$helmholtz__acoustic__bem_8priv_8hcu_source.html" title=" " alt="" coords="2993,1225,3175,1267"/>
+<area shape="rect" id="node9" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="3722,1225,3875,1267"/>
+<area shape="rect" id="node19" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="2765,817,2899,858"/>
+<area shape="rect" id="node27" href="$bem__tools_8h.html" title="Introduction of bem_tools.h." alt="" coords="2361,281,2527,307"/>
+<area shape="rect" id="node29" href="$bem__values_8hcu_source.html" title=" " alt="" coords="2349,459,2539,486"/>
+<area shape="rect" id="node31" href="$cu__debug__tools_8hcu_source.html" title=" " alt="" coords="2541,631,2667,672"/>
+<area shape="rect" id="node32" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="1709,720,1859,761"/>
+<area shape="rect" id="node44" href="$block__cluster__tree_8h.html" title="Implementation of the class BlockClusterTree." alt="" coords="795,541,938,583"/>
+<area shape="rect" id="node45" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="3151,638,3319,665"/>
+<area shape="rect" id="node55" href="$rkmatrix_8h.html" title="Definition of rank&#45;k matrix." alt="" coords="3149,549,3321,575"/>
+<area shape="rect" id="node62" href="$debug__tools_8h.html" title="This file includes a bunch of helper functions for printing out and visualizing information about gri..." alt="" coords="681,273,828,315"/>
+<area shape="rect" id="node67" href="$read__octave__data_8h.html" title="Introduction of read_octave_data.h." alt="" coords="4913,1129,5050,1170"/>
+<area shape="rect" id="node5" href="$bem__general_8hcu_source.html" title=" " alt="" coords="3228,824,3423,851"/>
+<area shape="rect" id="node24" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="2484,720,2639,761"/>
+<area shape="rect" id="node12" href="$operator__preconditioner_8h.html" title="Definition of the abstract class for dual mesh operator preconditioner." alt="" coords="3045,921,3217,962"/>
+<area shape="rect" id="node7" href="$helmholtz__acoustic__bem_8impl_8hcu.html" title="Call member functions of pimpl from HelmholtzAcousticBEM." alt="" coords="3109,1315,3291,1356"/>
+<area shape="rect" id="node8" href="$helmholtz__acoustic__bem_8cu_source.html" title=" " alt="" coords="3120,1404,3280,1445"/>
+<area shape="rect" id="node10" href="$laplace__bem_8impl_8hcu.html" title="Implementation of pimpl member functions to be called by LaplaceBEM." alt="" coords="3399,1315,3553,1356"/>
+<area shape="rect" id="node11" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="3411,1404,3541,1445"/>
+<area shape="rect" id="node13" href="$preconditioner__for__helmholtz__acoustic__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Helmholtz ..." alt="" coords="2399,1121,2603,1177"/>
+<area shape="rect" id="node14" href="$preconditioner__for__helmholtz__acoustic__single__layer__bio_8h_source.html" title=" " alt="" coords="2829,1121,3021,1177"/>
+<area shape="rect" id="node15" href="$preconditioner__for__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator." alt="" coords="2449,1017,2617,1073"/>
+<area shape="rect" id="node16" href="$preconditioner__for__laplace__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Laplace eq..." alt="" coords="2627,1121,2805,1177"/>
+<area shape="rect" id="node17" href="$preconditioner__for__laplace__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator in the La..." alt="" coords="3457,1121,3634,1177"/>
+<area shape="rect" id="node18" href="$preconditioner__for__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator." alt="" coords="2945,1017,3116,1073"/>
+<area shape="rect" id="node20" href="$build-hmatrix-on-subdomain_8cu.html" title="Example for building an H&#45;matrix on a subdomain which is specified by a set of material ids." alt="" coords="2182,913,2367,969"/>
+<area shape="rect" id="node21" href="$build-hmatrix_8cu.html" title="Example for building an H&#45;matrix." alt="" coords="2391,921,2547,962"/>
+<area shape="rect" id="node22" href="$bem__bilinear__form_8h.html" title="Definition of a class for BEM bilinear form." alt="" coords="2053,1025,2222,1066"/>
+<area shape="rect" id="node23" href="$aca__plus_8cu_source.html" title=" " alt="" coords="2674,921,2817,962"/>
+<area shape="rect" id="node25" href="$cu__related_8cu_source.html" title=" " alt="" coords="2495,817,2638,858"/>
+<area shape="rect" id="node26" href="$sauter__quadrature_8cu.html" title="Implementation of functions in include/quadrature/sauter_quadrature.hcu." alt="" coords="2326,817,2471,858"/>
+<area shape="rect" id="node28" href="$bem__function__space_8h.html" title="Definition of a class for BEM function space." alt="" coords="841,921,1015,962"/>
+<area shape="rect" id="node43" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="3426,363,3595,404"/>
+<area shape="rect" id="node30" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="2373,541,2515,583"/>
+<area shape="rect" id="node33" href="$build-block-cluster-tree_8cc.html" title="Example for building a block cluster tree." alt="" coords="573,809,731,865"/>
+<area shape="rect" id="node34" href="$cluster__tree__builder_8h.html" title="Definition of a class for building a cluster tree." alt="" coords="1059,817,1210,858"/>
+<area shape="rect" id="node35" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="3862,1129,4002,1170"/>
+<area shape="rect" id="node36" href="$helmholtz__acoustic__bem_8h.html" title="Definition of the class for solving the Helmholtz acoustic equation using BEM." alt="" coords="3198,1129,3381,1170"/>
+<area shape="rect" id="node37" href="$laplace__bem_8h.html" title="Definition of the class for solving the Laplace equation using BEM." alt="" coords="1945,817,2098,858"/>
+<area shape="rect" id="node42" href="$dof__tools__ext_8cc_source.html" title=" " alt="" coords="1489,817,1615,858"/>
+<area shape="rect" id="node38" href="$solve-laplace-dirichlet_8cu_source.html" title=" " alt="" coords="219,921,391,962"/>
+<area shape="rect" id="node39" href="$solve-laplace-mixed_8cu_source.html" title=" " alt="" coords="1944,921,2107,962"/>
+<area shape="rect" id="node40" href="$solve-laplace-neumann_8cu_source.html" title=" " alt="" coords="1201,921,1381,962"/>
+<area shape="rect" id="node41" href="$hbem__laplace_8cc_source.html" title=" " alt="" coords="1405,921,1565,962"/>
+<area shape="rect" id="node46" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="3800,809,3995,865"/>
+<area shape="rect" id="node52" href="$hblockmatrix__skew__symm_8h.html" title="Definition of the class for the skew symmetric &#160;block &#45;matrix." alt="" coords="4835,1025,5023,1066"/>
+<area shape="rect" id="node53" href="$hblockmatrix__skew__symm__preconditioner_8h.html" title="Introduction of hblockmatrix_skew_symm_preconditioner.h." alt="" coords="4531,1025,4811,1066"/>
+<area shape="rect" id="node54" href="$hmatrix__symm__preconditioner_8h.html" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices i..." alt="" coords="3599,720,3809,761"/>
+<area shape="rect" id="node47" href="$ddm__efield__matrix_8h.html" title="Introduction of ddm_efield_matrix.h." alt="" coords="3955,1025,4098,1066"/>
+<area shape="rect" id="node48" href="$subdomain__hmatrix__for__charge__neutrality__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_charge_neutrality_eqn.h." alt="" coords="3890,913,4057,969"/>
+<area shape="rect" id="node49" href="$subdomain__hmatrix__for__global__preconditioning_8h.html" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="3647,913,3815,969"/>
+<area shape="rect" id="node51" href="$subdomain__hmatrix__for__transmission__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_transmission_eqn.h." alt="" coords="4081,913,4242,969"/>
+<area shape="rect" id="node50" href="$ddm__efield__global__preconditioner_8h.html" title="Introduction of ddm_efield_global_preconditioner.h." alt="" coords="3647,1025,3876,1066"/>
+<area shape="rect" id="node57" href="$data__out__ext_8h_source.html" title=" " alt="" coords="4733,1129,4888,1170"/>
+<area shape="rect" id="node61" href="$solver__gmres__general_8h.html" title="GMRES solver which can handle complex values." alt="" coords="4673,817,4821,858"/>
+<area shape="rect" id="node60" href="$solve__hblockmatrix__skew__symm_8h_source.html" title=" " alt="" coords="5453,1025,5648,1066"/>
+<area shape="rect" id="node63" href="$cluster__tree_8h_source.html" title=" " alt="" coords="485,363,619,404"/>
+<area shape="rect" id="node66" href="$debug__tools_8cc.html" title="Introduction of debug_tools.cc." alt="" coords="643,363,767,404"/>
+<area shape="rect" id="node64" href="$build-cluster-tree_8cc.html" title="Example for building a cluster tree." alt="" coords="246,452,413,493"/>
+<area shape="rect" id="node65" href="$block__cluster_8h.html" title="Implementation of the class BlockCluster." alt="" coords="1202,452,1337,493"/>
 </map>

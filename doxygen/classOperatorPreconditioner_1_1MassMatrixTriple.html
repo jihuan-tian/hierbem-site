@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HierBEM: OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple Class Reference</title>
+<title>HierBEM: OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -160,7 +160,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classOperatorPreconditioner_1_1MassMatrixTriple-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple Class Reference</div></div>
+  <div class="headertitle"><div class="title">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -170,57 +170,58 @@ C_p^{\mathrm{T}}\).
 
 <p><code>#include &lt;<a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple:</div>
+Inheritance diagram for OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classOperatorPreconditioner_1_1MassMatrixTriple__inherit__graph.svg" width="272" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classOperatorPreconditioner_1_1MassMatrixTriple__inherit__graph.svg" width="222" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5525c561079725e81a84f2735632fdfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a5525c561079725e81a84f2735632fdfa">MassMatrixTriple</a> (SparseMatrix&lt; real_type &gt; &amp;coupling_matrix, SparseMatrix&lt; real_type &gt; &amp;averaging_matrix, SparseMatrix&lt; real_type &gt; &amp;mass_matrix, Vector&lt; real_type &gt; &amp;mass_matrix_triple_diag_reciprocal)</td></tr>
-<tr class="separator:a5525c561079725e81a84f2735632fdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2ffd39fb526927a2bc804a9145ffef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#ab2ffd39fb526927a2bc804a9145ffef5">reinit</a> ()</td></tr>
-<tr class="separator:ab2ffd39fb526927a2bc804a9145ffef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a724d5ad6902280eae492260f4ef00d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a5a724d5ad6902280eae492260f4ef00d">vmult</a> (Vector&lt; RangeNumberType &gt; &amp;y, const Vector&lt; RangeNumberType &gt; &amp;x) const</td></tr>
-<tr class="separator:a5a724d5ad6902280eae492260f4ef00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404d4e53ae609142f606e09207683079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a404d4e53ae609142f606e09207683079">precondition_Jacobi</a> (Vector&lt; RangeNumberType &gt; &amp;dst, const Vector&lt; RangeNumberType &gt; &amp;src, const real_type omega=1.) const</td></tr>
-<tr class="separator:a404d4e53ae609142f606e09207683079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38c25bde9781065fea03b79e1a5468ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a38c25bde9781065fea03b79e1a5468ee">MassMatrixTriple</a> (SparseMatrix&lt; real_type &gt; &amp;coupling_matrix, SparseMatrix&lt; real_type &gt; &amp;averaging_matrix, SparseMatrix&lt; real_type &gt; &amp;mass_matrix, Vector&lt; real_type &gt; &amp;mass_matrix_triple_diag_reciprocal)</td></tr>
+<tr class="separator:a38c25bde9781065fea03b79e1a5468ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13e249f863127d095e6267cc880bb29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#ae13e249f863127d095e6267cc880bb29">reinit</a> ()</td></tr>
+<tr class="separator:ae13e249f863127d095e6267cc880bb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53b3b52cbb0bfc90ad4ec2aed290a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#af53b3b52cbb0bfc90ad4ec2aed290a45">vmult</a> (Vector&lt; RangeNumberType &gt; &amp;y, const Vector&lt; RangeNumberType &gt; &amp;x) const</td></tr>
+<tr class="separator:af53b3b52cbb0bfc90ad4ec2aed290a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874072cbce3b87fcfdbec1a10a6983c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a874072cbce3b87fcfdbec1a10a6983c0">precondition_Jacobi</a> (Vector&lt; RangeNumberType &gt; &amp;dst, const Vector&lt; RangeNumberType &gt; &amp;src, const real_type omega=1.) const</td></tr>
+<tr class="separator:a874072cbce3b87fcfdbec1a10a6983c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6b56af4c6158bdf8bed5ff2adfeebc2f"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a6b56af4c6158bdf8bed5ff2adfeebc2f">coupling_matrix</a></td></tr>
-<tr class="separator:a6b56af4c6158bdf8bed5ff2adfeebc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afee91133651981f1a401a2a7b65372e7"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#afee91133651981f1a401a2a7b65372e7">averaging_matrix</a></td></tr>
-<tr class="separator:afee91133651981f1a401a2a7b65372e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5372a0be69d20b9e0d4858343ad27179"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a5372a0be69d20b9e0d4858343ad27179">mass_matrix</a></td></tr>
-<tr class="separator:a5372a0be69d20b9e0d4858343ad27179"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2467b1af320662a20ee328d1257260b9"><td class="memItemLeft" align="right" valign="top">Vector&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a2467b1af320662a20ee328d1257260b9">mass_matrix_triple_diag_reciprocal</a></td></tr>
-<tr class="separator:a2467b1af320662a20ee328d1257260b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b3cd0403b9f0801c2f37e4ec12960a"><td class="memItemLeft" align="right" valign="top">Vector&lt; RangeNumberType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#ac2b3cd0403b9f0801c2f37e4ec12960a">v1</a></td></tr>
-<tr class="separator:ac2b3cd0403b9f0801c2f37e4ec12960a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985b646a5fbd80ae35e25b1866010d6d"><td class="memItemLeft" align="right" valign="top">Vector&lt; RangeNumberType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a985b646a5fbd80ae35e25b1866010d6d">v2</a></td></tr>
-<tr class="separator:a985b646a5fbd80ae35e25b1866010d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c4fbdf1c2fc80f5903524a49899273"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#af0c4fbdf1c2fc80f5903524a49899273">coupling_matrix</a></td></tr>
+<tr class="separator:af0c4fbdf1c2fc80f5903524a49899273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26775584f389c37c053d5cb563f0602d"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a26775584f389c37c053d5cb563f0602d">averaging_matrix</a></td></tr>
+<tr class="separator:a26775584f389c37c053d5cb563f0602d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc877cd03ced83e4448789e247ca189d"><td class="memItemLeft" align="right" valign="top">SparseMatrix&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#acc877cd03ced83e4448789e247ca189d">mass_matrix</a></td></tr>
+<tr class="separator:acc877cd03ced83e4448789e247ca189d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc790d973fb7b4459ecf4c50034734b2"><td class="memItemLeft" align="right" valign="top">Vector&lt; real_type &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#acc790d973fb7b4459ecf4c50034734b2">mass_matrix_triple_diag_reciprocal</a></td></tr>
+<tr class="separator:acc790d973fb7b4459ecf4c50034734b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bf512bc430e9dd58f532e77ffc6259"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Vector&lt; RangeNumberType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#a58bf512bc430e9dd58f532e77ffc6259">v1</a></td></tr>
+<tr class="separator:a58bf512bc430e9dd58f532e77ffc6259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae280cd8bf8b422262a61bfc45d353f07"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Vector&lt; RangeNumberType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOperatorPreconditioner_1_1MassMatrixTriple.html#ae280cd8bf8b422262a61bfc45d353f07">v2</a></td></tr>
+<tr class="separator:ae280cd8bf8b422262a61bfc45d353f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType, typename KernelNumberType&gt;<br />
-class OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple</div><p >This class encapsulates the product of three matrices: \(C_d M_r
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim, int spacedim, typename RangeNumberType&gt;<br />
+class OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple</div><p >This class encapsulates the product of three matrices: \(C_d M_r
 C_p^{\mathrm{T}}\). </p>
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00438">438</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00451">451</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5525c561079725e81a84f2735632fdfa" name="a5525c561079725e81a84f2735632fdfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5525c561079725e81a84f2735632fdfa">&#9670;&nbsp;</a></span>MassMatrixTriple()</h2>
+<a id="a38c25bde9781065fea03b79e1a5468ee" name="a38c25bde9781065fea03b79e1a5468ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c25bde9781065fea03b79e1a5468ee">&#9670;&nbsp;</a></span>MassMatrixTriple()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::MassMatrixTriple </td>
+          <td class="memname"><a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::MassMatrixTriple </td>
           <td>(</td>
           <td class="paramtype">SparseMatrix&lt; real_type &gt; &amp;&#160;</td>
           <td class="paramname"><em>coupling_matrix</em>, </td>
@@ -256,53 +257,24 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00441">441</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
-
-</div>
-</div>
-<a id="afdb5dbf8e4af06931c8f5c51c5ef25c0" name="afdb5dbf8e4af06931c8f5c51c5ef25c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdb5dbf8e4af06931c8f5c51c5ef25c0">&#9670;&nbsp;</a></span>~MassMatrixTriple()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::~MassMatrixTriple </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
 <p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00454">454</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a404d4e53ae609142f606e09207683079" name="a404d4e53ae609142f606e09207683079"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a404d4e53ae609142f606e09207683079">&#9670;&nbsp;</a></span>precondition_Jacobi()</h2>
+<a id="a874072cbce3b87fcfdbec1a10a6983c0" name="a874072cbce3b87fcfdbec1a10a6983c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874072cbce3b87fcfdbec1a10a6983c0">&#9670;&nbsp;</a></span>precondition_Jacobi()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::precondition_Jacobi </td>
+          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::precondition_Jacobi </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; RangeNumberType &gt; &amp;&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
@@ -332,23 +304,23 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00486">486</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00493">493</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
-<a id="ab2ffd39fb526927a2bc804a9145ffef5" name="ab2ffd39fb526927a2bc804a9145ffef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ffd39fb526927a2bc804a9145ffef5">&#9670;&nbsp;</a></span>reinit()</h2>
+<a id="ae13e249f863127d095e6267cc880bb29" name="ae13e249f863127d095e6267cc880bb29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13e249f863127d095e6267cc880bb29">&#9670;&nbsp;</a></span>reinit()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::reinit </td>
+          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::reinit </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -363,25 +335,25 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Reinitialize intermediate vectors.</p>
 <p >This function should be called after building the matrices used in operator preconditioning. </p>
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00467">467</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00474">474</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="operator__preconditioner_8h_source.html#l00513">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::v1</a>, and <a class="el" href="operator__preconditioner_8h_source.html#l00517">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::v2</a>.</p>
+<p class="reference">References <a class="el" href="operator__preconditioner_8h_source.html#l00520">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::v1</a>, and <a class="el" href="operator__preconditioner_8h_source.html#l00524">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::v2</a>.</p>
 
 </div>
 </div>
-<a id="a5a724d5ad6902280eae492260f4ef00d" name="a5a724d5ad6902280eae492260f4ef00d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a724d5ad6902280eae492260f4ef00d">&#9670;&nbsp;</a></span>vmult()</h2>
+<a id="af53b3b52cbb0bfc90ad4ec2aed290a45" name="af53b3b52cbb0bfc90ad4ec2aed290a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53b3b52cbb0bfc90ad4ec2aed290a45">&#9670;&nbsp;</a></span>vmult()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::vmult </td>
+          <td class="memname">void <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::vmult </td>
           <td>(</td>
           <td class="paramtype">Vector&lt; RangeNumberType &gt; &amp;&#160;</td>
           <td class="paramname"><em>y</em>, </td>
@@ -405,24 +377,24 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00474">474</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00481">481</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="afee91133651981f1a401a2a7b65372e7" name="afee91133651981f1a401a2a7b65372e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afee91133651981f1a401a2a7b65372e7">&#9670;&nbsp;</a></span>averaging_matrix</h2>
+<a id="a26775584f389c37c053d5cb563f0602d" name="a26775584f389c37c053d5cb563f0602d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26775584f389c37c053d5cb563f0602d">&#9670;&nbsp;</a></span>averaging_matrix</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::averaging_matrix</td>
+          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::averaging_matrix</td>
         </tr>
       </table>
   </td>
@@ -432,23 +404,23 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00506">506</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00513">513</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
-<a id="a6b56af4c6158bdf8bed5ff2adfeebc2f" name="a6b56af4c6158bdf8bed5ff2adfeebc2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b56af4c6158bdf8bed5ff2adfeebc2f">&#9670;&nbsp;</a></span>coupling_matrix</h2>
+<a id="af0c4fbdf1c2fc80f5903524a49899273" name="af0c4fbdf1c2fc80f5903524a49899273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c4fbdf1c2fc80f5903524a49899273">&#9670;&nbsp;</a></span>coupling_matrix</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::coupling_matrix</td>
+          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::coupling_matrix</td>
         </tr>
       </table>
   </td>
@@ -458,23 +430,23 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00505">505</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00512">512</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
-<a id="a5372a0be69d20b9e0d4858343ad27179" name="a5372a0be69d20b9e0d4858343ad27179"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5372a0be69d20b9e0d4858343ad27179">&#9670;&nbsp;</a></span>mass_matrix</h2>
+<a id="acc877cd03ced83e4448789e247ca189d" name="acc877cd03ced83e4448789e247ca189d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc877cd03ced83e4448789e247ca189d">&#9670;&nbsp;</a></span>mass_matrix</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::mass_matrix</td>
+          <td class="memname">SparseMatrix&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::mass_matrix</td>
         </tr>
       </table>
   </td>
@@ -484,23 +456,23 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00507">507</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00514">514</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
-<a id="a2467b1af320662a20ee328d1257260b9" name="a2467b1af320662a20ee328d1257260b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2467b1af320662a20ee328d1257260b9">&#9670;&nbsp;</a></span>mass_matrix_triple_diag_reciprocal</h2>
+<a id="acc790d973fb7b4459ecf4c50034734b2" name="acc790d973fb7b4459ecf4c50034734b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc790d973fb7b4459ecf4c50034734b2">&#9670;&nbsp;</a></span>mass_matrix_triple_diag_reciprocal</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Vector&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::mass_matrix_triple_diag_reciprocal</td>
+          <td class="memname">Vector&lt;real_type&gt;&amp; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::mass_matrix_triple_diag_reciprocal</td>
         </tr>
       </table>
   </td>
@@ -510,23 +482,23 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00508">508</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00515">515</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
 </div>
 </div>
-<a id="ac2b3cd0403b9f0801c2f37e4ec12960a" name="ac2b3cd0403b9f0801c2f37e4ec12960a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b3cd0403b9f0801c2f37e4ec12960a">&#9670;&nbsp;</a></span>v1</h2>
+<a id="a58bf512bc430e9dd58f532e77ffc6259" name="a58bf512bc430e9dd58f532e77ffc6259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bf512bc430e9dd58f532e77ffc6259">&#9670;&nbsp;</a></span>v1</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Vector&lt;RangeNumberType&gt;* <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::v1</td>
+          <td class="memname">std::unique_ptr&lt;Vector&lt;RangeNumberType&gt; &gt; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::v1</td>
         </tr>
       </table>
   </td>
@@ -537,25 +509,25 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >The result vector of \(C_p^{\mathrm{T}}x\). </p>
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00513">513</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00520">520</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="operator__preconditioner_8h_source.html#l00467">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::reinit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="operator__preconditioner_8h_source.html#l00474">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::reinit()</a>.</p>
 
 </div>
 </div>
-<a id="a985b646a5fbd80ae35e25b1866010d6d" name="a985b646a5fbd80ae35e25b1866010d6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a985b646a5fbd80ae35e25b1866010d6d">&#9670;&nbsp;</a></span>v2</h2>
+<a id="ae280cd8bf8b422262a61bfc45d353f07" name="ae280cd8bf8b422262a61bfc45d353f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae280cd8bf8b422262a61bfc45d353f07">&#9670;&nbsp;</a></span>v2</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Vector&lt;RangeNumberType&gt;* <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::v2</td>
+          <td class="memname">std::unique_ptr&lt;Vector&lt;RangeNumberType&gt; &gt; <a class="el" href="classOperatorPreconditioner.html">OperatorPreconditioner</a>&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::v2</td>
         </tr>
       </table>
   </td>
@@ -566,9 +538,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >The result vector of \(M_r v_1\). </p>
 
-<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00517">517</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="operator__preconditioner_8h_source.html#l00524">524</a> of file <a class="el" href="operator__preconditioner_8h_source.html">operator_preconditioner.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="operator__preconditioner_8h_source.html#l00467">OperatorPreconditioner&lt; dim, spacedim, KernelFunctionType, RangeNumberType, KernelNumberType &gt;::MassMatrixTriple::reinit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="operator__preconditioner_8h_source.html#l00474">OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;::MassMatrixTriple::reinit()</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['spacefillingcurvetype_0',['SpaceFillingCurveType',['../classHMatrix.html#a2b67e35d653ab864ae89c137ea3c8615',1,'HMatrix']]],
-  ['state_1',['State',['../hmatrix__support_8h.html#a8358c4882bca00f7e887d9b44e633aa0',1,'HMatrixSupport']]]
+  ['preconditionertype_0',['PreconditionerType',['../preconditioner__type_8h.html#a8b341faac6531c4543c9dc6e5e4592cf',1,'preconditioner_type.h']]],
+  ['problemtype_1',['ProblemType',['../types_8h.html#a4c669cb1cb4d98dfea944e9ceec7d33e',1,'types.h']]],
+  ['property_2',['Property',['../hmatrix__support_8h.html#a2651831f827cb8204df1771cf48301a2',1,'HMatrixSupport']]]
 ];

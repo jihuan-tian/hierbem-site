@@ -194,9 +194,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa324228e81cbbf5b69250442bc59acc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab625ab6921a7bccc313aecf04ff15a06"><td class="memItemLeft" align="right" valign="top">HBEM_ATTR_HOST void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#ab625ab6921a7bccc313aecf04ff15a06">add_task</a> (<a class="el" href="classLAPACKFullMatrixExt.html">LAPACKFullMatrixExt</a>&lt; RangeNumberType &gt; *fullmat, const unsigned int fullmat_row_index, const unsigned int fullmat_col_index, const <a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskScalarData.html">SauterQuadratureTaskScalarData</a> &amp;scalar_data, const real_type mass_matrix_entry, const <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data)</td></tr>
 <tr class="separator:ab625ab6921a7bccc313aecf04ff15a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcff108f5fefd93c583c981415125be3"><td class="memTemplParams" colspan="2">template&lt;template&lt; int, typename &gt; typename KernelFunctionType&gt; </td></tr>
-<tr class="memitem:abcff108f5fefd93c583c981415125be3"><td class="memTemplItemLeft" align="right" valign="top">HBEM_ATTR_HOST bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#abcff108f5fefd93c583c981415125be3">fetch_and_process_task_batch</a> (const KernelFunctionType&lt; spacedim, CUDAKernelNumberType &gt; &amp;kernel, const CUDAKernelNumberType kernel_factor, const unsigned int block_size, const <a class="el" href="classCUDAWrappers_1_1CUDABEMValues.html">CUDABEMValues</a>&lt; dim, spacedim, real_type &gt; &amp;bem_values, std::mutex &amp;result_lock, const cudaStream_t cuda_stream_handle)</td></tr>
-<tr class="separator:abcff108f5fefd93c583c981415125be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb2576a3480aaad8e5c0197e6740ffd"><td class="memTemplParams" colspan="2">template&lt;template&lt; int, typename &gt; typename KernelFunctionType&gt; </td></tr>
+<tr class="memitem:a3bb2576a3480aaad8e5c0197e6740ffd"><td class="memTemplItemLeft" align="right" valign="top">HBEM_ATTR_HOST bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#a3bb2576a3480aaad8e5c0197e6740ffd">fetch_and_process_task_batch</a> (const KernelFunctionType&lt; spacedim, CUDAKernelNumberType &gt; &amp;kernel, const CUDAKernelNumberType kernel_factor, const unsigned int block_size, const <a class="el" href="classCUDAWrappers_1_1CUDABEMValues.html">CUDABEMValues</a>&lt; dim, spacedim, real_type &gt; &amp;bem_values, const cudaStream_t cuda_stream_handle)</td></tr>
+<tr class="separator:a3bb2576a3480aaad8e5c0197e6740ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4361f03e4693a3842aa3cd03dc4e1724"><td class="memItemLeft" align="right" valign="top">HBEM_ATTR_HOST void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCUDAWrappers_1_1SauterQuadratureTaskRingBuffer.html#a4361f03e4693a3842aa3cd03dc4e1724">print_pointers</a> (LogStream &amp;log_stream) const</td></tr>
 <tr class="separator:a4361f03e4693a3842aa3cd03dc4e1724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -263,7 +263,7 @@ class CUDAWrappers::SauterQuadratureTaskRingBuffer&lt; capacity, dim, spacedim, 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02365">2365</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02366">2366</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5a65e936fdcc427f86a8bf950d04fd8e" name="a5a65e936fdcc427f86a8bf950d04fd8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a65e936fdcc427f86a8bf950d04fd8e">&#9670;&nbsp;</a></span>CUDAKernelNumberType</h2>
@@ -279,7 +279,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02370">2370</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02371">2371</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -297,7 +297,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02368">2368</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02369">2369</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -383,9 +383,9 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <li>Copy other scalar data.</li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04554">4554</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04556">4556</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="bem__tools_8h_source.html#l00092">BEMTools::cell_neighboring_type_name()</a>, <a class="el" href="sauter__quadrature_8hcu_source.html#l02332">CUDAWrappers::SauterQuadratureTaskScalarData::kx_mapping_n_shape_functions</a>, <a class="el" href="bem__values_8hcu_source.html#l01933">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::kx_mapping_support_points_permuted</a>, <a class="el" href="sauter__quadrature_8hcu_source.html#l02336">CUDAWrappers::SauterQuadratureTaskScalarData::ky_mapping_n_shape_functions</a>, and <a class="el" href="bem__values_8hcu_source.html#l01944">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::ky_mapping_support_points_permuted</a>.</p>
+<p class="reference">References <a class="el" href="bem__tools_8h_source.html#l00092">BEMTools::cell_neighboring_type_name()</a>, <a class="el" href="sauter__quadrature_8hcu_source.html#l02333">CUDAWrappers::SauterQuadratureTaskScalarData::kx_mapping_n_shape_functions</a>, <a class="el" href="bem__values_8hcu_source.html#l01933">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::kx_mapping_support_points_permuted</a>, <a class="el" href="sauter__quadrature_8hcu_source.html#l02337">CUDAWrappers::SauterQuadratureTaskScalarData::ky_mapping_n_shape_functions</a>, and <a class="el" href="bem__values_8hcu_source.html#l01944">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::ky_mapping_support_points_permuted</a>.</p>
 
 </div>
 </div>
@@ -432,14 +432,14 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04294">4294</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04296">4296</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l00145">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::mappings</a>.</p>
 
 </div>
 </div>
-<a id="abcff108f5fefd93c583c981415125be3" name="abcff108f5fefd93c583c981415125be3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcff108f5fefd93c583c981415125be3">&#9670;&nbsp;</a></span>fetch_and_process_task_batch()</h2>
+<a id="a3bb2576a3480aaad8e5c0197e6740ffd" name="a3bb2576a3480aaad8e5c0197e6740ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb2576a3480aaad8e5c0197e6740ffd">&#9670;&nbsp;</a></span>fetch_and_process_task_batch()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,12 +475,6 @@ template&lt;template&lt; int, typename &gt; typename KernelFunctionType&gt; </di
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::mutex &amp;&#160;</td>
-          <td class="paramname"><em>result_lock</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const cudaStream_t&#160;</td>
           <td class="paramname"><em>cuda_stream_handle</em>&#160;</td>
         </tr>
@@ -491,21 +485,14 @@ template&lt;template&lt; int, typename &gt; typename KernelFunctionType&gt; </di
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Fetch and process quadrature tasks from the ring buffer in batch.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">result_lock</td><td>This should be a mutex for a same set of ring buffers for the four types of cell neighboring types. Since for a same pair of global DoFs, it may be from pairs of cells having different neighboring types. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p >Fetch and process quadrature tasks from the ring buffer in batch. </p>
 <p >Set task status to be <code>during_processing</code>.</p>
 <p >Perform Sauter quadrature.</p>
 <p >N.B. In reality, because four ring buffers have been created for the four cell neighboring types, the current cell neighboring type is definite and only one case below is reachable.</p>
-<p >Copy the quadrature result data from the device to the host.</p>
-<p >Assemble the result to full matrix in \(\mathcal{H}\)-matrix node in serial.</p>
-<p >Assemble the result to full matrix in \(\mathcal{H}\)-matrix node in serial.</p>
+<p >Assemble the result to full matrix in \(\mathcal{H}\)-matrix node.</p>
+<p >Assemble the result to full matrix in \(\mathcal{H}\)-matrix node.</p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04734">4734</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04736">4736</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="bem__tools_8h_source.html#l00092">BEMTools::cell_neighboring_type_name()</a>.</p>
 
@@ -533,7 +520,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04538">4538</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04540">4540</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -559,7 +546,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04502">4502</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04504">4504</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -585,7 +572,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04520">4520</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04522">4522</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -614,7 +601,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l05278">5278</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l05345">5345</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -633,7 +620,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Release the memory on the host and device. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04381">4381</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04383">4383</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -659,7 +646,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04424">4424</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04426">4426</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -685,7 +672,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04465">4465</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04467">4467</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -711,7 +698,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04447">4447</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04449">4449</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -737,7 +724,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04484">4484</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l04486">4486</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -757,7 +744,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Number of tasks in a batch for fetching. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02628">2628</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02623">2623</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -776,7 +763,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Condition variable indicating the ring buffer not being empty and having enough number of tasks to be fetched and processed as a batch by a consumer thread. Then a consumer thread can start to wait for processing a batch of contiguous tasks (starting from the task pointed by <code>head_pending</code>) having been created. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02508">2508</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02503">2503</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -795,7 +782,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Mutex for protecting multi-threaded accesses to the ring buffer properties, but not the actual task data. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02493">2493</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02488">2488</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -814,7 +801,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Condition variable indicating the ring buffer not being full, i.e. a new task is allowed to be added from a producer thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02499">2499</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02494">2494</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -837,7 +824,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <dd>Within a ring buffer, all quadrature tasks have a same cell neighboring type, so that the CUDA threads can run in lockstep without branching.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02487">2487</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02482">2482</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -860,7 +847,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <dd>This array is located on the host, since it is only related to quadrature result assembly.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02583">2583</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02578">2578</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -883,7 +870,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <dd>This array is located on the host, since it is only related to quadrature result assembly.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02566">2566</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02561">2561</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -906,7 +893,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <dd>This array is located on the host, since it is only related to quadrature result assembly.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02574">2574</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02569">2569</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -925,7 +912,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Index of the head position in the ring buffer, which points to the first task being processed. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02634">2634</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02629">2629</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -944,7 +931,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Index of the head position in the ring buffer, from where a task can be claimed to fetch. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02640">2640</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02635">2635</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -967,7 +954,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <dd>This flag will be set to true when all producer threads have exited. After that, the consumer threads will be notified to fetch and process the remaining tasks in the buffer, the number of which may be smaller than the batch size.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02623">2623</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02618">2618</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -990,7 +977,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <li>Second dimension: point index in the permuted mapping support points in \(K_x\). </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02524">2524</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02519">2519</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1000,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <li>Second dimension: point index in the permuted mapping support points in \(K_x\). </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02546">2546</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02541">2541</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1036,7 +1023,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <li>Second dimension: point index in the permuted mapping support points in \(K_y\). </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02535">2535</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02530">2530</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1046,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 <li>Second dimension: point index in the permuted mapping support points in \(K_y\). </li>
 </ol>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02557">2557</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02552">2552</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1065,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Mass matrix entries </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02598">2598</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02593">2593</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1084,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Array of quadrature values on the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02603">2603</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02598">2598</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1103,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Array of quadrature values on the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02608">2608</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02603">2603</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1135,7 +1122,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Array of scalar data collections on the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02588">2588</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02583">2583</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1154,7 +1141,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Array of scalar data collections on the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02593">2593</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02588">2588</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1160,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Index of the tail position in the ring buffer, which points to the first task being created. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02646">2646</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02641">2641</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1192,7 +1179,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Index of the tail position in the ring buffer, at which a new task can be claimed to add. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02652">2652</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02647">2647</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>
@@ -1211,7 +1198,7 @@ template&lt;int capacity, int dim, int spacedim, typename RangeNumberType , type
 </div><div class="memdoc">
 <p >Array of atomic variables storing the task status in the ring buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02513">2513</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature_8hcu_source.html#l02508">2508</a> of file <a class="el" href="sauter__quadrature_8hcu_source.html">sauter_quadrature.hcu</a>.</p>
 
 </div>
 </div>

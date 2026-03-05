@@ -1,0 +1,9 @@
+<map id="OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;" name="OperatorPreconditioner&lt; dim, spacedim, RangeNumberType &gt;">
+<area shape="rect" id="node1" title="Abstract class for dual mesh operator preconditioning." alt="" coords="463,5,673,2459"/>
+<area shape="rect" id="node2" href="$classHyperSingularPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the hyper singular boun..." alt="" coords="300,2507,551,2701"/>
+<area shape="rect" id="node5" href="$classSingleLayerPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the single layer potent..." alt="" coords="585,2536,836,2672"/>
+<area shape="rect" id="node3" href="$classHelmholtzAcousticHyperSingularPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the hyper singular boundary inte..." alt="" coords="5,2779,275,2959"/>
+<area shape="rect" id="node4" href="$classLaplaceHyperSingularPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the hyper singular boundary inte..." alt="" coords="299,2801,551,2937"/>
+<area shape="rect" id="node6" href="$classHelmholtzAcousticSingleLayerPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the single layer potential bound..." alt="" coords="576,2749,845,2988"/>
+<area shape="rect" id="node7" href="$classLaplaceSingleLayerPreconditioner.html" title="Class for the dual mesh operator preconditioner, which preconditions the single layer potential bound..." alt="" coords="869,2801,1112,2937"/>
+</map>

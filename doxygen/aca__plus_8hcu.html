@@ -175,6 +175,7 @@ $(function() {
 <code>#include &lt;deal.II/fe/fe_update_flags.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/vector.h&gt;</code><br />
 <code>#include &lt;cuda_runtime.h&gt;</code><br />
+<code>#include &lt;nvtx3/nvToolsExt.h&gt;</code><br />
 <code>#include &lt;tbb/tbb.h&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
@@ -196,6 +197,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="bem__tools_8h_source.html">bem/bem_tools.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cu__bem__values_8hcu_source.html">bem/cu_bem_values.hcu</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
+<code>#include &quot;config_file/config_accessor.h&quot;</code><br />
 <code>#include &quot;hmatrix/aca_plus/aca_config.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="hmatrix_8h_source.html">hmatrix/hmatrix.h</a>&quot;</code><br />
 <code>#include &quot;linear_algebra/cu_table.hcu&quot;</code><br />
@@ -211,12 +213,14 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for aca_plus.hcu:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="aca__plus_8hcu__incl.svg" width="10380" height="827"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="aca__plus_8hcu__incl.svg" width="10298" height="842"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="aca__plus_8hcu__dep__incl.svg" width="424" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="aca__plus_8hcu__dep__incl.svg" width="1688" height="632"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="aca__plus_8hcu_source.html">Go to the source code of this file.</a></p>
@@ -287,15 +291,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a6428a269e829a9995aa8f2bfc4fa1b6a"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
 <tr class="memitem:a6428a269e829a9995aa8f2bfc4fa1b6a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a6428a269e829a9995aa8f2bfc4fa1b6a">aca_plus_parallel_sauter_quad_for_vector_entry</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, HierBEM::CUDAWrappers::CUDAPairCellWiseScratchData&lt; dim, spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;scratch_data_gpu, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
 <tr class="separator:a6428a269e829a9995aa8f2bfc4fa1b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd3713cd3e5b5a177a3571e01d55ebfe"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
-<tr class="memitem:acd3713cd3e5b5a177a3571e01d55ebfe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#acd3713cd3e5b5a177a3571e01d55ebfe">aca_plus_parallel_sauter_quad_for_vector_entry</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;kernel, const KernelNumberType kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, HierBEM::CUDAWrappers::CUDAPairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data_gpu, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
-<tr class="separator:acd3713cd3e5b5a177a3571e01d55ebfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471bd61193d976fd87338aea7643774b"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
+<tr class="memitem:a471bd61193d976fd87338aea7643774b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a471bd61193d976fd87338aea7643774b">aca_plus_parallel_sauter_quad_for_vector_entry</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, HierBEM::CUDAWrappers::CUDAPairCellWiseScratchData&lt; dim, spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;scratch_data_gpu, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
+<tr class="separator:a471bd61193d976fd87338aea7643774b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03dca24726be53cb76756baa595c49a9"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
 <tr class="memitem:a03dca24726be53cb76756baa595c49a9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a03dca24726be53cb76756baa595c49a9">aca_plus_parallel_sauter_quad_for_whole_vector</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="classBEMValues.html">BEMValues</a>&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
 <tr class="separator:a03dca24726be53cb76756baa595c49a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab15190d613396372594d0ae2ed49b748"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
-<tr class="memitem:ab15190d613396372594d0ae2ed49b748"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#ab15190d613396372594d0ae2ed49b748">aca_plus_parallel_sauter_quad_for_whole_vector</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;kernel, const KernelNumberType kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="classBEMValues.html">BEMValues</a>&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
-<tr class="separator:ab15190d613396372594d0ae2ed49b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac873c8983a867b4666e8349c0b8c1ce6"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
+<tr class="memitem:ac873c8983a867b4666e8349c0b8c1ce6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#ac873c8983a867b4666e8349c0b8c1ce6">aca_plus_parallel_sauter_quad_for_whole_vector</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const std::array&lt; types::global_dof_index, 2 &gt; &amp;row_dof_index_range, const std::array&lt; types::global_dof_index, 2 &gt; &amp;col_dof_index_range, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="classBEMValues.html">BEMValues</a>&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values, const HierBEM::CUDAWrappers::CUDABEMValues&lt; dim, spacedim, typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;bem_values_gpu, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, <a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;scratch_data, <a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a>&lt; dim, spacedim, KernelNumberType &gt; &amp;copy_data)</td></tr>
+<tr class="separator:ac873c8983a867b4666e8349c0b8c1ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c61817f34be4e110bbaa1b478061768"><td class="memTemplParams" colspan="2">template&lt;typename RangeNumberType  = double&gt; </td></tr>
 <tr class="memitem:a7c61817f34be4e110bbaa1b478061768"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a7c61817f34be4e110bbaa1b478061768">aca_plus</a> (<a class="el" href="classRkMatrix.html">RkMatrix</a>&lt; RangeNumberType &gt; &amp;rkmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const <a class="el" href="classLAPACKFullMatrixExt.html">LAPACKFullMatrixExt</a>&lt; RangeNumberType &gt; &amp;A)</td></tr>
 <tr class="separator:a7c61817f34be4e110bbaa1b478061768"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,18 +330,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a23bbf75055908b5a891d15bb0e165ada"><td class="memTemplParams" colspan="2">template&lt;int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </td></tr>
 <tr class="memitem:a23bbf75055908b5a891d15bb0e165ada"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a23bbf75055908b5a891d15bb0e165ada">stabilize_near_field_hmatrices_for_hypersingular_kernel</a> (const tbb::blocked_range&lt; typename std::vector&lt; <a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; * &gt;::iterator &gt; &amp;range, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const bool enable_build_symmetric_hmat=true)</td></tr>
 <tr class="separator:a23bbf75055908b5a891d15bb0e165ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8b4856a4eec9a8556a30c3917bba821"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
-<tr class="memitem:ad8b4856a4eec9a8556a30c3917bba821"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#ad8b4856a4eec9a8556a30c3917bba821">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;kernel, const KernelNumberType kernel_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
-<tr class="memdesc:ad8b4856a4eec9a8556a30c3917bba821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#ad8b4856a4eec9a8556a30c3917bba821">More...</a><br /></td></tr>
-<tr class="separator:ad8b4856a4eec9a8556a30c3917bba821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d38137c866826ac06288f167de4ec2"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
-<tr class="memitem:a75d38137c866826ac06288f167de4ec2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a75d38137c866826ac06288f167de4ec2">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;kernel, const KernelNumberType kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
-<tr class="memdesc:a75d38137c866826ac06288f167de4ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#a75d38137c866826ac06288f167de4ec2">More...</a><br /></td></tr>
-<tr class="separator:a75d38137c866826ac06288f167de4ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05276d9c7b897d5faf8ae7105e840459"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
-<tr class="memitem:a05276d9c7b897d5faf8ae7105e840459"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a05276d9c7b897d5faf8ae7105e840459">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;kernel, const KernelNumberType kernel_factor, const typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type mass_matrix_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const QGauss&lt; dim &gt; &amp;mass_matrix_quadrature_formula, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
-<tr class="memdesc:a05276d9c7b897d5faf8ae7105e840459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#a05276d9c7b897d5faf8ae7105e840459">More...</a><br /></td></tr>
-<tr class="separator:a05276d9c7b897d5faf8ae7105e840459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7decc4e39b1b4ce31871b02ffea92bc"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
+<tr class="memitem:ab7decc4e39b1b4ce31871b02ffea92bc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#ab7decc4e39b1b4ce31871b02ffea92bc">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
+<tr class="memdesc:ab7decc4e39b1b4ce31871b02ffea92bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#ab7decc4e39b1b4ce31871b02ffea92bc">More...</a><br /></td></tr>
+<tr class="separator:ab7decc4e39b1b4ce31871b02ffea92bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af88fc8d042e05dc3c1e050957fb5d47c"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
+<tr class="memitem:af88fc8d042e05dc3c1e050957fb5d47c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#af88fc8d042e05dc3c1e050957fb5d47c">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const std::vector&lt; Vector&lt; KernelNumberType &gt; &gt; &amp;mass_vmult_weq, const KernelNumberType stabilization_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
+<tr class="memdesc:af88fc8d042e05dc3c1e050957fb5d47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#af88fc8d042e05dc3c1e050957fb5d47c">More...</a><br /></td></tr>
+<tr class="separator:af88fc8d042e05dc3c1e050957fb5d47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b284868ea79f6d7475e7116d23b75a7"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
+<tr class="memitem:a1b284868ea79f6d7475e7116d23b75a7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a1b284868ea79f6d7475e7116d23b75a7">fill_hmatrix_with_aca_plus_serial</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type mass_matrix_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const QGauss&lt; dim &gt; &amp;mass_matrix_quadrature_formula, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
+<tr class="memdesc:a1b284868ea79f6d7475e7116d23b75a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#a1b284868ea79f6d7475e7116d23b75a7">More...</a><br /></td></tr>
+<tr class="separator:a1b284868ea79f6d7475e7116d23b75a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f5caeec8d5a4b2c765362954dfdf971"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename KernelFunctionType, typename RangeNumberType , typename KernelNumberType , typename <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &gt; </td></tr>
 <tr class="memitem:a5f5caeec8d5a4b2c765362954dfdf971"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="aca__plus_8hcu.html#a5f5caeec8d5a4b2c765362954dfdf971">fill_hmatrix_with_aca_plus_smp</a> (const unsigned int thread_num, <a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, RangeNumberType &gt; &amp;hmat, const <a class="el" href="structACAConfig.html">ACAConfig</a>&lt; typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type &gt; &amp;aca_config, const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;kernel, const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; kernel_factor, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;kx_dof_to_cell_topo, const <a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;ky_dof_to_cell_topo, const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;sauter_quad_rule, const DoFHandler&lt; dim, spacedim &gt; &amp;kx_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;ky_dof_handler, const std::vector&lt; types::global_dof_index &gt; *kx_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; *ky_map_from_local_to_full_dof_indices, const std::vector&lt; types::global_dof_index &gt; &amp;kx_dof_i2e_numbering, const std::vector&lt; types::global_dof_index &gt; &amp;ky_dof_i2e_numbering, const std::vector&lt; <a class="el" href="classMappingInfo.html">MappingInfo</a>&lt; dim, spacedim &gt; * &gt; &amp;mappings, const std::map&lt; types::material_id, unsigned int &gt; &amp;material_id_to_mapping_index, const <a class="el" href="classSurfaceNormalDetector.html">SurfaceNormalDetector</a> &amp;normal_detector, const bool enable_build_symmetric_hmat=false)</td></tr>
 <tr class="memdesc:a5f5caeec8d5a4b2c765362954dfdf971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the leaf set of the \(\mathcal{H}\)-matrix using ACA+, where the hierarchical structure of the \(\mathcal{H}\)-matrix has been built with respect to a block cluster tree and the memory for the matrices in the leaf set has been allocated.  <a href="aca__plus_8hcu.html#a5f5caeec8d5a4b2c765362954dfdf971">More...</a><br /></td></tr>
@@ -393,7 +397,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p >The type used for matrix row and column indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00090">90</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00092">92</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 </div>
 </div>
@@ -496,9 +500,9 @@ template&lt;typename RangeNumberType  = double&gt; </div>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l05432">5432</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l05439">5439</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02471">RkMatrix&lt; Number &gt;::get_m()</a>, and <a class="el" href="rkmatrix_8h_source.html#l02479">RkMatrix&lt; Number &gt;::get_n()</a>.</p>
+<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02443">RkMatrix&lt; Number &gt;::get_m()</a>, and <a class="el" href="rkmatrix_8h_source.html#l02451">RkMatrix&lt; Number &gt;::get_n()</a>.</p>
 
 </div>
 </div>
@@ -715,14 +719,14 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02483">2483</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02487">2487</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>.</p>
 
 </div>
 </div>
-<a id="acd3713cd3e5b5a177a3571e01d55ebfe" name="acd3713cd3e5b5a177a3571e01d55ebfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd3713cd3e5b5a177a3571e01d55ebfe">&#9670;&nbsp;</a></span>aca_plus_parallel_sauter_quad_for_vector_entry() <span class="overload">[2/2]</span></h2>
+<a id="a471bd61193d976fd87338aea7643774b" name="a471bd61193d976fd87338aea7643774b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471bd61193d976fd87338aea7643774b">&#9670;&nbsp;</a></span>aca_plus_parallel_sauter_quad_for_vector_entry() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -744,13 +748,13 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>kernel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelNumberType&#160;</td>
+          <td class="paramtype">const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt;&#160;</td>
           <td class="paramname"><em>kernel_factor</em>, </td>
         </tr>
         <tr>
@@ -846,7 +850,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">HierBEM::CUDAWrappers::CUDAPairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">HierBEM::CUDAWrappers::CUDAPairCellWiseScratchData&lt; dim, spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>scratch_data_gpu</em>, </td>
         </tr>
         <tr>
@@ -954,7 +958,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l03191">3191</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l03195">3195</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 </div>
 </div>
@@ -1152,14 +1156,14 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l03890">3890</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l03896">3896</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
 
 </div>
 </div>
-<a id="ab15190d613396372594d0ae2ed49b748" name="ab15190d613396372594d0ae2ed49b748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab15190d613396372594d0ae2ed49b748">&#9670;&nbsp;</a></span>aca_plus_parallel_sauter_quad_for_whole_vector() <span class="overload">[2/2]</span></h2>
+<a id="ac873c8983a867b4666e8349c0b8c1ce6" name="ac873c8983a867b4666e8349c0b8c1ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac873c8983a867b4666e8349c0b8c1ce6">&#9670;&nbsp;</a></span>aca_plus_parallel_sauter_quad_for_whole_vector() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1181,13 +1185,13 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>kernel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelNumberType&#160;</td>
+          <td class="paramtype">const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt;&#160;</td>
           <td class="paramname"><em>kernel_factor</em>, </td>
         </tr>
         <tr>
@@ -1358,7 +1362,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 <p >Apply complex conjugation to the component matrix <code>B</code>, when we're dealing with complex values, because the rank-k matrix should take the form \(M=AB^{\mathrm{H}}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l04649">4649</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l04655">4655</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 </div>
 </div>
@@ -1487,7 +1491,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >Assemble a column vector by evaluating the Galerkin-BEM double integral with respect to the kernel. This version parallelizes over each vector element. </p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00765">765</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00768">768</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>.</p>
 
@@ -1630,9 +1634,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >Assemble a column vector by evaluating the Galerkin-BEM double integral with respect to the kernel. This version regularizes the kernel and parallelizes over each vector element. </p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00870">870</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00874">874</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00557">assemble_kernel_column()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00560">assemble_kernel_column()</a>.</p>
 
 </div>
 </div>
@@ -1789,9 +1793,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </dl>
 <p >Iterate over each row DoF index.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00557">557</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00560">560</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l00870">assemble_kernel_column()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l01733">random_select_ref_column()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l00874">assemble_kernel_column()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l01737">random_select_ref_column()</a>.</p>
 
 </div>
 </div>
@@ -1962,7 +1966,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </dl>
 <p >Iterate over each row DoF index.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00669">669</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00672">672</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 </div>
 </div>
@@ -2103,9 +2107,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >Assemble a row vector by evaluating the Galerkin-BEM double integral with respect to the kernel. This version regularizes the kernel and parallelizes over each vector element. </p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00450">450</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00453">453</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00125">assemble_kernel_row()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00127">assemble_kernel_row()</a>.</p>
 
 </div>
 </div>
@@ -2234,7 +2238,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </div><div class="memdoc">
 <p >Assemble a row vector by evaluating the Galerkin-BEM double integral with respect to the kernel. This version parallelizes over each vector element. </p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00341">341</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00343">343</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>.</p>
 
@@ -2420,7 +2424,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </dl>
 <p >Iterate over each column DoF index.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00242">242</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00244">244</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 </div>
 </div>
@@ -2577,9 +2581,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 </dl>
 <p >Iterate over each column DoF index.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00125">125</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00127">127</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l00450">assemble_kernel_row()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l00981">random_select_ref_row()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l00453">assemble_kernel_row()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l00985">random_select_ref_row()</a>.</p>
 
 </div>
 </div>
@@ -2731,9 +2735,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Define <code><a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a></code> and <code><a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a></code> which are local to the current working thread. This is mandatory because each current working thread should have its own copy of these data.</p>
 <p >Release pair cell wise scratch and copy data.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07507">7507</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07509">7509</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
 
 </div>
 </div>
@@ -2904,9 +2908,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Define <code><a class="el" href="classPairCellWiseScratchData.html">PairCellWiseScratchData</a></code> and <code><a class="el" href="classPairCellWisePerTaskData.html">PairCellWisePerTaskData</a></code> which are local to the current working thread. This is mandatory because each current working thread should have its own copy of these data.</p>
 <p >Release pair cell wise scratch and copy data.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07632">7632</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07634">7634</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>.</p>
 
 </div>
 </div>
@@ -3038,11 +3042,11 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Do not build \(\mathcal{H}\)-matrix block belonging to the upper triangular part.</p>
 <p >An rank-k matrix cannot belong to the diagonal part.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07151">7151</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07155">7155</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l03890">aca_plus_parallel_sauter_quad_for_whole_vector()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l03896">aca_plus_parallel_sauter_quad_for_whole_vector()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07507">fill_far_field_hmatrix_leaf_node_subrange_with_aca_plus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07509">fill_far_field_hmatrix_leaf_node_subrange_with_aca_plus()</a>.</p>
 
 </div>
 </div>
@@ -3186,9 +3190,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Do not build \(\mathcal{H}\)-matrix block belonging to the upper triangular part.</p>
 <p >An rank-k matrix cannot belong to the diagonal part.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07321">7321</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07324">7324</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l03890">aca_plus_parallel_sauter_quad_for_whole_vector()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l03896">aca_plus_parallel_sauter_quad_for_whole_vector()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
 </div>
 </div>
@@ -3384,11 +3388,11 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Do not build \(\mathcal{H}\)-matrix block belonging to the upper triangular part.</p>
 <p >An rank-k matrix cannot belong to the diagonal part.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l05981">5981</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l05988">5988</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02483">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02487">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07910">fill_hmatrix_with_aca_plus_serial()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07912">fill_hmatrix_with_aca_plus_serial()</a>.</p>
 
 </div>
 </div>
@@ -3611,9 +3615,9 @@ T} \cdot [\gamma_0^{\rm ext}u], \]
 <p >Do not build \(\mathcal{H}\)-matrix block belonging to the upper triangular part.</p>
 <p >An rank-k matrix cannot belong to the diagonal part.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l06400">6400</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l06406">6406</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02483">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02487">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
 </div>
 </div>
@@ -3823,14 +3827,14 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Do not build \(\mathcal{H}\)-matrix block belonging to the upper triangular part.</p>
 <p >An rank-k matrix cannot belong to the diagonal part.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l06817">6817</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l06822">6822</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02483">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l02487">aca_plus_parallel_sauter_quad_for_vector_entry()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l19772">HMatrix&lt; spacedim, Number &gt;::get_rkmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
 </div>
 </div>
-<a id="ad8b4856a4eec9a8556a30c3917bba821" name="ad8b4856a4eec9a8556a30c3917bba821"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8b4856a4eec9a8556a30c3917bba821">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[1/3]</span></h2>
+<a id="ab7decc4e39b1b4ce31871b02ffea92bc" name="ab7decc4e39b1b4ce31871b02ffea92bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7decc4e39b1b4ce31871b02ffea92bc">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3852,13 +3856,13 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>kernel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelNumberType&#160;</td>
+          <td class="paramtype">const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt;&#160;</td>
           <td class="paramname"><em>kernel_factor</em>, </td>
         </tr>
         <tr>
@@ -4001,14 +4005,14 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Release BEM values on the GPU device.</p>
 <p >Release pair cell wise scratch and copy data on the GPU device.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07910">7910</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07912">7912</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35948">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
+<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35904">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
 
 </div>
 </div>
-<a id="a75d38137c866826ac06288f167de4ec2" name="a75d38137c866826ac06288f167de4ec2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75d38137c866826ac06288f167de4ec2">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[2/3]</span></h2>
+<a id="af88fc8d042e05dc3c1e050957fb5d47c" name="af88fc8d042e05dc3c1e050957fb5d47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88fc8d042e05dc3c1e050957fb5d47c">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4030,13 +4034,13 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>kernel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelNumberType&#160;</td>
+          <td class="paramtype">const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt;&#160;</td>
           <td class="paramname"><em>kernel_factor</em>, </td>
         </tr>
         <tr>
@@ -4208,14 +4212,14 @@ T} \cdot [\gamma_0^{\rm ext}u], \]
 <p >Release BEM values on the GPU device.</p>
 <p >Release pair cell wise scratch and copy data.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08093">8093</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08098">8098</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35948">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
+<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35904">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
 
 </div>
 </div>
-<a id="a05276d9c7b897d5faf8ae7105e840459" name="a05276d9c7b897d5faf8ae7105e840459"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05276d9c7b897d5faf8ae7105e840459">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[3/3]</span></h2>
+<a id="a1b284868ea79f6d7475e7116d23b75a7" name="a1b284868ea79f6d7475e7116d23b75a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b284868ea79f6d7475e7116d23b75a7">&#9670;&nbsp;</a></span>fill_hmatrix_with_aca_plus_serial() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4237,13 +4241,13 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelFunctionType&lt; spacedim, KernelNumberType &gt; &amp;&#160;</td>
+          <td class="paramtype">const KernelFunctionType&lt; spacedim, <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>kernel</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const KernelNumberType&#160;</td>
+          <td class="paramtype">const <a class="el" href="number__traits_8h.html#ab896ee1703adea3163468de8e5a71152">DeviceNumberType</a>&lt; KernelNumberType &gt;&#160;</td>
           <td class="paramname"><em>kernel_factor</em>, </td>
         </tr>
         <tr>
@@ -4404,9 +4408,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Release BEM values on the GPU device.</p>
 <p >Release pair cell wise scratch and copy data.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08267">8267</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08275">8275</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35948">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
+<p class="reference">References <a class="el" href="bem__values_8hcu_source.html#l01895">PairCellWiseScratchData&lt; dim, spacedim, KernelNumberType &gt;::cuda_stream_handle</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="hmatrix_8h_source.html#l35904">HMatrix&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
 
 </div>
 </div>
@@ -4586,11 +4590,11 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Copy the precalculated BEM values to the GPU device.</p>
 <p >Release BEM values on the GPU device.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08455">8455</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08466">8466</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34835">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34791">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="laplace__bem_8priv_8hcu_source.html#l01250">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv::compute_stabilization_terms_for_D1_hmat()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="bem__bilinear__form_8h_source.html#l00311">BEMBilinearForm&lt; dim, spacedim &gt;::build_hmatrix()</a>, <a class="el" href="bem__bilinear__form_8h_source.html#l00379">BEMBilinearForm&lt; dim, spacedim &gt;::build_hmatrix_with_mass_matrix()</a>, and <a class="el" href="bem__bilinear__form_8h_source.html#l00452">BEMBilinearForm&lt; dim, spacedim &gt;::build_hmatrix_with_regularization()</a>.</p>
 
 </div>
 </div>
@@ -4789,9 +4793,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Copy the precalculated BEM values to the GPU device.</p>
 <p >Release BEM values on the GPU device.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08871">8871</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l08883">8883</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34835">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34791">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
 
 </div>
 </div>
@@ -4990,9 +4994,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >Copy the precalculated BEM values to the GPU device.</p>
 <p >Release BEM values on the GPU device.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l09318">9318</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l09330">9330</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34835">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l34791">HMatrix&lt; spacedim, Number &gt;::compute_near_field_leaf_set_assembly_task_costs()</a>, <a class="el" href="bem__values_8hcu_source.html#l00794">BEMValues&lt; dim, spacedim, RangeNumberType &gt;::fill_shape_function_value_tables()</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
 
 </div>
 </div>
@@ -5033,7 +5037,7 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 
 <p class="definition">Definition at line <a class="el" href="aca__plus_8cu_source.html#l00043">43</a> of file <a class="el" href="aca__plus_8cu_source.html">aca_plus.cu</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l01733">random_select_ref_column()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l00981">random_select_ref_row()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l01737">random_select_ref_column()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l00985">random_select_ref_row()</a>.</p>
 
 </div>
 </div>
@@ -5187,9 +5191,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one column index left, there is no reference column can be selected. Then return the invalid reference column index.</p>
 <p >Because the selected column for the next step is the same as the current reference column, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02065">2065</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02069">2069</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00557">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00560">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -5355,9 +5359,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one column index left, there is no reference column can be selected. Then return the invalid reference column index.</p>
 <p >Because the selected column for the next step is the same as the current reference column, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02213">2213</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02217">2217</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00557">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00560">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -5537,9 +5541,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one column index left, there is no reference column can be selected. Then return the invalid reference column index.</p>
 <p >Because the selected column for the next step is the same as the current reference column, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01733">1733</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01737">1737</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00557">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00560">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -5740,9 +5744,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one column index left, there is no reference column can be selected. Then return the invalid reference column index.</p>
 <p >Because the selected column for the next step is the same as the current reference column, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01914">1914</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01918">1918</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00557">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00560">assemble_kernel_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -5812,7 +5816,7 @@ template&lt;typename RangeNumberType  = double&gt; </div>
 <p >If there is only one column index left, there is no reference column can be selected. Then return the invalid reference column index.</p>
 <p >Because the selected column for the next step is the same as the current reference column, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02375">2375</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l02379">2379</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l02958">LAPACKFullMatrixExt&lt; Number &gt;::get_column()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
@@ -5980,9 +5984,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one row index left, there is no reference row can be selected. Then return the invalid reference row index.</p>
 <p >Because the selected row for the next step is the same as the current reference row, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01459">1459</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01463">1463</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00125">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00127">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -6136,9 +6140,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one row index left, there is no reference row can be selected. Then return the invalid reference row index.</p>
 <p >Because the selected row for the next step is the same as the current reference row, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01312">1312</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01316">1316</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00125">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00127">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -6339,9 +6343,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one row index left, there is no reference row can be selected. Then return the invalid reference row index.</p>
 <p >Because the selected row for the next step is the same as the current reference row, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01162">1162</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01166">1166</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00125">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00127">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -6521,9 +6525,9 @@ template&lt;int dim, int spacedim, template&lt; int, typename &gt; typename Kern
 <p >If there is only one row index left, there is no reference row can be selected. Then return the invalid reference row index.</p>
 <p >Because the selected row for the next step is the same as the current reference row, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00981">981</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l00985">985</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00125">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
+<p class="reference">References <a class="el" href="aca__plus_8hcu_source.html#l00127">assemble_kernel_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
 </div>
 </div>
@@ -6593,7 +6597,7 @@ template&lt;typename RangeNumberType  = double&gt; </div>
 <p >If there is only one row index left, there is no reference row can be selected. Then return the invalid reference row index.</p>
 <p >Because the selected row for the next step is the same as the current reference row, try another valid selection.</p>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01621">1621</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l01625">1625</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
 <p class="reference">References <a class="el" href="generic__functors_8h_source.html#l00192">erase_at()</a>, <a class="el" href="aca__plus_8cu_source.html#l00043">generate_random_index()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l02940">LAPACKFullMatrixExt&lt; Number &gt;::get_row()</a>, <a class="el" href="generic__functors_8h_source.html#l00142">size()</a>, and <a class="el" href="generic__functors_8h_source.html#l00157">value_at()</a>.</p>
 
@@ -6656,9 +6660,9 @@ template&lt;int spacedim, typename RangeNumberType , typename KernelNumberType &
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07744">7744</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aca__plus_8hcu_source.html#l07746">7746</a> of file <a class="el" href="aca__plus_8hcu_source.html">aca_plus.hcu</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l36011">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l35995">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, and <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l19656">HMatrix&lt; spacedim, Number &gt;::get_block_type()</a>, <a class="el" href="hmatrix_8h_source.html#l35967">HMatrix&lt; spacedim, Number &gt;::get_col_index_range()</a>, <a class="el" href="hmatrix_8h_source.html#l19815">HMatrix&lt; spacedim, Number &gt;::get_fullmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l19121">HMatrix&lt; spacedim, Number &gt;::get_property()</a>, <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>, <a class="el" href="hmatrix_8h_source.html#l35951">HMatrix&lt; spacedim, Number &gt;::get_row_index_range()</a>, and <a class="el" href="hmatrix_8h_source.html#l19052">HMatrix&lt; spacedim, Number &gt;::get_type()</a>.</p>
 
 </div>
 </div>

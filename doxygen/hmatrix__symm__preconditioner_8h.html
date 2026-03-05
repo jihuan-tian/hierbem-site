@@ -162,7 +162,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Symmetric \(\mathcal{H}\)-matrix by inheriting from <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, which is used as the preconditioner for SPD \(\mathcal{H}\)-matrices.  
+<p>Symmetric \(\mathcal{H}\)-matrix by inheriting from <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, which is used as the preconditioner for SPD \(\mathcal{H}\)-matrices in the real valued case or symmetric \(\mathcal{H}\)-matrices in the complex valued case.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;deal.II/base/numbers.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
@@ -170,12 +170,14 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for hmatrix_symm_preconditioner.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="hmatrix__symm__preconditioner_8h__incl.svg" width="7748" height="812"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="hmatrix__symm__preconditioner_8h__incl.svg" width="6718" height="812"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="hmatrix__symm__preconditioner_8h__dep__incl.svg" width="779" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="hmatrix__symm__preconditioner_8h__dep__incl.svg" width="986" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="hmatrix__symm__preconditioner_8h_source.html">Go to the source code of this file.</a></p>
@@ -186,8 +188,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Symmetric \(\mathcal{H}\)-matrix by inheriting from <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, which is used as the preconditioner for SPD \(\mathcal{H}\)-matrices. </p>
-<p >At the moment, its purpose is to wrap some member functions of <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, such as <code><a class="el" href="classHMatrix.html#adbbf34180ab8dc8c09a200b32c636ea9">HMatrix::vmult</a></code>, which will be used as preconditioner in <code><a class="el" href="classSolverCGGeneral.html">SolverCGGeneral</a></code>.</p>
+<div class="textblock"><p >Symmetric \(\mathcal{H}\)-matrix by inheriting from <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, which is used as the preconditioner for SPD \(\mathcal{H}\)-matrices in the real valued case or symmetric \(\mathcal{H}\)-matrices in the complex valued case. </p>
+<p >At the moment, its purpose is to wrap some member functions of <code><a class="el" href="classHMatrix.html">HMatrix</a></code>, such as <code><a class="el" href="classHMatrix.html#adbbf34180ab8dc8c09a200b32c636ea9">HMatrix::vmult</a></code>, which will be used as a preconditioner in <code><a class="el" href="classSolverCGGeneral.html">SolverCGGeneral</a></code>.</p>
 <dl class="section date"><dt>Date</dt><dd>2022-10-27 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jihuan Tian </dd></dl>
 

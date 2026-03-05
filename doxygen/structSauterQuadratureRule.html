@@ -166,19 +166,13 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3e2f2d1b0fb96caefcf69fcbca49a5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#ab3e2f2d1b0fb96caefcf69fcbca49a5e">SauterQuadratureRule</a> (const unsigned int same_panel_order, const unsigned int common_edge_order, const unsigned int common_vertex_order, const unsigned int regular_order)</td></tr>
 <tr class="separator:ab3e2f2d1b0fb96caefcf69fcbca49a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e2a1e7c71bb60eed944466ab2dfd64f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a5e2a1e7c71bb60eed944466ab2dfd64f">SauterQuadratureRule</a> (const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a> &amp;sauter_quad_rule)</td></tr>
-<tr class="separator:a5e2a1e7c71bb60eed944466ab2dfd64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad54750e334a79186e148757737e89e7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#ad54750e334a79186e148757737e89e7d">SauterQuadratureRule</a> (const <a class="el" href="structSauterQuadOrder.html">SauterQuadOrder</a> &amp;quad_order_)</td></tr>
+<tr class="separator:ad54750e334a79186e148757737e89e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aefc77252cf2344717d82b5012c46b0b5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#aefc77252cf2344717d82b5012c46b0b5">quad_order_for_same_panel</a></td></tr>
-<tr class="separator:aefc77252cf2344717d82b5012c46b0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a478807282ab9090499948edf60c52230"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a478807282ab9090499948edf60c52230">quad_order_for_common_edge</a></td></tr>
-<tr class="separator:a478807282ab9090499948edf60c52230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76af034c94d72c72c2e6f7e314167ad1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a76af034c94d72c72c2e6f7e314167ad1">quad_order_for_common_vertex</a></td></tr>
-<tr class="separator:a76af034c94d72c72c2e6f7e314167ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ccec786c4ef96538584c43e36fba831"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a5ccec786c4ef96538584c43e36fba831">quad_order_for_regular</a></td></tr>
-<tr class="separator:a5ccec786c4ef96538584c43e36fba831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f935837687f02c53b5d5bf643424e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSauterQuadOrder.html">SauterQuadOrder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a37f935837687f02c53b5d5bf643424e3">quad_order</a></td></tr>
+<tr class="separator:a37f935837687f02c53b5d5bf643424e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7102a432d79e066c08f973426b58fb"><td class="memItemLeft" align="right" valign="top">QGauss&lt; dim *2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a5b7102a432d79e066c08f973426b58fb">quad_rule_for_same_panel</a></td></tr>
 <tr class="separator:a5b7102a432d79e066c08f973426b58fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37ebfb605b0d3af7d674d35dc0582169"><td class="memItemLeft" align="right" valign="top">QGauss&lt; dim *2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSauterQuadratureRule.html#a37ebfb605b0d3af7d674d35dc0582169">quad_rule_for_common_edge</a></td></tr>
@@ -192,7 +186,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
 struct SauterQuadratureRule&lt; dim &gt;</div><p >Class for Sauter's quadrature rule, which is a collection of four <code>QGauss</code> rules in 4D space. </p>
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00035">35</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00048">48</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0e5f66996f5459d5b1403b742a151be6" name="a0e5f66996f5459d5b1403b742a151be6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e5f66996f5459d5b1403b742a151be6">&#9670;&nbsp;</a></span>SauterQuadratureRule() <span class="overload">[1/3]</span></h2>
@@ -208,7 +202,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00058">58</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00068">68</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
@@ -252,35 +246,43 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00070">70</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00077">77</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
-<a id="a5e2a1e7c71bb60eed944466ab2dfd64f" name="a5e2a1e7c71bb60eed944466ab2dfd64f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e2a1e7c71bb60eed944466ab2dfd64f">&#9670;&nbsp;</a></span>SauterQuadratureRule() <span class="overload">[3/3]</span></h2>
+<a id="ad54750e334a79186e148757737e89e7d" name="ad54750e334a79186e148757737e89e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54750e334a79186e148757737e89e7d">&#9670;&nbsp;</a></span>SauterQuadratureRule() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;<a class="el" href="structSauterQuadratureRule.html">::SauterQuadratureRule</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sauter_quad_rule</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structSauterQuadOrder.html">SauterQuadOrder</a> &amp;&#160;</td>
+          <td class="paramname"><em>quad_order_</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00086">86</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00093">93</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a478807282ab9090499948edf60c52230" name="a478807282ab9090499948edf60c52230"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a478807282ab9090499948edf60c52230">&#9670;&nbsp;</a></span>quad_order_for_common_edge</h2>
+<a id="a37f935837687f02c53b5d5bf643424e3" name="a37f935837687f02c53b5d5bf643424e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f935837687f02c53b5d5bf643424e3">&#9670;&nbsp;</a></span>quad_order</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,66 +290,12 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;::quad_order_for_common_edge</td>
+          <td class="memname"><a class="el" href="structSauterQuadOrder.html">SauterQuadOrder</a> <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;::quad_order</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00047">47</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
-
-</div>
-</div>
-<a id="a76af034c94d72c72c2e6f7e314167ad1" name="a76af034c94d72c72c2e6f7e314167ad1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76af034c94d72c72c2e6f7e314167ad1">&#9670;&nbsp;</a></span>quad_order_for_common_vertex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;::quad_order_for_common_vertex</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00048">48</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
-
-</div>
-</div>
-<a id="a5ccec786c4ef96538584c43e36fba831" name="a5ccec786c4ef96538584c43e36fba831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ccec786c4ef96538584c43e36fba831">&#9670;&nbsp;</a></span>quad_order_for_regular</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;::quad_order_for_regular</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00049">49</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
-
-</div>
-</div>
-<a id="aefc77252cf2344717d82b5012c46b0b5" name="aefc77252cf2344717d82b5012c46b0b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefc77252cf2344717d82b5012c46b0b5">&#9670;&nbsp;</a></span>quad_order_for_same_panel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int <a class="el" href="structSauterQuadratureRule.html">SauterQuadratureRule</a>&lt; dim &gt;::quad_order_for_same_panel</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00046">46</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00059">59</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +313,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00052">52</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00062">62</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +331,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00053">53</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00063">63</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
@@ -401,7 +349,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00054">54</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00064">64</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +367,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00051">51</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sauter__quadrature__tools_8h_source.html#l00061">61</a> of file <a class="el" href="sauter__quadrature__tools_8h_source.html">sauter_quadrature_tools.h</a>.</p>
 
 </div>
 </div>

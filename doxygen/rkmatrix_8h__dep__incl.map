@@ -1,25 +1,36 @@
 <map id="include/hmatrix/rkmatrix.h" name="include/hmatrix/rkmatrix.h">
-<area shape="rect" id="node1" title="Definition of rank&#45;k matrix." alt="" coords="888,5,1060,32"/>
-<area shape="rect" id="node2" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="890,80,1058,107"/>
-<area shape="rect" id="node3" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="167,556,307,597"/>
-<area shape="rect" id="node4" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="459,244,654,300"/>
-<area shape="rect" id="node10" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="1625,251,1760,293"/>
-<area shape="rect" id="node11" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="1059,556,1212,597"/>
-<area shape="rect" id="node14" href="$operator__preconditioner_8h.html" title=" " alt="" coords="1396,355,1568,397"/>
-<area shape="rect" id="node18" href="$hblockmatrix__skew__symm_8h.html" title="Introduction of hblockmatrix_skew_symm.h." alt="" coords="880,155,1068,196"/>
-<area shape="rect" id="node19" href="$hblockmatrix__skew__symm__preconditioner_8h.html" title="Introduction of hblockmatrix_skew_symm_preconditioner.h." alt="" coords="1093,155,1373,196"/>
-<area shape="rect" id="node20" href="$hmatrix__symm__preconditioner_8h.html" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices." alt="" coords="594,155,805,196"/>
-<area shape="rect" id="node21" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="1397,155,1551,196"/>
-<area shape="rect" id="node5" href="$ddm__efield__matrix_8h.html" title="Introduction of ddm_efield_matrix.h." alt="" coords="456,459,599,501"/>
-<area shape="rect" id="node6" href="$subdomain__hmatrix__for__charge__neutrality__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_charge_neutrality_eqn.h." alt="" coords="351,348,517,404"/>
-<area shape="rect" id="node7" href="$subdomain__hmatrix__for__global__preconditioning_8h.html" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="91,348,259,404"/>
-<area shape="rect" id="node9" href="$subdomain__hmatrix__for__transmission__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_transmission_eqn.h." alt="" coords="541,348,703,404"/>
-<area shape="rect" id="node8" href="$ddm__efield__global__preconditioner_8h.html" title="Introduction of ddm_efield_global_preconditioner.h." alt="" coords="46,459,275,501"/>
-<area shape="rect" id="node17" href="$aca__plus_8cu_source.html" title=" " alt="" coords="1592,355,1735,397"/>
-<area shape="rect" id="node12" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="1059,645,1212,687"/>
-<area shape="rect" id="node13" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="1070,735,1201,776"/>
-<area shape="rect" id="node15" href="$preconditioner__for__laplace__dirichlet_8h.html" title=" " alt="" coords="1400,452,1577,508"/>
-<area shape="rect" id="node16" href="$preconditioner__for__laplace__neumann_8h.html" title=" " alt="" coords="1199,452,1376,508"/>
-<area shape="rect" id="node22" href="$bem__general_8hcu_source.html" title=" " alt="" coords="1183,259,1378,285"/>
-<area shape="rect" id="node23" href="$sauter__quadrature_8cu_source.html" title=" " alt="" coords="1403,251,1548,293"/>
+<area shape="rect" id="node1" title="Definition of rank&#45;k matrix." alt="" coords="1251,5,1423,32"/>
+<area shape="rect" id="node2" href="$hmatrix_8h.html" title="Definition of hierarchical matrix." alt="" coords="1253,80,1421,107"/>
+<area shape="rect" id="node3" href="$build-hmatrix-on-subdomain_8cu.html" title="Example for building an H&#45;matrix on a subdomain which is specified by a set of material ids." alt="" coords="43,348,229,404"/>
+<area shape="rect" id="node4" href="$build-hmatrix_8cu.html" title="Example for building an H&#45;matrix." alt="" coords="253,355,409,397"/>
+<area shape="rect" id="node5" href="$bem__bilinear__form_8h.html" title="Definition of a class for BEM bilinear form." alt="" coords="702,459,871,501"/>
+<area shape="rect" id="node6" href="$helmholtz__acoustic__bem_8priv_8hcu_source.html" title=" " alt="" coords="807,660,990,701"/>
+<area shape="rect" id="node9" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="1638,660,1791,701"/>
+<area shape="rect" id="node12" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="2639,563,2779,605"/>
+<area shape="rect" id="node13" href="$subdomain__steklov__poincare__hmatrix_8h.html" title="Introduction of subdomain_steklov_poincare_hmatrix.h." alt="" coords="2368,244,2563,300"/>
+<area shape="rect" id="node19" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="559,251,694,293"/>
+<area shape="rect" id="node20" href="$operator__preconditioner_8h.html" title="Definition of the abstract class for dual mesh operator preconditioner." alt="" coords="1117,355,1289,397"/>
+<area shape="rect" id="node28" href="$hblockmatrix__skew__symm_8h.html" title="Definition of the class for the skew symmetric &#160;block &#45;matrix." alt="" coords="1753,563,1941,605"/>
+<area shape="rect" id="node29" href="$hblockmatrix__skew__symm__preconditioner_8h.html" title="Introduction of hblockmatrix_skew_symm_preconditioner.h." alt="" coords="1965,563,2245,605"/>
+<area shape="rect" id="node30" href="$hmatrix__symm__preconditioner_8h.html" title="Symmetric &#45;matrix by inheriting from HMatrix, which is used as the preconditioner for SPD &#45;matrices i..." alt="" coords="2181,155,2392,196"/>
+<area shape="rect" id="node31" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="876,155,1031,196"/>
+<area shape="rect" id="node7" href="$helmholtz__acoustic__bem_8impl_8hcu.html" title="Call member functions of pimpl from HelmholtzAcousticBEM." alt="" coords="807,749,990,791"/>
+<area shape="rect" id="node8" href="$helmholtz__acoustic__bem_8cu_source.html" title=" " alt="" coords="819,839,979,880"/>
+<area shape="rect" id="node10" href="$laplace__bem_8impl_8hcu.html" title="Implementation of pimpl member functions to be called by LaplaceBEM." alt="" coords="1638,749,1791,791"/>
+<area shape="rect" id="node11" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="1649,839,1780,880"/>
+<area shape="rect" id="node14" href="$ddm__efield__matrix_8h.html" title="Introduction of ddm_efield_matrix.h." alt="" coords="2515,459,2658,501"/>
+<area shape="rect" id="node15" href="$subdomain__hmatrix__for__charge__neutrality__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_charge_neutrality_eqn.h." alt="" coords="2470,348,2637,404"/>
+<area shape="rect" id="node16" href="$subdomain__hmatrix__for__global__preconditioning_8h.html" title="Introduction of subdomain_hmatrix_for_global_preconditioning.h." alt="" coords="2847,348,3015,404"/>
+<area shape="rect" id="node18" href="$subdomain__hmatrix__for__transmission__eqn_8h.html" title="Introduction of subdomain_hmatrix_for_transmission_eqn.h." alt="" coords="2661,348,2822,404"/>
+<area shape="rect" id="node17" href="$ddm__efield__global__preconditioner_8h.html" title="Introduction of ddm_efield_global_preconditioner.h." alt="" coords="2717,459,2947,501"/>
+<area shape="rect" id="node27" href="$aca__plus_8cu_source.html" title=" " alt="" coords="433,355,575,397"/>
+<area shape="rect" id="node21" href="$preconditioner__for__helmholtz__acoustic__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Helmholtz ..." alt="" coords="1221,556,1425,612"/>
+<area shape="rect" id="node22" href="$preconditioner__for__helmholtz__acoustic__single__layer__bio_8h_source.html" title=" " alt="" coords="803,556,995,612"/>
+<area shape="rect" id="node23" href="$preconditioner__for__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator." alt="" coords="1276,452,1444,508"/>
+<area shape="rect" id="node24" href="$preconditioner__for__laplace__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Laplace eq..." alt="" coords="1449,556,1626,612"/>
+<area shape="rect" id="node25" href="$preconditioner__for__laplace__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator in the La..." alt="" coords="1019,556,1197,612"/>
+<area shape="rect" id="node26" href="$preconditioner__for__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator." alt="" coords="980,452,1151,508"/>
+<area shape="rect" id="node32" href="$bem__general_8hcu_source.html" title=" " alt="" coords="1105,259,1300,285"/>
+<area shape="rect" id="node33" href="$cu__related_8cu_source.html" title=" " alt="" coords="887,251,1030,293"/>
+<area shape="rect" id="node34" href="$sauter__quadrature_8cu.html" title="Implementation of functions in include/quadrature/sauter_quadrature.hcu." alt="" coords="718,251,863,293"/>
 </map>

@@ -179,10 +179,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afb94486004a66de61e888e9482409a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68f0bde371c39cad1e5444b294a5b5e6"><td class="memItemLeft" align="right" valign="top">HBEM_ATTR_HOST HBEM_ATTR_DEV bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a68f0bde371c39cad1e5444b294a5b5e6">is_symmetric</a> () const</td></tr>
 <tr class="separator:a68f0bde371c39cad1e5444b294a5b5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e8038231bf63359c7f145715f66781"><td class="memItemLeft" align="right" valign="top">HBEM_ATTR_HOST HBEM_ATTR_DEV bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a49e8038231bf63359c7f145715f66781">needs_regularization</a> () const</td></tr>
+<tr class="separator:a49e8038231bf63359c7f145715f66781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79fb562601d35ca3eeacd6f0e535cd30"><td class="memItemLeft" align="right" valign="top">HBEM_ATTR_HOST HBEM_ATTR_DEV bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a79fb562601d35ca3eeacd6f0e535cd30">needs_stabilization_on_full_domain</a> () const</td></tr>
+<tr class="separator:a79fb562601d35ca3eeacd6f0e535cd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a77a8d3bc314778d4f12b0e034d306f60"><td class="memItemLeft" align="right" valign="top">const KernelType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a77a8d3bc314778d4f12b0e034d306f60">kernel_type</a></td></tr>
+<tr class="memitem:a77a8d3bc314778d4f12b0e034d306f60"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="types_8h.html#a20fb43c4dec0741b9e11a076701f19e9">KernelType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a77a8d3bc314778d4f12b0e034d306f60">kernel_type</a></td></tr>
 <tr class="separator:a77a8d3bc314778d4f12b0e034d306f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34ba96c69cac13e059a09ea6d612db5e"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html#a34ba96c69cac13e059a09ea6d612db5e">n_components</a></td></tr>
 <tr class="separator:a34ba96c69cac13e059a09ea6d612db5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,9 +198,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;int spacedim, typename KernelNumberType = double&gt;<br />
-class PlatformShared::LaplaceKernel::HyperSingularKernel&lt; spacedim, KernelNumberType &gt;</div><p >Kernel function for the hyper singular boundary integral operator. </p>
+class PlatformShared::LaplaceKernel::HyperSingularKernel&lt; spacedim, KernelNumberType &gt;</div><p >Kernel function of the hypersingular volume integral operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00286">286</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00330">330</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a1894e452ff3e466c9044c075d432dc16" name="a1894e452ff3e466c9044c075d432dc16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1894e452ff3e466c9044c075d432dc16">&#9670;&nbsp;</a></span>real_type</h2>
@@ -212,7 +216,7 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00289">289</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00333">333</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +246,7 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00296">296</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00341">341</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -253,17 +257,88 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int spacedim, typename KernelNumberType &gt; </div>
+template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">HBEM_ATTR_HOST HBEM_ATTR_DEV bool <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::is_symmetric</td>
+          <td class="memname">HBEM_ATTR_HOST HBEM_ATTR_DEV bool <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::is_symmetric </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Return whether the kernel function is symmetric.</p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00361">361</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00359">359</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+
+</div>
+</div>
+<a id="a49e8038231bf63359c7f145715f66781" name="a49e8038231bf63359c7f145715f66781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e8038231bf63359c7f145715f66781">&#9670;&nbsp;</a></span>needs_regularization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HBEM_ATTR_HOST HBEM_ATTR_DEV bool <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::needs_regularization </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Whether regularization is needed when source points and target points may overlap. </p>
+
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00369">369</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+
+</div>
+</div>
+<a id="a79fb562601d35ca3eeacd6f0e535cd30" name="a79fb562601d35ca3eeacd6f0e535cd30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79fb562601d35ca3eeacd6f0e535cd30">&#9670;&nbsp;</a></span>needs_stabilization_on_full_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HBEM_ATTR_HOST HBEM_ATTR_DEV bool <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::needs_stabilization_on_full_domain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Whether stabilization is needed when the operator is defined on the full domain. If needed, it means the operator lacks ellipticity. </p>
+
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00379">379</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +388,7 @@ template&lt;int spacedim, typename KernelNumberType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00320">320</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00388">388</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +415,7 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00291">291</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00335">335</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -353,12 +428,12 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
 template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const KernelType <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::kernel_type</td>
+          <td class="memname">const <a class="el" href="types_8h.html#a20fb43c4dec0741b9e11a076701f19e9">KernelType</a> <a class="el" href="classPlatformShared_1_1LaplaceKernel_1_1HyperSingularKernel.html">PlatformShared::LaplaceKernel::HyperSingularKernel</a>&lt; spacedim, KernelNumberType &gt;::kernel_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00292">292</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00337">337</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +451,7 @@ template&lt;int spacedim, typename KernelNumberType  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00293">293</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__kernels_8h_source.html#l00338">338</a> of file <a class="el" href="laplace__kernels_8h_source.html">laplace_kernels.h</a>.</p>
 
 </div>
 </div>

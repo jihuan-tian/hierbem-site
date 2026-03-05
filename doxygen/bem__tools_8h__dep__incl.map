@@ -1,23 +1,42 @@
 <map id="include/bem/bem_tools.h" name="include/bem/bem_tools.h">
-<area shape="rect" id="node1" title="Introduction of bem_tools.h." alt="" coords="647,5,814,32"/>
-<area shape="rect" id="node2" href="$bem__general_8hcu_source.html" title=" " alt="" coords="381,519,576,546"/>
-<area shape="rect" id="node3" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="874,795,1027,836"/>
-<area shape="rect" id="node9" href="$bem__values_8hcu_source.html" title=" " alt="" coords="269,169,459,196"/>
-<area shape="rect" id="node11" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="619,512,754,553"/>
-<area shape="rect" id="node13" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="251,423,405,464"/>
-<area shape="rect" id="node17" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="1125,423,1275,464"/>
-<area shape="rect" id="node21" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="823,80,993,121"/>
-<area shape="rect" id="node6" href="$operator__preconditioner_8h.html" title=" " alt="" coords="741,601,913,643"/>
-<area shape="rect" id="node4" href="$laplace__bem_8impl_8hcu_source.html" title=" " alt="" coords="1361,884,1514,925"/>
-<area shape="rect" id="node5" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="1372,973,1503,1015"/>
-<area shape="rect" id="node7" href="$preconditioner__for__laplace__dirichlet_8h.html" title=" " alt="" coords="735,691,913,747"/>
-<area shape="rect" id="node8" href="$preconditioner__for__laplace__neumann_8h.html" title=" " alt="" coords="989,691,1166,747"/>
-<area shape="rect" id="node10" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="499,341,693,367"/>
-<area shape="rect" id="node15" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="347,244,490,285"/>
-<area shape="rect" id="node16" href="$cu__debug__tools_8hcu_source.html" title=" " alt="" coords="246,333,373,375"/>
-<area shape="rect" id="node12" href="$aca__plus_8cu_source.html" title=" " alt="" coords="517,601,659,643"/>
-<area shape="rect" id="node14" href="$sauter__quadrature_8cu_source.html" title=" " alt="" coords="211,512,357,553"/>
-<area shape="rect" id="node18" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="971,512,1111,553"/>
-<area shape="rect" id="node19" href="$laplace__bem_8h.html" title="Implementation of BEM involving kernel functions and singular numerical quadratures." alt="" coords="1294,601,1447,643"/>
-<area shape="rect" id="node20" href="$dof__tools__ext_8cc_source.html" title=" " alt="" coords="1289,512,1415,553"/>
+<area shape="rect" id="node1" title="Introduction of bem_tools.h." alt="" coords="901,5,1067,32"/>
+<area shape="rect" id="node2" href="$bem__function__space_8h.html" title="Definition of a class for BEM function space." alt="" coords="2011,623,2186,665"/>
+<area shape="rect" id="node4" href="$helmholtz__acoustic__bem_8priv_8hcu_source.html" title=" " alt="" coords="535,928,718,969"/>
+<area shape="rect" id="node7" href="$laplace__bem_8priv_8hcu_source.html" title=" " alt="" coords="2661,928,2814,969"/>
+<area shape="rect" id="node10" href="$bem__general_8hcu_source.html" title=" " alt="" coords="633,527,828,553"/>
+<area shape="rect" id="node18" href="$bem__values_8hcu_source.html" title=" " alt="" coords="487,169,678,196"/>
+<area shape="rect" id="node20" href="$aca__plus_8hcu.html" title="Implement the ACA+ method proposed in Grasedyck, L. 2005. “Adaptive Recompression of &#45;Matrices for BE..." alt="" coords="954,519,1089,561"/>
+<area shape="rect" id="node24" href="$sauter__quadrature_8hcu_source.html" title=" " alt="" coords="404,423,559,464"/>
+<area shape="rect" id="node29" href="$dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h." alt="" coords="1613,423,1763,464"/>
+<area shape="rect" id="node40" href="$mapping__info_8h.html" title="Introduction of mapping_info.h." alt="" coords="1303,80,1473,121"/>
+<area shape="rect" id="node3" href="$bem__bilinear__form_8h.html" title="Definition of a class for BEM bilinear form." alt="" coords="2014,727,2183,769"/>
+<area shape="rect" id="node5" href="$helmholtz__acoustic__bem_8impl_8hcu.html" title="Call member functions of pimpl from HelmholtzAcousticBEM." alt="" coords="903,1017,1086,1059"/>
+<area shape="rect" id="node6" href="$helmholtz__acoustic__bem_8cu_source.html" title=" " alt="" coords="915,1107,1075,1148"/>
+<area shape="rect" id="node8" href="$laplace__bem_8impl_8hcu.html" title="Implementation of pimpl member functions to be called by LaplaceBEM." alt="" coords="3275,1017,3429,1059"/>
+<area shape="rect" id="node9" href="$laplace__bem_8cu_source.html" title=" " alt="" coords="3287,1107,3417,1148"/>
+<area shape="rect" id="node11" href="$operator__preconditioner_8h.html" title="Definition of the abstract class for dual mesh operator preconditioner." alt="" coords="1054,623,1226,665"/>
+<area shape="rect" id="node12" href="$preconditioner__for__helmholtz__acoustic__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Helmholtz ..." alt="" coords="1010,824,1214,880"/>
+<area shape="rect" id="node13" href="$preconditioner__for__helmholtz__acoustic__single__layer__bio_8h_source.html" title=" " alt="" coords="793,824,985,880"/>
+<area shape="rect" id="node14" href="$preconditioner__for__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator." alt="" coords="1499,720,1667,776"/>
+<area shape="rect" id="node15" href="$preconditioner__for__laplace__hyper__singular__bio_8h.html" title="Dual mesh operator preconditioner for the hyper singular boundary integral operator in the Laplace eq..." alt="" coords="2649,824,2826,880"/>
+<area shape="rect" id="node16" href="$preconditioner__for__laplace__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator in the La..." alt="" coords="1987,824,2165,880"/>
+<area shape="rect" id="node17" href="$preconditioner__for__single__layer__bio_8h.html" title="Dual mesh operator preconditioner for the single layer potential boundary integral operator." alt="" coords="1100,720,1271,776"/>
+<area shape="rect" id="node19" href="$bem__kernels_8hcu_source.html" title=" " alt="" coords="600,341,795,367"/>
+<area shape="rect" id="node27" href="$cu__bem__values_8hcu.html" title="Introduction of cu_bem_values.hcu." alt="" coords="511,244,654,285"/>
+<area shape="rect" id="node28" href="$cu__debug__tools_8hcu_source.html" title=" " alt="" coords="398,333,525,375"/>
+<area shape="rect" id="node21" href="$build-hmatrix-on-subdomain_8cu.html" title="Example for building an H&#45;matrix on a subdomain which is specified by a set of material ids." alt="" coords="1802,616,1987,672"/>
+<area shape="rect" id="node22" href="$build-hmatrix_8cu.html" title="Example for building an H&#45;matrix." alt="" coords="1519,623,1675,665"/>
+<area shape="rect" id="node23" href="$aca__plus_8cu_source.html" title=" " alt="" coords="1250,623,1393,665"/>
+<area shape="rect" id="node25" href="$cu__related_8cu_source.html" title=" " alt="" coords="415,519,558,561"/>
+<area shape="rect" id="node26" href="$sauter__quadrature_8cu.html" title="Implementation of functions in include/quadrature/sauter_quadrature.hcu." alt="" coords="246,519,391,561"/>
+<area shape="rect" id="node30" href="$build-block-cluster-tree_8cc.html" title="Example for building a block cluster tree." alt="" coords="1265,512,1423,568"/>
+<area shape="rect" id="node31" href="$cluster__tree__builder_8h.html" title="Definition of a class for building a cluster tree." alt="" coords="1903,519,2054,561"/>
+<area shape="rect" id="node32" href="$ddm__efield_8h.html" title="Introduction of ddm_efield.h." alt="" coords="2078,519,2218,561"/>
+<area shape="rect" id="node33" href="$helmholtz__acoustic__bem_8h.html" title="Definition of the class for solving the Helmholtz acoustic equation using BEM." alt="" coords="639,727,822,769"/>
+<area shape="rect" id="node34" href="$laplace__bem_8h.html" title="Definition of the class for solving the Laplace equation using BEM." alt="" coords="2665,519,2818,561"/>
+<area shape="rect" id="node39" href="$dof__tools__ext_8cc_source.html" title=" " alt="" coords="1447,519,1574,561"/>
+<area shape="rect" id="node35" href="$solve-laplace-dirichlet_8cu_source.html" title=" " alt="" coords="2939,623,3111,665"/>
+<area shape="rect" id="node36" href="$solve-laplace-mixed_8cu_source.html" title=" " alt="" coords="2363,623,2525,665"/>
+<area shape="rect" id="node37" href="$solve-laplace-neumann_8cu_source.html" title=" " alt="" coords="2550,623,2730,665"/>
+<area shape="rect" id="node38" href="$hbem__laplace_8cc_source.html" title=" " alt="" coords="2755,623,2915,665"/>
 </map>

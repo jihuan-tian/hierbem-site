@@ -170,23 +170,15 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:adbfd07d6fbab128abd4294b44cd96709"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">ProblemType</a> { <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709ac0f1d5bda6da590893229e3600e2021c">NeumannBCProblem</a>
-, <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709a7e5ccc35f10572ff144e40d8c6805cf5">DirichletBCProblem</a>
-, <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709a33c40f3ceb881b2c60315cdc9a7ae69f">MixedBCProblem</a>
-, <b>UndefinedProblem</b>
- }</td></tr>
-<tr class="separator:adbfd07d6fbab128abd4294b44cd96709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece05e6bddb54cccb1ac94085744d8bc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#aece05e6bddb54cccb1ac94085744d8bc">real_type</a> = typename numbers::NumberTraits&lt; RangeNumberType &gt;::real_type</td></tr>
 <tr class="separator:aece05e6bddb54cccb1ac94085744d8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a14588b308b3d4e11b474306daaf1bdcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a14588b308b3d4e11b474306daaf1bdcc">LaplaceBEM</a> ()</td></tr>
-<tr class="separator:a14588b308b3d4e11b474306daaf1bdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa30e99a828c31f377eb8c57a9c423fdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#aa30e99a828c31f377eb8c57a9c423fdf">LaplaceBEM</a> (unsigned int fe_order_for_dirichlet_space, unsigned int fe_order_for_neumann_space, <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">ProblemType</a> problem_type, bool is_interior_problem, unsigned int thread_num)</td></tr>
+<tr class="memitem:aa30e99a828c31f377eb8c57a9c423fdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#aa30e99a828c31f377eb8c57a9c423fdf">LaplaceBEM</a> (unsigned int fe_order_for_dirichlet_space, unsigned int fe_order_for_neumann_space, <a class="el" href="types_8h.html#a4c669cb1cb4d98dfea944e9ceec7d33e">ProblemType</a> problem_type, bool is_interior_problem, unsigned int thread_num)</td></tr>
 <tr class="memdesc:aa30e99a828c31f377eb8c57a9c423fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for solving Laplace problem using full matrix, which has only verification purpose.  <a href="classLaplaceBEM.html#aa30e99a828c31f377eb8c57a9c423fdf">More...</a><br /></td></tr>
 <tr class="separator:aa30e99a828c31f377eb8c57a9c423fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c8fab74aa8dae30921c0d4472951ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#ae0c8fab74aa8dae30921c0d4472951ba">LaplaceBEM</a> (unsigned int fe_order_for_dirichlet_space, unsigned int fe_order_for_neumann_space, <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">ProblemType</a> problem_type, bool is_interior_problem, unsigned int n_min_for_ct, unsigned int n_min_for_bct, real_type eta, unsigned int max_hmat_rank, real_type aca_relative_error, real_type eta_for_preconditioner, unsigned int max_hmat_rank_for_preconditioner, real_type aca_relative_error_for_preconditioner, unsigned int thread_num)</td></tr>
+<tr class="memitem:ae0c8fab74aa8dae30921c0d4472951ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#ae0c8fab74aa8dae30921c0d4472951ba">LaplaceBEM</a> (unsigned int fe_order_for_dirichlet_space, unsigned int fe_order_for_neumann_space, <a class="el" href="types_8h.html#a4c669cb1cb4d98dfea944e9ceec7d33e">ProblemType</a> problem_type, bool is_interior_problem, unsigned int n_min_for_ct, unsigned int n_min_for_bct, real_type eta, unsigned int max_hmat_rank, real_type aca_relative_error, real_type eta_for_preconditioner, unsigned int max_hmat_rank_for_preconditioner, real_type aca_relative_error_for_preconditioner, unsigned int thread_num)</td></tr>
 <tr class="memdesc:ae0c8fab74aa8dae30921c0d4472951ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for solving Laplace problem using \(\mathcal{H}\)-matrix.  <a href="classLaplaceBEM.html#ae0c8fab74aa8dae30921c0d4472951ba">More...</a><br /></td></tr>
 <tr class="separator:ae0c8fab74aa8dae30921c0d4472951ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ce88a1c2f57cd87cca856ba3fa3a097"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a0ce88a1c2f57cd87cca856ba3fa3a097">~LaplaceBEM</a> ()</td></tr>
@@ -223,9 +215,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1898ebea7d0fdc9611d761487e26e04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a553e7ac0167d03ff4c7b48aebada9526"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a553e7ac0167d03ff4c7b48aebada9526">output_results</a> () const</td></tr>
 <tr class="separator:a553e7ac0167d03ff4c7b48aebada9526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8f68376a466671056a57d4a877d9e59"><td class="memTemplParams" colspan="2">template&lt;int TargetDim&gt; </td></tr>
-<tr class="memitem:ad8f68376a466671056a57d4a877d9e59"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#ad8f68376a466671056a57d4a877d9e59">output_results_on_target_tria</a> (const std::string vtk_file, Triangulation&lt; TargetDim, spacedim &gt; &amp;tria) const</td></tr>
-<tr class="separator:ad8f68376a466671056a57d4a877d9e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7fdf10fc6f33ffb055c71f22297ba7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#adc7fdf10fc6f33ffb055c71f22297ba7">output_results_on_target_tria</a> (const std::string &amp;vtk_file, const Triangulation&lt; dim, spacedim &gt; &amp;tria, const unsigned int mapping_order) const</td></tr>
+<tr class="separator:adc7fdf10fc6f33ffb055c71f22297ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f6e0ff4b7849a78d68240fea021de1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a69f6e0ff4b7849a78d68240fea021de1">output_results_on_target_tria</a> (const std::string &amp;vtk_file, const Triangulation&lt; 3, spacedim &gt; &amp;tria, const unsigned int mapping_order) const</td></tr>
+<tr class="separator:a69f6e0ff4b7849a78d68240fea021de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b3ff180907c065a137e6fa1b7243977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a4b3ff180907c065a137e6fa1b7243977">run</a> ()</td></tr>
 <tr class="separator:a4b3ff180907c065a137e6fa1b7243977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16776c57ef5c8866b16dd7818affb533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a16776c57ef5c8866b16dd7818affb533">print_memory_consumption_table</a> (std::ostream &amp;out) const</td></tr>
@@ -282,6 +275,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac5cfda70ef28d54185d03ddba5b57be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71a838919b4e18706a595613bd24fe93"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a71a838919b4e18706a595613bd24fe93">get_dof_handler_neumann</a> ()</td></tr>
 <tr class="separator:a71a838919b4e18706a595613bd24fe93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75811b5e3eb65de46786a7785cab0568"><td class="memItemLeft" align="right" valign="top">const std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a75811b5e3eb65de46786a7785cab0568">get_dirichlet_bc_definition</a> () const</td></tr>
+<tr class="separator:a75811b5e3eb65de46786a7785cab0568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5da11079a9cfd12271903ef729fb22"><td class="memItemLeft" align="right" valign="top">std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a6c5da11079a9cfd12271903ef729fb22">get_dirichlet_bc_definition</a> ()</td></tr>
+<tr class="separator:a6c5da11079a9cfd12271903ef729fb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6725082f5b2cfce442a7ef18fb4973ff"><td class="memItemLeft" align="right" valign="top">const std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a6725082f5b2cfce442a7ef18fb4973ff">get_neumann_bc_definition</a> () const</td></tr>
+<tr class="separator:a6725082f5b2cfce442a7ef18fb4973ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73fb192c4848ff82b7ce98d17f0305d"><td class="memItemLeft" align="right" valign="top">std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#ad73fb192c4848ff82b7ce98d17f0305d">get_neumann_bc_definition</a> ()</td></tr>
+<tr class="separator:ad73fb192c4848ff82b7ce98d17f0305d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c571708455e0f7a7e4f3f446dbec145"><td class="memItemLeft" align="right" valign="top">const Vector&lt; RangeNumberType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#a5c571708455e0f7a7e4f3f446dbec145">get_dirichlet_data</a> () const</td></tr>
 <tr class="separator:a5c571708455e0f7a7e4f3f446dbec145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf12ebd0ed076f58c1f96b25deb23e1d"><td class="memItemLeft" align="right" valign="top">Vector&lt; RangeNumberType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#aaf12ebd0ed076f58c1f96b25deb23e1d">get_dirichlet_data</a> ()</td></tr>
@@ -295,8 +296,6 @@ Public Member Functions</h2></td></tr>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ab24cb581dcb6bb860989eed43be9be3b"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#ab24cb581dcb6bb860989eed43be9be3b">max_mapping_order</a> = 3</td></tr>
 <tr class="separator:ab24cb581dcb6bb860989eed43be9be3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabaca698d8650547a0037a1f546d74cb"><td class="memItemLeft" align="right" valign="top">static const types::material_id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaplaceBEM.html#aabaca698d8650547a0037a1f546d74cb">material_id_shift_for_interfacial_domain</a></td></tr>
-<tr class="separator:aabaca698d8650547a0037a1f546d74cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -322,60 +321,13 @@ template&lt;int dim, int spacedim, typename RangeNumberType  = double, typename 
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00071">71</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="adbfd07d6fbab128abd4294b44cd96709" name="adbfd07d6fbab128abd4294b44cd96709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbfd07d6fbab128abd4294b44cd96709">&#9670;&nbsp;</a></span>ProblemType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim, typename RangeNumberType  = double, typename KernelNumberType  = RangeNumberType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">LaplaceBEM::ProblemType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Enum for various types of Laplace problem </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adbfd07d6fbab128abd4294b44cd96709ac0f1d5bda6da590893229e3600e2021c" name="adbfd07d6fbab128abd4294b44cd96709ac0f1d5bda6da590893229e3600e2021c"></a>NeumannBCProblem&#160;</td><td class="fielddoc"><p >NeumannBCProblem. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="adbfd07d6fbab128abd4294b44cd96709a7e5ccc35f10572ff144e40d8c6805cf5" name="adbfd07d6fbab128abd4294b44cd96709a7e5ccc35f10572ff144e40d8c6805cf5"></a>DirichletBCProblem&#160;</td><td class="fielddoc"><p >DirichletBCProblem. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="adbfd07d6fbab128abd4294b44cd96709a33c40f3ceb881b2c60315cdc9a7ae69f" name="adbfd07d6fbab128abd4294b44cd96709a33c40f3ceb881b2c60315cdc9a7ae69f"></a>MixedBCProblem&#160;</td><td class="fielddoc"><p >MixedBCProblem. </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00063">63</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00060">60</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a14588b308b3d4e11b474306daaf1bdcc" name="a14588b308b3d4e11b474306daaf1bdcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14588b308b3d4e11b474306daaf1bdcc">&#9670;&nbsp;</a></span>LaplaceBEM() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;<a class="el" href="classLaplaceBEM.html">::LaplaceBEM</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Default constructor </p>
-
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00058">58</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
-
-</div>
-</div>
 <a id="aa30e99a828c31f377eb8c57a9c423fdf" name="aa30e99a828c31f377eb8c57a9c423fdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa30e99a828c31f377eb8c57a9c423fdf">&#9670;&nbsp;</a></span>LaplaceBEM() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30e99a828c31f377eb8c57a9c423fdf">&#9670;&nbsp;</a></span>LaplaceBEM() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +349,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">ProblemType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a4c669cb1cb4d98dfea944e9ceec7d33e">ProblemType</a>&#160;</td>
           <td class="paramname"><em>problem_type</em>, </td>
         </tr>
         <tr>
@@ -432,12 +384,12 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00068">68</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00057">57</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
 <a id="ae0c8fab74aa8dae30921c0d4472951ba" name="ae0c8fab74aa8dae30921c0d4472951ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0c8fab74aa8dae30921c0d4472951ba">&#9670;&nbsp;</a></span>LaplaceBEM() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0c8fab74aa8dae30921c0d4472951ba">&#9670;&nbsp;</a></span>LaplaceBEM() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,7 +411,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classLaplaceBEM.html#adbfd07d6fbab128abd4294b44cd96709">ProblemType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a4c669cb1cb4d98dfea944e9ceec7d33e">ProblemType</a>&#160;</td>
           <td class="paramname"><em>problem_type</em>, </td>
         </tr>
         <tr>
@@ -550,7 +502,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00088">88</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00077">77</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -569,7 +521,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Destructor, where DoF handlers are cleared. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00124">124</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00113">113</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -589,7 +541,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Assemble full matrix system, which is only for verification purpose. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00616">616</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00649">649</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -608,7 +560,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Assemble \(\mathcal{H}\)-matrix preconditioner. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00638">638</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00671">671</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -627,7 +579,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Assemble \(\mathcal{H}\)-matrix system. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00627">627</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00660">660</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -667,7 +619,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00513">513</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00546">546</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -709,7 +661,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00525">525</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00558">558</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -749,7 +701,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00537">537</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00570">570</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -789,7 +741,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00549">549</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00582">582</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -829,7 +781,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 <p >Extract the surface mesh from the given volume mesh.</p>
 <p >Before calling this function, the association between surface manifold objects and manifold ids should be configured, if there is any. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00487">487</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00520">520</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -847,7 +799,43 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00223">223</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00212">212</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+</div>
+</div>
+<a id="a6c5da11079a9cfd12271903ef729fb22" name="a6c5da11079a9cfd12271903ef729fb22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5da11079a9cfd12271903ef729fb22">&#9670;&nbsp;</a></span>get_dirichlet_bc_definition() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp; <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::get_dirichlet_bc_definition</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00419">419</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+</div>
+</div>
+<a id="a75811b5e3eb65de46786a7785cab0568" name="a75811b5e3eb65de46786a7785cab0568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75811b5e3eb65de46786a7785cab0568">&#9670;&nbsp;</a></span>get_dirichlet_bc_definition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp; <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::get_dirichlet_bc_definition</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00408">408</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -865,7 +853,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00430">430</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00463">463</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -883,7 +871,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00419">419</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00452">452</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -901,7 +889,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00386">386</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00375">375</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -919,7 +907,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00375">375</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00364">364</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -937,7 +925,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00408">408</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00397">397</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -955,7 +943,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00397">397</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00386">386</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -973,7 +961,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00278">278</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00267">267</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -991,7 +979,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00267">267</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00256">256</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +997,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00300">300</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00289">289</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1027,7 +1015,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00289">289</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00278">278</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1033,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00322">322</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00311">311</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1063,7 +1051,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00311">311</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00300">300</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1081,7 +1069,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00365">365</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00354">354</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1099,7 +1087,43 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00354">354</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00343">343</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+</div>
+</div>
+<a id="ad73fb192c4848ff82b7ce98d17f0305d" name="ad73fb192c4848ff82b7ce98d17f0305d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73fb192c4848ff82b7ce98d17f0305d">&#9670;&nbsp;</a></span>get_neumann_bc_definition() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp; <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::get_neumann_bc_definition</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00441">441</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+</div>
+</div>
+<a id="a6725082f5b2cfce442a7ef18fb4973ff" name="a6725082f5b2cfce442a7ef18fb4973ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6725082f5b2cfce442a7ef18fb4973ff">&#9670;&nbsp;</a></span>get_neumann_bc_definition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp; <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::get_neumann_bc_definition</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00430">430</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1117,7 +1141,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00451">451</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00484">484</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1135,7 +1159,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00441">441</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00474">474</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1185,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00201">201</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00190">190</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1179,7 +1203,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00256">256</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00245">245</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1221,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00245">245</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00234">234</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1215,7 +1239,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00343">343</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00332">332</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1233,7 +1257,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00332">332</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00321">321</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1275,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00572">572</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00605">605</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1293,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00583">583</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00616">616</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1288,7 +1312,9 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Interpolate Dirichlet boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00594">594</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00627">627</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="laplace__bem_8priv_8hcu_source.html#l01340">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv::setup_system()</a>.</p>
 
 </div>
 </div>
@@ -1307,7 +1333,9 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Interpolate Neumann boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00605">605</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00638">638</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="laplace__bem_8priv_8hcu_source.html#l01340">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv::setup_system()</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1361,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00135">135</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00124">124</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1359,7 +1387,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00157">157</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00146">146</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1377,31 +1405,35 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00659">659</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00692">692</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
-<a id="ad8f68376a466671056a57d4a877d9e59" name="ad8f68376a466671056a57d4a877d9e59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8f68376a466671056a57d4a877d9e59">&#9670;&nbsp;</a></span>output_results_on_target_tria()</h2>
+<a id="a69f6e0ff4b7849a78d68240fea021de1" name="a69f6e0ff4b7849a78d68240fea021de1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f6e0ff4b7849a78d68240fea021de1">&#9670;&nbsp;</a></span>output_results_on_target_tria() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
-<div class="memtemplate">
-template&lt;int TargetDim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::output_results_on_target_tria </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>vtk_file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Triangulation&lt; TargetDim, spacedim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tria</em>&#160;</td>
+          <td class="paramtype">const Triangulation&lt; 3, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tria</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>mapping_order</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1410,8 +1442,48 @@ template&lt;int TargetDim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Evaluate potentials on the target 3D triangulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00671">671</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00716">716</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+
+</div>
+</div>
+<a id="adc7fdf10fc6f33ffb055c71f22297ba7" name="adc7fdf10fc6f33ffb055c71f22297ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc7fdf10fc6f33ffb055c71f22297ba7">&#9670;&nbsp;</a></span>output_results_on_target_tria() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNumberType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::output_results_on_target_tria </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vtk_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Triangulation&lt; dim, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tria</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>mapping_order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Evaluate potentials and conormal traces on the target 2D triangulation. </p>
+
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00703">703</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1434,7 +1506,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Print out the memory consumption table. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00476">476</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00509">509</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1452,7 +1524,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00466">466</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00499">499</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1474,7 +1546,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00234">234</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00223">223</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1504,7 +1576,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00146">146</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00135">135</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1534,7 +1606,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00179">179</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00168">168</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1564,7 +1636,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00190">190</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00179">179</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1594,7 +1666,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00212">212</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00201">201</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1624,7 +1696,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00168">168</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00157">157</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1643,7 +1715,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 </div><div class="memdoc">
 <p >Prepare for matrix assembly, which includes: . initialization of DoF handlers . memory allocation for matrices </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00503">503</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00536">536</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1661,7 +1733,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00649">649</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00682">682</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
@@ -1681,38 +1753,11 @@ template&lt;int dim, int spacedim, typename RangeNumberType , typename KernelNum
 <p >Validate the subdomain topology.</p>
 <p >This function should be called before <code>setup_system</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00561">561</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8impl_8hcu_source.html#l00594">594</a> of file <a class="el" href="laplace__bem_8impl_8hcu_source.html">laplace_bem.impl.hcu</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aabaca698d8650547a0037a1f546d74cb" name="aabaca698d8650547a0037a1f546d74cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabaca698d8650547a0037a1f546d74cb">&#9670;&nbsp;</a></span>material_id_shift_for_interfacial_domain</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim, typename RangeNumberType  = double, typename KernelNumberType  = RangeNumberType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const types::material_id <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::material_id_shift_for_interfacial_domain</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >The large integer for shifting the material id in the interfacial domain \(\Omega_I\). </p>
-
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00084">84</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
-
-</div>
-</div>
 <a id="ab24cb581dcb6bb860989eed43be9be3b" name="ab24cb581dcb6bb860989eed43be9be3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab24cb581dcb6bb860989eed43be9be3b">&#9670;&nbsp;</a></span>max_mapping_order</h2>
 
@@ -1736,7 +1781,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType  = double, typename 
 </div><div class="memdoc">
 <p >Maximum mapping order used for representing curved manifolds. </p>
 
-<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00078">78</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="laplace__bem_8h_source.html#l00067">67</a> of file <a class="el" href="laplace__bem_8h_source.html">laplace_bem.h</a>.</p>
 
 </div>
 </div>

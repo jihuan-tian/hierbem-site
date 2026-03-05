@@ -1933,7 +1933,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >When the current block column is before the i'th column, solve \(L_{ij} L_{jj}^T = M_{ij}\) using the matrix-valued Cholesky transposed forward substitution.</p>
 <p >When coming to the diagonal block, go down one level of recursion for Cholesky factorization.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33804">33804</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33760">33760</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>.</p>
 
@@ -1998,7 +1998,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >When the current block column is before the i'th column, solve \(L_{ij} L_{jj}^T = M_{ij}\) using the matrix-valued Cholesky transposed forward substitution.</p>
 <p >When coming to the diagonal block, go down one level of recursion for Cholesky factorization.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33644">33644</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33600">33600</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04350">HMatrix&lt; spacedim, Number &gt;::fullmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04263">HMatrix&lt; spacedim, Number &gt;::property</a>, and <a class="el" href="hmatrix_8h_source.html#l04257">HMatrix&lt; spacedim, Number &gt;::state</a>.</p>
 
@@ -2031,7 +2031,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Internal recursive function to be called by </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line"><a class="code hl_function" href="classHMatrix.html#af2bf0581bcf6d1319b661d0f0527ffc9">HMatrix::compute_lu_factorization</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fixed_rank).</div>
-<div class="ttc" id="aclassHMatrix_html_af2bf0581bcf6d1319b661d0f0527ffc9"><div class="ttname"><a href="classHMatrix.html#af2bf0581bcf6d1319b661d0f0527ffc9">HMatrix::compute_lu_factorization</a></div><div class="ttdeci">void compute_lu_factorization(HMatrix&lt; spacedim, Number &gt; &amp;LU, const unsigned int fixed_rank)</div><div class="ttdef"><b>Definition:</b> <a href="hmatrix_8h_source.html#l32473">hmatrix.h:32473</a></div></div>
+<div class="ttc" id="aclassHMatrix_html_af2bf0581bcf6d1319b661d0f0527ffc9"><div class="ttname"><a href="classHMatrix.html#af2bf0581bcf6d1319b661d0f0527ffc9">HMatrix::compute_lu_factorization</a></div><div class="ttdeci">void compute_lu_factorization(HMatrix&lt; spacedim, Number &gt; &amp;LU, const unsigned int fixed_rank)</div><div class="ttdef"><b>Definition:</b> <a href="hmatrix_8h_source.html#l32429">hmatrix.h:32429</a></div></div>
 </div><!-- fragment --><p >This algorithm is in situ.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2051,7 +2051,7 @@ j\}\)-th column using the loop counter \(k\). The corresponding submatrix produc
 <p >When the current block column is i, go down one level of recursion for LU factorization.</p>
 <p >Solve \(L_{ii}U_{ij}=M_{ij}\) for \(L_{ii}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32615">32615</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32571">32571</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>.</p>
 
@@ -2116,7 +2116,7 @@ j\}\)-th column using the loop counter \(k\). The corresponding submatrix produc
 <p >When the current block column is i, go down one level of recursion for LU factorization.</p>
 <p >Solve \(L_{ii}U_{ij}=M_{ij}\) for \(L_{ii}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32504">32504</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32460">32460</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04350">HMatrix&lt; spacedim, Number &gt;::fullmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>.</p>
 
@@ -2221,7 +2221,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l18760">18760</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02555">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04403">HMatrix&lt; spacedim, Number &gt;::Sigma_F</a>, and <a class="el" href="hmatrix_8h_source.html#l04397">HMatrix&lt; spacedim, Number &gt;::Sigma_R</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02527">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04403">HMatrix&lt; spacedim, Number &gt;::Sigma_F</a>, and <a class="el" href="hmatrix_8h_source.html#l04397">HMatrix&lt; spacedim, Number &gt;::Sigma_R</a>.</p>
 
 </div>
 </div>
@@ -2290,7 +2290,7 @@ M_{k - 1,l}\).</p>
 <p >Stage 2: eliminate the upper triangular part of the matrix.</p>
 <p >Eliminate the elements \(M_{l-1,l}, \cdots, M_{1,l}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35424">35424</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35380">35380</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -2366,7 +2366,7 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Add the <a class="el" href="classHMatrix.html">HMatrix</a> <code>B</code> into the current <a class="el" href="classHMatrix.html">HMatrix</a> <code>A</code>, i.e. whole matrix addition instead of addition limited to a specific block, where <code>C</code> will be truncated to a fixed rank <code>fixed_rank</code>.</p>
+<p >Add the <a class="el" href="classHMatrix.html">HMatrix</a> <code>B</code> into the current <a class="el" href="classHMatrix.html">HMatrix</a> <code>A</code>, i.e. whole matrix addition instead of addition limited to a specific block, where the result matrix will be truncated to a fixed rank <code>fixed_rank</code>.</p>
 <p >This algorithm is intrinsically recursive, i.e. the addition of parent HMatrices will perform the addition of each pair of child HMatrices corresponding to a same block cluster. Strictly speaking, this member function <code>add</code> is not a recursive function, because the class instance which calls <code>add</code> changes from parent to child <a class="el" href="classHMatrix.html">HMatrix</a>.</p>
 <p >N.B. The two operands should have the same partition.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2376,10 +2376,6 @@ template&lt;int spacedim, typename Number &gt; </div>
   </table>
   </dd>
 </dl>
-<p ><b>Work flow</b></p>
-<p >Recursively add each pair of submatrices.</p>
-<p >Perform addition of full matrices.</p>
-<p >Perform addition of rank-k matrices.</p>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29529">29529</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
@@ -2427,12 +2423,8 @@ template&lt;int spacedim, typename Number &gt; </div>
   </table>
   </dd>
 </dl>
-<p ><b>Work flow</b></p>
-<p >Recursively add each pair of submatrices.</p>
-<p >Perform addition of full matrices.</p>
-<p >Perform addition of rank-k matrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29574">29574</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29552">29552</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04350">HMatrix&lt; spacedim, Number &gt;::fullmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04344">HMatrix&lt; spacedim, Number &gt;::rkmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04284">HMatrix&lt; spacedim, Number &gt;::submatrices</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
@@ -2488,9 +2480,9 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30103">30103</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30059">30059</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02471">RkMatrix&lt; Number &gt;::get_m()</a>.</p>
+<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02443">RkMatrix&lt; Number &gt;::get_m()</a>.</p>
 
 </div>
 </div>
@@ -2565,9 +2557,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Create a local rank-k matrix by restricting from the original large rank-k matrix.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29941">29941</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29897">29897</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02555">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02527">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
 </div>
 </div>
@@ -2616,9 +2608,9 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30068">30068</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30024">30024</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02471">RkMatrix&lt; Number &gt;::get_m()</a>.</p>
+<p class="reference">References <a class="el" href="rkmatrix_8h_source.html#l02443">RkMatrix&lt; Number &gt;::get_m()</a>.</p>
 
 </div>
 </div>
@@ -2687,9 +2679,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Create a local rank-k matrix by restricting from the original large rank-k matrix.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29620">29620</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29576">29576</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02555">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02527">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
 </div>
 </div>
@@ -2750,7 +2742,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04350">HMatrix&lt; spacedim, Number &gt;::fullmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04344">HMatrix&lt; spacedim, Number &gt;::rkmatrix</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l04284">HMatrix&lt; spacedim, Number &gt;::submatrices</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l30202">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, and <a class="el" href="hmatrix_8h_source.html#l29298">HMatrix&lt; spacedim, Number &gt;::mmult()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l30158">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, and <a class="el" href="hmatrix_8h_source.html#l29298">HMatrix&lt; spacedim, Number &gt;::mmult()</a>.</p>
 
 </div>
 </div>
@@ -2862,7 +2854,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30213">30213</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30169">30169</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>.</p>
 
@@ -2910,7 +2902,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30202">30202</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30158">30158</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>.</p>
 
@@ -2950,7 +2942,7 @@ template&lt;int spacedim, typename Number &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30085">30085</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30041">30041</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -3014,9 +3006,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Create a local rank-k matrix by restricting from the original large rank-k matrix.</p>
 <p >When we come to the addition into a leaf \(\mathcal{H}\)-matrix node, the mutex should be locked.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29758">29758</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29714">29714</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="config_8h_source.html#l00059">ARENA_MAX_CONCURRENCY_IN_LU_AND_CHOL</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02555">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="config_8h_source.html#l00059">ARENA_MAX_CONCURRENCY_IN_LU_AND_CHOL</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="rkmatrix_8h_source.html#l02527">RkMatrix&lt; Number &gt;::restrictToFullMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
 </div>
 </div>
@@ -3051,9 +3043,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Restrict the rows of the error matrix \(E\) to the cluster \(t_1\).</p>
 <p >Restrict the rows of the error matrix \(E\) to the cluster \(t_2\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30122">30122</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30078">30078</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l04563">LAPACKFullMatrixExt&lt; Number &gt;::fill_row()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, and <a class="el" href="lapack__full__matrix__ext_8h_source.html#l05545">LAPACKFullMatrixExt&lt; Number &gt;::mTmult()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l04563">LAPACKFullMatrixExt&lt; Number &gt;::fill_row()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, and <a class="el" href="lapack__full__matrix__ext_8h_source.html#l05560">LAPACKFullMatrixExt&lt; Number &gt;::mTmult()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l20951">HMatrix&lt; spacedim, Number &gt;::truncate_to_rank_off_diag_preserve_positive_definite()</a>.</p>
 
@@ -3111,9 +3103,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Build the leaf set of the current \(\mathcal{H}\)-matrix node. </p>
 <p >The top level \(\mathcal{H}\)-matrix is type A.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35914">35914</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35870">35870</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36166">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>, <a class="el" href="hmatrix_8h_source.html#l30225">HMatrix&lt; spacedim, Number &gt;::invert_by_gauss_elim()</a>, and <a class="el" href="hmatrix_8h_source.html#l29207">HMatrix&lt; spacedim, Number &gt;::mmult()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36122">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>, <a class="el" href="hmatrix_8h_source.html#l30181">HMatrix&lt; spacedim, Number &gt;::invert_by_gauss_elim()</a>, and <a class="el" href="hmatrix_8h_source.html#l29207">HMatrix&lt; spacedim, Number &gt;::mmult()</a>.</p>
 
 </div>
 </div>
@@ -3174,7 +3166,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >After processing the diagonal block, the algorithm continues to shift down update task nodes to child \(\mathcal{H}\)-matrix nodes.</p>
 <p >Shift down the <code>update</code> task nodes.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34513">34513</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34469">34469</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -3212,7 +3204,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Recursion into child matrices except upper triangular blocks.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34422">34422</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34378">34378</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
@@ -3246,7 +3238,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Create the task node dependencies from <code>update</code> task to <code>solve_upper</code> task by starting from a \(\mathcal{H}\)-matrix node which is itself associated with a <code>solve_upper</code> task node. </p>
 <p >Recursion into child matrices except upper triangular blocks.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34463">34463</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34419">34419</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04414">HMatrix&lt; spacedim, Number &gt;::solve_upper_or_lower_lu_or_cholesky_graph_node</a>.</p>
 
@@ -3292,11 +3284,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >When the current \(\mathcal{H}\)-matrix node belongs to the leaf set, it must be a symmetric full matrix and the Cholesky factorization can be directly applied to it using LAPACK.</p>
 <p >After the Cholesky factorization, the matrix <code>L</code> is stored in the same full matrix. Hence, this operation is in situ.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34273">34273</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34229">34229</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
 
 </div>
 </div>
@@ -3359,11 +3351,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >The current \(\mathcal{H}\)-matrix node should be a diagonal block, while \(Z\) is not.</p>
 <p >There should be no <code>solve_upper</code> task associated with the \(\mathcal{H}\)-matrix node \(Z\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34326">34326</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34282">34282</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04414">HMatrix&lt; spacedim, Number &gt;::solve_upper_or_lower_lu_or_cholesky_graph_node</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
 
 </div>
 </div>
@@ -3436,7 +3428,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34370">34370</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34326">34326</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
@@ -3568,11 +3560,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 \leftarrow \mathcal{H}}\) will be applied to this \(\mathcal{H}\)-matrix node.</p>
 <p >When the block cluster node associated with the current \(\mathcal{H}\)-matrix node does not belong to the <code>partition</code>, recursively call this same member function of its each child.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35624">35624</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35580">35580</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, and <a class="el" href="generic__functors_8h_source.html#l00055">find_pointer_data()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36166">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36122">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>.</p>
 
 </div>
 </div>
@@ -3616,7 +3608,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35612">35612</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35568">35568</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="block__cluster__tree_8h_source.html#l03769">BlockClusterTree&lt; spacedim, Number &gt;::get_leaf_set()</a>.</p>
 
@@ -3697,11 +3689,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate over the sub-block cluster tree associated with <code>current_diag_column_block1</code> and build the edge from <code>solve_upper</code> to the current <code>update</code> node.</p>
 <p >Iterate over the sub-block cluster tree associated with <code>current_diag_column_block2</code> and build the edge from <code>solve_upper</code> to the current <code>update</code> node.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33933">33933</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33889">33889</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l34273">HMatrix&lt; spacedim, Number &gt;::cholesky_factorize_diagonal_block_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, <a class="el" href="hmatrix_8h_source.html#l19084">HMatrix&lt; spacedim, Number &gt;::is_leaf()</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04306">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_column_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l34229">HMatrix&lt; spacedim, Number &gt;::cholesky_factorize_diagonal_block_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34282">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, <a class="el" href="hmatrix_8h_source.html#l19084">HMatrix&lt; spacedim, Number &gt;::is_leaf()</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04306">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_column_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>.</p>
 
 </div>
 </div>
@@ -3735,7 +3727,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >After Cholesky factorization, set the state of the current matrix to be <code>cholesky</code> and set its property as <code>lower_triangular</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33917">33917</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33873">33873</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -3783,7 +3775,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >After Cholesky factorization, set the state of the result matrix to be <code>cholesky</code> and that of the original matrix as <code>unusable</code>. Since the property of <code>L</code> is already lower triangular, there is no need to reset it here.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33785">33785</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33741">33741</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l19640">HMatrix&lt; spacedim, Number &gt;::set_state()</a>.</p>
 
@@ -3819,7 +3811,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Send a message to the starting task node, i.e. the first leaf node, and trigger the parallel execution of the factorization.</p>
 <p >After Cholesky factorization, set the state of the current matrix to be <code>cholesky</code> and set its property as <code>lower_triangular</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35311">35311</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35267">35267</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
 
@@ -3860,7 +3852,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Task cost </dd></dl>
 <p >The block type of a far field \(\mathcal{H}\)-matrix node can only be <code>lower_triangular_block</code> or <code>upper_triangular_block</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34855">34855</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34811">34811</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -3900,7 +3892,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Task cost </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34681">34681</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34637">34637</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -3931,7 +3923,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34917">34917</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34873">34873</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -3963,7 +3955,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34740">34740</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34696">34696</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -4046,11 +4038,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate over the sub-block cluster tree associated with <code>current_diag_row_block</code> and build the edge from <code>solve_lower</code> node to the current <code>update</code> node.</p>
 <p >Iterate over the sub-block cluster tree associated with <code>current_diag_column_block</code> and build the edge from <code>solve_upper</code> to the current <code>update</code> node.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32796">32796</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32752">32752</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, <a class="el" href="hmatrix_8h_source.html#l19084">HMatrix&lt; spacedim, Number &gt;::is_leaf()</a>, <a class="el" href="hmatrix_8h_source.html#l33172">HMatrix&lt; spacedim, Number &gt;::lu_factorize_diagonal_block_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33267">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33224">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04306">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_column_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04300">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_row_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, <a class="el" href="hmatrix_8h_source.html#l19084">HMatrix&lt; spacedim, Number &gt;::is_leaf()</a>, <a class="el" href="hmatrix_8h_source.html#l33128">HMatrix&lt; spacedim, Number &gt;::lu_factorize_diagonal_block_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33223">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33180">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04306">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_column_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04300">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_row_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
 
 </div>
 </div>
@@ -4080,7 +4072,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >After LU factorization, set the state of the current matrix to be <code>lu</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32490">32490</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32446">32446</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4125,7 +4117,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >After LU factorization, set the state of the result matrix to be <code>lu</code> and that of the original matrix as <code>unusable</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32473">32473</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32429">32429</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l19640">HMatrix&lt; spacedim, Number &gt;::set_state()</a>.</p>
 
@@ -4161,7 +4153,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Send a message to the starting task node, i.e. the first leaf node, and trigger the parallel execution of the factorization.</p>
 <p >After LU factorization, set the state of the current matrix to be <code>lu</code>.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32715">32715</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32671">32671</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, and <a class="el" href="debug__tools_8h.html#abc4b513edfba014605e6259429800db3">print_wall_time()</a>.</p>
 
@@ -4201,7 +4193,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Task cost </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34779">34779</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34735">34735</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
@@ -4241,7 +4233,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Task cost </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34610">34610</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34566">34566</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
@@ -4272,11 +4264,11 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34835">34835</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34791">34791</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l08455">fill_hmatrix_with_aca_plus_smp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l08466">fill_hmatrix_with_aca_plus_smp()</a>.</p>
 
 </div>
 </div>
@@ -4307,7 +4299,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Compute the intersection of column index ranges for each pair of leaf set intervals. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35054">35054</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35010">35010</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4338,7 +4330,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Compute the intersection of row index ranges for each pair of leaf set intervals. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35024">35024</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34980">34980</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4375,7 +4367,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >During <a class="el" href="classHMatrix.html#adbbf34180ab8dc8c09a200b32c636ea9">HMatrix::vmult</a>, it is possible that the total number of rows in the \(\mathcal{H}\)-matrix is smaller than the thread number. In this case, the thread number is set to the number of rows.</p>
 <p >During <a class="el" href="classHMatrix.html#ab4da3bc44083f7bc4798a019928056dd">HMatrix::Tvmult</a>, it is possible that the total number of columns in the \(\mathcal{H}\)-matrix is smaller than the thread number. In this case, the thread number is set to the number of columns.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35085">35085</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35041">35041</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4455,9 +4447,9 @@ The shallow copy constructor cannot be used here because the new \(\mathcal{H}\)
 </dl>
 <p >Move the new \(\mathcal{H}\)-matrix to the current \(\mathcal{H}\)-matrix by shallow assignment.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36166">36166</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36122">36122</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l35914">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35624">HMatrix&lt; spacedim, Number &gt;::coarsen_to_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l01739">BlockClusterTree&lt; spacedim, Number &gt;::extend_finer_than_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l01896">BlockClusterTree&lt; spacedim, Number &gt;::extend_to_finer_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03769">BlockClusterTree&lt; spacedim, Number &gt;::get_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35664">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, and <a class="el" href="block__cluster__tree_8h_source.html#l02092">BlockClusterTree&lt; spacedim, Number &gt;::prune_to_partition()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l35870">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35580">HMatrix&lt; spacedim, Number &gt;::coarsen_to_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l01739">BlockClusterTree&lt; spacedim, Number &gt;::extend_finer_than_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l01896">BlockClusterTree&lt; spacedim, Number &gt;::extend_to_finer_partition()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03769">BlockClusterTree&lt; spacedim, Number &gt;::get_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35620">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, and <a class="el" href="block__cluster__tree_8h_source.html#l02092">BlockClusterTree&lt; spacedim, Number &gt;::prune_to_partition()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>.</p>
 
@@ -4515,7 +4507,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Check the consistency of the tree node split modes which are associated with the \(\mathcal{H}\)-matrix node pairs stored in the list \(\Sigma_P\) of the current \(\mathcal{H}\)-matrix node. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36304">36304</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36260">36260</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l12403">h_h_mmult_phase1_recursion()</a>.</p>
 
@@ -4620,7 +4612,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>The data held by those previously found leaf nodes of the source \(\mathcal{H}\)-matrix have already been migrated to the leaf nodes of the new \(\mathcal{H}\)-matrix, which will make the data fields in these leaf nodes being empty. Hence, we will bypass them. </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36027">36027</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35983">35983</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4655,7 +4647,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>The data held by those previously found leaf nodes of the source \(\mathcal{H}\)-matrix have already been migrated to the leaf nodes of the new \(\mathcal{H}\)-matrix, which will make the data fields in these leaf nodes being empty. Hence, we will bypass them. </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36060">36060</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36016">36016</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4774,7 +4766,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19656">19656</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -4806,9 +4798,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36011">36011</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35967">35967</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -4840,7 +4832,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36019">36019</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35975">35975</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4888,7 +4880,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Use the minimum of lower bound indices and maximum of upper bound indices to form the covering index range.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34980">34980</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34936">34936</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4914,7 +4906,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35980">35980</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35936">35936</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4940,7 +4932,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35988">35988</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35944">35944</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -4969,7 +4961,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19815">19815</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -5023,9 +5015,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Get the reference to the leaf set of the current \(\mathcal{H}\)-matrix node. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35948">35948</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35904">35904</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07910">fill_hmatrix_with_aca_plus_serial()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07912">fill_hmatrix_with_aca_plus_serial()</a>.</p>
 
 </div>
 </div>
@@ -5052,7 +5044,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Get the reference to the leaf set of the current \(\mathcal{H}\)-matrix node (const version). </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35956">35956</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35912">35912</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -5190,7 +5182,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35964">35964</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35920">35920</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -5216,7 +5208,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35972">35972</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35928">35928</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -5245,7 +5237,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19121">19121</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -5274,7 +5266,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19772">19772</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>.</p>
 
 </div>
 </div>
@@ -5333,9 +5325,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35995">35995</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35951">35951</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -5367,7 +5359,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36003">36003</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35959">35959</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -5415,7 +5407,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Use the minimum of lower bound indices and maximum of upper bound indices to form the covering index range.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34936">34936</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l34892">34892</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -5518,7 +5510,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p>Get the pointer to the top left leaf node in the \(\mathcal{H}\)-matrix. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the \(\mathcal{H}\)-matrix leaf node </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35878">35878</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35834">35834</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04284">HMatrix&lt; spacedim, Number &gt;::submatrices</a>.</p>
 
@@ -5541,7 +5533,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p>Get the pointer to the top left leaf node in the \(\mathcal{H}\)-matrix. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the \(\mathcal{H}\)-matrix leaf node </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35896">35896</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35852">35852</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04284">HMatrix&lt; spacedim, Number &gt;::submatrices</a>.</p>
 
@@ -5573,7 +5565,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19052">19052</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07151">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05981">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07744">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="aca__plus_8hcu_source.html#l07155">fill_far_field_hmatrix_leaf_node_with_aca_plus()</a>, <a class="el" href="aca__plus_8hcu_source.html#l05988">fill_hmatrix_leaf_node_with_aca_plus()</a>, and <a class="el" href="aca__plus_8hcu_source.html#l07746">stabilize_near_field_hmatrices_for_hypersingular_kernel()</a>.</p>
 
 </div>
 </div>
@@ -6444,9 +6436,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Rebuild the leaf set of the current \(\mathcal{H}\)-matrix and its inverse.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30225">30225</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30181">30181</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l35914">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, and <a class="el" href="hmatrix_8h_source.html#l35664">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l35870">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, and <a class="el" href="hmatrix_8h_source.html#l35620">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>.</p>
 
 </div>
 </div>
@@ -6545,7 +6537,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, and <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, and <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
 
 </div>
 </div>
@@ -6640,7 +6632,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Move the same level hmat node pointer forward.</p>
 <p >Recursion into diagonal submatrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35747">35747</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35703">35703</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04306">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_column_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04300">HMatrix&lt; spacedim, Number &gt;::next_same_level_same_row_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04318">HMatrix&lt; spacedim, Number &gt;::previous_same_level_same_column_hmat_node</a>, <a class="el" href="hmatrix_8h_source.html#l04312">HMatrix&lt; spacedim, Number &gt;::previous_same_level_same_row_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
@@ -6663,11 +6655,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >When there is a subsequent \(\mathcal{H}\)-matrix node in the queue and if it is on a same level as the current \(\mathcal{H}\)-matrix node, link them.</p>
 <p >Push submatrix nodes of the current \(\mathcal{H}\)-matrix node into the queue.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35664">35664</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35620">35620</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04294">HMatrix&lt; spacedim, Number &gt;::next_same_level_hmat_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04284">HMatrix&lt; spacedim, Number &gt;::submatrices</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36166">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>, and <a class="el" href="hmatrix_8h_source.html#l30225">HMatrix&lt; spacedim, Number &gt;::invert_by_gauss_elim()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l36122">HMatrix&lt; spacedim, Number &gt;::convert_between_different_block_cluster_trees()</a>, and <a class="el" href="hmatrix_8h_source.html#l30181">HMatrix&lt; spacedim, Number &gt;::invert_by_gauss_elim()</a>.</p>
 
 </div>
 </div>
@@ -6707,7 +6699,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >After processing the diagonal block, the algorithm continues to shift down update task nodes to child \(\mathcal{H}\)-matrix nodes.</p>
 <p >Shift down the <code>update</code> task nodes.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33552">33552</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33508">33508</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -6740,7 +6732,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >If the current \(\mathcal{H}\)-matrix node has been associated with a <code>solve_lower</code> node, link it with the newest <code>update</code> node in the <code>update_block</code>.</p>
 <p >Recursion into child matrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33399">33399</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33355">33355</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04419">HMatrix&lt; spacedim, Number &gt;::update_lu_or_cholesky_graph_nodes</a>.</p>
 
@@ -6780,7 +6772,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dl>
 <p >Recursion into child matrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33439">33439</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33395">33395</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04409">HMatrix&lt; spacedim, Number &gt;::factorize_lu_or_cholesky_graph_node</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
@@ -6814,7 +6806,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Create the task node dependencies from <code>update</code> task to <code>solve_upper</code> task or <code>solve_lower</code> task by starting from a \(\mathcal{H}\)-matrix node which is itself associated with a <code>solve_upper</code> or <code>solve_lower</code> task node. </p>
 <p >Recursion into child matrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33475">33475</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33431">33431</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04414">HMatrix&lt; spacedim, Number &gt;::solve_upper_or_lower_lu_or_cholesky_graph_node</a>.</p>
 
@@ -6861,11 +6853,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >N.B. The LU factorization performed by LAPACK has row partial pivoting.</p>
 <p >After the LU factorization, L and U matrices are stored in the same full matrix. Hence, this operation is in situ.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33172">33172</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33128">33128</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
 
 </div>
 </div>
@@ -6898,7 +6890,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >If the current \(\mathcal{H}\)-matrix node has been associated with a <code>solve_upper</code> node, link it with the newest <code>update</code> node in the <code>update_block</code>.</p>
 <p >Recursion into child matrices.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33357">33357</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33313">33313</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04355">HMatrix&lt; spacedim, Number &gt;::bc_node</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04419">HMatrix&lt; spacedim, Number &gt;::update_lu_or_cholesky_graph_nodes</a>.</p>
 
@@ -6963,11 +6955,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >The current \(\mathcal{H}\)-matrix node should be a diagonal block, while \(Z\) is not.</p>
 <p >There should be no <code>solve_upper</code> or <code>solve_lower</code> task associated with the \(\mathcal{H}\)-matrix node \(Z\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33267">33267</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33223">33223</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04414">HMatrix&lt; spacedim, Number &gt;::solve_upper_or_lower_lu_or_cholesky_graph_node</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
 
 </div>
 </div>
@@ -7030,11 +7022,11 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >The current \(\mathcal{H}\)-matrix node should be a diagonal block, while \(Z\) is not.</p>
 <p >There should be no <code>solve_upper</code> or <code>solve_lower</code> task associated with the \(\mathcal{H}\)-matrix node \(Z\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33224">33224</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33180">33180</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04269">HMatrix&lt; spacedim, Number &gt;::block_type</a>, <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04414">HMatrix&lt; spacedim, Number &gt;::solve_upper_or_lower_lu_or_cholesky_graph_node</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>.</p>
 
 </div>
 </div>
@@ -7107,7 +7099,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33309">33309</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l33265">33265</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04367">HMatrix&lt; spacedim, Number &gt;::col_index_range</a>, and <a class="el" href="hmatrix_8h_source.html#l04361">HMatrix&lt; spacedim, Number &gt;::row_index_range</a>.</p>
 
@@ -7129,7 +7121,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Determine an estimate for the memory consumption (in bytes) of the whole \(\mathcal{H}\)-matrix hierarchy.</p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36408">36408</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36364">36364</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -7151,7 +7143,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >If the current \(\mathcal{H}\)-matrix node is a leaf node, get the memory for the associated matrix.</p>
 <p >Count the memory for other members in the current \(\mathcal{H}\)-matrix node.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36364">36364</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36320">36320</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -7172,7 +7164,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Determine an estimate for the memory consumption (in bytes) of H-matrices in the far field leaf set. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36455">36455</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36411">36411</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -7191,7 +7183,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Determine an estimate for the memory consumption (in bytes) of H-matrices in the leaf set. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36425">36425</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36381">36381</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -7210,7 +7202,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Determine an estimate for the memory consumption (in bytes) of H-matrices in the near field leaf set. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36440">36440</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36396">36396</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -7386,7 +7378,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l29207">29207</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="block__cluster__tree_8h_source.html#l03786">BlockClusterTree&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35914">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03981">BlockClusterTree&lt; spacedim, Number &gt;::calc_depth_and_max_level()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03719">BlockClusterTree&lt; spacedim, Number &gt;::categorize_near_and_far_field_sets()</a>, <a class="el" href="tree_8h_source.html#l00899">TreeNode&lt; T, N &gt;::get_data_reference()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l04038">BlockClusterTree&lt; spacedim, Number &gt;::get_n_min()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l02127">BlockClusterTree&lt; spacedim, Number &gt;::get_root()</a>, <a class="el" href="hmatrix_8h_source.html#l12403">h_h_mmult_phase1_recursion()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l18885">HMatrix&lt; spacedim, Number &gt;::release()</a>, and <a class="el" href="hmatrix_8h_source.html#l04383">HMatrix&lt; spacedim, Number &gt;::Tind</a>.</p>
+<p class="reference">References <a class="el" href="block__cluster__tree_8h_source.html#l03786">BlockClusterTree&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="hmatrix_8h_source.html#l35870">HMatrix&lt; spacedim, Number &gt;::build_leaf_set()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03981">BlockClusterTree&lt; spacedim, Number &gt;::calc_depth_and_max_level()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l03719">BlockClusterTree&lt; spacedim, Number &gt;::categorize_near_and_far_field_sets()</a>, <a class="el" href="tree_8h_source.html#l00899">TreeNode&lt; T, N &gt;::get_data_reference()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l04038">BlockClusterTree&lt; spacedim, Number &gt;::get_n_min()</a>, <a class="el" href="block__cluster__tree_8h_source.html#l02127">BlockClusterTree&lt; spacedim, Number &gt;::get_root()</a>, <a class="el" href="hmatrix_8h_source.html#l12403">h_h_mmult_phase1_recursion()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l18885">HMatrix&lt; spacedim, Number &gt;::release()</a>, and <a class="el" href="hmatrix_8h_source.html#l04383">HMatrix&lt; spacedim, Number &gt;::Tind</a>.</p>
 
 </div>
 </div>
@@ -7798,8 +7790,6 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00303">HMatrixSymmPreconditioner&lt; spacedim, Number &gt;::operator=()</a>.</p>
-
 </div>
 </div>
 <a id="ae170394e8f48f5b99d4cc4f7954dfdec" name="ae170394e8f48f5b99d4cc4f7954dfdec"></a>
@@ -7854,7 +7844,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Compute the index ranges within result vector, which have contributions from other threads.</p>
 <p >Compute the index ranges within result vector, which have contributions from other threads.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35129">35129</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35085">35085</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -7938,7 +7928,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19992">19992</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06887">LAPACKFullMatrixExt&lt; Number &gt;::print_formatted_to_mat()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06902">LAPACKFullMatrixExt&lt; Number &gt;::print_formatted_to_mat()</a>.</p>
 
 </div>
 </div>
@@ -8076,8 +8066,6 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l20017">20017</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="laplace__bem_8priv_8hcu_source.html#l01250">LaplaceBEM&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;::Priv::compute_stabilization_terms_for_D1_hmat()</a>.</p>
-
 </div>
 </div>
 <a id="ad8f87883cf49080706233441c0e09171" name="ad8f87883cf49080706233441c0e09171"></a>
@@ -8171,7 +8159,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36093">36093</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36049">36049</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, and <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>.</p>
 
@@ -8333,7 +8321,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Remove a pair of \(\mathcal{H}\)-matrix nodes from the list of matrix-matrix product subtasks to be performed, i.e. from the list <code><a class="el" href="classHMatrix.html#a3d96d0252ef8c873ae06cf87874acaf3">HMatrix::Sigma_P</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36264">36264</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36220">36220</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, and <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>.</p>
 
@@ -8358,7 +8346,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Remove a pair of \(\mathcal{H}\)-matrix nodes from the list of matrix-matrix product subtasks to be performed, i.e. from the list <code><a class="el" href="classHMatrix.html#a3d96d0252ef8c873ae06cf87874acaf3">HMatrix::Sigma_P</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36286">36286</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l36242">36242</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -8495,7 +8483,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19138">19138</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
 
 </div>
 </div>
@@ -8735,7 +8723,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l20210">20210</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06679">LAPACKFullMatrixExt&lt; Number &gt;::set_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06694">LAPACKFullMatrixExt&lt; Number &gt;::set_property()</a>.</p>
 
 </div>
 </div>
@@ -8767,7 +8755,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l19640">19640</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33785">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_factorization()</a>, and <a class="el" href="hmatrix_8h_source.html#l32473">HMatrix&lt; spacedim, Number &gt;::compute_lu_factorization()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33741">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_factorization()</a>, and <a class="el" href="hmatrix_8h_source.html#l32429">HMatrix&lt; spacedim, Number &gt;::compute_lu_factorization()</a>.</p>
 
 </div>
 </div>
@@ -8849,7 +8837,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column after the i'th column, i.e. after the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using backward substitution.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32033">32033</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31989">31989</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -8915,7 +8903,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column after the i'th column, i.e. after the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using backward substitution.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32146">32146</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32102">32102</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -8970,7 +8958,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32134">32134</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32090">32090</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9032,7 +9020,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32254">32254</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32210">32210</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9090,7 +9078,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column before the i'th column, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31560">31560</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31516">31516</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9155,7 +9143,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column before the i'th column, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31668">31668</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31624">31624</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9203,7 +9191,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31656">31656</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31612">31612</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9265,7 +9253,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31771">31771</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31727">31727</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9319,7 +9307,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column after the i'th column, i.e. after the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using backward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31834">31834</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31790">31790</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9381,7 +9369,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column after the i'th column, i.e. after the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using backward substitution.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31930">31930</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31886">31886</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9433,7 +9421,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31918">31918</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31874">31874</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9492,7 +9480,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32020">32020</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31976">31976</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9541,7 +9529,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column before the i'th column, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30244">30244</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30200">30200</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9598,7 +9586,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block column before the i'th column, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30342">30342</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30298">30298</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9646,7 +9634,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30329">30329</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30285">30285</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9701,7 +9689,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30434">30434</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30390">30390</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9784,7 +9772,7 @@ Z\vert_{\tau\times\sigma}\), where \(Z\vert_{\tau\times\sigma}
 <p >Iterate over each block column before the i'th column in \(L\vert_{\tau\times\tau}\).</p>
 <p >Go down one level of recursion and solve the current diagonal block matrix \(L\vert_{\tau_i\times\tau_i}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30447">30447</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30403">30403</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04372">HMatrix&lt; spacedim, Number &gt;::m</a>, <a class="el" href="hmatrix_8h_source.html#l04377">HMatrix&lt; spacedim, Number &gt;::n</a>, and <a class="el" href="hmatrix_8h_source.html#l04252">HMatrix&lt; spacedim, Number &gt;::type</a>.</p>
 
@@ -9852,7 +9840,7 @@ Z\vert_{\tau\times\sigma}\), where \(Z\vert_{\tau\times\sigma}
 <p >Iterate over each block column before the i'th column in \(L\vert_{\tau\times\tau}\).</p>
 <p >Go down one level of recursion and solve the current diagonal block matrix \(L\vert_{\tau_i\times\tau_i}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30612">30612</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30568">30568</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9892,7 +9880,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35409">35409</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35365">35365</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9932,7 +9920,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Since the transpose of the current matrix is to be solved, <code>Tvmult</code> is used here instead of <code>vmult</code>.</p>
 <p >Solve the current diagonal block using backward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32269">32269</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32225">32225</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -9983,7 +9971,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Since the transpose of the current matrix is to be solved, <code>Tvmult</code> is used here instead of <code>vmult</code>.</p>
 <p >Solve the current diagonal block using backward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32369">32369</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32325">32325</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10024,7 +10012,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32358">32358</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32314">32314</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10072,7 +10060,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32461">32461</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l32417">32417</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10103,7 +10091,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31786">31786</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31742">31742</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10144,7 +10132,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31809">31809</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31765">31765</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10186,7 +10174,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31797">31797</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31753">31753</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10234,7 +10222,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31821">31821</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31777">31777</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10282,7 +10270,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30755">30755</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30711">30711</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10314,7 +10302,7 @@ template&lt;int spacedim, typename Number &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30766">30766</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30722">30722</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10395,7 +10383,7 @@ X\vert_{\tau[i]\times\sigma[k]} \cdot
 <p >Go down one level of recursion and solve the current diagonal block matrix \(U\vert_{\sigma_i \times
 \sigma_i}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31252">31252</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31208">31208</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04372">HMatrix&lt; spacedim, Number &gt;::m</a>, <a class="el" href="hmatrix_8h_source.html#l04377">HMatrix&lt; spacedim, Number &gt;::n</a>, and <a class="el" href="hmatrix_8h_source.html#l04252">HMatrix&lt; spacedim, Number &gt;::type</a>.</p>
 
@@ -10454,7 +10442,7 @@ X\vert_{\tau[i]\times\sigma[k]} \cdot
 <p >Go down one level of recursion and solve the current diagonal block matrix \(U\vert_{\sigma_i \times
 \sigma_i}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31418">31418</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31374">31374</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10498,7 +10486,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35394">35394</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l35350">35350</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10537,7 +10525,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block row before the j'th row, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30776">30776</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30732">30732</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10587,7 +10575,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 <p >Iterate each block row before the j'th row, i.e. before the diagonal submatrix block.</p>
 <p >Solve the current diagonal block using forward substitution recursively.</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30864">30864</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30820">30820</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10628,7 +10616,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30853">30853</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30809">30809</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10676,7 +10664,7 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30948">30948</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30904">30904</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -10745,7 +10733,7 @@ Z\vert_{i,\sigma}\) using the transposed forward substitution for \(\mathcal{H}\
 <p >Iterate over each block row before the j'th row in \(U\vert_{\sigma\times\sigma}\), which is equivalent to over each block column before the j'th column in its transpose.</p>
 <p >Go down one level of recursion and solve the current diagonal block matrix \(U\vert_{\sigma_j\times\sigma_j}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30960">30960</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l30916">30916</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 <p class="reference">References <a class="el" href="hmatrix_8h_source.html#l04372">HMatrix&lt; spacedim, Number &gt;::m</a>, <a class="el" href="hmatrix_8h_source.html#l04377">HMatrix&lt; spacedim, Number &gt;::n</a>, and <a class="el" href="hmatrix_8h_source.html#l04252">HMatrix&lt; spacedim, Number &gt;::type</a>.</p>
 
@@ -10804,7 +10792,7 @@ Z\vert_{i,\sigma}\) using the transposed forward substitution for \(\mathcal{H}\
 <p >Iterate over each block row before the j'th row in \(U\vert_{\sigma\times\sigma}\), which is equivalent to over each block column before the j'th column in its transpose.</p>
 <p >Go down one level of recursion and solve the current diagonal block matrix \(U\vert_{\sigma_j\times\sigma_j}\).</p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31119">31119</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l31075">31075</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
 </div>
 </div>
@@ -11057,7 +11045,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l20951">20951</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l30122">HMatrix&lt; spacedim, Number &gt;::addsym_diag()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
+<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l30078">HMatrix&lt; spacedim, Number &gt;::addsym_diag()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l00067">FullMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00069">HierarchicalMatrixType</a>, <a class="el" href="hmatrix_8h_source.html#l00068">RkMatrixType</a>, and <a class="el" href="hmatrix_8h_source.html#l00070">UndefinedMatrixType</a>.</p>
 
 </div>
 </div>
@@ -12749,7 +12737,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04355">4355</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34422">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34463">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l28729">HMatrix&lt; spacedim, Number &gt;::h_h_mmult_reduction()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35664">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, <a class="el" href="hmatrix_8h_source.html#l33399">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33439">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33475">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33358">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34378">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34419">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12592">h_h_mmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l28729">HMatrix&lt; spacedim, Number &gt;::h_h_mmult_reduction()</a>, <a class="el" href="hmatrix_8h_source.html#l13910">h_h_mTmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l15219">h_h_Tmmult_from_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35620">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, <a class="el" href="hmatrix_8h_source.html#l33355">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33395">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33431">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33314">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -12778,7 +12766,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04269">4269</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33644">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l34463">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l33475">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33267">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33224">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33600">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l34419">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34282">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l33431">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33223">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33180">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -12807,7 +12795,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04367">4367</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l18760">HMatrix&lt; spacedim, Number &gt;::_distribute_sigma_r_and_f_to_leaves()</a>, <a class="el" href="hmatrix_8h_source.html#l34422">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34463">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34370">HMatrix&lt; spacedim, Number &gt;::cholesky_update_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, <a class="el" href="hmatrix_8h_source.html#l33399">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33439">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33475">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33358">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33267">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33224">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33309">HMatrix&lt; spacedim, Number &gt;::lu_update_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l18760">HMatrix&lt; spacedim, Number &gt;::_distribute_sigma_r_and_f_to_leaves()</a>, <a class="el" href="hmatrix_8h_source.html#l34378">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34419">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34282">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_update_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, <a class="el" href="hmatrix_8h_source.html#l33355">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33395">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33431">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33314">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33223">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33180">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33265">HMatrix&lt; spacedim, Number &gt;::lu_update_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -12893,7 +12881,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04409">4409</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34422">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l35311">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_factorization_task_parallel()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32715">HMatrix&lt; spacedim, Number &gt;::compute_lu_factorization_task_parallel()</a>, and <a class="el" href="hmatrix_8h_source.html#l33439">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34378">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l35267">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_factorization_task_parallel()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32671">HMatrix&lt; spacedim, Number &gt;::compute_lu_factorization_task_parallel()</a>, and <a class="el" href="hmatrix_8h_source.html#l33395">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>.</p>
 
 </div>
 </div>
@@ -12951,7 +12939,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04350">4350</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33644">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l32504">HMatrix&lt; spacedim, Number &gt;::_compute_lu_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33600">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l32460">HMatrix&lt; spacedim, Number &gt;::_compute_lu_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -13038,7 +13026,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04372">4372</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30447">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31253">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30961">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30403">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31209">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30917">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
 
 </div>
 </div>
@@ -13067,7 +13055,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04377">4377</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30447">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31253">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30961">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l11964">f_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12038">f_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l12107">f_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11460">h_f_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11532">h_f_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11603">h_f_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10444">h_rk_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10601">h_rk_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l10751">h_rk_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l10959">rk_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11119">rk_h_mTmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11273">rk_h_Tmmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30403">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31209">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30917">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
 
 </div>
 </div>
@@ -13125,7 +13113,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04294">4294</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, and <a class="el" href="hmatrix_8h_source.html#l35664">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, and <a class="el" href="hmatrix_8h_source.html#l35620">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>.</p>
 
 </div>
 </div>
@@ -13154,7 +13142,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04306">4306</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
 
 </div>
 </div>
@@ -13183,7 +13171,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04300">4300</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
 
 </div>
 </div>
@@ -13241,7 +13229,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04318">4318</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
 
 </div>
 </div>
@@ -13270,7 +13258,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04312">4312</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, and <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>.</p>
 
 </div>
 </div>
@@ -13299,7 +13287,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04263">4263</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33644">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33600">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -13357,7 +13345,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04361">4361</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l18760">HMatrix&lt; spacedim, Number &gt;::_distribute_sigma_r_and_f_to_leaves()</a>, <a class="el" href="hmatrix_8h_source.html#l34422">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34463">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34370">HMatrix&lt; spacedim, Number &gt;::cholesky_update_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33933">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32796">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35747">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, <a class="el" href="hmatrix_8h_source.html#l33399">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33439">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33475">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33358">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33267">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33224">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33309">HMatrix&lt; spacedim, Number &gt;::lu_update_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l18760">HMatrix&lt; spacedim, Number &gt;::_distribute_sigma_r_and_f_to_leaves()</a>, <a class="el" href="hmatrix_8h_source.html#l34378">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34419">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34282">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_update_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33889">HMatrix&lt; spacedim, Number &gt;::compute_cholesky_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l32752">HMatrix&lt; spacedim, Number &gt;::compute_lu_dag()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l04455">InitHMatrixWrtBlockClusterNode()</a>, <a class="el" href="hmatrix_8h_source.html#l35703">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_cross_from_diagonal_blocks()</a>, <a class="el" href="hmatrix_8h_source.html#l33355">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33395">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_factorize_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33431">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33314">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33223">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33180">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33265">HMatrix&lt; spacedim, Number &gt;::lu_update_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -13473,7 +13461,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04414">4414</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34463">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34326">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33475">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33267">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l33224">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l34419">HMatrix&lt; spacedim, Number &gt;::cholesky_build_update_to_solve_upper_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l34282">HMatrix&lt; spacedim, Number &gt;::cholesky_solve_upper_task()</a>, <a class="el" href="hmatrix_8h_source.html#l33431">HMatrix&lt; spacedim, Number &gt;::lu_build_update_to_solve_upper_or_lower_dependencies()</a>, <a class="el" href="hmatrix_8h_source.html#l33223">HMatrix&lt; spacedim, Number &gt;::lu_solve_lower_task()</a>, and <a class="el" href="hmatrix_8h_source.html#l33180">HMatrix&lt; spacedim, Number &gt;::lu_solve_upper_task()</a>.</p>
 
 </div>
 </div>
@@ -13502,7 +13490,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04257">4257</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33644">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33600">HMatrix&lt; spacedim, Number &gt;::_compute_cholesky_factorization()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -13531,7 +13519,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04284">4284</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l20060">HMatrix&lt; spacedim, Number &gt;::assign_node_ids_for_dot()</a>, <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17518">copy_hmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l35878">HMatrix&lt; spacedim, Number &gt;::get_top_left_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l35664">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l29431">HMatrix&lt; spacedim, Number &gt;::add()</a>, <a class="el" href="hmatrix_8h_source.html#l20060">HMatrix&lt; spacedim, Number &gt;::assign_node_ids_for_dot()</a>, <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17518">copy_hmatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17474">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l20581">HMatrix&lt; spacedim, Number &gt;::find_col_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l20419">HMatrix&lt; spacedim, Number &gt;::find_row_diag_block_for_offdiag_block()</a>, <a class="el" href="hmatrix_8h_source.html#l35834">HMatrix&lt; spacedim, Number &gt;::get_top_left_leaf_node()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l35620">HMatrix&lt; spacedim, Number &gt;::link_hmat_nodes_on_same_levels()</a>, and <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>.</p>
 
 </div>
 </div>
@@ -13645,7 +13633,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04252">4252</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l28729">HMatrix&lt; spacedim, Number &gt;::h_h_mmult_reduction()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30447">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31253">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30961">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l10017">convertHMatBlockToRkMatrix()</a>, <a class="el" href="hmatrix_8h_source.html#l17421">copy_hmatrix_node()</a>, <a class="el" href="hmatrix_8h_source.html#l12342">f_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l11894">h_f_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l16039">h_h_mmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l12474">h_h_mmult_phase2()</a>, <a class="el" href="hmatrix_8h_source.html#l28729">HMatrix&lt; spacedim, Number &gt;::h_h_mmult_reduction()</a>, <a class="el" href="hmatrix_8h_source.html#l16558">h_h_mTmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l17073">h_h_Tmmult_level_conserving()</a>, <a class="el" href="hmatrix_8h_source.html#l10890">h_rk_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l04976">InitAndCreateHMatrixChildren()</a>, <a class="el" href="hmatrix_8h_source.html#l04621">InitAndCreateHMatrixChildrenWithoutAlloc()</a>, <a class="el" href="hmatrix_8h_source.html#l09483">RefineHMatrixWrtExtendedBlockClusterTree()</a>, <a class="el" href="hmatrix_8h_source.html#l11411">rk_h_mmult_for_h_h_mmult()</a>, <a class="el" href="hmatrix_8h_source.html#l30403">HMatrix&lt; spacedim, Number &gt;::solve_by_forward_substitution_matrix_valued()</a>, <a class="el" href="hmatrix_8h_source.html#l31209">HMatrix&lt; spacedim, Number &gt;::solve_cholesky_transpose_by_forward_substitution_matrix_valued()</a>, and <a class="el" href="hmatrix_8h_source.html#l30917">HMatrix&lt; spacedim, Number &gt;::solve_transpose_by_forward_substitution_matrix_valued()</a>.</p>
 
 </div>
 </div>
@@ -13701,7 +13689,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="hmatrix_8h_source.html#l04419">4419</a> of file <a class="el" href="hmatrix_8h_source.html">hmatrix.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33399">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, and <a class="el" href="hmatrix_8h_source.html#l33358">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hmatrix_8h_source.html#l33355">HMatrix&lt; spacedim, Number &gt;::lu_build_solve_lower_to_update_dependencies()</a>, and <a class="el" href="hmatrix_8h_source.html#l33314">HMatrix&lt; spacedim, Number &gt;::lu_or_cholesky_build_solve_upper_to_update_dependencies()</a>.</p>
 
 </div>
 </div>

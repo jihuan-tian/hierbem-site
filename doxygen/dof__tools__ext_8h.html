@@ -189,46 +189,44 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for dof_tools_ext.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="dof__tools__ext_8h__incl.svg" width="7279" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="dof__tools__ext_8h__incl.svg" width="6688" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="dof__tools__ext_8h__dep__incl.svg" width="767" height="603"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="dof__tools__ext_8h__dep__incl.svg" width="2630" height="722"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="dof__tools__ext_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1a15353516fd0c00d4c217a4929788c5"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:a1a15353516fd0c00d4c217a4929788c5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a1a15353516fd0c00d4c217a4929788c5">DoFToolsExt::extract_subdomain_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const std::set&lt; types::subdomain_id &gt; &amp;subdomain_ids, std::vector&lt; bool &gt; &amp;selected_dofs)</td></tr>
-<tr class="separator:a1a15353516fd0c00d4c217a4929788c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94c158c21d4e695eadd53f8b059c79e"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:ad94c158c21d4e695eadd53f8b059c79e"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#ad94c158c21d4e695eadd53f8b059c79e">DoFToolsExt::extract_material_domain_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const std::set&lt; types::material_id &gt; &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_false=true)</td></tr>
-<tr class="separator:ad94c158c21d4e695eadd53f8b059c79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a7504e5d224b1e78c708714b7cbf3b1"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:a2a7504e5d224b1e78c708714b7cbf3b1"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a2a7504e5d224b1e78c708714b7cbf3b1">DoFToolsExt::extract_material_domain_dofs_by_excluding_complement_subdomain</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const std::set&lt; types::material_id &gt; &amp;complement_subdomain_material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_true=true)</td></tr>
-<tr class="separator:a2a7504e5d224b1e78c708714b7cbf3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea3f64c635f0e155e53a57e0346d1eec"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:aea3f64c635f0e155e53a57e0346d1eec"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#aea3f64c635f0e155e53a57e0346d1eec">DoFToolsExt::extract_material_domain_mg_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_false=true)</td></tr>
-<tr class="separator:aea3f64c635f0e155e53a57e0346d1eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3575bc98815ffa86dd08c1bf6fc9c704"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:a3575bc98815ffa86dd08c1bf6fc9c704"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a3575bc98815ffa86dd08c1bf6fc9c704">DoFToolsExt::extract_material_domain_mg_dofs_by_excluding_complement_subdomain</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;complement_subdomain_material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_true=true)</td></tr>
-<tr class="separator:a3575bc98815ffa86dd08c1bf6fc9c704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4967cf967f4883787e424993b0d35bce"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a4967cf967f4883787e424993b0d35bce"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a4967cf967f4883787e424993b0d35bce">DoFToolsExt::extract_material_subdomain_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const SearchableMaterialIdContainer &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_false=true)</td></tr>
+<tr class="separator:a4967cf967f4883787e424993b0d35bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c7c26eafcfd28b0b04adf02a0c401d"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a18c7c26eafcfd28b0b04adf02a0c401d"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a18c7c26eafcfd28b0b04adf02a0c401d">DoFToolsExt::extract_dofs_by_excluding_material_subdomain</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const SearchableMaterialIdContainer &amp;excluded_material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_true=true)</td></tr>
+<tr class="separator:a18c7c26eafcfd28b0b04adf02a0c401d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d18605b8eb1872366ed57850a7fc14a"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a8d18605b8eb1872366ed57850a7fc14a"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a8d18605b8eb1872366ed57850a7fc14a">DoFToolsExt::extract_material_subdomain_dofs_without_boundary_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const SearchableMaterialIdContainer &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs)</td></tr>
+<tr class="separator:a8d18605b8eb1872366ed57850a7fc14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5beba4ef0bc00fe969371d052f5ca9bc"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a5beba4ef0bc00fe969371d052f5ca9bc"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a5beba4ef0bc00fe969371d052f5ca9bc">DoFToolsExt::extract_material_subdomain_mg_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const SearchableMaterialIdContainer &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_false=true)</td></tr>
+<tr class="separator:a5beba4ef0bc00fe969371d052f5ca9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54eddcdf340b8f1993ecd68e8021e28f"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a54eddcdf340b8f1993ecd68e8021e28f"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a54eddcdf340b8f1993ecd68e8021e28f">DoFToolsExt::extract_mg_dofs_by_excluding_material_subdomain</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const SearchableMaterialIdContainer &amp;excluded_material_ids, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_true=true)</td></tr>
+<tr class="separator:a54eddcdf340b8f1993ecd68e8021e28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c320c5b7c11619d484f128b8649547"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </td></tr>
+<tr class="memitem:a96c320c5b7c11619d484f128b8649547"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a96c320c5b7c11619d484f128b8649547">DoFToolsExt::extract_material_subdomain_mg_dofs_without_boundary_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const SearchableMaterialIdContainer &amp;material_ids, std::vector&lt; bool &gt; &amp;selected_dofs)</td></tr>
+<tr class="separator:a96c320c5b7c11619d484f128b8649547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65db561ed54607224196973d72b8ca94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a65db561ed54607224196973d72b8ca94">DoFToolsExt::generate_full_to_local_dof_id_map</a> (const std::vector&lt; bool &gt; &amp;dof_selectors, std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_map)</td></tr>
 <tr class="separator:a65db561ed54607224196973d72b8ca94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af752b7e9fbe26dd73bcf45559f54f7c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#af752b7e9fbe26dd73bcf45559f54f7c2">DoFToolsExt::generate_local_to_full_dof_id_map</a> (const std::vector&lt; bool &gt; &amp;dof_selectors, std::vector&lt; types::global_dof_index &gt; &amp;local_to_full_map)</td></tr>
 <tr class="separator:af752b7e9fbe26dd73bcf45559f54f7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac472a82bcd241c3130e84637bd367f8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#ac472a82bcd241c3130e84637bd367f8e">DoFToolsExt::generate_maps_between_full_and_local_dof_ids</a> (const std::vector&lt; bool &gt; &amp;dof_selectors, std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_map, std::vector&lt; types::global_dof_index &gt; &amp;local_to_full_map)</td></tr>
 <tr class="separator:ac472a82bcd241c3130e84637bd367f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dac15117f01d018df4c6c67afe5d6d2"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename RangeNumberType &gt; </td></tr>
-<tr class="memitem:a1dac15117f01d018df4c6c67afe5d6d2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a1dac15117f01d018df4c6c67afe5d6d2">DoFToolsExt::extract_boundary_condition_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;boundary_bc_definition, std::vector&lt; bool &gt; &amp;selected_dofs, const bool reset_selectors_to_false=true)</td></tr>
-<tr class="memdesc:a1dac15117f01d018df4c6c67afe5d6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate DoF selectors for those on the boundary condition.  <a href="dof__tools__ext_8h.html#a1dac15117f01d018df4c6c67afe5d6d2">More...</a><br /></td></tr>
-<tr class="separator:a1dac15117f01d018df4c6c67afe5d6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9da91b98e80761b220e75599b1373d9"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
-<tr class="memitem:ae9da91b98e80761b220e75599b1373d9"><td class="memTemplItemLeft" align="right" valign="top">types::global_dof_index&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#ae9da91b98e80761b220e75599b1373d9">DoFToolsExt::extract_material_domain_dofs_excluding_boundary_dofs</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const std::set&lt; types::material_id &gt; &amp;boundary_cell_material_ids, std::vector&lt; bool &gt; &amp;selected_dofs)</td></tr>
-<tr class="separator:ae9da91b98e80761b220e75599b1373d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a069701a27c93b8cd75b0798fc24da801"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
 <tr class="memitem:a069701a27c93b8cd75b0798fc24da801"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a069701a27c93b8cd75b0798fc24da801">DoFToolsExt::map_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, std::vector&lt; Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
 <tr class="separator:a069701a27c93b8cd75b0798fc24da801"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,13 +244,13 @@ Functions</h2></td></tr>
 <tr class="memitem:aafd6c4dece98c3917adf9c63c7e33804"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#aafd6c4dece98c3917adf9c63c7e33804">DoFToolsExt::map_mg_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, std::vector&lt; Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
 <tr class="memdesc:aafd6c4dece98c3917adf9c63c7e33804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of support points for DoFs on the specified level in the DoF handler.  <a href="dof__tools__ext_8h.html#aafd6c4dece98c3917adf9c63c7e33804">More...</a><br /></td></tr>
 <tr class="separator:aafd6c4dece98c3917adf9c63c7e33804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d3e2fbf3fd632c770882e293fee7d8"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
-<tr class="memitem:a79d3e2fbf3fd632c770882e293fee7d8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a79d3e2fbf3fd632c770882e293fee7d8">DoFToolsExt::map_mg_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;subdomain_material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map, std::map&lt; types::global_dof_index, Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
-<tr class="separator:a79d3e2fbf3fd632c770882e293fee7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ed732842c29ede93f8731603b974f0"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
-<tr class="memitem:a16ed732842c29ede93f8731603b974f0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a16ed732842c29ede93f8731603b974f0">DoFToolsExt::map_mg_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;subdomain_material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map, std::vector&lt; Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
-<tr class="memdesc:a16ed732842c29ede93f8731603b974f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of support points for DoFs in a subdomain on the specified level in the DoF handler.  <a href="dof__tools__ext_8h.html#a16ed732842c29ede93f8731603b974f0">More...</a><br /></td></tr>
-<tr class="separator:a16ed732842c29ede93f8731603b974f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a057f765671c7339372611d5bda642386"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
+<tr class="memitem:a057f765671c7339372611d5bda642386"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a057f765671c7339372611d5bda642386">DoFToolsExt::map_mg_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map, std::map&lt; types::global_dof_index, Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
+<tr class="separator:a057f765671c7339372611d5bda642386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf91ee9ae6ca99bff76ca75e5ca55b32"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
+<tr class="memitem:abf91ee9ae6ca99bff76ca75e5ca55b32"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#abf91ee9ae6ca99bff76ca75e5ca55b32">DoFToolsExt::map_mg_dofs_to_support_points</a> (const Mapping&lt; dim, spacedim &gt; &amp;mapping, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level, const std::set&lt; types::material_id &gt; &amp;material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map, std::vector&lt; Point&lt; spacedim, Number &gt; &gt; &amp;support_points)</td></tr>
+<tr class="memdesc:abf91ee9ae6ca99bff76ca75e5ca55b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of support points for DoFs in a material subdomain on the specified level in the DoF handler.  <a href="dof__tools__ext_8h.html#abf91ee9ae6ca99bff76ca75e5ca55b32">More...</a><br /></td></tr>
+<tr class="separator:abf91ee9ae6ca99bff76ca75e5ca55b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83ccf1b786381f0f7a4043ab31b5a42a"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename Number  = double&gt; </td></tr>
 <tr class="memitem:a83ccf1b786381f0f7a4043ab31b5a42a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a83ccf1b786381f0f7a4043ab31b5a42a">DoFToolsExt::map_dofs_to_average_cell_size</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, std::vector&lt; Number &gt; &amp;dof_average_cell_size)</td></tr>
 <tr class="separator:a83ccf1b786381f0f7a4043ab31b5a42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -309,6 +307,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a137602ee6bb76075808fd318f1749289"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a137602ee6bb76075808fd318f1749289">DoFToolsExt::build_dof_to_cell_topology</a> (<a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;dof_to_cell_topo, const std::vector&lt; typename DoFHandler&lt; dim, spacedim &gt;::cell_iterator &gt; &amp;cell_iterators_in_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int fe_index=0)</td></tr>
 <tr class="memdesc:a137602ee6bb76075808fd318f1749289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the topology for "DoF support point-to-cell" relation.  <a href="dof__tools__ext_8h.html#a137602ee6bb76075808fd318f1749289">More...</a><br /></td></tr>
 <tr class="separator:a137602ee6bb76075808fd318f1749289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a676c1601cd312ea1838cdb5a49fd1fad"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
+<tr class="memitem:a676c1601cd312ea1838cdb5a49fd1fad"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a676c1601cd312ea1838cdb5a49fd1fad">DoFToolsExt::build_dof_to_cell_topology</a> (<a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;dof_to_cell_topo, const std::vector&lt; typename DoFHandler&lt; dim, spacedim &gt;::cell_iterator &gt; &amp;cell_iterators_in_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const std::vector&lt; bool &gt; &amp;dof_selectors, const unsigned int fe_index=0)</td></tr>
+<tr class="memdesc:a676c1601cd312ea1838cdb5a49fd1fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the topology for "DoF support point-to-cell" relation. Only selected DoFs are considered.  <a href="dof__tools__ext_8h.html#a676c1601cd312ea1838cdb5a49fd1fad">More...</a><br /></td></tr>
+<tr class="separator:a676c1601cd312ea1838cdb5a49fd1fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b004e0cbe8ca45c542588963496fb8"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim&gt; </td></tr>
 <tr class="memitem:a12b004e0cbe8ca45c542588963496fb8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a12b004e0cbe8ca45c542588963496fb8">DoFToolsExt::build_mg_dof_to_cell_topology</a> (std::vector&lt; std::vector&lt; const typename DoFHandler&lt; dim, spacedim &gt;::cell_iterator * &gt; &gt; &amp;dof_to_cell_topo, const std::vector&lt; typename DoFHandler&lt; dim, spacedim &gt;::cell_iterator &gt; &amp;mg_cell_iterators_in_dof_handler, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler, const unsigned int level=0, const unsigned int fe_index=0)</td></tr>
 <tr class="memdesc:a12b004e0cbe8ca45c542588963496fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the topology for "DoF support point-to-cell" relation. The DoFs are on a specific level in the multigrid.  <a href="dof__tools__ext_8h.html#a12b004e0cbe8ca45c542588963496fb8">More...</a><br /></td></tr>
@@ -324,9 +326,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9220ee1c134a13d88c50a9d1902db9ea"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </td></tr>
 <tr class="memitem:a9220ee1c134a13d88c50a9d1902db9ea"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a9220ee1c134a13d88c50a9d1902db9ea">DoFToolsExt::make_sparsity_pattern</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_test_space, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_trial_space, const std::vector&lt; bool &gt; &amp;dof_selectors_test_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_test_space, const std::vector&lt; bool &gt; &amp;dof_selectors_trial_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_trial_space, SparsityPatternType &amp;sparsity)</td></tr>
 <tr class="separator:a9220ee1c134a13d88c50a9d1902db9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfbeca95d09113b9d896afaf955adc6b"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </td></tr>
-<tr class="memitem:abfbeca95d09113b9d896afaf955adc6b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#abfbeca95d09113b9d896afaf955adc6b">DoFToolsExt::make_sparsity_pattern</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_test_space, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_trial_space, const std::set&lt; types::material_id &gt; &amp;subdomain_material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors_test_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_test_space, const std::vector&lt; bool &gt; &amp;dof_selectors_trial_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_trial_space, SparsityPatternType &amp;sparsity)</td></tr>
-<tr class="separator:abfbeca95d09113b9d896afaf955adc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4124b2ac39fbf28a117529b3ff6efb7f"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </td></tr>
+<tr class="memitem:a4124b2ac39fbf28a117529b3ff6efb7f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="dof__tools__ext_8h.html#a4124b2ac39fbf28a117529b3ff6efb7f">DoFToolsExt::make_sparsity_pattern</a> (const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_test_space, const DoFHandler&lt; dim, spacedim &gt; &amp;dof_handler_trial_space, const std::set&lt; types::material_id &gt; &amp;material_ids, const std::vector&lt; bool &gt; &amp;dof_selectors_test_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_test_space, const std::vector&lt; bool &gt; &amp;dof_selectors_trial_space, const std::vector&lt; types::global_dof_index &gt; &amp;full_to_local_dof_id_map_trial_space, SparsityPatternType &amp;sparsity)</td></tr>
+<tr class="separator:a4124b2ac39fbf28a117529b3ff6efb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Introduction of <a class="el" href="dof__tools__ext_8h.html" title="Introduction of dof_tools_ext.h.">dof_tools_ext.h</a>. </p>
@@ -335,8 +337,79 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a676c1601cd312ea1838cdb5a49fd1fad" name="a676c1601cd312ea1838cdb5a49fd1fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a676c1601cd312ea1838cdb5a49fd1fad">&#9670;&nbsp;</a></span>build_dof_to_cell_topology() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void DoFToolsExt::build_dof_to_cell_topology </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a>&lt; dim, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dof_to_cell_topo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; typename DoFHandler&lt; dim, spacedim &gt;::cell_iterator &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cell_iterators_in_dof_handler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dof_handler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dof_selectors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>fe_index</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the topology for "DoF support point-to-cell" relation. Only selected DoFs are considered. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">dim</td><td></td></tr>
+    <tr><td class="paramname">spacedim</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dof_to_cell_topo</td><td>The result is returned in this object of type <code><a class="el" href="classDoFToCellTopology.html">DoFToCellTopology</a></code>, which also stores the maximum number of cells associated with a DoF. </td></tr>
+    <tr><td class="paramname">cell_iterators_in_dof_handler</td><td></td></tr>
+    <tr><td class="paramname">dof_handler</td><td></td></tr>
+    <tr><td class="paramname">dof_selectors</td><td></td></tr>
+    <tr><td class="paramname">fe_index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01598">1598</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01507">DoFToolsExt::build_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+
+</div>
+</div>
 <a id="a137602ee6bb76075808fd318f1749289" name="a137602ee6bb76075808fd318f1749289"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a137602ee6bb76075808fd318f1749289">&#9670;&nbsp;</a></span>build_dof_to_cell_topology() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a137602ee6bb76075808fd318f1749289">&#9670;&nbsp;</a></span>build_dof_to_cell_topology() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,14 +466,14 @@ template&lt;int dim, int spacedim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01521">1521</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01548">1548</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01480">DoFToolsExt::build_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01507">DoFToolsExt::build_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
 </div>
 </div>
 <a id="afe8b235da79f7e57f93ddc6dfa0937c3" name="afe8b235da79f7e57f93ddc6dfa0937c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe8b235da79f7e57f93ddc6dfa0937c3">&#9670;&nbsp;</a></span>build_dof_to_cell_topology() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8b235da79f7e57f93ddc6dfa0937c3">&#9670;&nbsp;</a></span>build_dof_to_cell_topology() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,11 +525,11 @@ template&lt;int dim, int spacedim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01480">1480</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01507">1507</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01480">DoFToolsExt::build_dof_to_cell_topology()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01507">DoFToolsExt::build_dof_to_cell_topology()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01480">DoFToolsExt::build_dof_to_cell_topology()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01507">DoFToolsExt::build_dof_to_cell_topology()</a>.</p>
 
 </div>
 </div>
@@ -531,9 +604,9 @@ template&lt;int dim, int spacedim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01664">1664</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01743">1743</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01569">DoFToolsExt::build_mg_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01648">DoFToolsExt::build_mg_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
 </div>
 </div>
@@ -602,9 +675,9 @@ template&lt;int dim, int spacedim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01613">1613</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01692">1692</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01569">DoFToolsExt::build_mg_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01648">DoFToolsExt::build_mg_dof_to_cell_topology()</a>, <a class="el" href="dof__to__cell__topology_8h_source.html#l00040">DoFToCellTopology&lt; dim, spacedim &gt;::max_cells_per_dof</a>, and <a class="el" href="dof__to__cell__topology_8h_source.html#l00035">DoFToCellTopology&lt; dim, spacedim &gt;::topology</a>.</p>
 
 </div>
 </div>
@@ -673,11 +746,11 @@ template&lt;int dim, int spacedim&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01569">1569</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01648">1648</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01569">DoFToolsExt::build_mg_dof_to_cell_topology()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01648">DoFToolsExt::build_mg_dof_to_cell_topology()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01569">DoFToolsExt::build_mg_dof_to_cell_topology()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01648">DoFToolsExt::build_mg_dof_to_cell_topology()</a>.</p>
 
 </div>
 </div>
@@ -731,24 +804,24 @@ template&lt;typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01449">1449</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01476">1476</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01449">DoFToolsExt::extend_selected_dof_values_to_full_dofs()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01476">DoFToolsExt::extend_selected_dof_values_to_full_dofs()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01449">DoFToolsExt::extend_selected_dof_values_to_full_dofs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01476">DoFToolsExt::extend_selected_dof_values_to_full_dofs()</a>.</p>
 
 </div>
 </div>
-<a id="a1dac15117f01d018df4c6c67afe5d6d2" name="a1dac15117f01d018df4c6c67afe5d6d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dac15117f01d018df4c6c67afe5d6d2">&#9670;&nbsp;</a></span>extract_boundary_condition_dofs()</h2>
+<a id="a18c7c26eafcfd28b0b04adf02a0c401d" name="a18c7c26eafcfd28b0b04adf02a0c401d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c7c26eafcfd28b0b04adf02a0c401d">&#9670;&nbsp;</a></span>extract_dofs_by_excluding_material_subdomain()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void DoFToolsExt::extract_boundary_condition_dofs </td>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_dofs_by_excluding_material_subdomain </td>
           <td>(</td>
           <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
@@ -756,8 +829,8 @@ template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; EntityTag, Function&lt; spacedim, RangeNumberType &gt; * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>boundary_bc_definition</em>, </td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
+          <td class="paramname"><em>excluded_material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -769,7 +842,7 @@ template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>reset_selectors_to_false</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>reset_selectors_to_true</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -778,43 +851,37 @@ template&lt;int dim, int spacedim, typename RangeNumberType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Generate DoF selectors for those on the boundary condition. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">dim</td><td></td></tr>
-    <tr><td class="paramname">spacedim</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p >Generate DoF selectors by excluding those DoFs in cells with material ids in the given set.</p>
+<p >When the finite element is continuous, there will be DoFs with their support sets intersecting both the current material subdomain and the material subdomain to be excluded. Then the DoFs at the interface between them will not be selected.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dof_handler</td><td></td></tr>
-    <tr><td class="paramname">boundary_bc_definition</td><td></td></tr>
-    <tr><td class="paramname">selected_dofs</td><td></td></tr>
-    <tr><td class="paramname">reset_selectors_to_false</td><td></td></tr>
+    <tr><td class="paramname">excluded_material_ids</td><td>A set of material ids to be excluded. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+    <tr><td class="paramname">reset_selectors_to_true</td><td>Whether initialize all elements in <code>selected_dofs</code> to true at the beginning. By default, this argument is true. When it is false, we can call this function multiple times and gradually deselect DoFs from <code>selected_dofs</code>. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00388">388</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00143">143</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00388">DoFToolsExt::extract_boundary_condition_dofs()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00143">DoFToolsExt::extract_dofs_by_excluding_material_subdomain()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00388">DoFToolsExt::extract_boundary_condition_dofs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00143">DoFToolsExt::extract_dofs_by_excluding_material_subdomain()</a>.</p>
 
 </div>
 </div>
-<a id="ad94c158c21d4e695eadd53f8b059c79e" name="ad94c158c21d4e695eadd53f8b059c79e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad94c158c21d4e695eadd53f8b059c79e">&#9670;&nbsp;</a></span>extract_material_domain_dofs()</h2>
+<a id="a4967cf967f4883787e424993b0d35bce" name="a4967cf967f4883787e424993b0d35bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4967cf967f4883787e424993b0d35bce">&#9670;&nbsp;</a></span>extract_material_subdomain_dofs()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_domain_dofs </td>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_subdomain_dofs </td>
           <td>(</td>
           <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
@@ -822,7 +889,7 @@ template&lt;int dim, int spacedim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
           <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
@@ -844,36 +911,36 @@ template&lt;int dim, int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Mark the DoFs in cells which have a material id belonging to the given collection.</p>
+<p >Generate DoF selectors for those cells with material ids in the given set.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dof_handler</td><td></td></tr>
-    <tr><td class="paramname">material_ids</td><td></td></tr>
-    <tr><td class="paramname">selected_dofs</td><td></td></tr>
-    <tr><td class="paramname">reset_selectors_to_false</td><td>If preset all selectors to false at the beginning of this function. </td></tr>
+    <tr><td class="paramname">material_ids</td><td>A set of material ids. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+    <tr><td class="paramname">reset_selectors_to_false</td><td>Whether initialize all elements in <code>selected_dofs</code> to false at the beginning. By default, this argument is true. When it is false, we can call this function multiple times and gradually append new selection flags into <code>selected_dofs</code>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Effective number of DoFs. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00118">118</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00071">71</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00118">DoFToolsExt::extract_material_domain_dofs()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00071">DoFToolsExt::extract_material_subdomain_dofs()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00118">DoFToolsExt::extract_material_domain_dofs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00071">DoFToolsExt::extract_material_subdomain_dofs()</a>.</p>
 
 </div>
 </div>
-<a id="a2a7504e5d224b1e78c708714b7cbf3b1" name="a2a7504e5d224b1e78c708714b7cbf3b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a7504e5d224b1e78c708714b7cbf3b1">&#9670;&nbsp;</a></span>extract_material_domain_dofs_by_excluding_complement_subdomain()</h2>
+<a id="a8d18605b8eb1872366ed57850a7fc14a" name="a8d18605b8eb1872366ed57850a7fc14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d18605b8eb1872366ed57850a7fc14a">&#9670;&nbsp;</a></span>extract_material_subdomain_dofs_without_boundary_dofs()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_domain_dofs_by_excluding_complement_subdomain </td>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_subdomain_dofs_without_boundary_dofs </td>
           <td>(</td>
           <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
@@ -881,58 +948,8 @@ template&lt;int dim, int spacedim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>complement_subdomain_material_ids</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname"><em>selected_dofs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>reset_selectors_to_true</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Mark the DoFs in cells by excluding those DoFs in cells in the complement subdomain. The complement subdomain is specified by a set of material ids.</p>
-<dl class="section return"><dt>Returns</dt><dd>Effective number of DoFs. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00175">175</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
-
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00175">DoFToolsExt::extract_material_domain_dofs_by_excluding_complement_subdomain()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00175">DoFToolsExt::extract_material_domain_dofs_by_excluding_complement_subdomain()</a>.</p>
-
-</div>
-</div>
-<a id="ae9da91b98e80761b220e75599b1373d9" name="ae9da91b98e80761b220e75599b1373d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9da91b98e80761b220e75599b1373d9">&#9670;&nbsp;</a></span>extract_material_domain_dofs_excluding_boundary_dofs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_domain_dofs_excluding_boundary_dofs </td>
-          <td>(</td>
-          <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dof_handler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>boundary_cell_material_ids</em>, </td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
+          <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -947,21 +964,37 @@ template&lt;int dim, int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Generate DoF selectors by excluding those DoFs at the boundary of the material subdomain, which is specified by the given set of material ids.</p>
+<p >When the finite element is continuous, such as <code>FE_Q</code>, the support sets of DoFs at the material subdomain boundary interset both the current material subdomain and its complement. This function will exclude these DoFs, since they appear in the complement material subdomain.</p>
+<p >When the finite element is discontinuous, such as <code>FE_DGQ</code>, the support sets of DoFs at the material subdomain boundary are confined within the current material subdomain. This function will still select these DoFs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dof_handler</td><td></td></tr>
+    <tr><td class="paramname">material_ids</td><td>A set of material ids in the current material subdomain. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00435">435</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00216">216</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00216">DoFToolsExt::extract_material_subdomain_dofs_without_boundary_dofs()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00216">DoFToolsExt::extract_material_subdomain_dofs_without_boundary_dofs()</a>.</p>
 
 </div>
 </div>
-<a id="aea3f64c635f0e155e53a57e0346d1eec" name="aea3f64c635f0e155e53a57e0346d1eec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea3f64c635f0e155e53a57e0346d1eec">&#9670;&nbsp;</a></span>extract_material_domain_mg_dofs()</h2>
+<a id="a5beba4ef0bc00fe969371d052f5ca9bc" name="a5beba4ef0bc00fe969371d052f5ca9bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5beba4ef0bc00fe969371d052f5ca9bc">&#9670;&nbsp;</a></span>extract_material_subdomain_mg_dofs()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_domain_mg_dofs </td>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_subdomain_mg_dofs </td>
           <td>(</td>
           <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
@@ -975,7 +1008,7 @@ template&lt;int dim, int spacedim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
           <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
@@ -997,27 +1030,37 @@ template&lt;int dim, int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Mark the DoFs in cells on the specified level which have a material id belonging to the given collection.</p>
-<dl class="section return"><dt>Returns</dt><dd>Effective number of DoFs. </dd></dl>
+<p >Generate DoF selectors for those cells on the specified level with their material ids in the given set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dof_handler</td><td></td></tr>
+    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">material_ids</td><td>A set of material ids. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+    <tr><td class="paramname">reset_selectors_to_false</td><td>Whether initialize all elements in <code>selected_dofs</code> to false at the beginning. By default, this argument is true. When it is false, we can call this function multiple times and gradually append new selection flags into <code>selected_dofs</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00229">229</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00275">275</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00229">DoFToolsExt::extract_material_domain_mg_dofs()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00275">DoFToolsExt::extract_material_subdomain_mg_dofs()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00229">DoFToolsExt::extract_material_domain_mg_dofs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00275">DoFToolsExt::extract_material_subdomain_mg_dofs()</a>.</p>
 
 </div>
 </div>
-<a id="a3575bc98815ffa86dd08c1bf6fc9c704" name="a3575bc98815ffa86dd08c1bf6fc9c704"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3575bc98815ffa86dd08c1bf6fc9c704">&#9670;&nbsp;</a></span>extract_material_domain_mg_dofs_by_excluding_complement_subdomain()</h2>
+<a id="a96c320c5b7c11619d484f128b8649547" name="a96c320c5b7c11619d484f128b8649547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c320c5b7c11619d484f128b8649547">&#9670;&nbsp;</a></span>extract_material_subdomain_mg_dofs_without_boundary_dofs()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_domain_mg_dofs_by_excluding_complement_subdomain </td>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_material_subdomain_mg_dofs_without_boundary_dofs </td>
           <td>(</td>
           <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>dof_handler</em>, </td>
@@ -1031,8 +1074,69 @@ template&lt;int dim, int spacedim&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>complement_subdomain_material_ids</em>, </td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
+          <td class="paramname"><em>material_ids</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>selected_dofs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Generate DoF selectors on the specified level by excluding those DoFs at the boundary of the material subdomain, which is specified by the given set of material ids.</p>
+<p >When the finite element is continuous, such as <code>FE_Q</code>, the support sets of DoFs at the material subdomain boundary interset both the current material subdomain and its complement. This function will exclude these DoFs, since they appear in the complement material subdomain.</p>
+<p >When the finite element is discontinuous, such as <code>FE_DGQ</code>, the support sets of DoFs at the material subdomain boundary are confined within the current material subdomain. This function will still select these DoFs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dof_handler</td><td></td></tr>
+    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">material_ids</td><td>A set of material ids in the current material subdomain. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00425">425</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00425">DoFToolsExt::extract_material_subdomain_mg_dofs_without_boundary_dofs()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00425">DoFToolsExt::extract_material_subdomain_mg_dofs_without_boundary_dofs()</a>.</p>
+
+</div>
+</div>
+<a id="a54eddcdf340b8f1993ecd68e8021e28f" name="a54eddcdf340b8f1993ecd68e8021e28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54eddcdf340b8f1993ecd68e8021e28f">&#9670;&nbsp;</a></span>extract_mg_dofs_by_excluding_material_subdomain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int spacedim, typename SearchableMaterialIdContainer &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">types::global_dof_index DoFToolsExt::extract_mg_dofs_by_excluding_material_subdomain </td>
+          <td>(</td>
+          <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dof_handler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SearchableMaterialIdContainer &amp;&#160;</td>
+          <td class="paramname"><em>excluded_material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1053,65 +1157,25 @@ template&lt;int dim, int spacedim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Mark the DoFs in cells on the specified level by excluding those DoFs in cells in the complement subdomain. The complement subdomain is specified by a set of material ids.</p>
-<dl class="section return"><dt>Returns</dt><dd>Effective number of DoFs. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00284">284</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
-
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00284">DoFToolsExt::extract_material_domain_mg_dofs_by_excluding_complement_subdomain()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00284">DoFToolsExt::extract_material_domain_mg_dofs_by_excluding_complement_subdomain()</a>.</p>
-
-</div>
-</div>
-<a id="a1a15353516fd0c00d4c217a4929788c5" name="a1a15353516fd0c00d4c217a4929788c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a15353516fd0c00d4c217a4929788c5">&#9670;&nbsp;</a></span>extract_subdomain_dofs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int spacedim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void DoFToolsExt::extract_subdomain_dofs </td>
-          <td>(</td>
-          <td class="paramtype">const DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dof_handler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::set&lt; types::subdomain_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>subdomain_ids</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname"><em>selected_dofs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >N.B. This function appears here because the already instantiated deal.ii versions only assume <code>dim==spacedim</code>. Meanwhile, the general template version only appears in <code>dof_tool.cc</code>, which is not accessible to the outside.</p>
+<p >Generate DoF selectors on the specified level by excluding those DoFs in cells with material ids in the given set.</p>
+<p >When the finite element is continuous, there will be DoFs with their support sets intersecting both the current material subdomain and the complement material subdomain to be excluded. Then the DoFs at the interface between them will not be selected.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dof_handler</td><td></td></tr>
-    <tr><td class="paramname">subdomain_id</td><td></td></tr>
-    <tr><td class="paramname">selected_dofs</td><td></td></tr>
+    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">excluded_material_ids</td><td>A set of material ids to be excluded. It can also be a map with material id as its key. </td></tr>
+    <tr><td class="paramname">selected_dofs</td><td>A vector of flags for all DoFs in the DoF handler. </td></tr>
+    <tr><td class="paramname">reset_selectors_to_true</td><td>Whether initialize all elements in <code>selected_dofs</code> to true at the beginning. By default, this argument is true. When it is false, we can call this function multiple times and gradually deselect DoFs from <code>selected_dofs</code>. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of selected DoFs. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00068">68</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00349">349</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00068">DoFToolsExt::extract_subdomain_dofs()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00349">DoFToolsExt::extract_mg_dofs_by_excluding_material_subdomain()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00068">DoFToolsExt::extract_subdomain_dofs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00349">DoFToolsExt::extract_mg_dofs_by_excluding_material_subdomain()</a>.</p>
 
 </div>
 </div>
@@ -1248,8 +1312,8 @@ template&lt;int dim, int spacedim&gt; </div>
 
 </div>
 </div>
-<a id="abfbeca95d09113b9d896afaf955adc6b" name="abfbeca95d09113b9d896afaf955adc6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfbeca95d09113b9d896afaf955adc6b">&#9670;&nbsp;</a></span>make_sparsity_pattern() <span class="overload">[1/2]</span></h2>
+<a id="a4124b2ac39fbf28a117529b3ff6efb7f" name="a4124b2ac39fbf28a117529b3ff6efb7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4124b2ac39fbf28a117529b3ff6efb7f">&#9670;&nbsp;</a></span>make_sparsity_pattern() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1272,7 +1336,7 @@ template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>subdomain_material_ids</em>, </td>
+          <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1311,12 +1375,12 @@ template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Make sparsity pattern on subdomain for active cells.</p>
+<p >Make sparsity pattern on a material subdomain for active cells.</p>
 <p >The shape functions are assumed to be truncated within the subdomain, so we iterate over each cell in the subdomain. </p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01762">1762</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01841">1841</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01713">DoFToolsExt::make_sparsity_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01792">DoFToolsExt::make_sparsity_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1380,11 +1444,11 @@ template&lt;int dim, int spacedim, typename SparsityPatternType &gt; </div>
 <p >Make sparsity pattern on subdomain for active cells.</p>
 <p >The shape functions may extend over the boundary of the subdomain, so that we iterate over each cell in the triangulation, without checking if the cell is within the subdomain. </p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01713">1713</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01792">1792</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01713">DoFToolsExt::make_sparsity_pattern()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01792">DoFToolsExt::make_sparsity_pattern()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01713">DoFToolsExt::make_sparsity_pattern()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01792">DoFToolsExt::make_sparsity_pattern()</a>.</p>
 
 </div>
 </div>
@@ -1445,9 +1509,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01014">1014</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01041">1041</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00894">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00921">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1494,11 +1558,11 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00894">894</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00921">921</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00894">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00921">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00894">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00921">DoFToolsExt::map_dofs_to_average_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1545,9 +1609,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01174">1174</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01201">1201</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01087">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01114">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1590,11 +1654,11 @@ template&lt;typename DoFHandlerType , typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01087">1087</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01114">1114</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01087">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01114">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01087">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01114">DoFToolsExt::map_dofs_to_max_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1650,9 +1714,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01334">1334</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01361">1361</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01244">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01271">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1694,11 +1758,11 @@ template&lt;typename DoFHandlerType , typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01244">1244</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01271">1271</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01244">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01271">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01244">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01271">DoFToolsExt::map_dofs_to_min_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1762,9 +1826,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00546">546</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00568">568</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00499">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00521">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
@@ -1804,11 +1868,11 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
 <p >Get the coordinates for all support points in the DoF handler.</p>
 <p >This function returns the coordinates of the given template type, while deal.ii's implementation only returns the double type. </p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00499">499</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00521">521</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00499">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00521">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00499">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00521">DoFToolsExt::map_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
@@ -1869,11 +1933,11 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00585">585</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00607">607</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="classMappingQExt.html#acada0646097a532b0f429e6ad654219c">MappingQExt&lt; dim, spacedim &gt;::get_support_points()</a>, <a class="el" href="dof__tools__ext_8h_source.html#l00585">DoFToolsExt::map_dofs_to_support_points_and_normal_vectors()</a>, and <a class="el" href="mapping__info_8h_source.html#l00217">MappingInfo&lt; dim, spacedim &gt;::resize_internal_data()</a>.</p>
+<p class="reference">References <a class="el" href="classMappingQExt.html#acada0646097a532b0f429e6ad654219c">MappingQExt&lt; dim, spacedim &gt;::get_support_points()</a>, <a class="el" href="dof__tools__ext_8h_source.html#l00607">DoFToolsExt::map_dofs_to_support_points_and_normal_vectors()</a>, and <a class="el" href="mapping__info_8h_source.html#l00217">MappingInfo&lt; dim, spacedim &gt;::resize_internal_data()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00585">DoFToolsExt::map_dofs_to_support_points_and_normal_vectors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00607">DoFToolsExt::map_dofs_to_support_points_and_normal_vectors()</a>.</p>
 
 </div>
 </div>
@@ -1936,9 +2000,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01050">1050</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01077">1077</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00949">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00976">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -1997,11 +2061,11 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00949">949</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00976">976</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00949">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00976">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00949">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00976">DoFToolsExt::map_mg_dofs_to_average_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -2064,9 +2128,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01210">1210</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01237">1237</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01130">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01157">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -2115,11 +2179,11 @@ template&lt;typename DoFHandlerType , typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01130">1130</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01157">1157</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01130">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01157">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01130">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01157">DoFToolsExt::map_mg_dofs_to_max_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -2182,9 +2246,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01370">1370</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01397">1397</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01286">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01313">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
 
 </div>
 </div>
@@ -2231,16 +2295,16 @@ template&lt;typename DoFHandlerType , typename Number  = double&gt; </div>
 <p >Get the diameter of the current cell.</p>
 <p >Get DoF indices local to this cell.</p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01286">1286</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01313">1313</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01286">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01313">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01286">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01313">DoFToolsExt::map_mg_dofs_to_min_cell_size()</a>.</p>
 
 </div>
 </div>
-<a id="a79d3e2fbf3fd632c770882e293fee7d8" name="a79d3e2fbf3fd632c770882e293fee7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79d3e2fbf3fd632c770882e293fee7d8">&#9670;&nbsp;</a></span>map_mg_dofs_to_support_points() <span class="overload">[1/4]</span></h2>
+<a id="a057f765671c7339372611d5bda642386" name="a057f765671c7339372611d5bda642386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a057f765671c7339372611d5bda642386">&#9670;&nbsp;</a></span>map_mg_dofs_to_support_points() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2269,7 +2333,7 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>subdomain_material_ids</em>, </td>
+          <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2296,17 +2360,17 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Return a list of support points for DoFs in a subdomain on the specified level in the DoF handler.</p>
+<p >Return a list of support points for DoFs in a material subdomain on the specified level in the DoF handler.</p>
 <p >The result is a map from local DoF indices to support points, which can be passed to DoFTools::write_gnuplot_dof_support_point_info for visualizing the distribution of support points. </p>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00775">775</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00802">802</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00682">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00709">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
-<a id="a16ed732842c29ede93f8731603b974f0" name="a16ed732842c29ede93f8731603b974f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16ed732842c29ede93f8731603b974f0">&#9670;&nbsp;</a></span>map_mg_dofs_to_support_points() <span class="overload">[2/4]</span></h2>
+<a id="abf91ee9ae6ca99bff76ca75e5ca55b32" name="abf91ee9ae6ca99bff76ca75e5ca55b32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf91ee9ae6ca99bff76ca75e5ca55b32">&#9670;&nbsp;</a></span>map_mg_dofs_to_support_points() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2335,7 +2399,7 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::set&lt; types::material_id &gt; &amp;&#160;</td>
-          <td class="paramname"><em>subdomain_material_ids</em>, </td>
+          <td class="paramname"><em>material_ids</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2363,7 +2427,7 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Return a list of support points for DoFs in a subdomain on the specified level in the DoF handler. </p>
+<p>Return a list of support points for DoFs in a material subdomain on the specified level in the DoF handler. </p>
 <p >The result is a vector of support points and its memory should be preallocated.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -2382,9 +2446,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00837">837</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00864">864</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00682">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00709">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
@@ -2447,11 +2511,11 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00682">682</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00709">709</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00682">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00709">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00682">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l00709">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
@@ -2514,9 +2578,9 @@ template&lt;int dim, int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00732">732</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l00759">759</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00682">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l00709">DoFToolsExt::map_mg_dofs_to_support_points()</a>.</p>
 
 </div>
 </div>
@@ -2577,11 +2641,11 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01403">1403</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dof__tools__ext_8h_source.html#l01430">1430</a> of file <a class="el" href="dof__tools__ext_8h_source.html">dof_tools_ext.h</a>.</p>
 
-<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01403">DoFToolsExt::write_gnuplot_dof_support_point_info()</a>.</p>
+<p class="reference">References <a class="el" href="dof__tools__ext_8h_source.html#l01430">DoFToolsExt::write_gnuplot_dof_support_point_info()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01403">DoFToolsExt::write_gnuplot_dof_support_point_info()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="dof__tools__ext_8h_source.html#l01430">DoFToolsExt::write_gnuplot_dof_support_point_info()</a>.</p>
 
 </div>
 </div>

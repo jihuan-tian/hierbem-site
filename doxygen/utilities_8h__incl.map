@@ -1,4 +1,10 @@
 <map id="include/platform_shared/utilities.h" name="include/platform_shared/utilities.h">
-<area shape="rect" id="node1" title="Introduction of utilities.h." alt="" coords="5,5,165,47"/>
-<area shape="rect" id="node2" href="$config_8h.html" title="Configurations for building the project." alt="" coords="51,95,119,121"/>
+<area shape="rect" id="node1" title="Introduction of utilities.h." alt="" coords="173,5,333,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,160,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="415,95,473,121"/>
+<area shape="rect" id="node4" href="$config_8h.html" title="Configurations for building the project." alt="" coords="185,169,253,196"/>
+<area shape="rect" id="node5" href="$number__traits_8h.html" title="Definition of ranks for different types of numbers." alt="" coords="233,95,391,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="277,169,347,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="372,169,455,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="479,169,609,196"/>
 </map>

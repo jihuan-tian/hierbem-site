@@ -1,0 +1,5 @@
+<map id="LaplaceSingleLayerPreconditioner&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;" name="LaplaceSingleLayerPreconditioner&lt; dim, spacedim, RangeNumberType, KernelNumberType &gt;">
+<area shape="rect" id="node1" title="Class for the dual mesh operator preconditioner, which preconditions the single layer potential bound..." alt="" coords="9,2691,252,2827"/>
+<area shape="rect" id="node2" href="$classSingleLayerPreconditioner.html" title="Abstract class for the dual mesh operator preconditioner, which preconditions the single layer potent..." alt="" coords="5,2507,256,2643"/>
+<area shape="rect" id="node3" href="$classOperatorPreconditioner.html" title="Abstract class for dual mesh operator preconditioning." alt="" coords="25,5,236,2459"/>
+</map>

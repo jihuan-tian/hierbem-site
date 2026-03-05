@@ -155,6 +155,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classHMatrixSymmPreconditioner-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">HMatrixSymmPreconditioner&lt; spacedim, Number &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -162,7 +163,8 @@ $(function() {
 <div class="dynheader">
 Inheritance diagram for HMatrixSymmPreconditioner&lt; spacedim, Number &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHMatrixSymmPreconditioner__inherit__graph.svg" width="243" height="3059"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classHMatrixSymmPreconditioner__inherit__graph.svg" width="243" height="3074"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -187,8 +189,6 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ace9de72d788d33ac655935d3b076c270"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#ace9de72d788d33ac655935d3b076c270">HMatrixSymmPreconditioner</a> ()</td></tr>
-<tr class="separator:ace9de72d788d33ac655935d3b076c270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fc5b19675076d2b07880831bd5b5f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a77fc5b19675076d2b07880831bd5b5f4">HMatrixSymmPreconditioner</a> (const <a class="el" href="classBlockClusterTree.html">BlockClusterTree</a>&lt; spacedim, real_type &gt; &amp;bct, const unsigned int fixed_rank_k=1)</td></tr>
 <tr class="separator:a77fc5b19675076d2b07880831bd5b5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bf84a20ffa8588ac645925c153e3ceb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a5bf84a20ffa8588ac645925c153e3ceb">HMatrixSymmPreconditioner</a> (typename <a class="el" href="classBlockClusterTree.html">BlockClusterTree</a>&lt; spacedim, real_type &gt;::node_const_pointer_type <a class="el" href="classHMatrix.html#acc153ec757cd8fecdeca2274e1ed5a27">bc_node</a>, const unsigned int fixed_rank_k=1)</td></tr>
@@ -217,8 +217,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa65ccd08c34ead4ce06be43d39a018cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a080040950c54163ca51d1ea136f81e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHMatrixSymmPreconditioner.html">HMatrixSymmPreconditioner</a>&lt; spacedim, Number &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a0a080040950c54163ca51d1ea136f81e">operator=</a> (<a class="el" href="classHMatrix.html">HMatrix</a>&lt; spacedim, Number &gt; &amp;&amp;H) noexcept</td></tr>
 <tr class="separator:a0a080040950c54163ca51d1ea136f81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd26551ba87d0c141a7343de1b5acbb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a9dd26551ba87d0c141a7343de1b5acbb">vmult</a> (Vector&lt; Number &gt; &amp;y, const Vector&lt; Number &gt; &amp;x) const</td></tr>
+<tr class="memitem:a9dd26551ba87d0c141a7343de1b5acbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a9dd26551ba87d0c141a7343de1b5acbb">vmult</a> (Vector&lt; Number &gt; &amp;y, const Vector&lt; Number &gt; &amp;x) const</td></tr>
 <tr class="separator:a9dd26551ba87d0c141a7343de1b5acbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a163f1053f0e1c7fef33af02a81e7c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#a3a163f1053f0e1c7fef33af02a81e7c5">set_spd</a> (const bool is_spd_)</td></tr>
+<tr class="separator:a3a163f1053f0e1c7fef33af02a81e7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classHMatrix"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classHMatrix')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classHMatrix.html">HMatrix&lt; spacedim, double &gt;</a></td></tr>
 <tr class="memitem:ae3dc35e1aefee2580d27ad2d65c906de inherit pub_methods_classHMatrix"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrix.html#ae3dc35e1aefee2580d27ad2d65c906de">HMatrix</a> ()</td></tr>
 <tr class="separator:ae3dc35e1aefee2580d27ad2d65c906de inherit pub_methods_classHMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -631,6 +633,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae170394e8f48f5b99d4cc4f7954dfdec inherit pub_methods_classHMatrix"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrix.html#ae170394e8f48f5b99d4cc4f7954dfdec">prepare_for_vmult_or_tvmult</a> (const bool is_vmult, const bool is_tvmult)</td></tr>
 <tr class="separator:ae170394e8f48f5b99d4cc4f7954dfdec inherit pub_methods_classHMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aff16a999d1cb0e3385fda629a1806b9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHMatrixSymmPreconditioner.html#aff16a999d1cb0e3385fda629a1806b9a">is_spd</a></td></tr>
+<tr class="separator:aff16a999d1cb0e3385fda629a1806b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classHMatrix"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classHMatrix')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classHMatrix.html">HMatrix&lt; spacedim, double &gt;</a></td></tr>
@@ -643,7 +650,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;int spacedim, typename Number = double&gt;<br />
 class HMatrixSymmPreconditioner&lt; spacedim, Number &gt;</div>
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00033">33</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00035">35</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9a7a16881cee4592bddfb53aec30eac8" name="a9a7a16881cee4592bddfb53aec30eac8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a7a16881cee4592bddfb53aec30eac8">&#9670;&nbsp;</a></span>real_type</h2>
@@ -659,7 +666,7 @@ template&lt;int spacedim, typename Number  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00036">36</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00038">38</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -677,9 +684,8 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Default constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00201">201</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00180">180</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -710,9 +716,9 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Construct the hierarchical structure without data from the root node of a <a class="el" href="classBlockClusterTree.html" title="Class for block cluster tree.">BlockClusterTree</a>. </p>
+<p >Construct the hierarchical structure without data from the root node of a block cluster tree. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00207">207</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00186">186</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -745,7 +751,7 @@ template&lt;int spacedim, typename Number &gt; </div>
 </div><div class="memdoc">
 <p >Construct the hierarchical structure without data from a <a class="el" href="classTreeNode.html" title="Class for general tree node.">TreeNode</a> in a <a class="el" href="classBlockClusterTree.html" title="Class for block cluster tree.">BlockClusterTree</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00218">218</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00198">198</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -788,9 +794,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>Since this \(\mathcal{H}\)-matrix is the global matrix, i.e. on the same level as the global full matrix <code>M</code> in the \(\mathcal{H}\)-matrix hierarchy, its block type is set to <code>HMatrixSupport::diagonal_block</code> by default.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00230">230</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00211">211</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
 
 </div>
 </div>
@@ -828,9 +834,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>Since this \(\mathcal{H}\)-matrix is the global matrix, i.e. on the same level as the global full matrix <code>M</code> in the \(\mathcal{H}\)-matrix hierarchy, its block type is set to <code>HMatrixSupport::diagonal_block</code> by default.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00245">245</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00227">227</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
 
 </div>
 </div>
@@ -874,9 +880,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>The current \(\mathcal{H}\)-matrix to be built may only be a matrix block in the global matrix, while the full matrix <code>M</code> is global, i.e., the \(\mathcal{H}\)-matrix and the full matrix <code>M</code> are not on a same level in the \(\mathcal{H}\)-matrix hierarchy. But because the current \(\mathcal{H}\)-matrix is symmetric, its block type is still diagonal and its property should be symmetric.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00256">256</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00239">239</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
 
 </div>
 </div>
@@ -915,9 +921,9 @@ template&lt;int spacedim, typename Number &gt; </div>
 <dd>The current \(\mathcal{H}\)-matrix to be built may only be a matrix block in the global matrix, while the full matrix <code>M</code> is global, i.e., the \(\mathcal{H}\)-matrix and the full matrix <code>M</code> are not on a same level in the \(\mathcal{H}\)-matrix hierarchy. But because the current \(\mathcal{H}\)-matrix is symmetric, its block type is still diagonal and its property should be symmetric.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00273">273</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00257">257</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06702">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
+<p class="reference">References <a class="el" href="lapack__full__matrix__ext_8h_source.html#l06717">LAPACKFullMatrixExt&lt; Number &gt;::get_property()</a>.</p>
 
 </div>
 </div>
@@ -938,15 +944,8 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Deep copy constructor</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00288">288</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00273">273</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -975,15 +974,8 @@ template&lt;int spacedim, typename Number &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Shallow copy constructor</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00295">295</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00281">281</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1004,15 +996,8 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Deep copy constructor, copy from a <code><a class="el" href="classHMatrix.html">HMatrix</a></code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00324">324</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00316">316</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1041,15 +1026,8 @@ template&lt;int spacedim, typename Number &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Shallow copy constructor, copy from a <code><a class="el" href="classHMatrix.html">HMatrix</a></code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00331">331</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00324">324</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1071,18 +1049,8 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Deep assignment operator, assign from a <code><a class="el" href="classHMatrix.html">HMatrix</a></code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00339">339</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
-
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l18095">HMatrix&lt; spacedim, Number &gt;::operator=()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00333">333</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1103,18 +1071,8 @@ template&lt;int spacedim, typename Number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Deep assignment operator</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>return </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00303">303</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
-
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l18095">HMatrix&lt; spacedim, Number &gt;::operator=()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00290">290</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1143,18 +1101,8 @@ template&lt;int spacedim, typename Number &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Shallow assignment operator, assign from a <code><a class="el" href="classHMatrix.html">HMatrix</a></code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">H</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00350">350</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
-
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l18095">HMatrix&lt; spacedim, Number &gt;::operator=()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00345">345</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
 </div>
 </div>
@@ -1183,17 +1131,41 @@ template&lt;int spacedim, typename Number &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Shallow assignment operator </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>return </p>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00314">314</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00302">302</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
 
-<p class="reference">References <a class="el" href="hmatrix_8h_source.html#l18095">HMatrix&lt; spacedim, Number &gt;::operator=()</a>.</p>
+</div>
+</div>
+<a id="a3a163f1053f0e1c7fef33af02a81e7c5" name="a3a163f1053f0e1c7fef33af02a81e7c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a163f1053f0e1c7fef33af02a81e7c5">&#9670;&nbsp;</a></span>set_spd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int spacedim, typename Number  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classHMatrixSymmPreconditioner.html">HMatrixSymmPreconditioner</a>&lt; spacedim, Number &gt;::set_spd </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_spd_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Set the flag <code>is_spd</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00158">158</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+
+<p class="reference">References <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00175">HMatrixSymmPreconditioner&lt; spacedim, Number &gt;::is_spd</a>.</p>
 
 </div>
 </div>
@@ -1204,9 +1176,6 @@ template&lt;int spacedim, typename Number &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int spacedim, typename Number &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classHMatrixSymmPreconditioner.html">HMatrixSymmPreconditioner</a>&lt; spacedim, Number &gt;::vmult </td>
@@ -1226,11 +1195,6 @@ template&lt;int spacedim, typename Number &gt; </div>
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p >Calculate matrix-vector multiplication as \(y = M^{-1} \cdot x\), which is actually applying the preconditioner to the input vector.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1241,7 +1205,39 @@ template&lt;int spacedim, typename Number &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00361">361</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00360">360</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aff16a999d1cb0e3385fda629a1806b9a" name="aff16a999d1cb0e3385fda629a1806b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff16a999d1cb0e3385fda629a1806b9a">&#9670;&nbsp;</a></span>is_spd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int spacedim, typename Number  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classHMatrixSymmPreconditioner.html">HMatrixSymmPreconditioner</a>&lt; spacedim, Number &gt;::is_spd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Whether the original H-matrix for this preconditioner is symmetric positive definite. In the complex valued case, this condition is Hermite symmetric positive definite.</p>
+<p >When it is true, the H-matrix uses Cholesky factorization and <code>solve_cholesky</code> is called in <code>vmult</code>.</p>
+<p >When it is false, the H-matrix uses LU factorization and <code>solve_lu</code> is called in <code>vmult</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00175">175</a> of file <a class="el" href="hmatrix__symm__preconditioner_8h_source.html">hmatrix_symm_preconditioner.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hmatrix__symm__preconditioner_8h_source.html#l00158">HMatrixSymmPreconditioner&lt; spacedim, Number &gt;::set_spd()</a>.</p>
 
 </div>
 </div>

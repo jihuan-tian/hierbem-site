@@ -158,20 +158,22 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">laplace_bem.h File Reference<div class="ingroups"><a class="el" href="group__sauter__quadrature.html">Sauter quadrature</a> &#124; <a class="el" href="group__sauter__quadrature.html">Sauter quadrature</a></div></div></div>
+  <div class="headertitle"><div class="title">laplace_bem.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of BEM involving kernel functions and singular numerical quadratures.  
+<p>Definition of the class for solving the Laplace equation using BEM.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;deal.II/base/function.h&gt;</code><br />
 <code>#include &lt;deal.II/base/numbers.h&gt;</code><br />
 <code>#include &lt;deal.II/dofs/dof_handler.h&gt;</code><br />
 <code>#include &lt;deal.II/grid/tria.h&gt;</code><br />
 <code>#include &lt;deal.II/lac/vector.h&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="types_8h_source.html">bem/types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="gmsh__manipulation_8h_source.html">cad_mesh/gmsh_manipulation.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="subdomain__topology_8h_source.html">cad_mesh/subdomain_topology.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
@@ -184,12 +186,14 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for laplace_bem.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="laplace__bem_8h__incl.svg" width="7154" height="678"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="laplace__bem_8h__incl.svg" width="6736" height="678"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="laplace__bem_8h__dep__incl.svg" width="222" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="laplace__bem_8h__dep__incl.svg" width="990" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="laplace__bem_8h_source.html">Go to the source code of this file.</a></p>
@@ -200,7 +204,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Implementation of BEM involving kernel functions and singular numerical quadratures. </p>
+<div class="textblock"><p >Definition of the class for solving the Laplace equation using BEM. </p>
+<p >Call member functions of pimpl from <a class="el" href="classLaplaceBEM.html">LaplaceBEM</a>.</p>
 <dl class="section date"><dt>Date</dt><dd>2020-11-02 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jihuan Tian </dd></dl>
 
